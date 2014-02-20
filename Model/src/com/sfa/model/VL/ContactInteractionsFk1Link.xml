@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContactInteractionsFk1Link"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  EntityAssociation="com.sfa.model.association.ContactInteractionsFk1Assoc">
+  <ViewLinkDefEnd
+    Name="OpportunitiesView"
+    Cardinality="1"
+    Source="true"
+    Owner="com.sfa.model.VO.OpportunitiesView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="OpportunitiesView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.VO.OpportunitiesView.OppurtunityId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ContactInteractionsView"
+    Cardinality="-1"
+    Owner="com.sfa.model.VO.ContactInteractionsView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ContactInteractionsView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.VO.ContactInteractionsView.OppurtunityId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

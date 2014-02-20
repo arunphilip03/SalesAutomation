@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TasksView"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  SelectList="Tasks.TASK_ID, 
+       Tasks.TASK_NAME, 
+       Tasks.DUE_DATE, 
+       Tasks.PRIORITY, 
+       Tasks.DESCRIPTION, 
+       Tasks.ASIGNEE_ID, 
+       Tasks.PERCENTAGE_COMPLETION, 
+       Tasks.OPPURTUNITY_ID, 
+       Tasks.CUST_ACCOUNT_ID, 
+       Tasks.CREATION_DATE, 
+       Tasks.LAST_UPDATE_DATE, 
+       Tasks.CREATED_BY, 
+       Tasks.LAST_UPDATED_BY, 
+       Tasks.LAST_UPDATE_LOGIN, 
+       Tasks.OBJECT_VERSION_NUMBER"
+  FromList="TASKS Tasks"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="TaskPriorityLuView1"
+    ViewObjectName="com.sfa.model.VO.TaskPriorityLuView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UsersView1"
+    ViewObjectName="com.sfa.model.VO.UsersView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Priority"
+    ListVOName="TaskPriorityLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Priority"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Priority"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Priority"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AsigneeId"
+    ListVOName="UsersView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AsigneeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UserName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Tasks"
+    Entity="com.sfa.model.EO.Tasks"/>
+  <ViewAttribute
+    Name="TaskId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TaskId"
+    EntityUsage="Tasks"
+    AliasName="TASK_ID"/>
+  <ViewAttribute
+    Name="TaskName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TaskName"
+    EntityUsage="Tasks"
+    AliasName="TASK_NAME"/>
+  <ViewAttribute
+    Name="DueDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DueDate"
+    EntityUsage="Tasks"
+    AliasName="DUE_DATE"/>
+  <ViewAttribute
+    Name="Priority"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Priority"
+    EntityUsage="Tasks"
+    AliasName="PRIORITY"
+    LOVName="LOV_Priority">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="Tasks"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="AsigneeId"
+    PrecisionRule="true"
+    EntityAttrName="AsigneeId"
+    EntityUsage="Tasks"
+    AliasName="ASIGNEE_ID"
+    LOVName="LOV_AsigneeId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PercentageCompletion"
+    PrecisionRule="true"
+    EntityAttrName="PercentageCompletion"
+    EntityUsage="Tasks"
+    AliasName="PERCENTAGE_COMPLETION"/>
+  <ViewAttribute
+    Name="OppurtunityId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OppurtunityId"
+    EntityUsage="Tasks"
+    AliasName="OPPURTUNITY_ID"/>
+  <ViewAttribute
+    Name="CustAccountId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustAccountId"
+    EntityUsage="Tasks"
+    AliasName="CUST_ACCOUNT_ID"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="Tasks"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="Tasks"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="Tasks"
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="Tasks"
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="Tasks"
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="Tasks"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewLinkAccessor
+    Name="TaskTeamView"
+    ViewLink="com.sfa.model.VL.TaskTeamFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

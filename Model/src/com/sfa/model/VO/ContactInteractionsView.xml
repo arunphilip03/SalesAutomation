@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContactInteractionsView"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  SelectList="ContactInteractions.INTERACTION_ID, 
+       ContactInteractions.TYPE, 
+       ContactInteractions.DIRECTION, 
+       ContactInteractions.START_DATETIME, 
+       ContactInteractions.END_DATETIME, 
+       ContactInteractions.DESCRIPTION, 
+       ContactInteractions.RESOLUTION, 
+       ContactInteractions.OPPURTUNITY_ID, 
+       ContactInteractions.CREATION_DATE, 
+       ContactInteractions.LAST_UPDATE_DATE, 
+       ContactInteractions.CREATED_BY, 
+       ContactInteractions.LAST_UPDATED_BY, 
+       ContactInteractions.LAST_UPDATE_LOGIN, 
+       ContactInteractions.OBJECT_VERSION_NUMBER"
+  FromList="CONTACT_INTERACTIONS ContactInteractions"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="InteractionsDirectionLuView1"
+    ViewObjectName="com.sfa.model.VO.InteractionsDirectionLuView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InteractionsTypeLuView1"
+    ViewObjectName="com.sfa.model.VO.InteractionsTypeLuView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Direction"
+    ListVOName="InteractionsDirectionLuView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Type"
+    ListVOName="InteractionsTypeLuView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ContactInteractions"
+    Entity="com.sfa.model.EO.ContactInteractions"/>
+  <ViewAttribute
+    Name="InteractionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InteractionId"
+    EntityUsage="ContactInteractions"
+    AliasName="INTERACTION_ID"/>
+  <ViewAttribute
+    Name="Type"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Type"
+    EntityUsage="ContactInteractions"
+    AliasName="TYPE"
+    LOVName="LOV_Type">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Direction"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Direction"
+    EntityUsage="ContactInteractions"
+    AliasName="DIRECTION"
+    LOVName="LOV_Direction">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StartDatetime"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StartDatetime"
+    EntityUsage="ContactInteractions"
+    AliasName="START_DATETIME"/>
+  <ViewAttribute
+    Name="EndDatetime"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EndDatetime"
+    EntityUsage="ContactInteractions"
+    AliasName="END_DATETIME"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="ContactInteractions"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="Resolution"
+    PrecisionRule="true"
+    EntityAttrName="Resolution"
+    EntityUsage="ContactInteractions"
+    AliasName="RESOLUTION"/>
+  <ViewAttribute
+    Name="OppurtunityId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OppurtunityId"
+    EntityUsage="ContactInteractions"
+    AliasName="OPPURTUNITY_ID"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="ContactInteractions"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="ContactInteractions"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="ContactInteractions"
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="ContactInteractions"
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="ContactInteractions"
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="ContactInteractions"
+    AliasName="OBJECT_VERSION_NUMBER"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InteractionTeamView"
+    ViewLink="com.sfa.model.VL.InteractionTeamFk3Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>
