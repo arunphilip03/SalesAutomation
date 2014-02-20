@@ -86,20 +86,23 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="CustomerAccount"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="CustomerAccount"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="CustomerAccount"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="NotesSeqId"
     IsNotNull="true"
@@ -112,7 +115,8 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdateLogin"
     EntityUsage="CustomerAccount"
-    AliasName="LAST_UPDATE_LOGIN"/>
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ObjectVersionNumber"
     PrecisionRule="true"
@@ -143,5 +147,11 @@
     Name="TasksView"
     ViewLink="com.sfa.model.VL.TasksFk3Link"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ParentAccountIdCustomerAccountView"
+    ViewLink="com.sfa.model.VL.CustomerAccountFk1Link"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

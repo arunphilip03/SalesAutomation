@@ -337,7 +337,6 @@
   <Key
     Name="OppurtunitiesFk1">
     <DesignTime>
-      <Attr Name="_isCascadeDelete" Value="true"/>
       <Attr Name="_referencedKey" Value="CUSTOMER_ACCOUNT_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="OPPURTUNITIES_FK1"/>

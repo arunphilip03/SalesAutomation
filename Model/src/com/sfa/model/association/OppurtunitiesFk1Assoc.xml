@@ -14,7 +14,7 @@
     Cardinality="1"
     Source="true"
     Owner="com.sfa.model.EO.CustomerAccount"
-    CascadeDelete="true">
+    LockLevel="NONE">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="CustomerAccount"/>
@@ -29,8 +29,7 @@
   <AssociationEnd
     Name="Opportunities"
     Cardinality="-1"
-    Owner="com.sfa.model.EO.Opportunities"
-    HasOwner="true">
+    Owner="com.sfa.model.EO.Opportunities">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="Opportunities"/>

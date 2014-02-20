@@ -227,4 +227,15 @@
       <Item Value="com.sfa.model.EO.CustomerAccount.ParentAccountId"/>
     </AttrArray>
   </Key>
+  <Key
+    Name="fk_CustomerAccount">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CUSTOMER_ACCOUNT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CUSTOMER_ACCOUNT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.EO.CustomerAccount.ParentAccountId"/>
+    </AttrArray>
+  </Key>
 </Entity>

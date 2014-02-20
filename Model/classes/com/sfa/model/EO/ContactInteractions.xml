@@ -20,7 +20,7 @@
     ColumnType="NUMBER"
     TableName="CONTACT_INTERACTIONS"
     PrimaryKey="true">
-    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("CONTACTS_INTERACTIONS_SEQ",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("CONTACT_INTERACTIONS_SEQ",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="Type"

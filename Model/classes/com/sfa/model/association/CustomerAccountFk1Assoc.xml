@@ -14,11 +14,10 @@
     Cardinality="1"
     Source="true"
     Owner="com.sfa.model.EO.CustomerAccount"
-    CascadeDelete="true">
+    LockLevel="NONE">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ParentAccountIdCustomerAccount"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.CustomerAccount.CustomerAccountPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
@@ -28,12 +27,10 @@
   <AssociationEnd
     Name="CustomerAccount"
     Cardinality="-1"
-    Owner="com.sfa.model.EO.CustomerAccount"
-    HasOwner="true">
+    Owner="com.sfa.model.EO.CustomerAccount">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="CustomerAccount"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.CustomerAccount.CustomerAccountFk1"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

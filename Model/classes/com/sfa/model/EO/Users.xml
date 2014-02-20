@@ -19,7 +19,9 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="USERS"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("USERS_SEQ",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="UserName"
     IsUnique="true"
