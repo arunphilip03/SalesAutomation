@@ -65,11 +65,11 @@
          <string v="XML"/>
       </list>
    </hash>
-   <value n="oracle.jbo.AMPackage" v="am"/>
+   <value n="oracle.jbo.AMPackage" v="service"/>
    <value n="oracle.jbo.ASPackage" v="association"/>
-   <value n="oracle.jbo.EOPackage" v="EO"/>
+   <value n="oracle.jbo.EOPackage" v="entity"/>
    <value n="oracle.jbo.SavedPreferences" v="true"/>
-   <value n="oracle.jbo.VLPackage" v="VL"/>
+   <value n="oracle.jbo.VLPackage" v="viewlink"/>
    <value n="oracle.jbo.VOPackage" v="VO"/>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <list n="copyRes">

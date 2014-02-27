@@ -28,7 +28,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="OpportunityRevenueItems"
-    Entity="com.sfa.model.EO.OpportunityRevenueItems"/>
+    Entity="com.sfa.model.entity.OpportunityRevenueItems"/>
   <ViewAttribute
     Name="OppRevItemId"
     IsNotNull="true"

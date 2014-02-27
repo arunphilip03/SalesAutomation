@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Select User and Contact" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelTabbed id="pt1" inlineStyle="height:auto;">
+                <af:showDetailItem text="Users" id="sdi1">
+                    <af:selectManyListbox value="#{bindings.UsersView1.inputValue}" label="Select Users"
+                                          id="sml1">
+                        <f:selectItems value="#{bindings.UsersView1.items}" id="si1"/>
+                        <f:validator binding="#{bindings.UsersView1.validator}"/>
+                    </af:selectManyListbox>
+                </af:showDetailItem>
+                <af:showDetailItem text="Contacts" id="sdi2">
+                    <af:selectManyListbox value="#{bindings.CustomerContactsView2.inputValue}"
+                                          label="Select Contacts" id="sml2">
+                        <f:selectItems value="#{bindings.CustomerContactsView2.items}" id="si2"/>
+                        <f:validator binding="#{bindings.CustomerContactsView2.validator}"/>
+                    </af:selectManyListbox>
+                </af:showDetailItem>
+            </af:panelTabbed>
+        </af:form>
+    </af:document>
+</f:view>

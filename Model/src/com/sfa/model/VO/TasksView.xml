@@ -73,7 +73,7 @@
   </ListBinding>
   <EntityUsage
     Name="Tasks"
-    Entity="com.sfa.model.EO.Tasks"/>
+    Entity="com.sfa.model.entity.Tasks"/>
   <ViewAttribute
     Name="TaskId"
     IsNotNull="true"
@@ -194,7 +194,7 @@
     AliasName="OBJECT_VERSION_NUMBER"/>
   <ViewLinkAccessor
     Name="TaskTeamView"
-    ViewLink="com.sfa.model.VL.TaskTeamFk1Link"
+    ViewLink="com.sfa.model.viewlink.TaskTeamFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

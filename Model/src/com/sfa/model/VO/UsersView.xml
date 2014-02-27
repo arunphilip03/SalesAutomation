@@ -29,7 +29,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="Users"
-    Entity="com.sfa.model.EO.Users"/>
+    Entity="com.sfa.model.entity.Users"/>
   <ViewAttribute
     Name="UserId"
     IsNotNull="true"
@@ -146,32 +146,32 @@
     AliasName="CORPORATE_CUSTOMER_ID"/>
   <ViewLinkAccessor
     Name="InteractionTeamView"
-    ViewLink="com.sfa.model.VL.InteractionTeamFk2Link"
+    ViewLink="com.sfa.model.viewlink.InteractionTeamFk2Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="TasksView"
-    ViewLink="com.sfa.model.VL.TasksFk1Link"
+    ViewLink="com.sfa.model.viewlink.TasksFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="AppointmentInviteesView"
-    ViewLink="com.sfa.model.VL.AppointmentInviteesFk3Link"
+    ViewLink="com.sfa.model.viewlink.AppointmentInviteesFk3Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="RoleAssignmentView"
-    ViewLink="com.sfa.model.VL.UserRolesFk1Link"
+    ViewLink="com.sfa.model.viewlink.UserRolesFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="TaskTeamView"
-    ViewLink="com.sfa.model.VL.TaskTeamFk3Link"
+    ViewLink="com.sfa.model.viewlink.TaskTeamFk3Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="OpportunityTeamView"
-    ViewLink="com.sfa.model.VL.OppurtunityTeamFk3Link"
+    ViewLink="com.sfa.model.viewlink.OppurtunityTeamFk3Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

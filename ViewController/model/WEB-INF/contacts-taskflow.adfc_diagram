@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View3">
+      <property
+         name="activityId">contacts</property>
+      <property
+         name="page">/ContactsOverview.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>contacts&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">235.59766</property>
+      <property
+         name="x">244.0</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">customer-detail-taskflow</property>
+      <property
+         name="activityId">customer-detail-taskflow</property>
+      <property
+         name="documentReference">/WEB-INF/customer-detail-taskflow.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>customer-detail-taskflow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">234.74707</property>
+      <property
+         name="x">468.6875</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View3"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">getDetail</property>
+      <property
+         name="sdm:polyPoints">R50,285.0,235.24707,427.6875,234.39648,L50</property>
+   </ControlFlowCase>
+</SDM>

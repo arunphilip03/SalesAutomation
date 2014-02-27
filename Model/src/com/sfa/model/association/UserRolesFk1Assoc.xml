@@ -13,32 +13,32 @@
     Name="Users"
     Cardinality="1"
     Source="true"
-    Owner="com.sfa.model.EO.Users"
+    Owner="com.sfa.model.entity.Users"
     CascadeDelete="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="Users"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.Users.UserAccountsPk"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.Users.UserAccountsPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.Users.UserId"/>
+      <Item Value="com.sfa.model.entity.Users.UserId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
     Name="RoleAssignment"
     Cardinality="-1"
-    Owner="com.sfa.model.EO.RoleAssignment"
+    Owner="com.sfa.model.entity.RoleAssignment"
     HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="RoleAssignment"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.RoleAssignment.UserRolesFk1"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.RoleAssignment.UserRolesFk1"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.RoleAssignment.UserId"/>
+      <Item Value="com.sfa.model.entity.RoleAssignment.UserId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

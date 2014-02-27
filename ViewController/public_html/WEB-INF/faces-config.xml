@@ -3,4 +3,14 @@
   <application>
     <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
   </application>
+  <managed-bean>
+    <managed-bean-name>ConfirmBean</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.ConfirmBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>RefreshViewBean</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.RefreshView</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </faces-config>

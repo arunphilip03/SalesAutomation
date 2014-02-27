@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl3"
+                       inlineStyle="border-top-style:solid; border-top-width:thin; border-top-color:InactiveCaption;">
+    <af:messages id="m1"/>
+    <af:panelGroupLayout layout="vertical" id="pgl1">
+      <af:panelSplitter id="ps1" orientation="vertical">
+        <f:facet name="first">
+          <af:panelGroupLayout id="pgl2" layout="vertical">
+            <af:panelHeader text="Customer Accounts" id="ph2" inlineStyle="text-indent:5pt;">
+              <af:query id="qryId1" headerText="Search" disclosed="true"
+                        value="#{bindings.CustomerAccountViewCriteriaQuery.queryDescriptor}"
+                        model="#{bindings.CustomerAccountViewCriteriaQuery.queryModel}"
+                        queryListener="#{bindings.CustomerAccountViewCriteriaQuery.processQuery}"
+                        queryOperationListener="#{bindings.CustomerAccountViewCriteriaQuery.processQueryOperation}"
+                        resultComponentId="::pc1:t1"/>
+            </af:panelHeader>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth" inlineStyle="height:167px;">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:link id="l1" icon="#{resource['images:new_ena.png']}" action="addorEditCustomer"
+                         returnListener="#{RefreshViewBean.customerDialogReturnListener}">
+                  <af:setActionListener to="#{requestScope.selectedAccountKeyStr}" from="#{''}"/>
+                </af:link>
+                <af:spacer width="4" height="10" id="s1"/>
+                <af:link id="l3" icon="#{resource['images:update_ena.png']}" action="addorEditCustomer"
+                         returnListener="#{RefreshViewBean.customerDialogReturnListener}">
+                  <af:setActionListener from="#{bindings.CustomerAccountView1Iterator.currentRowKeyString}"
+                                        to="#{requestScope.selectedAccountKeyStr}"/>
+                </af:link>
+                <af:spacer width="4" height="10" id="s2"/>
+                <af:link id="l4" icon="#{resource['images:delete_ena.png']}"
+                         actionListener="#{bindings.Delete.execute}">
+                  <af:showPopupBehavior popupId="::confirm" triggerType="action" align="afterEnd"/>
+                </af:link>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.CustomerAccountView1.collectionModel}" var="row"
+                      rows="#{bindings.CustomerAccountView1.rangeSize}"
+                      emptyText="#{bindings.CustomerAccountView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="1"
+                      selectedRowKeys="#{bindings.CustomerAccountView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.CustomerAccountView1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.CustomerAccountView1.rangeSize}" id="t1"
+                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="l2 ::l4">
+              <af:column sortProperty="#{bindings.CustomerAccountView1.hints.AccountName.name}" sortable="true"
+                         headerText="#{bindings.CustomerAccountView1.hints.AccountName.label}" id="c1" width="136">
+                <af:link actionListener="#{bindings.setCurrentRowWithKey.execute}" text="#{row.AccountName}"
+                         disabled="#{!bindings.setCurrentRowWithKey.enabled}" id="l2" action="getDetail"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CustomerAccountView1.hints.Address.name}" sortable="true"
+                         headerText="#{bindings.CustomerAccountView1.hints.Address.label}" id="c2" width="201">
+                <af:outputText value="#{row.Address}" shortDesc="#{bindings.CustomerAccountView1.hints.Address.tooltip}"
+                               id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CustomerAccountView1.hints.AccountUrl.name}" sortable="true"
+                         headerText="#{bindings.CustomerAccountView1.hints.AccountUrl.label}" id="c3" width="254">
+                <af:outputText value="#{row.AccountUrl}"
+                               shortDesc="#{bindings.CustomerAccountView1.hints.AccountUrl.tooltip}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CustomerAccountView1.hints.ParentAccountName.name}" sortable="true"
+                         headerText="#{bindings.CustomerAccountView1.hints.ParentAccountName.label}" id="c5"
+                         width="229">
+                <af:outputText value="#{row.ParentAccountName}"
+                               shortDesc="#{bindings.CustomerAccountView1.hints.ParentAccountName.tooltip}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CustomerAccountView1.hints.Ceo.name}" sortable="true"
+                         headerText="#{bindings.CustomerAccountView1.hints.Ceo.label}" id="c6" width="256">
+                <af:outputText value="#{row.Ceo}" shortDesc="#{bindings.CustomerAccountView1.hints.Ceo.tooltip}"
+                               id="ot6"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CustomerAccountView1.hints.NoEmployees.name}" sortable="true"
+                         headerText="#{bindings.CustomerAccountView1.hints.NoEmployees.label}" id="c7" width="-444">
+                <af:outputText value="#{row.NoEmployees}"
+                               shortDesc="#{bindings.CustomerAccountView1.hints.NoEmployees.tooltip}" id="ot7">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CustomerAccountView1.hints.NoEmployees.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+            <f:facet name="statusbar"/>
+          </af:panelCollection>
+        </f:facet>
+      </af:panelSplitter>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="confirm">
+        <af:dialog id="d2" title="Confirm Delete">
+          <f:facet name="buttonBar"/>
+          <af:activeOutputText value="Are you sure you want to delete selected Customer?" id="aot1"/>
+        </af:dialog>
+      </af:popup>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</ui:composition>

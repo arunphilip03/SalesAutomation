@@ -22,7 +22,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="InteractionTeam"
-    Entity="com.sfa.model.EO.InteractionTeam"/>
+    Entity="com.sfa.model.entity.InteractionTeam"/>
   <ViewAttribute
     Name="InteractionTeamId"
     IsNotNull="true"

@@ -13,30 +13,30 @@
     Name="ProductCatalog"
     Cardinality="1"
     Source="true"
-    Owner="com.sfa.model.EO.ProductCatalog">
+    Owner="com.sfa.model.entity.ProductCatalog">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ProductCatalog"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.ProductCatalog.ProductCatalogPk"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.ProductCatalog.ProductCatalogPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.ProductCatalog.ProductId"/>
+      <Item Value="com.sfa.model.entity.ProductCatalog.ProductId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
     Name="OpportunityRevenueItems"
     Cardinality="-1"
-    Owner="com.sfa.model.EO.OpportunityRevenueItems">
+    Owner="com.sfa.model.entity.OpportunityRevenueItems">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="OpportunityRevenueItems"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.OpportunityRevenueItems.OppurtunityRevenueItemsFk1"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.OpportunityRevenueItems.OppurtunityRevenueItemsFk1"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.OpportunityRevenueItems.ProductId"/>
+      <Item Value="com.sfa.model.entity.OpportunityRevenueItems.ProductId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

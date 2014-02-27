@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:spacer width="10" height="10" id="s1"/>
+  <af:panelHeader text="Edit Customer Account" id="ph1" inlineStyle="text-indent:5pt;">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:button text="Save" id="b1" action="save"/>
+        <af:button text="Save and Close" id="b3" action="saveAndClose"/>
+        <af:button text="Cancel" id="b2" action="cancel" immediate="true"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout id="pfl1" rows="3">
+      <af:inputText value="#{bindings.AccountName.inputValue}" label="#{bindings.AccountName.hints.label}"
+                    required="#{bindings.AccountName.hints.mandatory}"
+                    columns="#{bindings.AccountName.hints.displayWidth}"
+                    maximumLength="#{bindings.AccountName.hints.precision}"
+                    shortDesc="#{bindings.AccountName.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.AccountName.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Address.inputValue}" label="#{bindings.Address.hints.label}"
+                    required="#{bindings.Address.hints.mandatory}" columns="#{bindings.Address.hints.displayWidth}"
+                    maximumLength="#{bindings.Address.hints.precision}" shortDesc="#{bindings.Address.hints.tooltip}"
+                    id="it2" rows="5">
+        <f:validator binding="#{bindings.Address.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.AccountUrl.inputValue}" label="#{bindings.AccountUrl.hints.label}"
+                    required="#{bindings.AccountUrl.hints.mandatory}"
+                    columns="#{bindings.AccountUrl.hints.displayWidth}"
+                    maximumLength="#{bindings.AccountUrl.hints.precision}"
+                    shortDesc="#{bindings.AccountUrl.hints.tooltip}" id="it3">
+        <f:validator binding="#{bindings.AccountUrl.validator}"/>
+      </af:inputText>
+      <af:inputComboboxListOfValues id="parentAccountName1Id"
+                                    popupTitle="Search and Select: #{bindings.ParentAccountName1.hints.label}"
+                                    value="#{bindings.ParentAccountName1.inputValue}"
+                                    label="#{bindings.ParentAccountName1.hints.label}"
+                                    model="#{bindings.ParentAccountName1.listOfValuesModel}"
+                                    required="#{bindings.ParentAccountName1.hints.mandatory}"
+                                    columns="#{bindings.ParentAccountName1.hints.displayWidth}"
+                                    shortDesc="#{bindings.ParentAccountName1.hints.tooltip}">
+        <f:validator binding="#{bindings.ParentAccountName1.validator}"/>
+      </af:inputComboboxListOfValues>
+      <af:inputText value="#{bindings.Ceo.inputValue}" label="#{bindings.Ceo.hints.label}"
+                    required="#{bindings.Ceo.hints.mandatory}" columns="#{bindings.Ceo.hints.displayWidth}"
+                    maximumLength="#{bindings.Ceo.hints.precision}" shortDesc="#{bindings.Ceo.hints.tooltip}" id="it5">
+        <f:validator binding="#{bindings.Ceo.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.NoEmployees.inputValue}" label="#{bindings.NoEmployees.hints.label}"
+                    required="#{bindings.NoEmployees.hints.mandatory}"
+                    columns="#{bindings.NoEmployees.hints.displayWidth}"
+                    maximumLength="#{bindings.NoEmployees.hints.precision}"
+                    shortDesc="#{bindings.NoEmployees.hints.tooltip}" id="it6">
+        <f:validator binding="#{bindings.NoEmployees.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.NoEmployees.format}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</ui:composition>

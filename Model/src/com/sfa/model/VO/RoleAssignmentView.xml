@@ -23,7 +23,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="RoleAssignment"
-    Entity="com.sfa.model.EO.RoleAssignment"/>
+    Entity="com.sfa.model.entity.RoleAssignment"/>
   <ViewAttribute
     Name="UserRoleId"
     IsNotNull="true"

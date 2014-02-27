@@ -23,7 +23,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="Roles"
-    Entity="com.sfa.model.EO.Roles"/>
+    Entity="com.sfa.model.entity.Roles"/>
   <ViewAttribute
     Name="RoleId"
     IsNotNull="true"
@@ -98,7 +98,7 @@
     AliasName="OBJECT_VERSION_NUMBER"/>
   <ViewLinkAccessor
     Name="RoleAssignmentView"
-    ViewLink="com.sfa.model.VL.UserRolesFk2Link"
+    ViewLink="com.sfa.model.viewlink.UserRolesFk2Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

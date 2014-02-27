@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="contacts">
+    <page>/ContactsOverview.jsf</page>
+  </view>
+  <task-flow-call id="customer-detail-taskflow">
+    <task-flow-reference>
+      <document>/WEB-INF/customer-detail-taskflow.xml</document>
+      <id>customer-detail-taskflow</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <control-flow-rule id="__1">
+    <from-activity-id>contacts</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>getDetail</from-outcome>
+      <to-activity-id>customer-detail-taskflow</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+</adfc-config>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="customer-detail-taskflow">
+    <default-activity>customer-detail</default-activity>
+    <view id="customer-detail">
+      <page>/CustomerDetail.jsff</page>
+    </view>
+    <task-flow-call id="add-edit-contact-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-contact-taskflow.xml</document>
+        <id>add-edit-contact-taskflow</id>
+      </task-flow-reference>
+      <input-parameter id="__25">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedContactKeyStr}</value>
+      </input-parameter>
+      <input-parameter id="__26">
+        <name>selectedAccountKeyStr</name>
+        <value>#{requestScope.selectedAccountKeyStr}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="add-edit-appointment-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-appointment-taskflow.xml</document>
+        <id>add-edit-appointment-taskflow</id>
+      </task-flow-reference>
+      <input-parameter id="__28">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedAppmntKeyStr}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-return id="customers">
+      <outcome>
+        <name>back</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>customer-detail</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>customers</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>addorEdit</from-outcome>
+        <to-activity-id>add-edit-contact-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>addEditAppointment</from-outcome>
+        <to-activity-id>add-edit-appointment-taskflow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

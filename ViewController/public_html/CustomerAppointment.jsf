@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="CustomerAppointment.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <af:table value="#{bindings.AppointmentsView2.collectionModel}" var="row"
+                          rows="#{bindings.AppointmentsView2.rangeSize}"
+                          emptyText="#{bindings.AppointmentsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AppointmentsView2.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AppointmentsView2.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AppointmentsView2.rangeSize}" id="t1">
+                    <af:column sortProperty="#{bindings.AppointmentsView2.hints.Name.name}" sortable="true"
+                               headerText="#{bindings.AppointmentsView2.hints.Name.label}" id="c1">
+                        <af:outputText value="#{row.Name}" shortDesc="#{bindings.AppointmentsView2.hints.Name.tooltip}"
+                                       id="ot1"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView2.hints.Description.name}" sortable="true"
+                               headerText="#{bindings.AppointmentsView2.hints.Description.label}" id="c2">
+                        <af:outputText value="#{row.Description}"
+                                       shortDesc="#{bindings.AppointmentsView2.hints.Description.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView2.hints.StartDatetime.name}" sortable="true"
+                               headerText="#{bindings.AppointmentsView2.hints.StartDatetime.label}" id="c3">
+                        <af:outputText value="#{row.StartDatetime}"
+                                       shortDesc="#{bindings.AppointmentsView2.hints.StartDatetime.tooltip}" id="ot3">
+                            <af:convertDateTime pattern="#{bindings.AppointmentsView2.hints.StartDatetime.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView2.hints.EndDatetime.name}" sortable="true"
+                               headerText="#{bindings.AppointmentsView2.hints.EndDatetime.label}" id="c4">
+                        <af:outputText value="#{row.EndDatetime}"
+                                       shortDesc="#{bindings.AppointmentsView2.hints.EndDatetime.tooltip}" id="ot4">
+                            <af:convertDateTime pattern="#{bindings.AppointmentsView2.hints.EndDatetime.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView2.hints.Location.name}" sortable="true"
+                               headerText="#{bindings.AppointmentsView2.hints.Location.label}" id="c5">
+                        <af:outputText value="#{row.Location}"
+                                       shortDesc="#{bindings.AppointmentsView2.hints.Location.tooltip}" id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView2.hints.RelatedOppurtunity.name}"
+                               sortable="true" headerText="#{bindings.AppointmentsView2.hints.RelatedOppurtunity.label}"
+                               id="c6">
+                        <af:selectOneChoice value="#{row.bindings.RelatedOppurtunity.inputValue}"
+                                            label="#{row.bindings.RelatedOppurtunity.label}"
+                                            required="#{bindings.AppointmentsView2.hints.RelatedOppurtunity.mandatory}"
+                                            shortDesc="#{bindings.AppointmentsView2.hints.RelatedOppurtunity.tooltip}"
+                                            readOnly="true" id="soc1">
+                            <f:selectItems value="#{row.bindings.RelatedOppurtunity.items}" id="si1"/>
+                            <f:validator binding="#{row.bindings.RelatedOppurtunity.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                </af:table>
+                <f:facet name="statusbar"/>
+            </af:panelCollection>
+        </af:form>
+    </af:document>
+</f:view>

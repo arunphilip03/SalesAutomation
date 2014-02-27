@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="customer-search.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelSplitter id="ps1" orientation="vertical">
+                    <f:facet name="first">
+                        <af:panelGroupLayout layout="vertical" id="pgl2">
+                            <af:panelHeader text="Customer Account" id="ph1">
+                                <af:query id="qryId1" headerText="Search" disclosed="true"
+                                          value="#{bindings.CustomerSearchVOCriteriaQuery.queryDescriptor}"
+                                          model="#{bindings.CustomerSearchVOCriteriaQuery.queryModel}"
+                                          queryListener="#{bindings.CustomerSearchVOCriteriaQuery.processQuery}"
+                                          queryOperationListener="#{bindings.CustomerSearchVOCriteriaQuery.processQueryOperation}"
+                                          resultComponentId="::resId1"/>
+                            </af:panelHeader>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:table value="#{bindings.CustomerSearchVO1.collectionModel}" var="row"
+                                  rows="#{bindings.CustomerSearchVO1.rangeSize}"
+                                  emptyText="#{bindings.CustomerSearchVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.CustomerSearchVO1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.CustomerSearchVO1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.CustomerSearchVO1.rangeSize}" id="resId1"
+                                  styleClass="AFStretchWidth" columnStretching="last">
+                            <af:column sortProperty="#{bindings.CustomerSearchVO1.hints.AccountName.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.CustomerSearchVO1.hints.AccountName.label}" id="resId1c1"
+                                       width="363">
+                                <af:outputText value="#{row.AccountName}"
+                                               shortDesc="#{bindings.CustomerSearchVO1.hints.AccountName.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CustomerSearchVO1.hints.Ceo.name}" sortable="true"
+                                       headerText="#{bindings.CustomerSearchVO1.hints.Ceo.label}" id="resId1c2"
+                                       width="436">
+                                <af:outputText value="#{row.Ceo}"
+                                               shortDesc="#{bindings.CustomerSearchVO1.hints.Ceo.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CustomerSearchVO1.hints.ParentAccount.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.CustomerSearchVO1.hints.ParentAccount.label}"
+                                       id="resId1c3" width="-499">
+                                <af:outputText value="#{row.ParentAccount}"
+                                               shortDesc="#{bindings.CustomerSearchVO1.hints.ParentAccount.tooltip}"
+                                               id="ot3"/>
+                            </af:column>
+                        </af:table>
+                    </f:facet>
+                </af:panelSplitter>
+                <af:toolbar id="t1">
+                    <af:button text="Edit" id="b2" action="editCustomer" useWindow="true" windowHeight="320"
+                               windowWidth="800">
+                        <af:setActionListener from="#{bindings.CustomerSearchVO1Iterator.currentRowKeyString}" to="#{requestScope.selectedAccountKeyStr}"/>
+                    </af:button>
+                    <af:button text="Back" id="b1" action="back"/>
+                </af:toolbar>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

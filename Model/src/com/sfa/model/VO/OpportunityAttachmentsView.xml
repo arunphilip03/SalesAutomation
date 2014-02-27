@@ -22,7 +22,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="OpportunityAttachments"
-    Entity="com.sfa.model.EO.OpportunityAttachments"/>
+    Entity="com.sfa.model.entity.OpportunityAttachments"/>
   <ViewAttribute
     Name="OppDocId"
     IsNotNull="true"

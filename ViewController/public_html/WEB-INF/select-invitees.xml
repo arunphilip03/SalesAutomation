@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="select-invitees">
+    <default-activity>SelectUserAndContact</default-activity>
+    <view id="SelectUserAndContact">
+      <page>/SelectUserAndContact.jsf</page>
+    </view>
+  </task-flow-definition>
+</adfc-config>

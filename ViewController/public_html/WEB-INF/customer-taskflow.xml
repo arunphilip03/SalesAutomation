@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="customer-account">
+    <default-activity>customers</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <managed-bean id="__5">
+      <managed-bean-name>customerBean</managed-bean-name>
+      <managed-bean-class>com.sfa.view.backing.CustomerBacking</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="customers">
+      <page>/CustomerOverview.jsff</page>
+    </view>
+    <task-flow-call id="add-edit-customer">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-customer.xml</document>
+        <id>add-edit-customer</id>
+      </task-flow-reference>
+      <input-parameter id="__3">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedAccountKeyStr}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="customer-detail-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/customer-detail-taskflow.xml</document>
+        <id>customer-detail-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>customers</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>addorEditCustomer</from-outcome>
+        <to-activity-id>add-edit-customer</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>getDetail</from-outcome>
+        <to-activity-id>customer-detail-taskflow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>customer-detail-taskflow</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>customers</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome>addorEdit</from-outcome>
+        <to-activity-id>customer-detail-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome>addEditAppointment</from-outcome>
+        <to-activity-id>customer-detail-taskflow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
