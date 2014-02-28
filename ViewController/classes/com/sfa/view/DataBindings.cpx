@@ -48,6 +48,11 @@
     <page path="/SalesHome.jsf" usageId="com_sfa_view_SalesHomePageDef"/>
     <page path="/WEB-INF/add-edit-customer.xml#add-edit-customer@createCommit"
           usageId="com_sfa_view_add_edit_customer_add_edit_customer_createCommitPageDef"/>
+    <page path="/ContactEdit.jsff" usageId="com_sfa_view_ContactEditPageDef11"/>
+    <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@commitCreate"
+          usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitCreatePageDef"/>
+    <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@commitEdit"
+          usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -109,6 +114,11 @@
     <page id="com_sfa_view_SalesHomePageDef" path="com.sfa.view.pageDefs.SalesHomePageDef"/>
     <page id="com_sfa_view_add_edit_customer_add_edit_customer_createCommitPageDef"
           path="com.sfa.view.pageDefs.add_edit_customer_add_edit_customer_createCommitPageDef"/>
+    <page id="com_sfa_view_ContactEditPageDef11" path="com.sfa.view.pageDefs.ContactEditPageDef11"/>
+    <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitCreatePageDef"
+          path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_commitCreatePageDef"/>
+    <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"
+          path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

@@ -45,14 +45,15 @@
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t2">
-                                        <af:link id="l1" icon="#{resource['images:new_ena.png']}">
+                                        <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                                 action="addorEdit">
                                             <af:setActionListener from="#{''}"
                                                                   to="#{requestScope.selectedContactKeyStr}"/>
                                             <af:setActionListener from="#{''}"
                                                                   to="#{requestScope.selectedAccountKeyStr}"/>
                                         </af:link>
                                         <af:spacer width="4" height="10" id="s1"/>
-                                        <af:link id="l2" icon="#{resource['images:update_ena.png']}">
+                                        <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="addorEdit">
                                             <af:setActionListener from="#{bindings.CustomerContactsView2Iterator.currentRowKeyString}"
                                                                   to="#{requestScope.selectedContactKeyStr}"/>
                                             <af:setActionListener to="#{requestScope.selectedAccountKeyStr}"

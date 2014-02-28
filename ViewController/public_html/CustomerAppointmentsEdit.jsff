@@ -4,10 +4,17 @@
                 xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:messages id="m1"/>
-    <af:panelHeader text="Create/Edit Appointment" id="ph1">
+    <af:panelHeader text="Create Appointment" id="ph1" inlineStyle="text-indent:5pt;">
         <f:facet name="context"/>
         <f:facet name="menuBar"/>
-        <f:facet name="toolbar"/>
+        <f:facet name="toolbar">
+            <af:toolbar id="t1">
+                <af:button text="Save" id="b1" action="save"/>
+                <af:button text="Save and Close" id="b4"/>
+                <af:button text="Invite Attendees" id="b3"/>
+                <af:button text="Cancel" id="b2" action="cancel" immediate="true"/>
+            </af:toolbar>
+        </f:facet>
         <f:facet name="legend"/>
         <f:facet name="info"/>
         <af:form id="f1">
@@ -55,9 +62,7 @@
                 </af:selectOneChoice>
             </af:panelFormLayout>
             <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1">
-                <f:facet name="context">
-                    <af:button text="Invite" id="b3"/>
-                </f:facet>
+                <f:facet name="context"/>
                 <f:facet name="menuBar"/>
                 <f:facet name="toolbar"/>
                 <f:facet name="legend"/>
@@ -82,10 +87,6 @@
                                        id="ot2"/>
                     </af:column>
                 </af:table>
-                <af:toolbar id="t1">
-                    <af:button text="Save" id="b1" action="save"/>
-                    <af:button text="Cancel" id="b2" action="cancel" immediate="true"/>
-                </af:toolbar>
             </af:showDetailHeader>
         </af:form>
     </af:panelHeader>

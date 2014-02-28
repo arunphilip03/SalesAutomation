@@ -5,7 +5,7 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="CustomerAccountView1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="CustomerAccountView1Iterator" Refresh="always" ChangeEventPolicy="none" CacheResults="false"/>
+              id="CustomerAccountView1Iterator" ChangeEventPolicy="none"/>
     <searchRegion Criteria="CustomerAccountViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerAccountView1Iterator" id="CustomerAccountViewCriteriaQuery"/>
   </executables>
@@ -24,7 +24,8 @@
     </tree>
     <action IterBinding="CustomerAccountView1Iterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
             Action="setCurrentRowWithKey">
-      <NamedData NDName="rowKey" NDType="java.lang.String" NDValue="#{row.CustAccountId}"/>
+      <NamedData NDName="rowKey" NDType="java.lang.String"
+                 NDValue="#{row.CustAccountId}"/>
     </action>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>

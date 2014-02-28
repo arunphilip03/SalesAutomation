@@ -31,7 +31,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CUSTOMER_ACCOUNT">
+    TableName="CUSTOMER_ACCOUNT"
+    IsUnique="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -286,6 +287,18 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
+    Name="AccountNameUniqueKey"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUSTOMERACCOUNTKEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.CustomerAccount.AccountName"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="CustomerAccountPk"
     PrimaryKey="true">
     <DesignTime>
@@ -303,6 +316,15 @@
     </DesignTime>
     <AttrArray Name="Attributes"/>
   </Key>
+  <validation:UniqueKeyValidationBean
+    Name="CustomerAccountRule0"
+    ResId="com.sfa.model.entity.CustomerAccount_Rule_0"
+    KeyName="AccountNameUniqueKey">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="AccountName"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sfa.model.ModelBundle"/>

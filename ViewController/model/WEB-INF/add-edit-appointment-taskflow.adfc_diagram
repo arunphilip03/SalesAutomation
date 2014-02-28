@@ -56,9 +56,9 @@
       <property
          name="y">208.59766</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">616.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn6">
@@ -98,7 +98,7 @@
       <property
          name="fromOutcome">add</property>
       <property
-         name="sdm:polyPoints">R46,178.0,207.64355,333.0,98.33887,L50</property>
+         name="sdm:polyPoints">R45,178.96475,206.67882,332.03522,98.33884,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -108,7 +108,7 @@
       <property
          name="fromOutcome">edit</property>
       <property
-         name="sdm:polyPoints">R54,178.0,214.64355,334.0,323.14355,L50</property>
+         name="sdm:polyPoints">R55,178.96475,215.60832,333.03528,323.14352,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -118,7 +118,7 @@
       <property
          name="fromOutcome">createInsert</property>
       <property
-         name="sdm:polyPoints">R50,415.0,98.33887,575.0,204.74707,L46</property>
+         name="sdm:polyPoints">R50,415.96472,98.33884,574.0353,203.7823,L45</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -128,7 +128,7 @@
       <property
          name="fromOutcome">setCurrentRowWithKey</property>
       <property
-         name="sdm:polyPoints">R50,416.0,323.14355,575.0,211.74707,L54</property>
+         name="sdm:polyPoints">R50,416.96478,323.14352,574.0353,212.7118,L55</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -138,7 +138,7 @@
       <property
          name="fromOutcome">save</property>
       <property
-         name="sdm:polyPoints">R46,657.0,204.74707,769.0,114.59766,L50</property>
+         name="sdm:polyPoints">R45,657.9647,203.7823,768.0353,114.59766,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -148,6 +148,6 @@
       <property
          name="fromOutcome">cancel</property>
       <property
-         name="sdm:polyPoints">R54,657.0,211.74707,775.0,326.89648,L50</property>
+         name="sdm:polyPoints">R55,657.9647,212.7118,774.0353,326.89648,L50</property>
    </ControlFlowCase>
 </SDM>
