@@ -38,7 +38,7 @@
                           required="#{bindings.Address.hints.mandatory}"
                           columns="#{bindings.Address.hints.displayWidth}"
                           maximumLength="#{bindings.Address.hints.precision}"
-                          shortDesc="#{bindings.Address.hints.tooltip}" id="it4">
+                          shortDesc="#{bindings.Address.hints.tooltip}" id="it4" rows="5">
                 <f:validator binding="#{bindings.Address.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.WorkPhone.inputValue}" label="#{bindings.WorkPhone.hints.label}"

@@ -32,6 +32,12 @@
         <value>#{requestScope.selectedAppmntKeyStr}</value>
       </input-parameter>
     </task-flow-call>
+    <task-flow-return id="back">
+      <outcome>
+        <name>back</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
     <control-flow-rule id="__1">
       <from-activity-id>customer-detail</from-activity-id>
       <control-flow-case id="__3">
@@ -41,6 +47,10 @@
       <control-flow-case id="__4">
         <from-outcome>addEditAppointment</from-outcome>
         <to-activity-id>add-edit-appointment-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__2">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>back</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

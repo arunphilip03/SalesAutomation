@@ -24,11 +24,14 @@
     Name="BooleanLuView1"
     ViewObjectName="com.sfa.model.VO.BooleanLuView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TitleLuView1"
+    ViewObjectName="com.sfa.model.VO.TitleLuView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_BuyInfluenceLevel"
     ListVOName="ContactBuyingroleLuView2"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -60,7 +63,28 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Code"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Title"
+    ListVOName="TitleLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
   </ListBinding>
   <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME, 
 CustomerContacts.CONTACT_ID,   
@@ -112,7 +136,17 @@ FROM  CUSTOMER_CONTACTS CustomerContacts]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="Title"
     EntityUsage="CustomerContacts"
-    AliasName="TITLE"/>
+    AliasName="TITLE"
+    LOVName="LOV_Title">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Department"
     IsNotNull="true"
@@ -171,10 +205,10 @@ FROM  CUSTOMER_CONTACTS CustomerContacts]]></SQLQuery>
     LOVName="LOV_IsPrimary">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="10"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
