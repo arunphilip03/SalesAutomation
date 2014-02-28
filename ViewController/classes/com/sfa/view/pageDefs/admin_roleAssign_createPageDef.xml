@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="admin_roleAssign_createPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ValidRolesView1" RangeSize="25" DataControl="AppModuleDataControl" id="ValidRolesView1Iterator"/>
+    <searchRegion Binds="ValidRolesView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ValidRolesView1Query"/>
+    <iterator Binds="RoleAssignmentView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="RoleAssignmentView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ValidRolesView1Iterator" id="ValidRolesView1">
+      <nodeDefinition DefName="com.sfa.model.VO.ValidRolesView" Name="ValidRolesView10">
+        <AttrNames>
+          <Item Value="Description"/>
+          <Item Value="EffecEndDate"/>
+          <Item Value="EffecStartDate"/>
+          <Item Value="RoleName"/>
+          <Item Value="SelectRole"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="RoleAssignmentView1Iterator" id="EffecStartDate">
+      <AttrNames>
+        <Item Value="EffecStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RoleAssignmentView1Iterator" id="EffecEndDate">
+      <AttrNames>
+        <Item Value="EffecEndDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

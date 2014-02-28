@@ -16,7 +16,7 @@
     <page path="/ContactsOverview.jsf" usageId="com_sfa_view_ContactsOverviewPageDef"/>
     <page path="/WEB-INF/add-edit-contact.xml#add-edit-contact@createInsert"
           usageId="com_sfa_view_add_edit_contact_add_edit_contact_createInsertPageDef"/>
-    <page path="/ContactEdit.jsf" usageId="com_sfa_view_ContactEditPageDef1"/>
+   
     <page path="/CustomerAppointment.jsf" usageId="com_sfa_view_CustomerAppointmentPageDef"/>
     <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@createInsert"
           usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_createInsertPageDef"/>
@@ -29,21 +29,20 @@
     <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@setAppointmentKey"
           usageId="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_setAppointmentKeyPageDef"/>
     <page path="/SelectUserAndContact.jsf" usageId="com_sfa_view_untitled1PageDef1"/>
-    <page path="/untitled1.jsf" usageId="com_sfa_view_untitled1PageDef11"/>
-    <page path="/SalesDashboard.jsf" usageId="com_sfa_view_SalesDashboardPageDef"/>
+    
+    
     <page path="/WEB-INF/add-edit-customer.xml#add-edit-customer@Commit"
           usageId="com_sfa_view_add_edit_customer_add_edit_customer_CommitPageDef"/>
     <page path="/SalesDashboard.jspx" usageId="com_sfa_view_SalesDashboardPageDef1"/>
-    <page path="/sample.jsff" usageId="com_sfa_view_samplePageDef"/>
+    
     <page path="/CustomerCreate.jsff" usageId="com_sfa_view_CustomerCreatePageDef"/>
     <page path="/CustomerEdit.jsff" usageId="com_sfa_view_editCustomerPageDef"/>
     <page path="/CustomerDetail.jsff" usageId="com_sfa_view_CustomerDetailPageDef"/>
     <page path="/CustomerAppointmentsEdit.jsff" usageId="com_sfa_view_CustomerAppointmentsEditPageDef"/>
     <page path="/ContactCreateEdit.jsff" usageId="com_sfa_view_editcontacttempPageDef"/>
-    <page path="/CustomersHome.jsff" usageId="com_sfa_view_CustomersHomePageDef"/>
+   
     <page path="/CustomerOverview.jsff" usageId="com_sfa_view_customer_overviewPageDef"/>
-    <page path="/testArun.jsff" usageId="com_sfa_view_testArunPageDef"/>
-    <page path="/CustomerAccountOverview.jsff" usageId="com_sfa_view_CustomerAccountOverviewPageDef"/>
+   
     <page path="/CustomerDetailsHome.jsff" usageId="com_sfa_view_CustomerDetailsHomePageDef"/>
     <page path="/SalesHome.jsf" usageId="com_sfa_view_SalesHomePageDef"/>
     <page path="/WEB-INF/add-edit-customer.xml#add-edit-customer@createCommit"
@@ -53,6 +52,23 @@
           usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitCreatePageDef"/>
     <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@commitEdit"
           usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"/>
+          
+    <page path="/admin-role-main.jsff" usageId="com_sfa_view_admin_role_mainPageDef"/>
+   
+    <page path="/admin-role-create.jsff" usageId="com_sfa_view_admin_role_createPageDef"/>
+    <page path="/admin-product-create.jsff" usageId="com_sfa_view_admin_product_createPageDef"/>
+    <page path="/admin-role-edit.jsff" usageId="com_sfa_view_admin_role_editPageDef"/>
+    <page path="/admin-edit-product.jsff" usageId="com_sfa_view_admin_edit_productPageDef"/>
+    <page path="/admin-product-main.jsff" usageId="com_sfa_view_admin_product_mainPageDef"/>
+    <page path="/admin-user-main.jsff" usageId="com_sfa_view_admin_user_mainPageDef"/>
+    <page path="/admin-user-edit.jsff" usageId="com_sfa_view_admin_user_editPageDef"/>
+    <page path="/admin-user-create.jsff" usageId="com_sfa_view_admin_user_createPageDef"/>
+    <page path="/admin-productcategory-main.jsff" usageId="com_sfa_view_admin_productcategory_mainPageDef"/>
+    <page path="/admin-productcategory-create.jsff" usageId="com_sfa_view_admin_productcategory_createPageDef"/>
+    <page path="/admin-user-roleassign.jsff" usageId="com_sfa_view_admin_user_roleassignPageDef"/>
+    <page path="/admin-roleAssign-edit.jsff" usageId="com_sfa_view_admin_roleAssign_editPageDef"/>
+    <page path="/admin-roleAssign-create.jsff" usageId="com_sfa_view_admin_roleAssign_createPageDef"/>
+    <page path="/AdminDashboard.jsf" usageId="com_sfa_view_AdminDashboardPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -119,6 +135,27 @@
           path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_commitCreatePageDef"/>
     <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"
           path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"/>
+          
+          
+     <page id="com_sfa_view_admin_role_mainPageDef" path="com.sfa.view.pageDefs.admin_role_mainPageDef"/>
+    
+    <page id="com_sfa_view_admin_role_createPageDef" path="com.sfa.view.pageDefs.admin_role_createPageDef"/>
+    <page id="com_sfa_view_admin_product_createPageDef" path="com.sfa.view.pageDefs.admin_product_createPageDef"/>
+    <page id="com_sfa_view_admin_role_editPageDef" path="com.sfa.view.pageDefs.admin_role_editPageDef"/>
+    <page id="com_sfa_view_admin_edit_productPageDef" path="com.sfa.view.pageDefs.admin_edit_productPageDef"/>
+    <page id="com_sfa_view_admin_product_mainPageDef" path="com.sfa.view.pageDefs.admin_product_mainPageDef"/>
+    <page id="com_sfa_view_admin_user_mainPageDef" path="com.sfa.view.pageDefs.admin_user_mainPageDef"/>
+    <page id="com_sfa_view_admin_user_editPageDef" path="com.sfa.view.pageDefs.admin_user_editPageDef"/>
+    <page id="com_sfa_view_admin_user_createPageDef" path="com.sfa.view.pageDefs.admin_user_createPageDef"/>
+    <page id="com_sfa_view_admin_productcategory_mainPageDef"
+          path="com.sfa.view.pageDefs.admin_productcategory_mainPageDef"/>
+    <page id="com_sfa_view_admin_productcategory_createPageDef"
+          path="com.sfa.view.pageDefs.admin_productcategory_createPageDef"/>
+    <page id="com_sfa_view_admin_user_roleassignPageDef" path="com.sfa.view.pageDefs.admin_user_roleassignPageDef"/>
+    <page id="com_sfa_view_admin_roleAssign_editPageDef" path="com.sfa.view.pageDefs.admin_roleAssign_editPageDef"/>
+    <page id="com_sfa_view_admin_roleAssign_createPageDef" path="com.sfa.view.pageDefs.admin_roleAssign_createPageDef"/>
+    <page id="com_sfa_view_Admin_DashboardPageDef" path="com.sfa.view.pageDefs.Admin_DashboardPageDef"/>
+    <page id="com_sfa_view_AdminDashboardPageDef" path="com.sfa.view.pageDefs.AdminDashboardPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

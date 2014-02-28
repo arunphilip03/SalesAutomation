@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="admin_user_roleassignPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ValidRolesView1" RangeSize="25" DataControl="AppModuleDataControl" id="ValidRolesView1Iterator"/>
+    <searchRegion Binds="ValidRolesView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ValidRolesView1Query"/>
+    <iterator Binds="UsersView1" RangeSize="25" DataControl="AppModuleDataControl" id="UsersView1Iterator"/>
+    <iterator Binds="RoleAssignmentView3" RangeSize="25" DataControl="AppModuleDataControl"
+              id="RoleAssignmentView3Iterator" Refresh="always"/>
+    <searchRegion Binds="RoleAssignmentView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="RoleAssignmentView3Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ValidRolesView1Iterator" id="ValidRolesView1">
+      <nodeDefinition DefName="com.sfa.model.VO.ValidRolesView" Name="ValidRolesView10">
+        <AttrNames>
+          <Item Value="RoleName"/>
+          <Item Value="EffecEndDate"/>
+          <Item Value="EffecStartDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="UsersView1Iterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersView1Iterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersView1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersView1Iterator" id="MiddleName">
+      <AttrNames>
+        <Item Value="MiddleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersView1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersView1Iterator" id="EffecStartDate">
+      <AttrNames>
+        <Item Value="EffecStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersView1Iterator" id="EffecEndDate">
+      <AttrNames>
+        <Item Value="EffecEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersView1Iterator" id="Managername">
+      <AttrNames>
+        <Item Value="Managername"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="RoleAssignmentView3Iterator" id="RoleAssignmentView3">
+      <nodeDefinition DefName="com.sfa.model.VO.RoleAssignmentView" Name="RoleAssignmentView30">
+        <AttrNames>
+          <Item Value="EffecStartDate"/>
+          <Item Value="EffecEndDate"/>
+          <Item Value="RoleName"/>
+          <Item Value="FirstName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RoleAssignmentView3Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="RoleAssignmentView3Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+  </bindings>
+</pageDefinition>

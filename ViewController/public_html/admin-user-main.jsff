@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="Users" id="ph1">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.UsersViewSearchQuery.queryDescriptor}"
+                                  model="#{bindings.UsersViewSearchQuery.queryModel}"
+                                  queryListener="#{bindings.UsersViewSearchQuery.processQuery}"
+                                  queryOperationListener="#{bindings.UsersViewSearchQuery.processQueryOperation}"/>
+                    </af:panelHeader>
+                    <af:panelCollection id="pc1" inlineStyle="width:739px;">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                         actionListener="#{bindings.Create.execute}"
+                                         disabled="#{!bindings.Create.enabled}" action="create"/>
+                                <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"/>
+                                <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                         actionListener="#{bindings.Delete.execute}"
+                                         disabled="#{!bindings.Delete.enabled}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.UsersView1.collectionModel}" var="row"
+                                  rows="#{bindings.UsersView1.rangeSize}"
+                                  emptyText="#{bindings.UsersView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.UsersView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.UsersView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.UsersView1.rangeSize}"
+                                  filterModel="#{bindings.UsersViewSearchQuery.queryDescriptor}"
+                                  queryListener="#{bindings.UsersViewSearchQuery.processQuery}" filterVisible="true"
+                                  varStatus="vs" id="t1" partialTriggers="::l1 ::l3">
+                            <af:column sortProperty="#{bindings.UsersView1.hints.UserName.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.UsersView1.hints.UserName.label}" id="c1">
+                                <af:outputText value="#{row.UserName}"
+                                               shortDesc="#{bindings.UsersView1.hints.UserName.tooltip}" id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.FirstName.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.UsersView1.hints.FirstName.label}"
+                                       id="c2">
+                                <af:outputText value="#{row.FirstName}"
+                                               shortDesc="#{bindings.UsersView1.hints.FirstName.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.MiddleName.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.UsersView1.hints.MiddleName.label}"
+                                       id="c3">
+                                <af:outputText value="#{row.MiddleName}"
+                                               shortDesc="#{bindings.UsersView1.hints.MiddleName.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.LastName.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.UsersView1.hints.LastName.label}" id="c4">
+                                <af:outputText value="#{row.LastName}"
+                                               shortDesc="#{bindings.UsersView1.hints.LastName.tooltip}" id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.EffecStartDate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.UsersView1.hints.EffecStartDate.label}"
+                                       id="c5">
+                                <af:outputText value="#{row.EffecStartDate}"
+                                               shortDesc="#{bindings.UsersView1.hints.EffecStartDate.tooltip}" id="ot5">
+                                    <af:convertDateTime pattern="#{bindings.UsersView1.hints.EffecStartDate.format}"/>
+                                </af:outputText>
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.UsersViewSearchQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffecStartDate.value}"
+                                                  id="id1">
+                                        <af:convertDateTime pattern="#{bindings.UsersView1.hints.EffecStartDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.EffecEndDate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.UsersView1.hints.EffecEndDate.label}"
+                                       id="c6">
+                                <af:outputText value="#{row.EffecEndDate}"
+                                               shortDesc="#{bindings.UsersView1.hints.EffecEndDate.tooltip}" id="ot6">
+                                    <af:convertDateTime pattern="#{bindings.UsersView1.hints.EffecEndDate.format}"/>
+                                </af:outputText>
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.UsersViewSearchQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffecEndDate.value}"
+                                                  id="id2">
+                                        <af:convertDateTime pattern="#{bindings.UsersView1.hints.EffecEndDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Managername.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.UsersView1.hints.Managername.label}"
+                                       id="c7">
+                                <af:inputText value="#{row.bindings.Managername.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Managername.label}"
+                                              required="#{bindings.UsersView1.hints.Managername.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Managername.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Managername.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Managername.tooltip}" id="it1">
+                                    <f:validator binding="#{row.bindings.Managername.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.UsersView1.hints.Managername.format}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                    <af:toolbar id="t3">
+                        <af:button text="Manage  Roles" id="b1" actionListener="#{bindings.Create1.execute}"
+                                   disabled="#{!bindings.Create1.enabled}" action="assign"/>
+                    </af:toolbar>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

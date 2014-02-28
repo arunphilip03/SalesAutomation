@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="admin_product_createPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductCatalogView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ProductCatalogView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="ProductCatalogView1Iterator" id="ProductCode">
+      <AttrNames>
+        <Item Value="ProductCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductCatalogView1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductCatalogView1Iterator" id="ProductDesc">
+      <AttrNames>
+        <Item Value="ProductDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductCatalogView1Iterator" id="CurrentPrice">
+      <AttrNames>
+        <Item Value="CurrentPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ProductCatalogView1Iterator" StaticList="false" Uses="LOV_ProductCategory"
+                  id="ProductCategory"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="admin_product_mainPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductCatalogView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ProductCatalogView1Iterator"/>
+    <searchRegion Criteria="ProductCatalogViewSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ProductCatalogView1Iterator" id="ProductCatalogViewSearchQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ProductCatalogView1Iterator" id="ProductCatalogView1">
+      <nodeDefinition DefName="com.sfa.model.VO.ProductCatalogView" Name="ProductCatalogView10">
+        <AttrNames>
+          <Item Value="ProductCode"/>
+          <Item Value="ProductName"/>
+          <Item Value="ProductDesc"/>
+          <Item Value="CurrentPrice"/>
+          <Item Value="ProductCategory"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ProductCatalogView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="ProductCatalogView1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

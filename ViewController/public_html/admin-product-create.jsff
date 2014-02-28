@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelHeader text="Create Product" id="ph1" inlineStyle="height:59px;">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Save" id="b4"/>
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Save &amp; Close"
+                                       disabled="#{!bindings.Commit.enabled}" id="b2"/>
+                            <af:button text="Cancel" id="b1" actionListener="#{bindings.Rollback.execute}"
+                                       immediate="true" action="back">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+                <af:panelWindow id="pw1">
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.ProductCode.inputValue}"
+                                      label="#{bindings.ProductCode.hints.label}"
+                                      required="#{bindings.ProductCode.hints.mandatory}"
+                                      columns="#{bindings.ProductCode.hints.displayWidth}"
+                                      maximumLength="#{bindings.ProductCode.hints.precision}"
+                                      shortDesc="#{bindings.ProductCode.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.ProductCode.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ProductName.inputValue}"
+                                      label="#{bindings.ProductName.hints.label}"
+                                      required="#{bindings.ProductName.hints.mandatory}"
+                                      columns="#{bindings.ProductName.hints.displayWidth}"
+                                      maximumLength="#{bindings.ProductName.hints.precision}"
+                                      shortDesc="#{bindings.ProductName.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.ProductName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ProductDesc.inputValue}"
+                                      label="#{bindings.ProductDesc.hints.label}"
+                                      required="#{bindings.ProductDesc.hints.mandatory}"
+                                      columns="#{bindings.ProductDesc.hints.displayWidth}"
+                                      maximumLength="#{bindings.ProductDesc.hints.precision}"
+                                      shortDesc="#{bindings.ProductDesc.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.ProductDesc.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CurrentPrice.inputValue}"
+                                      label="#{bindings.CurrentPrice.hints.label}"
+                                      required="#{bindings.CurrentPrice.hints.mandatory}"
+                                      columns="#{bindings.CurrentPrice.hints.displayWidth}"
+                                      maximumLength="#{bindings.CurrentPrice.hints.precision}"
+                                      shortDesc="#{bindings.CurrentPrice.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.CurrentPrice.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CurrentPrice.format}"/>
+                        </af:inputText>
+                        <af:inputComboboxListOfValues id="productCategoryId"
+                                                      popupTitle="Search and Select: #{bindings.ProductCategory.hints.label}"
+                                                      value="#{bindings.ProductCategory.inputValue}"
+                                                      label="#{bindings.ProductCategory.hints.label}"
+                                                      model="#{bindings.ProductCategory.listOfValuesModel}"
+                                                      required="#{bindings.ProductCategory.hints.mandatory}"
+                                                      columns="#{bindings.ProductCategory.hints.displayWidth}"
+                                                      shortDesc="#{bindings.ProductCategory.hints.tooltip}">
+                            <f:validator binding="#{bindings.ProductCategory.validator}"/>
+                        </af:inputComboboxListOfValues>
+                    </af:panelFormLayout>
+                </af:panelWindow>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

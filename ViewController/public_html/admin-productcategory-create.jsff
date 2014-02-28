@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelWindow id="pw1">
+                    <af:panelHeader text="CREATE PRODUCT CATEGORY" id="ph1" inlineStyle="height:40px;">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:button text="Save" id="b3"/>
+                                <af:button text="Save &amp; Close" id="b1" actionListener="#{bindings.Commit.execute}"
+                                           disabled="#{!bindings.Commit.enabled}" action="back"/>
+                                <af:button text="Cancel" id="b2" actionListener="#{bindings.Rollback.execute}"
+                                           immediate="true" action="back">
+                                    <af:resetActionListener/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                    </af:panelHeader>
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.Categoryname.inputValue}"
+                                      label="#{bindings.Categoryname.hints.label}"
+                                      required="#{bindings.Categoryname.hints.mandatory}"
+                                      columns="#{bindings.Categoryname.hints.displayWidth}"
+                                      maximumLength="#{bindings.Categoryname.hints.precision}"
+                                      shortDesc="#{bindings.Categoryname.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.Categoryname.validator}"/>
+                        </af:inputText>
+                    </af:panelFormLayout>
+                </af:panelWindow>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

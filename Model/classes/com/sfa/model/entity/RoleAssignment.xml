@@ -152,24 +152,31 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="USER_ROLES_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.RoleAssignment.UserRoleId"/>
+    </AttrArray>
   </Key>
   <Key
     Name="UserRolesFk1">
     <DesignTime>
-      <Attr Name="_isCascadeDelete" Value="true"/>
       <Attr Name="_referencedKey" Value="USER_ACCOUNTS_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="USER_ROLES_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.RoleAssignment.UserId"/>
+    </AttrArray>
   </Key>
   <Key
     Name="UserRolesFk2">
     <DesignTime>
-      <Attr Name="_isCascadeDelete" Value="true"/>
       <Attr Name="_referencedKey" Value="ROLES_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="USER_ROLES_FK2"/>
     </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.RoleAssignment.RoleId"/>
+    </AttrArray>
   </Key>
   <ResourceBundle>
     <PropertiesBundle

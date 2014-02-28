@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="width:1242px; height:481px;">
+                    <af:panelHeader text="ProductCatalog" id="ph1">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.ProductCatalogViewSearchQuery.queryDescriptor}"
+                                  model="#{bindings.ProductCatalogViewSearchQuery.queryModel}"
+                                  queryListener="#{bindings.ProductCatalogViewSearchQuery.processQuery}"
+                                  queryOperationListener="#{bindings.ProductCatalogViewSearchQuery.processQueryOperation}"/>
+                    </af:panelHeader>
+                    <af:panelCollection id="pc1" inlineStyle="max-width:150mm; width:525px;">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                         actionListener="#{bindings.Create.execute}"
+                                         disabled="#{!bindings.Create.enabled}" action="add"/>
+                                <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"/>
+                                <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                         actionListener="#{bindings.Delete.execute}"
+                                         disabled="#{!bindings.Delete.enabled}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.ProductCatalogView1.collectionModel}" var="row"
+                                  rows="#{bindings.ProductCatalogView1.rangeSize}"
+                                  emptyText="#{bindings.ProductCatalogView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ProductCatalogView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ProductCatalogView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ProductCatalogView1.rangeSize}"
+                                  filterModel="#{bindings.ProductCatalogViewSearchQuery.queryDescriptor}"
+                                  queryListener="#{bindings.ProductCatalogViewSearchQuery.processQuery}"
+                                  filterVisible="true" varStatus="vs" id="t1" width="913" partialTriggers="::l1 ::l3">
+                            <af:column sortProperty="#{bindings.ProductCatalogView1.hints.ProductCode.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.ProductCode.label}" id="c1">
+                                <af:outputText value="#{row.ProductCode}"
+                                               shortDesc="#{bindings.ProductCatalogView1.hints.ProductCode.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductCatalogView1.hints.ProductName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.ProductName.label}" id="c2">
+                                <af:outputText value="#{row.ProductName}"
+                                               shortDesc="#{bindings.ProductCatalogView1.hints.ProductName.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductCatalogView1.hints.ProductDesc.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.ProductDesc.label}" id="c3">
+                                <af:outputText value="#{row.ProductDesc}"
+                                               shortDesc="#{bindings.ProductCatalogView1.hints.ProductDesc.tooltip}"
+                                               id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductCatalogView1.hints.CurrentPrice.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.CurrentPrice.label}" id="c4">
+                                <af:outputText value="#{row.CurrentPrice}"
+                                               shortDesc="#{bindings.ProductCatalogView1.hints.CurrentPrice.tooltip}"
+                                               id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ProductCatalogView1.hints.CurrentPrice.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductCatalogView1.hints.ProductCategory.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.ProductCategory.label}" id="c5">
+                                <af:outputText value="#{row.ProductCategory}"
+                                               shortDesc="#{bindings.ProductCatalogView1.hints.ProductCategory.tooltip}"
+                                               id="ot5"/>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                    <af:toolbar id="t3">
+                        <af:button text="Product categories" id="b1" action="productCategory"/>
+                    </af:toolbar>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

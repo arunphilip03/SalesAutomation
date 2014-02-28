@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="admin-product-tf">
+    <default-activity>admin-product-main</default-activity>
+    <view id="admin-product-main">
+      <page>/admin-product-main.jsff</page>
+    </view>
+    <view id="admin-product-create">
+      <page>/admin-product-create.jsff</page>
+    </view>
+    <view id="admin-edit-product">
+      <page>/admin-edit-product.jsff</page>
+    </view>
+    <task-flow-call id="admin-productcategory-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/admin-productcategory-tf.xml</document>
+        <id>admin-productcategory-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>admin-product-main</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>add</from-outcome>
+        <to-activity-id>admin-product-create</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>admin-edit-product</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>productCategory</from-outcome>
+        <to-activity-id>admin-productcategory-tf</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>admin-product-create</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>admin-product-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>admin-edit-product</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>admin-product-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

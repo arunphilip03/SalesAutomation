@@ -196,6 +196,12 @@
   <ViewUsage
     Name="AppointmentInviteesVO3"
     ViewObjectName="com.sfa.model.VO.AppointmentInviteesVO"/>
+  <ViewUsage
+    Name="ProductCategoryView1"
+    ViewObjectName="com.sfa.model.VO.ProductCategoryView"/>
+  <ViewUsage
+    Name="ValidRolesView1"
+    ViewObjectName="com.sfa.model.VO.ValidRolesView"/>  
   <ViewLinkUsage
     Name="AppointmentInviteesFk1Link1"
     ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"

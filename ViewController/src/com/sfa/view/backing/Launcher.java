@@ -27,6 +27,11 @@ public class Launcher {
     public void launchCustomerAccount(ActionEvent actionEvent) {
         _launchActivity("Customer Account", "/WEB-INF/customer-taskflow.xml#customer-account", false);
     }
+    
+    public void launchRoles(ActionEvent actionEvent) {
+        _launchActivity("Roles", "/WEB-INF/admin-role-tf.xml#admin-role-task", false);
+    }
+    
 
     public void launchFirstActivity(ActionEvent actionEvent) {
         /**
