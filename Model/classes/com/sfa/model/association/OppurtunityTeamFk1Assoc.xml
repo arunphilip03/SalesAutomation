@@ -13,30 +13,30 @@
     Name="Opportunities"
     Cardinality="1"
     Source="true"
-    Owner="com.sfa.model.EO.Opportunities">
+    Owner="com.sfa.model.entity.Opportunities">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="Opportunities"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.Opportunities.OppurtunitiesPk"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.Opportunities.OppurtunitiesPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.Opportunities.OppurtunityId"/>
+      <Item Value="com.sfa.model.entity.Opportunities.OppurtunityId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
     Name="OpportunityTeam"
     Cardinality="-1"
-    Owner="com.sfa.model.EO.OpportunityTeam">
+    Owner="com.sfa.model.entity.OpportunityTeam">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="OpportunityTeam"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.OpportunityTeam.OppurtunityTeamFk1"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.OpportunityTeam.OppurtunityTeamFk1"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.OpportunityTeam.OpportunityId"/>
+      <Item Value="com.sfa.model.entity.OpportunityTeam.OpportunityId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

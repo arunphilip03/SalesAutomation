@@ -10,23 +10,28 @@
   DBObjectName="CUSTOMER_CONTACTS"
   AliasName="CustomerContacts"
   BindingStyle="OracleName"
-  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  DefClass="com.sfa.model.entity.CustomerContactsDefImpl"
+  RowClass="com.sfa.model.entity.CustomerContactsImpl"
+  CollClass="com.sfa.model.entity.CustomerContactsCollImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML|Def|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="ContactId"
     ColumnName="CONTACT_ID"
     SQLType="NUMERIC"
-    Type="oracle.jbo.domain.DBSequence"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="CUSTOMER_CONTACTS"
     PrimaryKey="true"
-    IsUpdateable="while_insert"
-    DefaultValue="@0"
-    Domain="oracle.jbo.domain.DBSequence"
-    RetrievedOnInsert="true">
+    IsUpdateable="while_insert">
     <DesignTime>
       <Attr Name="_SequenceName" Value="CUSTOMER_CONTACTS_SEQ"/>
       <Attr Name="_SequenceStart" Value="1"/>
     </DesignTime>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("CUSTOMER_CONTACTS_SEQ",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="CustAccountId"
@@ -51,7 +56,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="15"/>
+          Value="5"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -202,13 +207,14 @@
     TableName="CUSTOMER_CONTACTS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
+      <Attr Name="_diagramName" Value="Is Primary Contact"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.CustomerContacts.IsPrimary_LABEL"/>
         <DISPLAYWIDTH
-          Value="5"/>
+          Value="3"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

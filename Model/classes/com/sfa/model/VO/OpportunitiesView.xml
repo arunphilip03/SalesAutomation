@@ -29,359 +29,367 @@
        Opportunities.LAST_UPDATED_BY, 
        Opportunities.NOTES_SEQ_ID, 
        Opportunities.LAST_UPDATE_LOGIN, 
-       Opportunities.OBJECT_VERSION_NUMBER"
+       Opportunities.OBJECT_VERSION_NUMBER, 
+       Opportunities.OPPORTUNITY_NAME"
   FromList="OPPORTUNITIES Opportunities"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full">
-  <ViewAccessor
-    Name="OpportunityDecisionlevelLuView1"
-    ViewObjectName="com.sfa.model.VO.OpportunityDecisionlevelLuView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="OpportunityRisklevelLuView1"
-    ViewObjectName="com.sfa.model.VO.OpportunityRisklevelLuView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="OpportunitySaleschannelLuView1"
-    ViewObjectName="com.sfa.model.VO.OpportunitySaleschannelLuView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="OpportunitySalesmethodLuView1"
-    ViewObjectName="com.sfa.model.VO.OpportunitySalesmethodLuView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="OpportunitySalestageLuView1"
-    ViewObjectName="com.sfa.model.VO.OpportunitySalestageLuView"
-    RowLevelBinds="true"/>
-  <ListBinding
-    Name="LOV_DecisionLevel"
-    ListVOName="OpportunityDecisionlevelLuView1"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="DecisionLevel"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Decisionlevel"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Decisionlevel"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_RiskLevel"
-    ListVOName="OpportunityRisklevelLuView1"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="RiskLevel"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Risklevel"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Risklevel"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_SalesChannel"
-    ListVOName="OpportunitySaleschannelLuView1"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="SalesChannel"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Saleschannel"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Saleschannel"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_SalesMethod"
-    ListVOName="OpportunitySalesmethodLuView1"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="SalesMethod"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Salesmethod"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Salesmethod"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_SalesStage"
-    ListVOName="OpportunitySalestageLuView1"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="SalesStage"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Salesstage"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Salesstage"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <EntityUsage
-    Name="Opportunities"
-    Entity="com.sfa.model.EO.Opportunities"/>
-  <ViewAttribute
-    Name="OppurtunityId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="OppurtunityId"
-    EntityUsage="Opportunities"
-    AliasName="OPPURTUNITY_ID"/>
-  <ViewAttribute
-    Name="CustAccountId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CustAccountId"
-    EntityUsage="Opportunities"
-    AliasName="CUST_ACCOUNT_ID"/>
-  <ViewAttribute
-    Name="WinProbability"
-    PrecisionRule="true"
-    EntityAttrName="WinProbability"
-    EntityUsage="Opportunities"
-    AliasName="WIN_PROBABILITY"/>
-  <ViewAttribute
-    Name="CloseDate"
-    PrecisionRule="true"
-    EntityAttrName="CloseDate"
-    EntityUsage="Opportunities"
-    AliasName="CLOSE_DATE"/>
-  <ViewAttribute
-    Name="PrimaryContactId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="PrimaryContactId"
-    EntityUsage="Opportunities"
-    AliasName="PRIMARY_CONTACT_ID"/>
-  <ViewAttribute
-    Name="SalesStage"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SalesStage"
-    EntityUsage="Opportunities"
-    AliasName="SALES_STAGE"
-    LOVName="LOV_SalesStage">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SalesMethod"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SalesMethod"
-    EntityUsage="Opportunities"
-    AliasName="SALES_METHOD"
-    LOVName="LOV_SalesMethod">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SalesChannel"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SalesChannel"
-    EntityUsage="Opportunities"
-    AliasName="SALES_CHANNEL"
-    LOVName="LOV_SalesChannel">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="RevenueCurrency"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="RevenueCurrency"
-    EntityUsage="Opportunities"
-    AliasName="REVENUE_CURRENCY"/>
-  <ViewAttribute
-    Name="RevenueAmount"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="RevenueAmount"
-    EntityUsage="Opportunities"
-    AliasName="REVENUE_AMOUNT"/>
-  <ViewAttribute
-    Name="BestCaseRevenue"
-    PrecisionRule="true"
-    EntityAttrName="BestCaseRevenue"
-    EntityUsage="Opportunities"
-    AliasName="BEST_CASE_REVENUE"/>
-  <ViewAttribute
-    Name="WorstCaseRevenue"
-    PrecisionRule="true"
-    EntityAttrName="WorstCaseRevenue"
-    EntityUsage="Opportunities"
-    AliasName="WORST_CASE_REVENUE"/>
-  <ViewAttribute
-    Name="IsBudgeted"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="IsBudgeted"
-    EntityUsage="Opportunities"
-    AliasName="IS_BUDGETED"/>
-  <ViewAttribute
-    Name="BudgetAmount"
-    PrecisionRule="true"
-    EntityAttrName="BudgetAmount"
-    EntityUsage="Opportunities"
-    AliasName="BUDGET_AMOUNT"/>
-  <ViewAttribute
-    Name="EstimatedDuration"
-    PrecisionRule="true"
-    EntityAttrName="EstimatedDuration"
-    EntityUsage="Opportunities"
-    AliasName="ESTIMATED_DURATION"/>
-  <ViewAttribute
-    Name="RiskLevel"
-    PrecisionRule="true"
-    EntityAttrName="RiskLevel"
-    EntityUsage="Opportunities"
-    AliasName="RISK_LEVEL"
-    LOVName="LOV_RiskLevel">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="DecisionLevel"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="DecisionLevel"
-    EntityUsage="Opportunities"
-    AliasName="DECISION_LEVEL"
-    LOVName="LOV_DecisionLevel">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="CreationDate"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreationDate"
-    EntityUsage="Opportunities"
-    AliasName="CREATION_DATE"
-    IsUpdateable="false"/>
-  <ViewAttribute
-    Name="LastUpdateDate"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateDate"
-    EntityUsage="Opportunities"
-    AliasName="LAST_UPDATE_DATE"
-    IsUpdateable="false"/>
-  <ViewAttribute
-    Name="CreatedBy"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="Opportunities"
-    AliasName="CREATED_BY"
-    IsUpdateable="false"/>
-  <ViewAttribute
-    Name="LastUpdatedBy"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedBy"
-    EntityUsage="Opportunities"
-    AliasName="LAST_UPDATED_BY"
-    IsUpdateable="false"/>
-  <ViewAttribute
-    Name="NotesSeqId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="NotesSeqId"
-    EntityUsage="Opportunities"
-    AliasName="NOTES_SEQ_ID"/>
-  <ViewAttribute
-    Name="LastUpdateLogin"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateLogin"
-    EntityUsage="Opportunities"
-    AliasName="LAST_UPDATE_LOGIN"
-    IsUpdateable="false"/>
-  <ViewAttribute
-    Name="ObjectVersionNumber"
-    PrecisionRule="true"
-    EntityAttrName="ObjectVersionNumber"
-    EntityUsage="Opportunities"
-    AliasName="OBJECT_VERSION_NUMBER"/>
-  <ViewLinkAccessor
-    Name="AppointmentsView"
-    ViewLink="com.sfa.model.VL.AppointmentsFk2Link"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="ContactInteractionsView"
-    ViewLink="com.sfa.model.VL.ContactInteractionsFk1Link"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="OpportunityAttachmentsView"
-    ViewLink="com.sfa.model.VL.OppurtunityDocumentsFk1Link"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="OpportunityRevenueItemsView"
-    ViewLink="com.sfa.model.VL.OppurtunityRevenueItemsFk2Link"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="OpportunityTeamView"
-    ViewLink="com.sfa.model.VL.OppurtunityTeamFk1Link"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="TasksView"
-    ViewLink="com.sfa.model.VL.TasksFk2Link"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
+    <ViewAccessor
+      Name="OpportunityDecisionlevelLuView1"
+      ViewObjectName="com.sfa.model.VO.OpportunityDecisionlevelLuView"
+      RowLevelBinds="true"/>
+    <ViewAccessor
+      Name="OpportunityRisklevelLuView1"
+      ViewObjectName="com.sfa.model.VO.OpportunityRisklevelLuView"
+      RowLevelBinds="true"/>
+    <ViewAccessor
+      Name="OpportunitySaleschannelLuView1"
+      ViewObjectName="com.sfa.model.VO.OpportunitySaleschannelLuView"
+      RowLevelBinds="true"/>
+    <ViewAccessor
+      Name="OpportunitySalesmethodLuView1"
+      ViewObjectName="com.sfa.model.VO.OpportunitySalesmethodLuView"
+      RowLevelBinds="true"/>
+    <ViewAccessor
+      Name="OpportunitySalestageLuView1"
+      ViewObjectName="com.sfa.model.VO.OpportunitySalestageLuView"
+      RowLevelBinds="true"/>
+    <ListBinding
+      Name="LOV_DecisionLevel"
+      ListVOName="OpportunityDecisionlevelLuView1"
+      ListRangeSize="-1"
+      ComboRowCountHint="10"
+      NullValueFlag="none"
+      MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="DecisionLevel"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Decisionlevel"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Decisionlevel"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+      Name="LOV_RiskLevel"
+      ListVOName="OpportunityRisklevelLuView1"
+      ListRangeSize="-1"
+      ComboRowCountHint="10"
+      NullValueFlag="none"
+      MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="RiskLevel"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Risklevel"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Risklevel"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+      Name="LOV_SalesChannel"
+      ListVOName="OpportunitySaleschannelLuView1"
+      ListRangeSize="-1"
+      ComboRowCountHint="10"
+      NullValueFlag="none"
+      MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="SalesChannel"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Saleschannel"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Saleschannel"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+      Name="LOV_SalesMethod"
+      ListVOName="OpportunitySalesmethodLuView1"
+      ListRangeSize="-1"
+      ComboRowCountHint="10"
+      NullValueFlag="none"
+      MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="SalesMethod"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Salesmethod"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Salesmethod"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+      Name="LOV_SalesStage"
+      ListVOName="OpportunitySalestageLuView1"
+      ListRangeSize="-1"
+      ComboRowCountHint="10"
+      NullValueFlag="none"
+      MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="SalesStage"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Salesstage"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Salesstage"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <EntityUsage
+      Name="Opportunities"
+      Entity="com.sfa.model.entity.Opportunities"/>
+    <ViewAttribute
+      Name="OppurtunityId"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="OppurtunityId"
+      EntityUsage="Opportunities"
+      AliasName="OPPURTUNITY_ID"/>
+    <ViewAttribute
+      Name="CustAccountId"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="CustAccountId"
+      EntityUsage="Opportunities"
+      AliasName="CUST_ACCOUNT_ID"/>
+    <ViewAttribute
+      Name="WinProbability"
+      PrecisionRule="true"
+      EntityAttrName="WinProbability"
+      EntityUsage="Opportunities"
+      AliasName="WIN_PROBABILITY"/>
+    <ViewAttribute
+      Name="CloseDate"
+      PrecisionRule="true"
+      EntityAttrName="CloseDate"
+      EntityUsage="Opportunities"
+      AliasName="CLOSE_DATE"/>
+    <ViewAttribute
+      Name="PrimaryContactId"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="PrimaryContactId"
+      EntityUsage="Opportunities"
+      AliasName="PRIMARY_CONTACT_ID"/>
+    <ViewAttribute
+      Name="SalesStage"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="SalesStage"
+      EntityUsage="Opportunities"
+      AliasName="SALES_STAGE"
+      LOVName="LOV_SalesStage">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                  Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+      Name="SalesMethod"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="SalesMethod"
+      EntityUsage="Opportunities"
+      AliasName="SALES_METHOD"
+      LOVName="LOV_SalesMethod">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                  Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+      Name="SalesChannel"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="SalesChannel"
+      EntityUsage="Opportunities"
+      AliasName="SALES_CHANNEL"
+      LOVName="LOV_SalesChannel">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                  Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+      Name="RevenueCurrency"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="RevenueCurrency"
+      EntityUsage="Opportunities"
+      AliasName="REVENUE_CURRENCY"/>
+    <ViewAttribute
+      Name="RevenueAmount"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="RevenueAmount"
+      EntityUsage="Opportunities"
+      AliasName="REVENUE_AMOUNT"/>
+    <ViewAttribute
+      Name="BestCaseRevenue"
+      PrecisionRule="true"
+      EntityAttrName="BestCaseRevenue"
+      EntityUsage="Opportunities"
+      AliasName="BEST_CASE_REVENUE"/>
+    <ViewAttribute
+      Name="WorstCaseRevenue"
+      PrecisionRule="true"
+      EntityAttrName="WorstCaseRevenue"
+      EntityUsage="Opportunities"
+      AliasName="WORST_CASE_REVENUE"/>
+    <ViewAttribute
+      Name="IsBudgeted"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="IsBudgeted"
+      EntityUsage="Opportunities"
+      AliasName="IS_BUDGETED"/>
+    <ViewAttribute
+      Name="BudgetAmount"
+      PrecisionRule="true"
+      EntityAttrName="BudgetAmount"
+      EntityUsage="Opportunities"
+      AliasName="BUDGET_AMOUNT"/>
+    <ViewAttribute
+      Name="EstimatedDuration"
+      PrecisionRule="true"
+      EntityAttrName="EstimatedDuration"
+      EntityUsage="Opportunities"
+      AliasName="ESTIMATED_DURATION"/>
+    <ViewAttribute
+      Name="RiskLevel"
+      PrecisionRule="true"
+      EntityAttrName="RiskLevel"
+      EntityUsage="Opportunities"
+      AliasName="RISK_LEVEL"
+      LOVName="LOV_RiskLevel">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                  Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+      Name="DecisionLevel"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="DecisionLevel"
+      EntityUsage="Opportunities"
+      AliasName="DECISION_LEVEL"
+      LOVName="LOV_DecisionLevel">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                  Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+      Name="CreationDate"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="CreationDate"
+      EntityUsage="Opportunities"
+      AliasName="CREATION_DATE"
+      IsUpdateable="false"/>
+    <ViewAttribute
+      Name="LastUpdateDate"
+      PrecisionRule="true"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="Opportunities"
+      AliasName="LAST_UPDATE_DATE"
+      IsUpdateable="false"/>
+    <ViewAttribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="CreatedBy"
+      EntityUsage="Opportunities"
+      AliasName="CREATED_BY"
+      IsUpdateable="false"/>
+    <ViewAttribute
+      Name="LastUpdatedBy"
+      PrecisionRule="true"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="Opportunities"
+      AliasName="LAST_UPDATED_BY"
+      IsUpdateable="false"/>
+    <ViewAttribute
+      Name="NotesSeqId"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="NotesSeqId"
+      EntityUsage="Opportunities"
+      AliasName="NOTES_SEQ_ID"/>
+    <ViewAttribute
+      Name="LastUpdateLogin"
+      PrecisionRule="true"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="Opportunities"
+      AliasName="LAST_UPDATE_LOGIN"
+      IsUpdateable="false"/>
+    <ViewAttribute
+      Name="ObjectVersionNumber"
+      PrecisionRule="true"
+      EntityAttrName="ObjectVersionNumber"
+      EntityUsage="Opportunities"
+      AliasName="OBJECT_VERSION_NUMBER"/>
+    <ViewAttribute
+      Name="OpportunityName"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="OpportunityName"
+      EntityUsage="Opportunities"
+      AliasName="OPPORTUNITY_NAME"/>
+    <ViewLinkAccessor
+      Name="AppointmentsView"
+      ViewLink="com.sfa.model.viewlink.AppointmentsFk2Link"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
+    <ViewLinkAccessor
+      Name="ContactInteractionsView"
+      ViewLink="com.sfa.model.viewlink.ContactInteractionsFk1Link"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
+    <ViewLinkAccessor
+      Name="OpportunityAttachmentsView"
+      ViewLink="com.sfa.model.viewlink.OppurtunityDocumentsFk1Link"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
+    <ViewLinkAccessor
+      Name="OpportunityRevenueItemsView"
+      ViewLink="com.sfa.model.viewlink.OppurtunityRevenueItemsFk2Link"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
+    <ViewLinkAccessor
+      Name="OpportunityTeamView"
+      ViewLink="com.sfa.model.viewlink.OppurtunityTeamFk1Link"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
+    <ViewLinkAccessor
+      Name="TasksView"
+      ViewLink="com.sfa.model.viewlink.TasksFk2Link"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
 </ViewObject>

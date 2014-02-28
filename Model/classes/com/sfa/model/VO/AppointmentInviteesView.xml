@@ -22,7 +22,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="AppointmentInvitees"
-    Entity="com.sfa.model.EO.AppointmentInvitees"/>
+    Entity="com.sfa.model.entity.AppointmentInvitees"/>
   <ViewAttribute
     Name="AppInviteeId"
     IsNotNull="true"

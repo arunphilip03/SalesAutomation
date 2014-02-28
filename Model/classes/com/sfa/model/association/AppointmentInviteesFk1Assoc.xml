@@ -13,30 +13,30 @@
     Name="Appointments"
     Cardinality="1"
     Source="true"
-    Owner="com.sfa.model.EO.Appointments">
+    Owner="com.sfa.model.entity.Appointments">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="Appointments"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.Appointments.AppointmentsPk"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.Appointments.AppointmentsPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.Appointments.AppointmentId"/>
+      <Item Value="com.sfa.model.entity.Appointments.AppointmentId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
     Name="AppointmentInvitees"
     Cardinality="-1"
-    Owner="com.sfa.model.EO.AppointmentInvitees">
+    Owner="com.sfa.model.entity.AppointmentInvitees">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="AppointmentInvitees"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.AppointmentInvitees.AppointmentInviteesFk1"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.AppointmentInvitees.AppointmentInviteesFk1"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.AppointmentInvitees.AppointmentId"/>
+      <Item Value="com.sfa.model.entity.AppointmentInvitees.AppointmentId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

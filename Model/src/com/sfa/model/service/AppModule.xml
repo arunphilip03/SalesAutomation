@@ -201,7 +201,10 @@
     ViewObjectName="com.sfa.model.VO.ProductCategoryView"/>
   <ViewUsage
     Name="ValidRolesView1"
-    ViewObjectName="com.sfa.model.VO.ValidRolesView"/>  
+    ViewObjectName="com.sfa.model.VO.ValidRolesView"/>
+  <ViewUsage
+    Name="PrimaryContactExistsVO1"
+    ViewObjectName="com.sfa.model.VO.PrimaryContactExistsVO"/>
   <ViewLinkUsage
     Name="AppointmentInviteesFk1Link1"
     ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"

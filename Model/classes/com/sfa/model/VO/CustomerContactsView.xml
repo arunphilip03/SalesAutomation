@@ -6,37 +6,32 @@
   Name="CustomerContactsView"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="CustomerContacts.CONTACT_ID, 
-       CustomerContacts.CUST_ACCOUNT_ID, 
-       CustomerContacts.NAME, 
-       CustomerContacts.TITLE, 
-       CustomerContacts.DEPARTMENT, 
-       CustomerContacts.ADDRESS, 
-       CustomerContacts.WORK_PHONE, 
-       CustomerContacts.MOBILE_PHONE, 
-       CustomerContacts.EMAIL, 
-       CustomerContacts.BUY_INFLUENCE_LEVEL, 
-       CustomerContacts.IS_PRIMARY, 
-       CustomerContacts.CREATION_DATE, 
-       CustomerContacts.LAST_UPDATE_DATE, 
-       CustomerContacts.CREATED_BY, 
-       CustomerContacts.LAST_UPDATED_BY, 
-       CustomerContacts.NOTES_SEQ_ID, 
-       CustomerContacts.LAST_UPDATE_LOGIN, 
-       CustomerContacts.OBJECT_VERSION_NUMBER"
-  FromList="CUSTOMER_CONTACTS CustomerContacts"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="ContactBuyingroleLuView1"
+    RowLevelBinds="true"
+    ViewObjectName="ContactBuyingroleLuView1"/>
+  <ViewAccessor
+    Name="ContactBuyingroleLuView2"
     ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BooleanLuView1"
+    ViewObjectName="com.sfa.model.VO.BooleanLuView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TitleLuView1"
+    ViewObjectName="com.sfa.model.VO.TitleLuView"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_BuyInfluenceLevel"
-    ListVOName="ContactBuyingroleLuView1"
+    ListVOName="ContactBuyingroleLuView2"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -51,16 +46,83 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_IsPrimary"
+    ListVOName="BooleanLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsPrimary"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Title"
+    ListVOName="TitleLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME, 
+CustomerContacts.CONTACT_ID,   
+       CustomerContacts.CUST_ACCOUNT_ID,   
+       CustomerContacts.TITLE,   
+       CustomerContacts.DEPARTMENT,   
+       CustomerContacts.ADDRESS,   
+       CustomerContacts.WORK_PHONE,   
+       CustomerContacts.MOBILE_PHONE,   
+       CustomerContacts.EMAIL,   
+       CustomerContacts.BUY_INFLUENCE_LEVEL,   
+       CustomerContacts.IS_PRIMARY,   
+       CustomerContacts.CREATION_DATE,   
+       CustomerContacts.LAST_UPDATE_DATE,   
+       CustomerContacts.CREATED_BY,   
+       CustomerContacts.LAST_UPDATED_BY,   
+       CustomerContacts.NOTES_SEQ_ID,   
+       CustomerContacts.LAST_UPDATE_LOGIN,   
+       CustomerContacts.OBJECT_VERSION_NUMBER  
+FROM  CUSTOMER_CONTACTS CustomerContacts]]></SQLQuery>
   <EntityUsage
     Name="CustomerContacts"
-    Entity="com.sfa.model.EO.CustomerContacts"/>
+    Entity="com.sfa.model.entity.CustomerContacts"/>
+  <ViewAttribute
+    Name="ContactName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContactName"
+    EntityUsage="CustomerContacts"
+    AliasName="CONTACT_NAME"/>
   <ViewAttribute
     Name="ContactId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="ContactId"
     EntityUsage="CustomerContacts"
-    AliasName="CONTACT_ID"/>
+    AliasName="CONTACT_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CustAccountId"
     IsNotNull="true"
@@ -69,19 +131,22 @@
     EntityUsage="CustomerContacts"
     AliasName="CUST_ACCOUNT_ID"/>
   <ViewAttribute
-    Name="Name"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="Name"
-    EntityUsage="CustomerContacts"
-    AliasName="NAME"/>
-  <ViewAttribute
     Name="Title"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Title"
     EntityUsage="CustomerContacts"
-    AliasName="TITLE"/>
+    AliasName="TITLE"
+    LOVName="LOV_Title">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Department"
     IsNotNull="true"
@@ -136,7 +201,17 @@
     PrecisionRule="true"
     EntityAttrName="IsPrimary"
     EntityUsage="CustomerContacts"
-    AliasName="IS_PRIMARY"/>
+    AliasName="IS_PRIMARY"
+    LOVName="LOV_IsPrimary">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="10"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreationDate"
     IsNotNull="true"
@@ -189,27 +264,27 @@
     AliasName="OBJECT_VERSION_NUMBER"/>
   <ViewLinkAccessor
     Name="AppointmentInviteesView"
-    ViewLink="com.sfa.model.VL.AppointmentInviteesFk2Link"
+    ViewLink="com.sfa.model.viewlink.AppointmentInviteesFk2Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="InteractionTeamView"
-    ViewLink="com.sfa.model.VL.InteractionTeamFk1Link"
+    ViewLink="com.sfa.model.viewlink.InteractionTeamFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="OpportunitiesView"
-    ViewLink="com.sfa.model.VL.OppurtunitiesFk2Link"
+    ViewLink="com.sfa.model.viewlink.OppurtunitiesFk2Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="OpportunityTeamView"
-    ViewLink="com.sfa.model.VL.OppurtunityTeamFk2Link"
+    ViewLink="com.sfa.model.viewlink.OppurtunityTeamFk2Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="TaskTeamView"
-    ViewLink="com.sfa.model.VL.TaskTeamFk2Link"
+    ViewLink="com.sfa.model.viewlink.TaskTeamFk2Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

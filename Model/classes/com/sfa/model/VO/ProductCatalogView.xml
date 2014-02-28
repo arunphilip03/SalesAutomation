@@ -47,7 +47,7 @@
   </ListBinding>
   <EntityUsage
     Name="ProductCatalog"
-    Entity="com.sfa.model.EO.ProductCatalog"/>
+    Entity="com.sfa.model.entity.ProductCatalog"/>
   <ViewAttribute
     Name="ProductId"
     IsNotNull="true"
@@ -142,7 +142,7 @@
     AliasName="OBJECT_VERSION_NUMBER"/>
   <ViewLinkAccessor
     Name="OpportunityRevenueItemsView"
-    ViewLink="com.sfa.model.VL.OppurtunityRevenueItemsFk1Link"
+    ViewLink="com.sfa.model.viewlink.OppurtunityRevenueItemsFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>
