@@ -21,7 +21,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="Notes"
-    Entity="com.sfa.model.EO.Notes"/>
+    Entity="com.sfa.model.entity.Notes"/>
   <ViewAttribute
     Name="NotesId"
     IsNotNull="true"
@@ -82,7 +82,7 @@
     AliasName="OBJECT_VERSION_NUMBER"/>
   <ViewLinkAccessor
     Name="NotesParentView"
-    ViewLink="com.sfa.model.VL.NotesParentFk1Link"
+    ViewLink="com.sfa.model.viewlink.NotesParentFk1Link"
     Type="oracle.jbo.Row"
     IsUpdateable="false"/>
 </ViewObject>

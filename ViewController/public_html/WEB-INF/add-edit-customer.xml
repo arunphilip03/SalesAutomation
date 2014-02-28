@@ -3,10 +3,10 @@
   <task-flow-definition id="add-edit-customer">
     <default-activity>addEditRouter</default-activity>
     <transaction>
-      <new-transaction/>
+      <requires-transaction/>
     </transaction>
     <data-control-scope>
-      <isolated/>
+      <shared/>
     </data-control-scope>
     <input-parameter-definition id="__13">
       <name>selectedRowKeyStr</name>

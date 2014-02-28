@@ -72,7 +72,7 @@
   </ListBinding>
   <EntityUsage
     Name="ContactInteractions"
-    Entity="com.sfa.model.EO.ContactInteractions"/>
+    Entity="com.sfa.model.entity.ContactInteractions"/>
   <ViewAttribute
     Name="InteractionId"
     IsNotNull="true"
@@ -189,7 +189,7 @@
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="InteractionTeamView"
-    ViewLink="com.sfa.model.VL.InteractionTeamFk3Link"
+    ViewLink="com.sfa.model.viewlink.InteractionTeamFk3Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

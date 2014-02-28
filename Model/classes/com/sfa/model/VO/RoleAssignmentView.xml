@@ -6,24 +6,76 @@
   Name="RoleAssignmentView"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="RoleAssignment.USER_ROLE_ID, 
-       RoleAssignment.USER_ID, 
-       RoleAssignment.ROLE_ID, 
-       RoleAssignment.EFFEC_START_DATE, 
-       RoleAssignment.EFFEC_END_DATE, 
-       RoleAssignment.CREATION_DATE, 
-       RoleAssignment.LAST_UPDATE_DATE, 
-       RoleAssignment.CREATED_BY, 
-       RoleAssignment.LAST_UPDATED_BY, 
-       RoleAssignment.LAST_UPDATE_LOGIN, 
-       RoleAssignment.OBJECT_VERSION_NUMBER"
-  FromList="ROLE_ASSIGNMENT RoleAssignment"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="ValidRolesView1"
+    ViewObjectName="com.sfa.model.VO.ValidRolesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UsersView1"
+    ViewObjectName="com.sfa.model.VO.UsersView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RoleId_Assign"
+    ListVOName="ValidRolesView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RoleId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RoleId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RoleName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_UserId"
+    ListVOName="UsersView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FirstName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT RoleAssignment.USER_ROLE_ID,    
+       RoleAssignment.USER_ID,    
+       RoleAssignment.ROLE_ID,    
+       RoleAssignment.EFFEC_START_DATE,    
+       RoleAssignment.EFFEC_END_DATE,    
+       RoleAssignment.CREATION_DATE,    
+       RoleAssignment.LAST_UPDATE_DATE,    
+       RoleAssignment.CREATED_BY,    
+       RoleAssignment.LAST_UPDATED_BY,    
+       RoleAssignment.LAST_UPDATE_LOGIN,    
+       RoleAssignment.OBJECT_VERSION_NUMBER,  
+       Roles1.ROLE_NAME,  
+       Users1.FIRST_NAME  
+FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID = RoleAssignment.ROLE_ID INNER JOIN USERS Users1  
+ on Users1.USER_ID = RoleAssignment.USER_ID]]></SQLQuery>
   <EntityUsage
     Name="RoleAssignment"
-    Entity="com.sfa.model.EO.RoleAssignment"/>
+    Entity="com.sfa.model.entity.RoleAssignment"/>
   <ViewAttribute
     Name="UserRoleId"
     IsNotNull="true"
@@ -37,64 +89,149 @@
     PrecisionRule="true"
     EntityAttrName="UserId"
     EntityUsage="RoleAssignment"
-    AliasName="USER_ID"/>
+    AliasName="USER_ID"
+    LOVName="LOV_UserId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.RoleAssignmentView.UserId_LABEL"/>
+        <TOOLTIP
+          ResId="com.sfa.model.VO.RoleAssignmentView.UserId_TOOLTIP"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RoleId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="RoleId"
     EntityUsage="RoleAssignment"
-    AliasName="ROLE_ID"/>
+    AliasName="ROLE_ID"
+    LOVName="LOV_RoleId_Assign">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EffecStartDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="EffecStartDate"
     EntityUsage="RoleAssignment"
-    AliasName="EFFEC_START_DATE"/>
+    AliasName="EFFEC_START_DATE">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.RoleAssignmentView.EffecStartDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EffecEndDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="EffecEndDate"
     EntityUsage="RoleAssignment"
-    AliasName="EFFEC_END_DATE"/>
+    AliasName="EFFEC_END_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.RoleAssignmentView.EffecEndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreationDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="RoleAssignment"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="RoleAssignment"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="RoleAssignment"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="RoleAssignment"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
     EntityAttrName="LastUpdateLogin"
     EntityUsage="RoleAssignment"
-    AliasName="LAST_UPDATE_LOGIN"/>
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ObjectVersionNumber"
     PrecisionRule="true"
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="RoleAssignment"
-    AliasName="OBJECT_VERSION_NUMBER"/>
+    AliasName="OBJECT_VERSION_NUMBER"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="RoleName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="25"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ROLE_NAME"
+    Expression="ROLE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.RoleAssignmentView.RoleName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FirstName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FIRST_NAME"
+    Expression="FIRST_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.RoleAssignmentView.FirstName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

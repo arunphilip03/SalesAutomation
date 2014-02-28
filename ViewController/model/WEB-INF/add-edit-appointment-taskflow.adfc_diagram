@@ -56,9 +56,9 @@
       <property
          name="y">208.59766</property>
       <property
-         name="x">616.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">616.0</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn6">
@@ -118,7 +118,7 @@
       <property
          name="fromOutcome">createInsert</property>
       <property
-         name="sdm:polyPoints">R50,415.96472,98.33884,574.0353,203.7823,L45</property>
+         name="sdm:polyPoints">R50,415.0,98.33887,575.0,204.74707,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -128,7 +128,7 @@
       <property
          name="fromOutcome">setCurrentRowWithKey</property>
       <property
-         name="sdm:polyPoints">R50,416.96478,323.14352,574.0353,212.7118,L55</property>
+         name="sdm:polyPoints">R50,416.0,323.14355,575.0,211.74707,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

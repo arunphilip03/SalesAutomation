@@ -6,7 +6,7 @@
       <requires-transaction/>
     </transaction>
     <data-control-scope>
-      <isolated/>
+      <shared/>
     </data-control-scope>
     <input-parameter-definition id="__13">
       <name>selectedRowKeyStr</name>
