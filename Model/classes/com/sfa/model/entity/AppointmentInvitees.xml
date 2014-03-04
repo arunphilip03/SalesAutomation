@@ -140,7 +140,9 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="APPOINTMENT_INVITEES_PK"/>
     </DesignTime>
-    <AttrArray Name="Attributes"/>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.AppointmentInvitees.AppInviteeId"/>
+    </AttrArray>
   </Key>
   <Key
     Name="AppointmentInviteesFk1">
@@ -149,7 +151,9 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="APPOINTMENT_INVITEES_FK1"/>
     </DesignTime>
-    <AttrArray Name="Attributes"/>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.AppointmentInvitees.AppointmentId"/>
+    </AttrArray>
   </Key>
   <Key
     Name="AppointmentInviteesFk2">
@@ -158,7 +162,9 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="APPOINTMENT_INVITEES_FK2"/>
     </DesignTime>
-    <AttrArray Name="Attributes"/>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.AppointmentInvitees.ContactId"/>
+    </AttrArray>
   </Key>
   <Key
     Name="AppointmentInviteesFk3">
@@ -167,6 +173,8 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="APPOINTMENT_INVITEES_FK3"/>
     </DesignTime>
-    <AttrArray Name="Attributes"/>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.AppointmentInvitees.UserId"/>
+    </AttrArray>
   </Key>
 </Entity>

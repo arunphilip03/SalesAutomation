@@ -13,30 +13,30 @@
     Name="CustomerAccount"
     Cardinality="1"
     Source="true"
-    Owner="com.sfa.model.EO.CustomerAccount">
+    Owner="com.sfa.model.entity.CustomerAccount">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="CustomerAccount"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.CustomerAccount.CustomerAccountPk"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.CustomerAccount.CustomerAccountPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.CustomerAccount.CustAccountId"/>
+      <Item Value="com.sfa.model.entity.CustomerAccount.CustAccountId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
     Name="CustomerContacts"
     Cardinality="-1"
-    Owner="com.sfa.model.EO.CustomerContacts">
+    Owner="com.sfa.model.entity.CustomerContacts">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="CustomerContacts"/>
-      <Attr Name="_foreignKey" Value="com.sfa.model.EO.CustomerContacts.CustomerContactsFk1"/>
+      <Attr Name="_foreignKey" Value="com.sfa.model.entity.CustomerContacts.CustomerContactsFk1"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sfa.model.EO.CustomerContacts.CustAccountId"/>
+      <Item Value="com.sfa.model.entity.CustomerContacts.CustAccountId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

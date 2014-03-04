@@ -8,17 +8,33 @@
                 <f:facet name="copyright"/>
                 <f:facet name="about"/>
                 <f:facet name="navigation">
-                <af:panelGroupLayout id="pgl1">
-                            <af:panelList id="pl1">
-                                <af:link text="Roles" id="l1"
-                                         actionListener="#{backingBeanScope.launcher.launchRoles}"/>
-                            </af:panelList>
-                        </af:panelGroupLayout>
+                    <af:panelAccordion id="pal" discloseMany="true">
+                        <af:showDetailItem text="Admin Tasks" id="det1" disclosed="true">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:panelList id="pl1">
+                                    <af:link text="Roles" id="l1"
+                                             actionListener="#{backingBeanScope.launcher.launchRoles}"/>
+                                </af:panelList>
+                                <af:panelList id="pl2">
+                                    <af:link text="Users" id="l2"
+                                             actionListener="#{backingBeanScope.launcher.launchUsers}"/>
+                                </af:panelList>
+                                <af:panelList id="pl3">
+                                    <af:link text="Products" id="l3"
+                                             actionListener="#{backingBeanScope.launcher.launchProducts}"/>
+                                </af:panelList>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                    </af:panelAccordion>
                 </f:facet>
                 <f:facet name="globalLinks"/>
                 <f:facet name="status"/>
                 <f:facet name="globalToolbar"/>
-                <f:facet name="globalSearch"/>
+                <f:facet name="globalSearch">
+                <af:panelGroupLayout id="ab1" layout="horizontal">
+                <af:link text="LogOut" id="lg1"/>
+                </af:panelGroupLayout>
+                </f:facet>
                 <f:facet name="globalTabs"/>
                 <f:facet name="welcome"/>
                 <f:facet name="innerToolbar"/>

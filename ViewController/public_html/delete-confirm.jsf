@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="delete-confirm.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout layout="scroll" id="pgl1">
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="104">
+                    <f:facet name="first"/>
+                    <f:facet name="second"/>
+                </af:panelSplitter>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

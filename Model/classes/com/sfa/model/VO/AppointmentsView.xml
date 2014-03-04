@@ -6,27 +6,57 @@
   Name="AppointmentsView"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="Appointments.APPOINTMENT_ID, 
-       Appointments.NAME, 
-       Appointments.DESCRIPTION, 
-       Appointments.START_DATETIME, 
-       Appointments.END_DATETIME, 
-       Appointments.LOCATION, 
-       Appointments.CUST_ACCOUNT_ID, 
-       Appointments.OPPURTUNITY_ID, 
-       Appointments.CREATION_DATE, 
-       Appointments.LAST_UPDATE_DATE, 
-       Appointments.CREATED_BY, 
-       Appointments.LAST_UPDATED_BY, 
-       Appointments.LAST_UPDATE_LOGIN, 
-       Appointments.OBJECT_VERSION_NUMBER"
-  FromList="APPOINTMENTS Appointments"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="OpportunitiesView1"
+    ViewObjectName="com.sfa.model.VO.OpportunitiesView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RelatedOppurtunity"
+    ListVOName="OpportunitiesView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="RelatedOppurtunity"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OpportunityName"/>
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OpportunityName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,  
+       Appointments.NAME,  
+       Appointments.DESCRIPTION,  
+       Appointments.START_DATETIME,  
+       Appointments.END_DATETIME,  
+       Appointments.LOCATION,  
+       Appointments.CUST_ACCOUNT_ID,  
+       Appointments.OPPURTUNITY_ID,  
+       Appointments.CREATION_DATE,  
+       Appointments.LAST_UPDATE_DATE,  
+       Appointments.CREATED_BY,  
+       Appointments.LAST_UPDATED_BY,  
+       Appointments.LAST_UPDATE_LOGIN,  
+       Appointments.OBJECT_VERSION_NUMBER 
+FROM  APPOINTMENTS Appointments]]></SQLQuery>
   <EntityUsage
     Name="Appointments"
-    Entity="com.sfa.model.EO.Appointments"/>
+    Entity="com.sfa.model.entity.Appointments"/>
   <ViewAttribute
     Name="AppointmentId"
     IsNotNull="true"
@@ -88,41 +118,69 @@
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="Appointments"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="Appointments"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="Appointments"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="Appointments"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateLogin"
     PrecisionRule="true"
     EntityAttrName="LastUpdateLogin"
     EntityUsage="Appointments"
-    AliasName="LAST_UPDATE_LOGIN"/>
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ObjectVersionNumber"
     PrecisionRule="true"
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="Appointments"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="RelatedOppurtunity"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_RelatedOppurtunity">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="AppointmentInviteesView"
-    ViewLink="com.sfa.model.VL.AppointmentInviteesFk1Link"
+    ViewLink="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentInviteesVO"
+    ViewLink="com.sfa.model.viewlink.AppointmentInviteeVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

@@ -32,6 +32,14 @@ public class Launcher {
         _launchActivity("Roles", "/WEB-INF/admin-role-tf.xml#admin-role-task", false);
     }
     
+    public void launchUsers(ActionEvent actionEvent) {
+        _launchActivity("Users", "/WEB-INF/admin-user-tf.xml#admin-user-tf", false);
+    }
+    
+    public void launchProducts(ActionEvent actionEvent) {
+        _launchActivity("Products", "/WEB-INF/admin-product-tf.xml#admin-product-tf", false);
+    }
+    
 
     public void launchFirstActivity(ActionEvent actionEvent) {
         /**

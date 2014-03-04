@@ -136,25 +136,6 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <ViewAttribute
-    Name="SelectRole"
-    IsUpdateable="false"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.Boolean"
-    ColumnType="NUMBER"
-    AliasName="VIEW_ATTR"
-    SQLType="BIT">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sfa.model.VO.ValidRolesView.SelectRole_LABEL"/>
-        <CONTROLTYPE
-          Value="check_box"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sfa.model.ModelBundle"/>

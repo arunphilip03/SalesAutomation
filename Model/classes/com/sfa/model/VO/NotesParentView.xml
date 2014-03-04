@@ -21,7 +21,7 @@
   PageIterMode="Full">
   <EntityUsage
     Name="NotesParent"
-    Entity="com.sfa.model.EO.NotesParent"/>
+    Entity="com.sfa.model.entity.NotesParent"/>
   <ViewAttribute
     Name="NotesSeqId"
     IsNotNull="true"

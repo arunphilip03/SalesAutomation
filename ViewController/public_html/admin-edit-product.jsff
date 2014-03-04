@@ -10,9 +10,8 @@
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
-                            <af:button text="Save" id="b4"/>
-                            <af:button actionListener="#{bindings.Commit.execute}" text="Save &amp; Close"
-                                       disabled="#{!bindings.Commit.enabled}" id="b2" action="back"/>
+                            <af:button text="Save" id="b4" actionListener="#{bindings.Commit.execute}"/>
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Save &amp; Close" id="b2" action="back"/>
                             <af:button text="Cancel" id="b1" actionListener="#{bindings.Rollback.execute}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
@@ -23,7 +22,7 @@
                     <f:facet name="info"/>
                 </af:panelHeader>
                 <af:panelWindow id="pw1">
-                    <af:panelFormLayout id="pfl1">
+                    <af:panelFormLayout id="pfl1" rows="3">
                         <af:inputText value="#{bindings.ProductCode.inputValue}"
                                       label="#{bindings.ProductCode.hints.label}"
                                       required="#{bindings.ProductCode.hints.mandatory}"

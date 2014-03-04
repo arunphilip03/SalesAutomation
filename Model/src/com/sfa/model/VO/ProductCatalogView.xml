@@ -74,7 +74,14 @@
     PrecisionRule="true"
     EntityAttrName="ProductDesc"
     EntityUsage="ProductCatalog"
-    AliasName="PRODUCT_DESC"/>
+    AliasName="PRODUCT_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="150"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CurrentPrice"
     IsNotNull="true"
@@ -140,9 +147,65 @@
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="ProductCatalog"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewCriteria
+    Name="ProductCatalogViewCriteria"
+    ViewObjectName="com.sfa.model.VO.ProductCatalogView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="displayName"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ProductCatalogViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ProductCode"
+        ViewAttribute="ProductCode"
+        Operator="="
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductName"
+        ViewAttribute="ProductName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductCategory"
+        ViewAttribute="ProductCategory"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="OpportunityRevenueItemsView"
     ViewLink="com.sfa.model.viewlink.OppurtunityRevenueItemsFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

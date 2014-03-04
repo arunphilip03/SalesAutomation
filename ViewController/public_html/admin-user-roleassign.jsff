@@ -17,9 +17,9 @@
                     <f:facet name="info"/>
                 </af:panelHeader>
                 <af:panelWindow id="pw1">
-                    <af:panelSplitter id="ps1" orientation="vertical">
+                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="124">
                         <f:facet name="first">
-                            <af:panelFormLayout id="pfl1">
+                            <af:panelFormLayout id="pfl1" rows="4">
                                 <af:inputText value="#{bindings.UserName.inputValue}"
                                               label="#{bindings.UserName.hints.label}"
                                               required="#{bindings.UserName.hints.mandatory}" readOnly="true"
@@ -87,13 +87,13 @@
                             </af:panelFormLayout>
                         </f:facet>
                         <f:facet name="second">
-                            <af:panelCollection id="pc1">
+                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t2">
                                         <af:link id="l1" icon="#{resource['images:new_ena.png']}"
                                                  actionListener="#{bindings.Create.execute}"
-                                                 disabled="#{!bindings.Create.enabled}" action="create"/>
+                                                 disabled="#{!bindings.Create.enabled}" action="create" partialSubmit="true"/>
                                         <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"/>
                                         <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
                                                  actionListener="#{bindings.Delete.execute}"
@@ -106,36 +106,28 @@
                                           rowBandingInterval="0"
                                           selectedRowKeys="#{bindings.RoleAssignmentView3.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.RoleAssignmentView3.collectionModel.makeCurrent}"
-                                          rowSelection="single" fetchSize="#{bindings.RoleAssignmentView3.rangeSize}"
-                                          filterModel="#{bindings.RoleAssignmentView3Query.queryDescriptor}"
-                                          queryListener="#{bindings.RoleAssignmentView3Query.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t1" partialTriggers="::l3 ::l1">
+                                          rowSelection="single" fetchSize="#{bindings.RoleAssignmentView3.rangeSize}" id="t1" partialTriggers="::l3 ::l1"
+                                          columnStretching="last" styleClass="AFStretchWidth">
                                     <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.FirstName.name}"
-                                               filterable="true" sortable="true"
+                                               sortable="true"
                                                headerText="#{bindings.RoleAssignmentView3.hints.FirstName.label}"
-                                               id="c4">
+                                               id="c4" width="269">
                                         <af:outputText value="#{row.FirstName}"
                                                        shortDesc="#{bindings.RoleAssignmentView3.hints.FirstName.tooltip}"
                                                        id="ot4"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.RoleName.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.RoleAssignmentView3.hints.RoleName.label}"
-                                               id="c3">
+                                               sortable="true"
+                                               headerText="#{bindings.RoleAssignmentView3.hints.RoleName.label}" id="c3"
+                                               width="387">
                                         <af:outputText value="#{row.RoleName}"
                                                        shortDesc="#{bindings.RoleAssignmentView3.hints.RoleName.tooltip}"
                                                        id="ot3"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.EffecStartDate.name}"
-                                               filterable="true" sortable="true"
+                                               sortable="true"
                                                headerText="#{bindings.RoleAssignmentView3.hints.EffecStartDate.label}"
-                                               id="c1">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.RoleAssignmentView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffecStartDate.value}"
-                                                          id="id3">
-                                                <af:convertDateTime pattern="#{bindings.RoleAssignmentView3.hints.EffecStartDate.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
+                                               id="c1" width="288">
                                         <af:outputText value="#{row.EffecStartDate}"
                                                        shortDesc="#{bindings.RoleAssignmentView3.hints.EffecStartDate.tooltip}"
                                                        id="ot1">
@@ -143,15 +135,9 @@
                                         </af:outputText>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.EffecEndDate.name}"
-                                               filterable="true" sortable="true"
+                                               sortable="true"
                                                headerText="#{bindings.RoleAssignmentView3.hints.EffecEndDate.label}"
-                                               id="c2">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.RoleAssignmentView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffecEndDate.value}"
-                                                          id="id4">
-                                                <af:convertDateTime pattern="#{bindings.RoleAssignmentView3.hints.EffecEndDate.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
+                                               id="c2" width="-544">
                                         <af:outputText value="#{row.EffecEndDate}"
                                                        shortDesc="#{bindings.RoleAssignmentView3.hints.EffecEndDate.tooltip}"
                                                        id="ot2">

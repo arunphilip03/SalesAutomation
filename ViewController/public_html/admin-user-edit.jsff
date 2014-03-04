@@ -9,9 +9,8 @@
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
-                            <af:button text="Save" id="b1"/>
-                            <af:button text="Save &amp; Close" id="b2" actionListener="#{bindings.Commit.execute}"
-                                       disabled="#{!bindings.Commit.enabled}" action="back"/>
+                            <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
+                            <af:button text="Save &amp; Close" id="b2" actionListener="#{bindings.Commit.execute}" action="back"/>
                             <af:button text="Cancel" id="b3" actionListener="#{bindings.Rollback.execute}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
@@ -23,7 +22,7 @@
                 </af:panelHeader>
                 <!-- Content -->
                 <af:panelWindow id="pw1">
-                    <af:panelFormLayout id="pfl1">
+                    <af:panelFormLayout id="pfl1" rows="5">
                         <af:inputText value="#{bindings.UserName.inputValue}" label="#{bindings.UserName.hints.label}"
                                       required="#{bindings.UserName.hints.mandatory}"
                                       columns="#{bindings.UserName.hints.displayWidth}"
@@ -65,7 +64,7 @@
                                       required="#{bindings.Password.hints.mandatory}"
                                       columns="#{bindings.Password.hints.displayWidth}"
                                       maximumLength="#{bindings.Password.hints.precision}"
-                                      shortDesc="#{bindings.Password.hints.tooltip}" id="it6">
+                                      shortDesc="#{bindings.Password.hints.tooltip}" id="it6" secret="true">
                             <f:validator binding="#{bindings.Password.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.ManagerId.inputValue}" label="#{bindings.ManagerId.hints.label}"

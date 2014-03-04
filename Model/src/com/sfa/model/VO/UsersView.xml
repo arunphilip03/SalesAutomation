@@ -154,6 +154,8 @@ where Users.MANAGER_ID =  Users1.EMPLOYEE_ID]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <LABEL
+          ResId="com.sfa.model.VO.UsersView.ManagerId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -259,6 +261,23 @@ where Users.MANAGER_ID =  Users1.EMPLOYEE_ID]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.VO.UsersView.Managername_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ConfirmPassword"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.UsersView.ConfirmPassword_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

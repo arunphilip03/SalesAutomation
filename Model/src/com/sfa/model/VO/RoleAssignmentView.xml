@@ -109,7 +109,8 @@ FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID =
     EntityAttrName="RoleId"
     EntityUsage="RoleAssignment"
     AliasName="ROLE_ID"
-    LOVName="LOV_RoleId_Assign">
+    LOVName="LOV_RoleId_Assign"
+    DefaultValue="1">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -199,7 +200,8 @@ FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID =
     ColumnType="VARCHAR2"
     AliasName="ROLE_NAME"
     Expression="ROLE_NAME"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
@@ -209,6 +211,10 @@ FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID =
           ResId="com.sfa.model.VO.RoleAssignmentView.RoleName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="RoleId"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="FirstName"
@@ -229,6 +235,10 @@ FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID =
           ResId="com.sfa.model.VO.RoleAssignmentView.FirstName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="UserId"/>
+    </Dependencies>
   </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle

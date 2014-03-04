@@ -7,6 +7,9 @@
     <iterator Binds="UsersView1" RangeSize="25" DataControl="AppModuleDataControl" id="UsersView1Iterator"/>
   </executables>
   <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <listOfValues IterBinding="UsersView1Iterator" StaticList="false" Uses="LOV_ManagerId_Name" id="ManagerId"/>
     <attributeValues IterBinding="UsersView1Iterator" id="UserName">
       <AttrNames>
         <Item Value="UserName"/>
@@ -32,6 +35,11 @@
         <Item Value="LastName"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="UsersView1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="UsersView1Iterator" id="EffecStartDate">
       <AttrNames>
         <Item Value="EffecStartDate"/>
@@ -42,8 +50,5 @@
         <Item Value="EffecEndDate"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <listOfValues IterBinding="UsersView1Iterator" StaticList="false" Uses="LOV_ManagerId_Name" id="ManagerId1"/>
   </bindings>
 </pageDefinition>
