@@ -6,7 +6,7 @@
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
                 <af:panelGroupLayout layout="vertical" id="pgl2">
-                    <af:panelHeader text="Roles" id="ph1">
+                    <af:panelHeader text=" " id="ph1">
                         <af:query id="qryId1" headerText="Search" disclosed="true"
                                   value="#{bindings.RolesViewSearchQuery.queryDescriptor}"
                                   model="#{bindings.RolesViewSearchQuery.queryModel}"
@@ -21,9 +21,6 @@
                                          actionListener="#{bindings.Create.execute}"
                                          disabled="#{!bindings.Create.enabled}" action="add"/>
                                 <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"/>
-                                <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                         actionListener="#{bindings.Delete.execute}"
-                                         disabled="#{bindings.Delete.enabled}"/>
                             </af:toolbar>
                         </f:facet>
                         <af:table value="#{bindings.RolesView1.collectionModel}" var="row"
@@ -32,50 +29,33 @@
                                   rowBandingInterval="0"
                                   selectedRowKeys="#{bindings.RolesView1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.RolesView1.collectionModel.makeCurrent}"
-                                  rowSelection="single" fetchSize="#{bindings.RolesView1.rangeSize}"
-                                  filterModel="#{bindings.RolesViewSearchQuery.queryDescriptor}"
-                                  queryListener="#{bindings.RolesViewSearchQuery.processQuery}" filterVisible="true"
-                                  varStatus="vs" id="t1" partialTriggers="::l1 ::l3" styleClass="AFStretchWidth"
+                                  rowSelection="single" fetchSize="#{bindings.RolesView1.rangeSize}" id="t1" partialTriggers="::l1 ::l3" styleClass="AFStretchWidth"
                                   columnStretching="last">
-                            <af:column sortProperty="#{bindings.RolesView1.hints.RoleName.name}" filterable="true"
-                                       sortable="true" headerText="#{bindings.RolesView1.hints.RoleName.label}" id="c1"
-                                       width="323">
+                            <af:column sortProperty="#{bindings.RolesView1.hints.RoleName.name}" sortable="true"
+                                       headerText="#{bindings.RolesView1.hints.RoleName.label}" id="c1" width="323">
                                 <af:outputText value="#{row.RoleName}"
                                                shortDesc="#{bindings.RolesView1.hints.RoleName.tooltip}" id="ot1"/>
                             </af:column>
-                            <af:column sortProperty="#{bindings.RolesView1.hints.Description.name}" filterable="true"
-                                       sortable="true" headerText="#{bindings.RolesView1.hints.Description.label}"
-                                       id="c2" width="463">
+                            <af:column sortProperty="#{bindings.RolesView1.hints.Description.name}" sortable="true"
+                                       headerText="#{bindings.RolesView1.hints.Description.label}" id="c2" width="463">
                                 <af:outputText value="#{row.Description}"
                                                shortDesc="#{bindings.RolesView1.hints.Description.tooltip}" id="ot4"/>
                             </af:column>
-                            <af:column sortProperty="#{bindings.RolesView1.hints.EffecStartDate.name}" filterable="true"
-                                       sortable="true" headerText="#{bindings.RolesView1.hints.EffecStartDate.label}"
-                                       id="c3" width="260">
+                            <af:column sortProperty="#{bindings.RolesView1.hints.EffecStartDate.name}" sortable="true"
+                                       headerText="#{bindings.RolesView1.hints.EffecStartDate.label}" id="c3"
+                                       width="260">
                                 <af:outputText value="#{row.EffecStartDate}"
                                                shortDesc="#{bindings.RolesView1.hints.EffecStartDate.tooltip}" id="ot2">
                                     <af:convertDateTime pattern="#{bindings.RolesView1.hints.EffecStartDate.format}"/>
                                 </af:outputText>
-                                <f:facet name="filter">
-                                    <af:inputDate value="#{bindings.RolesViewSearchQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffecStartDate.value}"
-                                                  id="id2">
-                                        <af:convertDateTime pattern="#{bindings.RolesView1.hints.EffecStartDate.format}"/>
-                                    </af:inputDate>
-                                </f:facet>
                             </af:column>
-                            <af:column sortProperty="#{bindings.RolesView1.hints.EffecEndDate.name}" filterable="true"
-                                       sortable="true" headerText="#{bindings.RolesView1.hints.EffecEndDate.label}"
-                                       id="c4" width="-646">
+                            <af:column sortProperty="#{bindings.RolesView1.hints.EffecEndDate.name}" sortable="true"
+                                       headerText="#{bindings.RolesView1.hints.EffecEndDate.label}" id="c4"
+                                       width="-646">
                                 <af:outputText value="#{row.EffecEndDate}"
                                                shortDesc="#{bindings.RolesView1.hints.EffecEndDate.tooltip}" id="ot3">
                                     <af:convertDateTime pattern="#{bindings.RolesView1.hints.EffecEndDate.format}"/>
                                 </af:outputText>
-                                <f:facet name="filter">
-                                    <af:inputDate value="#{bindings.RolesViewSearchQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffecEndDate.value}"
-                                                  id="id1">
-                                        <af:convertDateTime pattern="#{bindings.RolesView1.hints.EffecEndDate.format}"/>
-                                    </af:inputDate>
-                                </f:facet>
                             </af:column>
                         </af:table>
                         <f:facet name="statusbar"/>

@@ -30,7 +30,14 @@
     PrecisionRule="true"
     EntityAttrName="RoleId"
     EntityUsage="Roles"
-    AliasName="ROLE_ID"/>
+    AliasName="ROLE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.RolesView.RoleId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RoleName"
     IsNotNull="true"

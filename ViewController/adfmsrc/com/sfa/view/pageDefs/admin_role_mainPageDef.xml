@@ -20,6 +20,5 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="RolesView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
-    <action IterBinding="RolesView1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

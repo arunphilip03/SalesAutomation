@@ -5,14 +5,13 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelHeader text="Create User" id="ph1" inlineStyle="width:1500px; height:40px;">
+                <af:panelHeader text="Create User" id="ph1" styleClass="AFStretchWidth">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t2">
-                            <af:button text="Save" id="b1"/>
-                            <af:button text="Save &amp; Close" id="b2" actionListener="#{bindings.Commit.execute}"
-                                       disabled="#{!bindings.Commit.enabled}" action="back"/>
+                            <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
+                            <af:button text="Save &amp; Close" id="b2" actionListener="#{bindings.Commit.execute}" action="back"/>
                             <af:button text="Cancel" id="b3" actionListener="#{bindings.Rollback.execute}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
@@ -23,7 +22,7 @@
                     <f:facet name="info"/>
                 </af:panelHeader>
                 <af:panelWindow id="pw1">
-                    <af:panelFormLayout id="pfl1">
+                    <af:panelFormLayout id="pfl1" rows="5">
                         <af:inputText value="#{bindings.UserName.inputValue}" label="#{bindings.UserName.hints.label}"
                                       required="#{bindings.UserName.hints.mandatory}"
                                       columns="#{bindings.UserName.hints.displayWidth}"
@@ -61,15 +60,22 @@
                                       shortDesc="#{bindings.LastName.hints.tooltip}" id="it5">
                             <f:validator binding="#{bindings.LastName.validator}"/>
                         </af:inputText>
-                        <af:inputComboboxListOfValues id="managerId1Id"
-                                                      popupTitle="Search and Select: #{bindings.ManagerId1.hints.label}"
-                                                      value="#{bindings.ManagerId1.inputValue}"
-                                                      label="#{bindings.ManagerId1.hints.label}"
-                                                      model="#{bindings.ManagerId1.listOfValuesModel}"
-                                                      required="#{bindings.ManagerId1.hints.mandatory}"
-                                                      columns="#{bindings.ManagerId1.hints.displayWidth}"
-                                                      shortDesc="#{bindings.ManagerId1.hints.tooltip}">
-                            <f:validator binding="#{bindings.ManagerId1.validator}"/>
+                        <af:inputText value="#{bindings.Password.inputValue}" label="#{bindings.Password.hints.label}"
+                                      required="#{bindings.Password.hints.mandatory}"
+                                      columns="#{bindings.Password.hints.displayWidth}"
+                                      maximumLength="#{bindings.Password.hints.precision}"
+                                      shortDesc="#{bindings.Password.hints.tooltip}" id="it6">
+                            <f:validator binding="#{bindings.Password.validator}"/>
+                        </af:inputText>
+                        <af:inputComboboxListOfValues id="managerIdId"
+                                                      popupTitle="Search and Select: #{bindings.ManagerId.hints.label}"
+                                                      value="#{bindings.ManagerId.inputValue}"
+                                                      label="#{bindings.ManagerId.hints.label}"
+                                                      model="#{bindings.ManagerId.listOfValuesModel}"
+                                                      required="#{bindings.ManagerId.hints.mandatory}"
+                                                      columns="#{bindings.ManagerId.hints.displayWidth}"
+                                                      shortDesc="#{bindings.ManagerId.hints.tooltip}">
+                            <f:validator binding="#{bindings.ManagerId.validator}"/>
                         </af:inputComboboxListOfValues>
                         <af:inputDate value="#{bindings.EffecStartDate.inputValue}"
                                       label="#{bindings.EffecStartDate.hints.label}"

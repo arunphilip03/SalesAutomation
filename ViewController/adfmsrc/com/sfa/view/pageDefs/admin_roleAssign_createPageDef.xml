@@ -4,33 +4,30 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="RoleAssignmentView3" RangeSize="25" DataControl="AppModuleDataControl"
+              id="RoleAssignmentView3Iterator"/>
     <iterator Binds="ValidRolesView1" RangeSize="25" DataControl="AppModuleDataControl" id="ValidRolesView1Iterator"/>
-    <searchRegion Binds="ValidRolesView1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ValidRolesView1Query"/>
-    <iterator Binds="RoleAssignmentView1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="RoleAssignmentView1Iterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="ValidRolesView1Iterator" id="ValidRolesView1">
-      <nodeDefinition DefName="com.sfa.model.VO.ValidRolesView" Name="ValidRolesView10">
-        <AttrNames>
-          <Item Value="Description"/>
-          <Item Value="EffecEndDate"/>
-          <Item Value="EffecStartDate"/>
-          <Item Value="RoleName"/>
-          <Item Value="SelectRole"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <attributeValues IterBinding="RoleAssignmentView1Iterator" id="EffecStartDate">
+    <listOfValues IterBinding="RoleAssignmentView3Iterator" StaticList="false" Uses="LOV_UserId" id="UserId"/>
+    <attributeValues IterBinding="RoleAssignmentView3Iterator" id="EffecStartDate">
       <AttrNames>
         <Item Value="EffecStartDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="RoleAssignmentView1Iterator" id="EffecEndDate">
+    <attributeValues IterBinding="RoleAssignmentView3Iterator" id="EffecEndDate">
       <AttrNames>
         <Item Value="EffecEndDate"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ValidRolesView1Iterator" ListOperMode="multiSelect" ListIter="ValidRolesView1Iterator"
+          id="ValidRolesView1" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="RoleId"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="RoleName"/>
+      </ListDisplayAttrNames>
+    </list>
   </bindings>
 </pageDefinition>

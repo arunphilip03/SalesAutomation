@@ -6,8 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ProductCatalogView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="ProductCatalogView1Iterator"/>
-    <searchRegion Criteria="ProductCatalogViewSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="ProductCatalogView1Iterator" id="ProductCatalogViewSearchQuery"/>
+    <searchRegion Criteria="ProductCatalogViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ProductCatalogView1Iterator" id="ProductCatalogViewCriteriaQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="ProductCatalogView1Iterator" id="ProductCatalogView1">

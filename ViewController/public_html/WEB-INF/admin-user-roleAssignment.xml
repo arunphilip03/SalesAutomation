@@ -10,12 +10,15 @@
         <name>taskFlowReturn1</name>
       </outcome>
     </task-flow-return>
-    <view id="admin-roleAssign-create">
-      <page>/admin-roleAssign-create.jsff</page>
-    </view>
     <view id="admin-roleAssign-edit">
       <page>/admin-roleAssign-edit.jsff</page>
     </view>
+    <task-flow-call id="adminUser-roleAssign-create">
+      <task-flow-reference>
+        <document>/WEB-INF/adminUser-roleAssign-create.xml</document>
+        <id>adminUser-roleAssign-create</id>
+      </task-flow-reference>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>admin-user-roleassign</from-activity-id>
       <control-flow-case id="__2">
@@ -24,18 +27,11 @@
       </control-flow-case>
       <control-flow-case id="__3">
         <from-outcome>create</from-outcome>
-        <to-activity-id>admin-roleAssign-create</to-activity-id>
+        <to-activity-id>adminUser-roleAssign-create</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__4">
         <from-outcome>edit</from-outcome>
         <to-activity-id>admin-roleAssign-edit</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__5">
-      <from-activity-id>admin-roleAssign-create</from-activity-id>
-      <control-flow-case id="__6">
-        <from-outcome>back</from-outcome>
-        <to-activity-id>admin-user-roleassign</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__7">

@@ -5,15 +5,19 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="width:1242px; height:481px;">
-                    <af:panelHeader text="ProductCatalog" id="ph1">
-                        <af:query id="qryId1" headerText="Search" disclosed="true"
-                                  value="#{bindings.ProductCatalogViewSearchQuery.queryDescriptor}"
-                                  model="#{bindings.ProductCatalogViewSearchQuery.queryModel}"
-                                  queryListener="#{bindings.ProductCatalogViewSearchQuery.processQuery}"
-                                  queryOperationListener="#{bindings.ProductCatalogViewSearchQuery.processQueryOperation}"/>
+                <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">
+                    <af:panelHeader text=" " id="ph1">
+                        <af:panelGroupLayout layout="vertical" id="pgl3">
+                            <af:panelHeader text="ProductCatalog" id="ph2">
+                                <af:query id="qryId1" headerText="Search" disclosed="true"
+                                          value="#{bindings.ProductCatalogViewCriteriaQuery.queryDescriptor}"
+                                          model="#{bindings.ProductCatalogViewCriteriaQuery.queryModel}"
+                                          queryListener="#{bindings.ProductCatalogViewCriteriaQuery.processQuery}"
+                                          queryOperationListener="#{bindings.ProductCatalogViewCriteriaQuery.processQueryOperation}"/>
+                            </af:panelHeader>
+                        </af:panelGroupLayout>
                     </af:panelHeader>
-                    <af:panelCollection id="pc1" inlineStyle="max-width:150mm; width:525px;">
+                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t2">
@@ -23,7 +27,8 @@
                                 <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"/>
                                 <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
                                          actionListener="#{bindings.Delete.execute}"
-                                         disabled="#{!bindings.Delete.enabled}"/>
+                                         disabled="#{!bindings.Delete.enabled}" useWindow="true" targetFrame="_top"
+                                         action="delete"/>
                             </af:toolbar>
                         </f:facet>
                         <af:table value="#{bindings.ProductCatalogView1.collectionModel}" var="row"
@@ -32,34 +37,36 @@
                                   rowBandingInterval="0"
                                   selectedRowKeys="#{bindings.ProductCatalogView1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.ProductCatalogView1.collectionModel.makeCurrent}"
-                                  rowSelection="single" fetchSize="#{bindings.ProductCatalogView1.rangeSize}"
-                                  filterModel="#{bindings.ProductCatalogViewSearchQuery.queryDescriptor}"
-                                  queryListener="#{bindings.ProductCatalogViewSearchQuery.processQuery}"
-                                  filterVisible="true" varStatus="vs" id="t1" width="913" partialTriggers="::l1 ::l3">
+                                  rowSelection="single" fetchSize="#{bindings.ProductCatalogView1.rangeSize}" id="t1" partialTriggers="::l1 ::l3"
+                                  styleClass="AFStretchWidth" columnStretching="last">
                             <af:column sortProperty="#{bindings.ProductCatalogView1.hints.ProductCode.name}"
-                                       filterable="true" sortable="true"
-                                       headerText="#{bindings.ProductCatalogView1.hints.ProductCode.label}" id="c1">
+                                       sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.ProductCode.label}" id="c1"
+                                       width="100">
                                 <af:outputText value="#{row.ProductCode}"
                                                shortDesc="#{bindings.ProductCatalogView1.hints.ProductCode.tooltip}"
                                                id="ot1"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.ProductCatalogView1.hints.ProductName.name}"
-                                       filterable="true" sortable="true"
-                                       headerText="#{bindings.ProductCatalogView1.hints.ProductName.label}" id="c2">
+                                       sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.ProductName.label}" id="c2"
+                                       width="243">
                                 <af:outputText value="#{row.ProductName}"
                                                shortDesc="#{bindings.ProductCatalogView1.hints.ProductName.tooltip}"
                                                id="ot2"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.ProductCatalogView1.hints.ProductDesc.name}"
-                                       filterable="true" sortable="true"
-                                       headerText="#{bindings.ProductCatalogView1.hints.ProductDesc.label}" id="c3">
+                                       sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.ProductDesc.label}" id="c3"
+                                       width="358">
                                 <af:outputText value="#{row.ProductDesc}"
                                                shortDesc="#{bindings.ProductCatalogView1.hints.ProductDesc.tooltip}"
                                                id="ot3"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.ProductCatalogView1.hints.CurrentPrice.name}"
-                                       filterable="true" sortable="true"
-                                       headerText="#{bindings.ProductCatalogView1.hints.CurrentPrice.label}" id="c4">
+                                       sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.CurrentPrice.label}" id="c4"
+                                       width="232">
                                 <af:outputText value="#{row.CurrentPrice}"
                                                shortDesc="#{bindings.ProductCatalogView1.hints.CurrentPrice.tooltip}"
                                                id="ot4">
@@ -68,8 +75,9 @@
                                 </af:outputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.ProductCatalogView1.hints.ProductCategory.name}"
-                                       filterable="true" sortable="true"
-                                       headerText="#{bindings.ProductCatalogView1.hints.ProductCategory.label}" id="c5">
+                                       sortable="true"
+                                       headerText="#{bindings.ProductCatalogView1.hints.ProductCategory.label}" id="c5"
+                                       width="-433">
                                 <af:outputText value="#{row.ProductCategory}"
                                                shortDesc="#{bindings.ProductCatalogView1.hints.ProductCategory.tooltip}"
                                                id="ot5"/>
