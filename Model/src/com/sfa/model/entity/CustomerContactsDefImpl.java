@@ -24,68 +24,67 @@ public class CustomerContactsDefImpl extends EntityDefImpl {
      */
     public CustomerContactsDefImpl() {
     }
-    
+
     private ViewObject getPrimaryContactExistsView(DBTransaction t) {
-         ApplicationModule root = t.getRootApplicationModule();
-         ViewObject vo = root.findViewObject("ContactPrimaryExist");
-         if (vo == null) {
-           vo = root.createViewObject("ContactPrimaryExist","com.sfa.model.VO.ContactPrimaryExist");
-         }
-         return vo;
-       }
-    
-    public boolean exists( DBTransaction t
-                           , String isPrimary
-                           , Number accountId
-                           ) {
+        ApplicationModule root = t.getRootApplicationModule();
+        ViewObject vo = root.findViewObject("ContactPrimaryExist");
+        if (vo == null) {
+            vo = root.createViewObject("ContactPrimaryExist", "com.sfa.model.VO.ContactPrimaryExist");
+        }
+        return vo;
+    }
+
+    public boolean exists(DBTransaction t, String isPrimary, Number accountId) {
         ViewObject vo = getPrimaryContactExistsView(t);
         vo.defineNamedWhereClauseParam("ID", null, null);
-          vo.defineNamedWhereClauseParam("ISPRIMARY", null, null);
+        vo.defineNamedWhereClauseParam("ISPRIMARY", null, null);
+        System.out.println("Account id: "+ accountId);
+                System.out.println("is primary: "+ isPrimary);
+                
         vo.setNamedWhereClauseParam("ID", accountId);
         vo.setNamedWhereClauseParam("ISPRIMARY", isPrimary);
-          
-          
-//        vo.setWhereClauseParam(1,accountId);
-//        vo.setWhereClauseParam(2,isPrimary);
+
+
+        //        vo.setWhereClauseParam(1,accountId);
+        //        vo.setWhereClauseParam(2,isPrimary);
         vo.setForwardOnly(true);
         vo.executeQuery();
         if (vo.first() != null) {
-          System.out.println("found contact in database!");
-          return true;
+            System.out.println("found contact in database!");
+            return true;
         }
         // If we didn't find it in the database, try checking against any
         // contacts in cache
-        Iterator iter =  getAllEntityInstancesIterator(t);
-        while (iter.hasNext()) {
-          CustomerContactsImpl contact = (CustomerContactsImpl)iter.next();
-          if (contact.getContactName() == null) {
-            System.out.println("empty cache element");
-          }
-          else {
-              
-            String isPrimaryContact = contact.getIsPrimary();
-            oracle.jbo.domain.Number account = toADFNumber(contact.getCustAccountId());
-              
-              if(account.equals(accountId) && isPrimaryContact.equals(isPrimary)) {
-                  System.out.println("found contact in cache!");
-                  return true;
-              }
-          }
-        }
+//        Iterator iter = getAllEntityInstancesIterator(t);
+//        while (iter.hasNext()) {
+//            CustomerContactsImpl contact = (CustomerContactsImpl) iter.next();
+//            if (contact.getContactName() == null) {
+//                System.out.println("empty cache element");
+//            } else {
+//
+//                String isPrimaryContact = contact.getIsPrimary();
+//                oracle.jbo.domain.Number account = toADFNumber(contact.getCustAccountId());
+//
+//                if (account.equals(accountId) && isPrimaryContact.equals(isPrimary)) {
+//                    System.out.println("found contact in cache!");
+//                    return true;
+//                }
+//            }
+//        }
         return false;
-      }
-    
+    }
+
     public static oracle.jbo.domain.Number toADFNumber(BigDecimal l) {
-       oracle.jbo.domain.Number n = null;
-       if (l != null) {
+        oracle.jbo.domain.Number n = null;
+        if (l != null) {
             try {
                 n = new oracle.jbo.domain.Number(l);
             } catch (SQLException e) {
             }
         }
-       return n;
-     }
-    
-    
+        return n;
+    }
+
+
 }
 

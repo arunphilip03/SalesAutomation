@@ -38,6 +38,16 @@
         <rollback/>
       </outcome>
     </task-flow-return>
+    <task-flow-call id="add-edit-tasks-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-tasks-taskflow.xml</document>
+        <id>add-edit-tasks-taskflow</id>
+      </task-flow-reference>
+      <input-parameter id="__6">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedTaskKeyStr}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>customer-detail</from-activity-id>
       <control-flow-case id="__3">
@@ -51,6 +61,10 @@
       <control-flow-case id="__2">
         <from-outcome>back</from-outcome>
         <to-activity-id>back</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>addEditTask</from-outcome>
+        <to-activity-id>add-edit-tasks-taskflow</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

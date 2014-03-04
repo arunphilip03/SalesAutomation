@@ -9,6 +9,8 @@
               id="CustomerContactsView2Iterator" ChangeEventPolicy="ppr" Refresh="always"/>
     <iterator Binds="AppointmentsView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="AppointmentsView2Iterator" ChangeEventPolicy="ppr" Refresh="always"/>
+    <iterator Binds="TasksView3" RangeSize="25" DataControl="AppModuleDataControl" id="TasksView3Iterator"
+              ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="CustomerAccountView1Iterator" id="AccountName">
@@ -72,5 +74,18 @@
         <Item Value="ContactId"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="TasksView3Iterator" id="TasksView3">
+      <nodeDefinition DefName="com.sfa.model.VO.TasksView" Name="TasksView30">
+        <AttrNames>
+          <Item Value="TaskName"/>
+          <Item Value="DueDate"/>
+          <Item Value="Priority"/>
+          <Item Value="Description"/>
+          <Item Value="PercentageCompletion"/>
+          <Item Value="Assignee"/>
+          <Item Value="RelatedOppurtunity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

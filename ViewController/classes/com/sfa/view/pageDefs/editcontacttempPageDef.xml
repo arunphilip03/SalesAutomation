@@ -46,5 +46,7 @@
     <listOfValues IterBinding="CustomerContactsView2Iterator" StaticList="false" Uses="LOV_BuyInfluenceLevel"
                   id="BuyInfluenceLevel"/>
     <listOfValues IterBinding="CustomerContactsView2Iterator" StaticList="false" Uses="LOV_IsPrimary" id="IsPrimary1"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

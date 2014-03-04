@@ -205,6 +205,12 @@
   <ViewUsage
     Name="PrimaryContactExistsVO1"
     ViewObjectName="com.sfa.model.VO.PrimaryContactExistsVO"/>
+  <ViewUsage
+    Name="AppointmentInvUsersVO1"
+    ViewObjectName="com.sfa.model.VO.AppointmentInvUsersVO"/>
+  <ViewUsage
+    Name="AppointmentInvContactsVO1"
+    ViewObjectName="com.sfa.model.VO.AppointmentInvContactsVO"/>
   <ViewLinkUsage
     Name="AppointmentInviteesFk1Link1"
     ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
@@ -378,5 +384,17 @@
     ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteeVL"
     SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentsView2"
     DstViewUsageName="com.sfa.model.service.AppModule.AppointmentInviteesVO3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AppointmentInvUsers1"
+    ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInvUsers"
+    SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentInviteesVO3"
+    DstViewUsageName="com.sfa.model.service.AppModule.AppointmentInvUsersVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AppointmentInvContactsVL1"
+    ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInvContactsVL"
+    SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentInviteesVO3"
+    DstViewUsageName="com.sfa.model.service.AppModule.AppointmentInvContactsVO1"
     Reversed="false"/>
 </AppModule>

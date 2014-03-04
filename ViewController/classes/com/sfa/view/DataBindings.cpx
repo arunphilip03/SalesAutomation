@@ -13,7 +13,6 @@
     <page path="/WEB-INF/add-edit-customer.xml#add-edit-customer@CreateInsert"
           usageId="com_sfa_view_add_edit_customer_add_edit_customer_CreateInsertPageDef"/>
     <page path="/customer-search.jsf" usageId="com_sfa_view_customer_searchPageDef"/>
-    <page path="/ContactsOverview.jsf" usageId="com_sfa_view_ContactsOverviewPageDef"/>
     <page path="/WEB-INF/add-edit-contact.xml#add-edit-contact@createInsert"
           usageId="com_sfa_view_add_edit_contact_add_edit_contact_createInsertPageDef"/>
    
@@ -22,8 +21,6 @@
           usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_createInsertPageDef"/>
     <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@setCurrentRowWithKey"
           usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentRowWithKeyPageDef"/>
-    <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@setCurrentAccount"
-          usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentAccountPageDef"/>
     <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@createInsert"
           usageId="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_createInsertPageDef"/>
     <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@setAppointmentKey"
@@ -69,6 +66,23 @@
     <page path="/admin-roleAssign-edit.jsff" usageId="com_sfa_view_admin_roleAssign_editPageDef"/>
     <page path="/admin-roleAssign-create.jsff" usageId="com_sfa_view_admin_roleAssign_createPageDef"/>
     <page path="/AdminDashboard.jsf" usageId="com_sfa_view_AdminDashboardPageDef"/>
+    <page path="/CustomerAppointmentsCreate.jsff" usageId="com_sfa_view_CustomerAppointmentsCreatePageDef"/>
+    <page path="/AppointmentInvitees.jsff" usageId="com_sfa_view_AppointmentInviteesPageDef"/>
+    <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@commitCreate"
+          usageId="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitCreatePageDef"/>
+    <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@commitEdit"
+          usageId="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitEditPageDef"/>
+    <page path="/ContactsOverview.jsff" usageId="com_sfa_view_ContactsOverviewPageDef"/>
+    <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@createInsert"
+          usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_createInsertPageDef"/>
+    <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@setCurrentRowWithKey"
+          usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_setCurrentRowWithKeyPageDef"/>
+    <page path="/CreateTask.jsff" usageId="com_sfa_view_CreateTaskPageDef"/>
+    <page path="/EditTask.jsff" usageId="com_sfa_view_EditTaskPageDef"/>
+    <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@commitCreate"
+          usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitCreatePageDef"/>
+    <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@commitEdit"
+          usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -107,8 +121,6 @@
           path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_createInsertPageDef"/>
     <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentRowWithKeyPageDef"
           path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentRowWithKeyPageDef"/>
-    <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentAccountPageDef"
-          path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentAccountPageDef"/>
     <page id="com_sfa_view_CustomerAppointmentsEditPageDef"
           path="com.sfa.view.pageDefs.CustomerAppointmentsEditPageDef"/>
     <page id="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_createInsertPageDef"
@@ -156,6 +168,23 @@
     <page id="com_sfa_view_admin_roleAssign_createPageDef" path="com.sfa.view.pageDefs.admin_roleAssign_createPageDef"/>
     <page id="com_sfa_view_Admin_DashboardPageDef" path="com.sfa.view.pageDefs.Admin_DashboardPageDef"/>
     <page id="com_sfa_view_AdminDashboardPageDef" path="com.sfa.view.pageDefs.AdminDashboardPageDef"/>
+    <page id="com_sfa_view_CustomerAppointmentsCreatePageDef"
+          path="com.sfa.view.pageDefs.CustomerAppointmentsCreatePageDef"/>
+    <page id="com_sfa_view_AppointmentInviteesPageDef" path="com.sfa.view.pageDefs.AppointmentInviteesPageDef"/>
+    <page id="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitCreatePageDef"
+          path="com.sfa.view.pageDefs.add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitCreatePageDef"/>
+    <page id="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitEditPageDef"
+          path="com.sfa.view.pageDefs.add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitEditPageDef"/>
+    <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_createInsertPageDef"
+          path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_createInsertPageDef"/>
+    <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_setCurrentRowWithKeyPageDef"
+          path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_setCurrentRowWithKeyPageDef"/>
+    <page id="com_sfa_view_CreateTaskPageDef" path="com.sfa.view.pageDefs.CreateTaskPageDef"/>
+    <page id="com_sfa_view_EditTaskPageDef" path="com.sfa.view.pageDefs.EditTaskPageDef"/>
+    <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitCreatePageDef"
+          path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitCreatePageDef"/>
+    <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"
+          path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

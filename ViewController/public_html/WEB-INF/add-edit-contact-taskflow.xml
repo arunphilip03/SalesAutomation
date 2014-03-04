@@ -58,12 +58,6 @@
         <rollback/>
       </outcome>
     </task-flow-return>
-    <method-call id="setCurrentAccount">
-      <method>#{bindings.setCurrentRowWithKey.execute}</method>
-      <outcome>
-        <fixed-outcome>setContact</fixed-outcome>
-      </outcome>
-    </method-call>
     <view id="EditContact">
       <page>/ContactEdit.jsff</page>
     </view>
@@ -99,7 +93,7 @@
       </control-flow-case>
       <control-flow-case id="__15">
         <from-outcome>edit</from-outcome>
-        <to-activity-id>setCurrentAccount</to-activity-id>
+        <to-activity-id>setCurrentRowWithKey</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
@@ -122,13 +116,6 @@
       <control-flow-case id="__20">
         <from-outcome>save</from-outcome>
         <to-activity-id>commitCreate</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__16">
-      <from-activity-id>setCurrentAccount</from-activity-id>
-      <control-flow-case id="__17">
-        <from-outcome>setContact</from-outcome>
-        <to-activity-id>setCurrentRowWithKey</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__3">

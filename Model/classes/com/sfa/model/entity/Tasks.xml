@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="TASKS"
   AliasName="Tasks"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="TaskId"
     IsNotNull="true"
@@ -33,6 +34,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Tasks.TaskName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="DueDate"
@@ -41,7 +48,20 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Tasks.DueDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sfa.model.entity.Tasks.DueDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.Tasks.DueDate_FMT_FORMAT"/>
+        <CONTROLTYPE
+          Value="date"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Priority"
     IsNotNull="true"
@@ -66,6 +86,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHEIGHT
+          Value="4"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="AsigneeId"
@@ -80,7 +106,22 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Tasks.PercentageCompletion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RangeValidationBean
+      Name="PercentageCompletionRule0"
+      ResId="com.sfa.model.entity.Tasks.PercentageCompletion_Rule_0"
+      OnAttribute="PercentageCompletion"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0"
+      MaxValue="100"/>
+  </Attribute>
   <Attribute
     Name="OppurtunityId"
     IsNotNull="true"
@@ -200,6 +241,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="TASKS_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="TasksFk1">
@@ -208,6 +250,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="TASKS_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="TasksFk2">
@@ -216,6 +259,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="TASKS_FK2"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="TasksFk3">
@@ -224,5 +268,10 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="TASKS_FK3"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

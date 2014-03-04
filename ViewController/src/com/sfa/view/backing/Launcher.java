@@ -22,16 +22,21 @@ public class Launcher {
 
         _launchActivity("A New Activity", "/WEB-INF/flows/new.xml#new", true);
     }
-    
-    
+
+
     public void launchCustomerAccount(ActionEvent actionEvent) {
-        _launchActivity("Customer Account", "/WEB-INF/customer-taskflow.xml#customer-account", false);
+        _launchActivity("Manage Accounts", "/WEB-INF/customer-taskflow.xml#customer-account", false);
     }
-    
+
+    public void launchContacts(ActionEvent actionEvent) {
+        _launchActivity("Manage Contacts", "/WEB-INF/contacts-taskflow.xml#contacts-taskflow", false);
+    }
+
+
     public void launchRoles(ActionEvent actionEvent) {
         _launchActivity("Roles", "/WEB-INF/admin-role-tf.xml#admin-role-task", false);
     }
-    
+
 
     public void launchFirstActivity(ActionEvent actionEvent) {
         /**
@@ -39,18 +44,15 @@ public class Launcher {
       * to create another tab instance is set to false. The taskflow ID is used
       * to track whether to create a new tab or select an existing one.
       */
-        _launchActivity("The First Activity", "/WEB-INF/demo.xml#demo",
-                        false);
+        _launchActivity("The First Activity", "/WEB-INF/demo.xml#demo", false);
     }
 
     public void launchSecondActivity(ActionEvent actionEvent) {
-        _launchActivity("Next Activity", "/WEB-INF/demo.xml#demo",
-                        false);
+        _launchActivity("Next Activity", "/WEB-INF/demo.xml#demo", false);
     }
 
     public void launchThirdActivity(ActionEvent actionEvent) {
-        _launchActivity("Third Activity", "/WEB-INF/flows/third.xml#third",
-                        false);
+        _launchActivity("Third Activity", "/WEB-INF/flows/third.xml#third", false);
     }
 
     public void closeCurrentActivity(ActionEvent actionEvent) {
@@ -94,20 +96,23 @@ public class Launcher {
         }
     }
 
-    private void _launchActivity(String title, String taskflowId,
-                                 boolean newTab) {
+    private void _launchActivity(String title, String taskflowId, boolean newTab) {
         try {
             if (newTab) {
                 TabContext.getCurrentInstance().addTab(title, taskflowId);
             } else {
-                TabContext.getCurrentInstance().addOrSelectTab(title,
-                                                               taskflowId);
+                TabContext.getCurrentInstance().addOrSelectTab(title, taskflowId);
+                
+                //TabContext.getCurrentInstance().setMainContent(taskflowId);
             }
         } catch (TabContext.TabOverflowException toe) {
             // causes a dialog to be displayed to the user saying that there are
             // too many tabs open - the new tab will not be opened...
             toe.handleDefault();
-        }
+        } 
+//        catch (TabContext.TabContentAreaDirtyException e) {
+//            
+//        }
     }
 
     public void launchFirstReplaceInPlace(ActionEvent actionEvent) {

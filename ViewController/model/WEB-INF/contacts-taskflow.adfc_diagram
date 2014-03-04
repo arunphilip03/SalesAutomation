@@ -7,41 +7,45 @@
       <property
          name="activityId">contacts</property>
       <property
-         name="page">/ContactsOverview.jsf</property>
+         name="page">/ContactsOverview.jsff</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>contacts&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>contacts&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">235.59766</property>
+         name="y">31.896484</property>
       <property
-         name="x">244.0</property>
+         name="x">233.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <TaskFlowCall
-      id="TaskFlowCall3">
+      id="TaskFlowCall5">
       <property
-         name="taskFlowId">customer-detail-taskflow</property>
+         name="taskFlowId">add-edit-contact-taskflow</property>
       <property
-         name="activityId">customer-detail-taskflow</property>
+         name="activityId">add-edit-contact-taskflow</property>
       <property
-         name="documentReference">/WEB-INF/customer-detail-taskflow.xml</property>
+         name="documentReference">/WEB-INF/add-edit-contact-taskflow.xml</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>customer-detail-taskflow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>add-edit-contact-taskflow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">234.74707</property>
+         name="y">116.44824</property>
       <property
-         name="x">468.6875</property>
+         name="x">491.69727</property>
    </TaskFlowCall>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase4"
+      id="ControlFlowCase6"
       from="View3"
-      to="TaskFlowCall3">
+      to="TaskFlowCall5">
       <property
-         name="fromOutcome">getDetail</property>
+         name="fromOutcome">addorEdit</property>
       <property
-         name="sdm:polyPoints">R50,285.0,235.24707,427.6875,234.39648,L50</property>
+         name="sdm:polyPoints">R50,274.0,31.545898,450.69727,116.09766,L50</property>
    </ControlFlowCase>
 </SDM>

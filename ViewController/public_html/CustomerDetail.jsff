@@ -7,10 +7,12 @@
         <af:panelGroupLayout layout="vertical" id="pgl1">
             <af:panelSplitter id="ps1" orientation="vertical">
                 <f:facet name="first">
-                    <af:panelHeader text="Customer Account: #{bindings.AccountName.inputValue}" id="ph1" inlineStyle="text-indent:5pt;">
+                    <af:panelHeader text="Customer Account: #{bindings.AccountName.inputValue}" id="ph1"
+                                    inlineStyle="text-indent:5pt;">
                         <af:spacer width="10" height="10" id="s3"/>
                         <af:panelFormLayout id="pfl1">
-                            <af:panelLabelAndMessage label="#{bindings.Address.hints.label}" id="plam3">
+                            <af:panelLabelAndMessage label="#{bindings.Address.hints.label}" id="plam3"
+                                                     inlineStyle="grid-row-span:4;">
                                 <af:outputText value="#{bindings.Address.inputValue}"
                                                shortDesc="#{bindings.Address.hints.tooltip}" id="ot3"/>
                             </af:panelLabelAndMessage>
@@ -39,14 +41,13 @@
                     </af:panelHeader>
                 </f:facet>
                 <f:facet name="second">
-                    <af:panelTabbed id="pt1">
+                    <af:panelTabbed id="pt1" styleClass="AFStretchWidth">
                         <af:showDetailItem text="Contacts" id="sdi1">
                             <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t2">
-                                        <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                                 action="addorEdit">
+                                        <af:link id="l1" icon="#{resource['images:new_ena.png']}" action="addorEdit">
                                             <af:setActionListener from="#{''}"
                                                                   to="#{requestScope.selectedContactKeyStr}"/>
                                             <af:setActionListener from="#{''}"
@@ -217,6 +218,94 @@
                                         <af:outputText value="#{row.RelatedOppurtunity}"
                                                        shortDesc="#{bindings.AppointmentsView2.hints.RelatedOppurtunity.tooltip}"
                                                        id="ot12"/>
+                                    </af:column>
+                                </af:table>
+                                <f:facet name="statusbar"/>
+                            </af:panelCollection>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Tasks" id="sdi3" styleClass="AFStretchWidth">
+                            <af:panelCollection id="pc3" styleClass="AFStretchWidth">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t7">
+                                        <af:link id="l8" icon="#{resource['images:new_ena.png']}" action="addEditTask">
+                                            <af:setActionListener to="#{requestScope.selectedTaskKeyStr}"
+                                                                  from="#{''}"/>
+                                        </af:link>
+                                        <af:spacer width="4" height="10" id="s6"/>
+                                        <af:link id="l9" icon="#{resource['images:update_ena.png']}"
+                                                 action="addEditTask">
+                                            <af:setActionListener from="#{bindings.TasksView3Iterator.currentRowKeyString}"
+                                                                  to="#{requestScope.selectedTaskKeyStr}"/>
+                                        </af:link>
+                                        <af:spacer width="4" height="10" id="s7"/>
+                                        <af:link id="l10" icon="#{resource['images:delete_ena.png']}"></af:link>
+                                    </af:toolbar>
+                                </f:facet>
+                                <af:table value="#{bindings.TasksView3.collectionModel}" var="row"
+                                          rows="#{bindings.TasksView3.rangeSize}"
+                                          emptyText="#{bindings.TasksView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.TasksView3.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.TasksView3.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.TasksView3.rangeSize}" id="t6"
+                                          styleClass="AFStretchWidth" columnStretching="last">
+                                    <af:column sortProperty="#{bindings.TasksView3.hints.TaskName.name}" sortable="true"
+                                               headerText="#{bindings.TasksView3.hints.TaskName.label}" id="c14"
+                                               width="100">
+                                        <af:outputText value="#{row.TaskName}"
+                                                       shortDesc="#{bindings.TasksView3.hints.TaskName.tooltip}"
+                                                       id="ot2"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.TasksView3.hints.DueDate.name}" sortable="true"
+                                               headerText="#{bindings.TasksView3.hints.DueDate.label}" id="c15"
+                                               width="212">
+                                        <af:outputText value="#{row.DueDate}"
+                                                       shortDesc="#{bindings.TasksView3.hints.DueDate.tooltip}"
+                                                       id="ot4">
+                                            <af:convertDateTime pattern="#{bindings.TasksView3.hints.DueDate.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.TasksView3.hints.Priority.name}" sortable="true"
+                                               headerText="#{bindings.TasksView3.hints.Priority.label}" id="c16"
+                                               width="166">
+                                        <af:outputText value="#{row.Priority}"
+                                                       shortDesc="#{bindings.TasksView3.hints.Priority.tooltip}"
+                                                       id="ot13"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.TasksView3.hints.Description.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.TasksView3.hints.Description.label}" id="c17"
+                                               width="234">
+                                        <af:outputText value="#{row.Description}"
+                                                       shortDesc="#{bindings.TasksView3.hints.Description.tooltip}"
+                                                       id="ot14"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.TasksView3.hints.PercentageCompletion.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.TasksView3.hints.PercentageCompletion.label}"
+                                               id="c19" width="97">
+                                        <af:outputText value="#{row.PercentageCompletion}"
+                                                       shortDesc="#{bindings.TasksView3.hints.PercentageCompletion.tooltip}"
+                                                       id="ot15">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.TasksView3.hints.PercentageCompletion.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.TasksView3.hints.Assignee.name}" sortable="true"
+                                               headerText="#{bindings.TasksView3.hints.Assignee.label}" id="c20"
+                                               width="176">
+                                        <af:outputText value="#{row.Assignee}"
+                                                       shortDesc="#{bindings.TasksView3.hints.Assignee.tooltip}"
+                                                       id="ot16"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.TasksView3.hints.RelatedOppurtunity.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.TasksView3.hints.RelatedOppurtunity.label}"
+                                               id="c21">
+                                        <af:outputText value="#{row.RelatedOppurtunity}"
+                                                       shortDesc="#{bindings.TasksView3.hints.RelatedOppurtunity.tooltip}"
+                                                       id="ot17"/>
                                     </af:column>
                                 </af:table>
                                 <f:facet name="statusbar"/>

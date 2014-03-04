@@ -4,11 +4,15 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="ContactVO1" RangeSize="25" DataControl="AppModuleDataControl" id="ContactVO1Iterator"/>
+    <iterator Binds="CustomerContactsView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CustomerContactsView1Iterator"/>
+    <searchRegion Criteria="CustomerContactsViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="CustomerContactsView1Iterator"
+                  id="CustomerContactsViewCriteriaQuery"/>
   </executables>
   <bindings>
-    <tree IterBinding="ContactVO1Iterator" id="ContactVO1">
-      <nodeDefinition DefName="com.sfa.model.VO.ContactVO" Name="ContactVO10">
+    <tree IterBinding="CustomerContactsView1Iterator" id="CustomerContactsView1">
+      <nodeDefinition DefName="com.sfa.model.VO.CustomerContactsView" Name="CustomerContactsView10">
         <AttrNames>
           <Item Value="ContactName"/>
           <Item Value="Title"/>

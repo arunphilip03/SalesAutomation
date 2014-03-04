@@ -142,6 +142,16 @@ WHERE (AppointmentInvitees.USER_ID = Users.USER_ID)]]></SQLQuery>
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="AppointmentInvUsersVO"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvUsers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentInvContactsVO"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvContactsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sfa.model.ModelBundle"/>

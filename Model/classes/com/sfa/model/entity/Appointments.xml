@@ -66,19 +66,20 @@
     IsNotNull="true"
     ColumnName="START_DATETIME"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="APPOINTMENTS">
+    <TransientExpression><![CDATA[adf.currentDateTime]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="date"/>
         <LABEL
           ResId="com.sfa.model.entity.Appointments.StartDatetime_LABEL"/>
-        <FMT_FORMAT
-          ResId="com.sfa.model.entity.Appointments.StartDatetime_FMT_FORMAT"/>
         <FMT_FORMATTER
           ResId="com.sfa.model.entity.Appointments.StartDatetime_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.Appointments.StartDatetime_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -102,12 +103,12 @@
       <SchemaBasedProperties>
         <FMT_FORMATTER
           ResId="com.sfa.model.entity.Appointments.EndDatetime_FMT_FORMATTER"/>
-        <FMT_FORMAT
-          ResId="com.sfa.model.entity.Appointments.EndDatetime_FMT_FORMAT"/>
         <CONTROLTYPE
           Value="date"/>
         <LABEL
           ResId="com.sfa.model.entity.Appointments.EndDatetime_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.Appointments.EndDatetime_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

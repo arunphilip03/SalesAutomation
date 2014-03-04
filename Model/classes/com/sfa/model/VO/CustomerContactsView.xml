@@ -7,10 +7,36 @@
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
-  CustomQuery="true"
-  PageIterMode="Full">
+  CustomQuery="false"
+  PageIterMode="Full"
+  SelectList="CustomerContacts.CONTACT_NAME, 
+       CustomerContacts.CONTACT_ID, 
+       CustomerContacts.CUST_ACCOUNT_ID, 
+       CustomerContacts.TITLE, 
+       CustomerContacts.DEPARTMENT, 
+       CustomerContacts.ADDRESS, 
+       CustomerContacts.WORK_PHONE, 
+       CustomerContacts.MOBILE_PHONE, 
+       CustomerContacts.EMAIL, 
+       CustomerContacts.BUY_INFLUENCE_LEVEL, 
+       CustomerContacts.IS_PRIMARY, 
+       CustomerContacts.CREATION_DATE, 
+       CustomerContacts.LAST_UPDATE_DATE, 
+       CustomerContacts.CREATED_BY, 
+       CustomerContacts.LAST_UPDATED_BY, 
+       CustomerContacts.NOTES_SEQ_ID, 
+       CustomerContacts.LAST_UPDATE_LOGIN, 
+       CustomerContacts.OBJECT_VERSION_NUMBER, 
+       CustomerAccount.ACCOUNT_NAME, 
+       CustomerAccount.CUST_ACCOUNT_ID AS CUST_ACCOUNT_ID1, 
+       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1"
+  FromList="CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount"
+  Where="CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID"
+  OrderBy="CustomerContacts.CONTACT_NAME"
+  RowClass="com.sfa.model.VO.CustomerContactsViewRowImpl">
   <DesignTime>
-    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="ContactBuyingroleLuView1"
@@ -86,28 +112,28 @@
     <DisplayCriteria
       Hint="hide"/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME, 
-CustomerContacts.CONTACT_ID,   
-       CustomerContacts.CUST_ACCOUNT_ID,   
-       CustomerContacts.TITLE,   
-       CustomerContacts.DEPARTMENT,   
-       CustomerContacts.ADDRESS,   
-       CustomerContacts.WORK_PHONE,   
-       CustomerContacts.MOBILE_PHONE,   
-       CustomerContacts.EMAIL,   
-       CustomerContacts.BUY_INFLUENCE_LEVEL,   
-       CustomerContacts.IS_PRIMARY,   
-       CustomerContacts.CREATION_DATE,   
-       CustomerContacts.LAST_UPDATE_DATE,   
-       CustomerContacts.CREATED_BY,   
-       CustomerContacts.LAST_UPDATED_BY,   
-       CustomerContacts.NOTES_SEQ_ID,   
-       CustomerContacts.LAST_UPDATE_LOGIN,   
-       CustomerContacts.OBJECT_VERSION_NUMBER  
-FROM  CUSTOMER_CONTACTS CustomerContacts]]></SQLQuery>
   <EntityUsage
     Name="CustomerContacts"
     Entity="com.sfa.model.entity.CustomerContacts"/>
+  <EntityUsage
+    Name="CustomerAccount"
+    Entity="com.sfa.model.entity.CustomerAccount"
+    Association="com.sfa.model.association.CustomerContactsFk1Assoc"
+    AssociationEnd="com.sfa.model.association.CustomerContactsFk1Assoc.CustomerAccount"
+    SourceUsage="com.sfa.model.VO.CustomerContactsView.CustomerContacts"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.sfa.model.entity.CustomerContacts.CustAccountId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.sfa.model.entity.CustomerAccount.CustAccountId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="ContactName"
     IsNotNull="true"
@@ -262,6 +288,81 @@ FROM  CUSTOMER_CONTACTS CustomerContacts]]></SQLQuery>
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="CustomerContacts"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="AccountName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AccountName"
+    EntityUsage="CustomerAccount"
+    AliasName="ACCOUNT_NAME"/>
+  <ViewAttribute
+    Name="CustAccountId1"
+    IsQueriable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustAccountId"
+    EntityUsage="CustomerAccount"
+    AliasName="CUST_ACCOUNT_ID1"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber1"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="CustomerAccount"
+    AliasName="OBJECT_VERSION_NUMBER1"/>
+  <ViewCriteria
+    Name="CustomerContactsViewCriteria"
+    ViewObjectName="com.sfa.model.VO.CustomerContactsView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="displayName"
+          ResId="displayName"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerContactsViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ContactName"
+        ViewAttribute="ContactName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Department"
+        ViewAttribute="Department"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CustomerContactsViewCriteria_CustomerContactsViewCriteria_row_0_AccountName"
+        ViewAttribute="AccountName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="AppointmentInviteesView"
     ViewLink="com.sfa.model.viewlink.AppointmentInviteesFk2Link"
@@ -287,4 +388,8 @@ FROM  CUSTOMER_CONTACTS CustomerContacts]]></SQLQuery>
     ViewLink="com.sfa.model.viewlink.TaskTeamFk2Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

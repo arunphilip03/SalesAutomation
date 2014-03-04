@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Create Task" id="ph1" styleClass="AFStretchWidth">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:button text="Save" id="b1" action="save"/>
+        <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{bindings.Commit.execute}"/>
+        <af:button text="Cancel" id="b3" immediate="true" action="cancel"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelFormLayout id="pfl1" rows="4" styleClass="AFStretchWidth">
+      <af:inputText value="#{bindings.TaskName.inputValue}" label="#{bindings.TaskName.hints.label}"
+                    required="#{bindings.TaskName.hints.mandatory}" columns="#{bindings.TaskName.hints.displayWidth}"
+                    maximumLength="#{bindings.TaskName.hints.precision}" shortDesc="#{bindings.TaskName.hints.tooltip}"
+                    id="it1">
+        <f:validator binding="#{bindings.TaskName.validator}"/>
+      </af:inputText>
+      <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
+                    required="#{bindings.DueDate.hints.mandatory}" columns="#{bindings.DueDate.hints.displayWidth}"
+                    shortDesc="#{bindings.DueDate.hints.tooltip}" id="id1">
+        <f:validator binding="#{bindings.DueDate.validator}"/>
+        <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
+      </af:inputDate>
+      <af:inputComboboxListOfValues id="priorityId" popupTitle="Search and Select: #{bindings.Priority.hints.label}"
+                                    value="#{bindings.Priority.inputValue}" label="#{bindings.Priority.hints.label}"
+                                    model="#{bindings.Priority.listOfValuesModel}"
+                                    required="#{bindings.Priority.hints.mandatory}"
+                                    columns="#{bindings.Priority.hints.displayWidth}"
+                                    shortDesc="#{bindings.Priority.hints.tooltip}">
+        <f:validator binding="#{bindings.Priority.validator}"/>
+      </af:inputComboboxListOfValues>
+      <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                    required="#{bindings.Description.hints.mandatory}"
+                    columns="#{bindings.Description.hints.displayWidth}"
+                    maximumLength="#{bindings.Description.hints.precision}"
+                    shortDesc="#{bindings.Description.hints.tooltip}" id="it2" rows="4">
+        <f:validator binding="#{bindings.Description.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.PercentageCompletion.inputValue}"
+                    label="#{bindings.PercentageCompletion.hints.label}"
+                    required="#{bindings.PercentageCompletion.hints.mandatory}"
+                    columns="#{bindings.PercentageCompletion.hints.displayWidth}"
+                    maximumLength="#{bindings.PercentageCompletion.hints.precision}"
+                    shortDesc="#{bindings.PercentageCompletion.hints.tooltip}" id="it3">
+        <f:validator binding="#{bindings.PercentageCompletion.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.PercentageCompletion.format}"/>
+      </af:inputText>
+      <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.Assignee1.hints.label}"
+                            value="#{bindings.Assignee1.inputValue}" label="#{bindings.Assignee1.hints.label}"
+                            model="#{bindings.Assignee1.listOfValuesModel}"
+                            required="#{bindings.Assignee1.hints.mandatory}"
+                            columns="#{bindings.Assignee1.hints.displayWidth}"
+                            shortDesc="#{bindings.Assignee1.hints.tooltip}">
+        <f:validator binding="#{bindings.Assignee1.validator}"/>
+      </af:inputListOfValues>
+      <af:inputListOfValues id="ilov2" popupTitle="Search and Select: #{bindings.RelatedOppurtunity1.hints.label}"
+                            value="#{bindings.RelatedOppurtunity1.inputValue}"
+                            label="#{bindings.RelatedOppurtunity1.hints.label}"
+                            model="#{bindings.RelatedOppurtunity1.listOfValuesModel}"
+                            required="#{bindings.RelatedOppurtunity1.hints.mandatory}"
+                            columns="#{bindings.RelatedOppurtunity1.hints.displayWidth}"
+                            shortDesc="#{bindings.RelatedOppurtunity1.hints.tooltip}">
+        <f:validator binding="#{bindings.RelatedOppurtunity1.validator}"/>
+      </af:inputListOfValues>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</ui:composition>
