@@ -362,6 +362,45 @@
       EntityAttrName="OpportunityName"
       EntityUsage="Opportunities"
       AliasName="OPPORTUNITY_NAME"/>
+    <ViewCriteria
+        Name="OpportunitiesViewCriteria"
+        ViewObjectName="com.sfa.model.VO.OpportunitiesView"
+        Conjunction="AND">
+        <Properties>
+            <CustomProperties>
+                <Property
+                    Name="displayOperators"
+                    Value="InAdvancedMode"/>
+                <Property
+                    Name="displayName"
+                    ResId="displayName"/>
+                <Property
+                    Name="autoExecute"
+                    Value="true"/>
+                <Property
+                    Name="allowConjunctionOverride"
+                    Value="true"/>
+                <Property
+                    Name="showInList"
+                    Value="true"/>
+                <Property
+                    Name="mode"
+                    Value="Basic"/>
+            </CustomProperties>
+        </Properties>
+        <ViewCriteriaRow
+            Name="OpportunitiesViewCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+                Name="OpportunityName"
+                ViewAttribute="OpportunityName"
+                Operator="STARTSWITH"
+                Conjunction="AND"
+                Value=""
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+        </ViewCriteriaRow>
+    </ViewCriteria>
     <ViewLinkAccessor
       Name="AppointmentsView"
       ViewLink="com.sfa.model.viewlink.AppointmentsFk2Link"
@@ -392,4 +431,8 @@
       ViewLink="com.sfa.model.viewlink.TasksFk2Link"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false"/>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="com.sfa.model.ModelBundle"/>
+    </ResourceBundle>
 </ViewObject>

@@ -42,7 +42,8 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdateLogin"
     EntityUsage="NotesParent"
-    AliasName="LAST_UPDATE_LOGIN"/>
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ObjectVersionNumber"
     PrecisionRule="true"
@@ -55,26 +56,30 @@
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="NotesParent"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="NotesParent"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="NotesParent"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="NotesParent"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Rowid"
     IsUpdateable="false"

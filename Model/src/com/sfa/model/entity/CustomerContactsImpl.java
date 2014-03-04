@@ -96,6 +96,8 @@ public class CustomerContactsImpl extends EntityImpl {
     public static final int OPPORTUNITIES = AttributesEnum.Opportunities.index();
     public static final int OPPORTUNITYTEAM = AttributesEnum.OpportunityTeam.index();
     public static final int TASKTEAM = AttributesEnum.TaskTeam.index();
+    
+    public static final String ISPRIMARYVALUE = "Yes";
 
     /**
      * This is the default constructor (do not remove).
@@ -443,13 +445,14 @@ public class CustomerContactsImpl extends EntityImpl {
 
     @Override
     protected void validateEntity() {
-        if (getIsPrimary().equals("Y")) {
+                
+        if (getIsPrimary().equals("ISPRIMARYVALUE")) {
                 
             System.out.println("Primary contact....");
 
             EntityDefImpl def = getDefinitionObject();
             CustomerContactsDefImpl contactImpl = (CustomerContactsDefImpl) def;
-            boolean primaryExist = contactImpl.exists(getDBTransaction(), "Y", getCustAccountId());
+            boolean primaryExist = contactImpl.exists(getDBTransaction(), "ISPRIMARYVALUE", getCustAccountId());
             if (primaryExist) {
                         throw new JboException("Primary contact for the Customer Account exists");
         }

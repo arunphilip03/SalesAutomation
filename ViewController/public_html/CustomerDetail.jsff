@@ -229,8 +229,7 @@
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t7">
                                         <af:link id="l8" icon="#{resource['images:new_ena.png']}" action="addEditTask">
-                                            <af:setActionListener to="#{requestScope.selectedTaskKeyStr}"
-                                                                  from="#{''}"/>
+                                            <af:setActionListener to="#{requestScope.selectedTaskKeyStr}" from="#{''}"/>
                                         </af:link>
                                         <af:spacer width="4" height="10" id="s6"/>
                                         <af:link id="l9" icon="#{resource['images:update_ena.png']}"
@@ -238,8 +237,7 @@
                                             <af:setActionListener from="#{bindings.TasksView3Iterator.currentRowKeyString}"
                                                                   to="#{requestScope.selectedTaskKeyStr}"/>
                                         </af:link>
-                                        <af:spacer width="4" height="10" id="s7"/>
-                                        <af:link id="l10" icon="#{resource['images:delete_ena.png']}"></af:link>
+                                        <!--<af:spacer width="4" height="10" id="s7"/>-->
                                     </af:toolbar>
                                 </f:facet>
                                 <af:table value="#{bindings.TasksView3.collectionModel}" var="row"
@@ -306,6 +304,45 @@
                                         <af:outputText value="#{row.RelatedOppurtunity}"
                                                        shortDesc="#{bindings.TasksView3.hints.RelatedOppurtunity.tooltip}"
                                                        id="ot17"/>
+                                    </af:column>
+                                </af:table>
+                                <f:facet name="statusbar"/>
+                            </af:panelCollection>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Notes" id="sdi4" styleClass="AFStretchWidth">
+                            <af:panelCollection id="pc4" styleClass="AFStretchWidth">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t9">
+                                        <af:link id="l11" icon="#{resource['images:new_ena.png']}" action="addNote">
+                                            <af:setActionListener to="#{requestScope.selectedAccountKeyStr}"
+                                                                  from="#{''}"/>
+                                        </af:link>
+                                    </af:toolbar>
+                                </f:facet>
+                                <af:table value="#{bindings.NotesVO1.collectionModel}" var="row"
+                                          rows="#{bindings.NotesVO1.rangeSize}"
+                                          emptyText="#{bindings.NotesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.NotesVO1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.NotesVO1.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.NotesVO1.rangeSize}" id="t8"
+                                          styleClass="AFStretchWidth" columnStretching="last">
+                                    <af:column headerText="#{bindings.NotesVO1.hints.NoteDatetime.label}" id="c22"
+                                               width="224" sortProperty="#{bindings.NotesVO1.hints.NoteDatetime.name}"
+                                               sortable="true">
+                                        <af:outputText value="#{row.NoteDatetime}"
+                                                       shortDesc="#{bindings.NotesVO1.hints.NoteDatetime.tooltip}"
+                                                       id="ot25">
+                                            <af:convertDateTime pattern="#{bindings.NotesVO1.hints.NoteDatetime.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.NotesVO1.hints.NotesText.label}" id="c23"
+                                               width="-24" sortProperty="#{bindings.NotesVO1.hints.NotesText.name}"
+                                               sortable="true">
+                                        <af:outputText value="#{row.NotesText}"
+                                                       shortDesc="#{bindings.NotesVO1.hints.NotesText.tooltip}"
+                                                       id="ot26"/>
                                     </af:column>
                                 </af:table>
                                 <f:facet name="statusbar"/>

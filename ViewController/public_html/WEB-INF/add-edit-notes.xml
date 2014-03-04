@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="add-edit-notes">
+    <default-activity>createInsert</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <method-call id="createInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>createInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="createNote">
+      <page>/CreateNote.jsff</page>
+    </view>
+    <task-flow-return id="saveNote">
+      <outcome>
+        <name>saveNote</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancelNote">
+      <outcome>
+        <name>cancelNote</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>createNote</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>saveNote</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>cancelNote</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>createInsert</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>createInsert</from-outcome>
+        <to-activity-id>createNote</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -8,27 +8,6 @@
     <view id="contacts">
       <page>/ContactsOverview.jsff</page>
     </view>
-    <task-flow-call id="add-edit-contact-taskflow">
-      <task-flow-reference>
-        <document>/WEB-INF/add-edit-contact-taskflow.xml</document>
-        <id>add-edit-contact-taskflow</id>
-      </task-flow-reference>
-      <input-parameter id="__7">
-        <name>selectedRowKeyStr</name>
-        <value>#{requestScope.selectedContactKeyStr}</value>
-      </input-parameter>
-      <input-parameter id="__8">
-        <name>selectedAccountKeyStr</name>
-        <value>#{requestScope.selectedAccountKeyStr}</value>
-      </input-parameter>
-    </task-flow-call>
-    <control-flow-rule id="__5">
-      <from-activity-id>contacts</from-activity-id>
-      <control-flow-case id="__6">
-        <from-outcome>addorEdit</from-outcome>
-        <to-activity-id>add-edit-contact-taskflow</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

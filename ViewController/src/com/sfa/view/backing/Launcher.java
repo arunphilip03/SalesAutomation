@@ -25,12 +25,32 @@ public class Launcher {
 
 
     public void launchCustomerAccount(ActionEvent actionEvent) {
-        _launchActivity("Manage Accounts", "/WEB-INF/customer-taskflow.xml#customer-account", false);
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/customer-taskflow.xml#customer-account");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+        }
     }
 
+
+    //    public void launchCustomerAccount(ActionEvent actionEvent) {
+    //        _launchActivity("Manage Accounts", "/WEB-INF/customer-taskflow.xml#customer-account", false);
+    //    }
+    
+    
     public void launchContacts(ActionEvent actionEvent) {
-        _launchActivity("Manage Contacts", "/WEB-INF/contacts-taskflow.xml#contacts-taskflow", false);
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/contacts-taskflow.xml#contacts-taskflow");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+        }
     }
+
+//    public void launchContacts(ActionEvent actionEvent) {
+//        _launchActivity("Manage Contacts", "/WEB-INF/contacts-taskflow.xml#contacts-taskflow", false);
+//    }
 
 
     public void launchRoles(ActionEvent actionEvent) {
@@ -102,17 +122,17 @@ public class Launcher {
                 TabContext.getCurrentInstance().addTab(title, taskflowId);
             } else {
                 TabContext.getCurrentInstance().addOrSelectTab(title, taskflowId);
-                
+
                 //TabContext.getCurrentInstance().setMainContent(taskflowId);
             }
         } catch (TabContext.TabOverflowException toe) {
             // causes a dialog to be displayed to the user saying that there are
             // too many tabs open - the new tab will not be opened...
             toe.handleDefault();
-        } 
-//        catch (TabContext.TabContentAreaDirtyException e) {
-//            
-//        }
+        }
+        //        catch (TabContext.TabContentAreaDirtyException e) {
+        //
+        //        }
     }
 
     public void launchFirstReplaceInPlace(ActionEvent actionEvent) {

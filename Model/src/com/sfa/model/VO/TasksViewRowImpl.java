@@ -344,7 +344,25 @@ public class TasksViewRowImpl extends ViewRowImpl {
      * @return the RelatedOppurtunity
      */
     public String getRelatedOppurtunity() {
-        return (String) getAttributeInternal(RELATEDOPPURTUNITY);
+        
+        Object oppId = getAttributeInternal(OPPURTUNITYID);
+        String oppName = null;
+        if(oppId != null) {
+            Object[] obj = {oppId};
+            Key key = new Key(obj);
+            
+            Row[] rows = getOpportunitiesView1().findByKey(key, 1);
+            if(rows !=null && rows.length > 0) {
+                oppName = (String)rows[0].getAttribute("OpportunityName");
+            }
+                       
+        }
+            
+        
+        return oppName;
+        
+        
+        //return (String) getAttributeInternal(RELATEDOPPURTUNITY);
     }
 
     /**

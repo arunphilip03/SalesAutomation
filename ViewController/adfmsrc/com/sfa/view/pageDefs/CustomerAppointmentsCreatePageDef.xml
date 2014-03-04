@@ -50,5 +50,6 @@
         <Item Value="AppointmentId"/>
       </AttrNames>
     </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

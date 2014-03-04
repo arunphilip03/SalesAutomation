@@ -56,9 +56,9 @@
       <property
          name="y">127.59766</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">529.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View6">
@@ -73,9 +73,9 @@
       <property
          name="y">384.49414</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">591.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn7">
@@ -191,7 +191,7 @@
       <property
          name="fromOutcome">createInsert</property>
       <property
-         name="sdm:polyPoints">R50,357.7245,126.247086,487.2755,127.24707,L50</property>
+         name="sdm:polyPoints">R50,357.0,126.24707,488.0,127.24707,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -201,7 +201,7 @@
       <property
          name="fromOutcome">setCurrentRowWithKey</property>
       <property
-         name="sdm:polyPoints">R50,350.7245,386.24704,549.2755,384.14352,L50</property>
+         name="sdm:polyPoints">R50,350.0,386.24707,550.0,384.14355,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -211,7 +211,7 @@
       <property
          name="fromOutcome">saveAndClose</property>
       <property
-         name="sdm:polyPoints">T50,529.0,72.52258,648.2755,-2.8046951,L50</property>
+         name="sdm:polyPoints">T50,529.0,73.24707,649.0,-2.8046875,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -221,7 +221,7 @@
       <property
          name="fromOutcome">save</property>
       <property
-         name="sdm:polyPoints">R50,570.7245,127.24707,655.2755,123.5459,L50</property>
+         name="sdm:polyPoints">R50,570.0,127.24707,656.0,123.5459,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -231,7 +231,7 @@
       <property
          name="fromOutcome">cancel</property>
       <property
-         name="sdm:polyPoints">B50,529.0,181.97156,651.2755,241.5459,L50</property>
+         name="sdm:polyPoints">B50,529.0,181.24707,652.0,241.5459,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -241,7 +241,7 @@
       <property
          name="fromOutcome">saveAndClose</property>
       <property
-         name="sdm:polyPoints">R45,632.7245,379.91904,754.2755,334.8447,L50</property>
+         name="sdm:polyPoints">R46,632.0,380.64355,755.0,334.84473,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -251,7 +251,7 @@
       <property
          name="fromOutcome">save</property>
       <property
-         name="sdm:polyPoints">R55,632.7245,388.36804,797.2755,449.84473,L50</property>
+         name="sdm:polyPoints">R54,632.0,387.64355,798.0,449.84473,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -261,6 +261,6 @@
       <property
          name="fromOutcome">cancel</property>
       <property
-         name="sdm:polyPoints">B50,591.0,438.868,752.2755,573.1953,L50</property>
+         name="sdm:polyPoints">B50,591.0,438.14355,753.0,573.1953,L50</property>
    </ControlFlowCase>
 </SDM>

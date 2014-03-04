@@ -83,6 +83,11 @@
           usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitCreatePageDef"/>
     <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@commitEdit"
           usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"/>
+    <page path="/WEB-INF/add-edit-notes.xml#add-edit-notes@createInsert"
+          usageId="com_sfa_view_add_edit_notes_add_edit_notes_createInsertPageDef"/>
+    <page path="/WEB-INF/add-edit-notes.xml#add-edit-notes@commit"
+          usageId="com_sfa_view_add_edit_notes_add_edit_notes_commitPageDef"/>
+    <page path="/CreateNote.jsff" usageId="com_sfa_view_CreateNotePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -185,6 +190,11 @@
           path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitCreatePageDef"/>
     <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"
           path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"/>
+    <page id="com_sfa_view_add_edit_notes_add_edit_notes_createInsertPageDef"
+          path="com.sfa.view.pageDefs.add_edit_notes_add_edit_notes_createInsertPageDef"/>
+    <page id="com_sfa_view_add_edit_notes_add_edit_notes_commitPageDef"
+          path="com.sfa.view.pageDefs.add_edit_notes_add_edit_notes_commitPageDef"/>
+    <page id="com_sfa_view_CreateNotePageDef" path="com.sfa.view.pageDefs.CreateNotePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

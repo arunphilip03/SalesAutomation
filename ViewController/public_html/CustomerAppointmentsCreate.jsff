@@ -7,13 +7,15 @@
         <f:facet name="toolbar">
             <af:toolbar id="t1">
                 <af:button text="Save" id="b1" action="save"/>
-                <af:button text="Save and Close" id="b4" action="saveAndClose"/>
+                <af:button text="Save and Close" id="b4" action="saveAndClose"
+                           actionListener="#{bindings.Commit.execute}"/>
                 <af:button text="Invite Attendees" id="b3" action="inviteAttendees"/>
                 <af:button text="Cancel" id="b2" action="cancel" immediate="true"/>
             </af:toolbar>
         </f:facet>
         <f:facet name="legend"/>
         <f:facet name="info"/>
+        <af:spacer width="10" height="10" id="s1"/>
         <af:panelFormLayout id="pfl1" rows="4" styleClass="AFStretchWidth">
             <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
                           required="#{bindings.Name.hints.mandatory}" columns="#{bindings.Name.hints.displayWidth}"
@@ -59,7 +61,7 @@
                 <f:validator binding="#{bindings.RelatedOppurtunity.validator}"/>
             </af:inputListOfValues>
         </af:panelFormLayout>
-        <af:showDetailHeader text="showDetailHeader 1" disclosed="true" id="sdh1" styleClass="AFStretchWidth">
+        <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1" styleClass="AFStretchWidth">
             <f:facet name="context"/>
             <f:facet name="menuBar"/>
             <f:facet name="toolbar"/>

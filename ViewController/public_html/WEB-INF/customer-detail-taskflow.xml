@@ -48,6 +48,12 @@
         <value>#{requestScope.selectedTaskKeyStr}</value>
       </input-parameter>
     </task-flow-call>
+    <task-flow-call id="add-edit-notes">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-notes.xml</document>
+        <id>add-edit-notes</id>
+      </task-flow-reference>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>customer-detail</from-activity-id>
       <control-flow-case id="__3">
@@ -65,6 +71,10 @@
       <control-flow-case id="__5">
         <from-outcome>addEditTask</from-outcome>
         <to-activity-id>add-edit-tasks-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>addNote</from-outcome>
+        <to-activity-id>add-edit-notes</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

@@ -293,6 +293,11 @@ ON CustomerAccount.PARENT_ACCOUNT_ID = CustomerAccountB.CUST_ACCOUNT_ID]]></SQLQ
     ViewLink="com.sfa.model.viewlink.TasksFk3Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="NotesVO"
+    ViewLink="com.sfa.model.viewlink.AccountNotesVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sfa.model.ModelBundle"/>
