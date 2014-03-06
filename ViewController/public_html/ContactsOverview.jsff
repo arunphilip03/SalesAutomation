@@ -22,14 +22,13 @@
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t1">
-                                <af:link id="l1" icon="#{resource['images:new_ena.png']}">
-                                    <af:setActionListener to="#{requestScope.selectedAccountKeyStr}" from="#{''}"/>
+                                <af:link id="l1" icon="#{resource['images:new_ena.png']}" action="addEditContact">
+                                    <af:setActionListener to="#{requestScope.selectedContactKeyStr}" from="#{''}"/>
                                 </af:link>
                                 <af:spacer width="4" height="10" id="s1"/>
-                                <af:link id="l3" icon="#{resource['images:update_ena.png']}" action="addorEdit">
+                                <af:link id="l3" icon="#{resource['images:update_ena.png']}" action="addEditContact">
                                     <af:setActionListener from="#{bindings.CustomerContactsView1Iterator.currentRowKeyString}"
                                                           to="#{requestScope.selectedContactKeyStr}"/>
-                                    <af:setActionListener from="#{bindings.CustomerContactsView1Iterator.currentRow.custAccountId1}" to="#{requestScope.selectedAccountKeyStr}"/>
                                 </af:link>
                                 <af:spacer width="4" height="10" id="s2"/>
                                 <af:link id="l4" icon="#{resource['images:delete_ena.png']}">
@@ -50,9 +49,10 @@
                                        id="resId1c1" width="131"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.ContactName.name}"
                                        sortable="true">
-                                <af:outputText value="#{row.ContactName}"
-                                               shortDesc="#{bindings.CustomerContactsView1.hints.ContactName.tooltip}"
-                                               id="ot1"/>
+                                <af:link actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                                         text="#{row.ContactName}"
+                                         disabled="#{!bindings.setCurrentRowWithKey.enabled}" id="l2"
+                                         action="getDetail"/>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.Title.label}" id="resId1c2"
                                        width="69" sortProperty="#{bindings.CustomerContactsView1.hints.Title.name}"
@@ -65,9 +65,11 @@
                                        id="resId1c3" width="118"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.AccountName.name}"
                                        sortable="true">
-                                <af:outputText value="#{row.AccountName}"
-                                               shortDesc="#{bindings.CustomerContactsView1.hints.AccountName.tooltip}"
-                                               id="ot3"/>
+                                <af:link shortDesc="#{bindings.CustomerContactsView1.hints.AccountName.tooltip}"
+                                         id="ot3" text="#{row.AccountName}" action="getCustomer">
+                                    <af:setPropertyListener from="#{row.CustAccountId1}"
+                                                            to="#{pageFlowScope.selectedAccount}" type="action"/>
+                                </af:link>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.Department.label}"
                                        id="resId1c4" width="91"
@@ -85,7 +87,7 @@
                                                id="ot5"/>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.WorkPhone.label}"
-                                       id="resId1c6" width="185"
+                                       id="resId1c6" width="196"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.WorkPhone.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.WorkPhone}"
@@ -93,22 +95,31 @@
                                                id="ot6"/>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.MobilePhone.label}"
-                                       id="resId1c7" width="147"
+                                       id="resId1c7" width="136"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.MobilePhone.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.MobilePhone}"
                                                shortDesc="#{bindings.CustomerContactsView1.hints.MobilePhone.tooltip}"
                                                id="ot7"/>
                             </af:column>
-                            <af:column headerText="#{bindings.CustomerContactsView1.hints.Email.label}" id="resId1c8"
-                                       width="132" sortProperty="#{bindings.CustomerContactsView1.hints.Email.name}"
-                                       sortable="true">
-                                <af:outputText value="#{row.Email}"
-                                               shortDesc="#{bindings.CustomerContactsView1.hints.Email.tooltip}"
-                                               id="ot8"/>
+                            <af:column headerText="#{bindings.CustomerContactsView1.hints.CustAccountId1.label}" id="resId1c8"
+                                       width="132"
+                                       sortProperty="#{bindings.CustomerContactsView1.hints.CustAccountId1.name}"
+                                       sortable="true" rendered="false">
+                                <af:inputText value="#{row.bindings.CustAccountId1.inputValue}"
+                                              label="#{bindings.CustomerContactsView1.hints.CustAccountId1.label}"
+                                              required="#{bindings.CustomerContactsView1.hints.CustAccountId1.mandatory}"
+                                              columns="#{bindings.CustomerContactsView1.hints.CustAccountId1.displayWidth}"
+                                              maximumLength="#{bindings.CustomerContactsView1.hints.CustAccountId1.precision}"
+                                              shortDesc="#{bindings.CustomerContactsView1.hints.CustAccountId1.tooltip}"
+                                              id="it1">
+                                    <f:validator binding="#{row.bindings.CustAccountId1.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.CustomerContactsView1.hints.CustAccountId1.format}"/>
+                                </af:inputText>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.BuyInfluenceLevel.label}"
-                                       id="resId1c9" width="109"
+                                       id="resId1c9" width="100"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.BuyInfluenceLevel.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.BuyInfluenceLevel}"
@@ -116,7 +127,7 @@
                                                id="ot9"/>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.IsPrimary.label}"
-                                       id="resId1c10" width="-142"
+                                       id="resId1c10" width="50"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.IsPrimary.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.IsPrimary}"

@@ -13,4 +13,9 @@
     <managed-bean-class>com.sfa.view.backing.InviteeBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>TaskTeamBean</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.TaskTeamBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

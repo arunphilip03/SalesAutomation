@@ -51,11 +51,17 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
         OpportunitiesView,
         OpportunityTeamView,
         TaskTeamView,
+        ContactAppointmentsVO,
+        RelatedContacts,
+        ContactInteractionsVO,
+        ContactTasksVO,
         ContactBuyingroleLuView1,
         ContactBuyingroleLuView2,
         BooleanLuView1,
-        TitleLuView1;
-        private static AttributesEnum[] vals = null;
+        TitleLuView1,
+        CustomerAccountView1;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -77,6 +83,8 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int CONTACTNAME = AttributesEnum.ContactName.index();
     public static final int CONTACTID = AttributesEnum.ContactId.index();
     public static final int CUSTACCOUNTID = AttributesEnum.CustAccountId.index();
@@ -103,10 +111,15 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     public static final int OPPORTUNITIESVIEW = AttributesEnum.OpportunitiesView.index();
     public static final int OPPORTUNITYTEAMVIEW = AttributesEnum.OpportunityTeamView.index();
     public static final int TASKTEAMVIEW = AttributesEnum.TaskTeamView.index();
+    public static final int CONTACTAPPOINTMENTSVO = AttributesEnum.ContactAppointmentsVO.index();
+    public static final int RELATEDCONTACTS = AttributesEnum.RelatedContacts.index();
+    public static final int CONTACTINTERACTIONSVO = AttributesEnum.ContactInteractionsVO.index();
+    public static final int CONTACTTASKSVO = AttributesEnum.ContactTasksVO.index();
     public static final int CONTACTBUYINGROLELUVIEW1 = AttributesEnum.ContactBuyingroleLuView1.index();
     public static final int CONTACTBUYINGROLELUVIEW2 = AttributesEnum.ContactBuyingroleLuView2.index();
     public static final int BOOLEANLUVIEW1 = AttributesEnum.BooleanLuView1.index();
     public static final int TITLELUVIEW1 = AttributesEnum.TitleLuView1.index();
+    public static final int CUSTOMERACCOUNTVIEW1 = AttributesEnum.CustomerAccountView1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -462,6 +475,35 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ContactAppointmentsVO.
+     */
+    public RowIterator getContactAppointmentsVO() {
+        return (RowIterator) getAttributeInternal(CONTACTAPPOINTMENTSVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link RelatedContacts.
+     */
+    public RowIterator getRelatedContacts() {
+        return (RowIterator) getAttributeInternal(RELATEDCONTACTS);
+    }
+
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ContactInteractionsVO.
+     */
+    public RowIterator getContactInteractionsVO() {
+        return (RowIterator) getAttributeInternal(CONTACTINTERACTIONSVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ContactTasksVO.
+     */
+    public RowIterator getContactTasksVO() {
+        return (RowIterator) getAttributeInternal(CONTACTTASKSVO);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> ContactBuyingroleLuView1.
      */
     public RowSet getContactBuyingroleLuView1() {
@@ -487,6 +529,13 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
      */
     public RowSet getTitleLuView1() {
         return (RowSet) getAttributeInternal(TITLELUVIEW1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> CustomerAccountView1.
+     */
+    public RowSet getCustomerAccountView1() {
+        return (RowSet) getAttributeInternal(CUSTOMERACCOUNTVIEW1);
     }
 }
 

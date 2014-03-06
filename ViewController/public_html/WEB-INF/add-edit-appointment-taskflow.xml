@@ -14,6 +14,12 @@
       <class>java.lang.String</class>
       <required/>
     </input-parameter-definition>
+    <input-parameter-definition id="__20">
+      <name>appType</name>
+      <value>#{pageFlowScope.appType}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
     <managed-bean id="__21">
       <managed-bean-name>AppointmentInvitee</managed-bean-name>
       <managed-bean-class>com.sfa.view.backing.AppointmentInvitee</managed-bean-class>
@@ -30,7 +36,7 @@
         <outcome>add</outcome>
       </case>
       <case id="__12">
-        <expression>#{pageFlowScope.selectedRowKeyStr != ''}</expression>
+        <expression>#{pageFlowScope.selectedRowKeyStr !=''}</expression>
         <outcome>edit</outcome>
       </case>
       <default-outcome>edit</default-outcome>
@@ -89,9 +95,6 @@
         <fixed-outcome>Commit</fixed-outcome>
       </outcome>
     </method-call>
-    <view id="AppointmentInvitees">
-      <page>/AppointmentInvitees.jsff</page>
-    </view>
     <control-flow-rule id="__1">
       <from-activity-id>addEditAppointment</from-activity-id>
       <control-flow-case id="__2">
@@ -145,10 +148,6 @@
       <control-flow-case id="__18">
         <from-outcome>save</from-outcome>
         <to-activity-id>commitCreate</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__26">
-        <from-outcome>inviteAttendees</from-outcome>
-        <to-activity-id>AppointmentInvitees</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

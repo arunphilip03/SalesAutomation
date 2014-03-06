@@ -72,6 +72,9 @@ public class CustomerContactsImpl extends EntityImpl {
     }
 
 
+    public static final String ISPRIMARYVALUE = "Yes";
+
+
     public static final int CONTACTID = AttributesEnum.ContactId.index();
     public static final int CUSTACCOUNTID = AttributesEnum.CustAccountId.index();
     public static final int TITLE = AttributesEnum.Title.index();
@@ -96,8 +99,6 @@ public class CustomerContactsImpl extends EntityImpl {
     public static final int OPPORTUNITIES = AttributesEnum.Opportunities.index();
     public static final int OPPORTUNITYTEAM = AttributesEnum.OpportunityTeam.index();
     public static final int TASKTEAM = AttributesEnum.TaskTeam.index();
-    
-    public static final String ISPRIMARYVALUE = "Yes";
 
     /**
      * This is the default constructor (do not remove).

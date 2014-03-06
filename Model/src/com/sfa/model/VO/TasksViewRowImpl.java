@@ -18,6 +18,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class TasksViewRowImpl extends ViewRowImpl {
+
     public static final int ENTITY_TASKS = 0;
 
     /**
@@ -42,12 +43,14 @@ public class TasksViewRowImpl extends ViewRowImpl {
         Assignee,
         RelatedOppurtunity,
         TaskTeamView,
+        TaskTeamVO,
         TaskPriorityLuView1,
         UsersView1,
         UsersView2,
         OpportunitiesView1,
         AllUsersVO1;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -69,6 +72,7 @@ public class TasksViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int TASKID = AttributesEnum.TaskId.index();
     public static final int TASKNAME = AttributesEnum.TaskName.index();
     public static final int DUEDATE = AttributesEnum.DueDate.index();
@@ -87,6 +91,7 @@ public class TasksViewRowImpl extends ViewRowImpl {
     public static final int ASSIGNEE = AttributesEnum.Assignee.index();
     public static final int RELATEDOPPURTUNITY = AttributesEnum.RelatedOppurtunity.index();
     public static final int TASKTEAMVIEW = AttributesEnum.TaskTeamView.index();
+    public static final int TASKTEAMVO = AttributesEnum.TaskTeamVO.index();
     public static final int TASKPRIORITYLUVIEW1 = AttributesEnum.TaskPriorityLuView1.index();
     public static final int USERSVIEW1 = AttributesEnum.UsersView1.index();
     public static final int USERSVIEW2 = AttributesEnum.UsersView2.index();
@@ -378,6 +383,13 @@ public class TasksViewRowImpl extends ViewRowImpl {
      */
     public RowIterator getTaskTeamView() {
         return (RowIterator) getAttributeInternal(TASKTEAMVIEW);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link TaskTeamVO.
+     */
+    public RowIterator getTaskTeamVO() {
+        return (RowIterator) getAttributeInternal(TASKTEAMVO);
     }
 
     /**

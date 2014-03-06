@@ -88,6 +88,22 @@
     <page path="/WEB-INF/add-edit-notes.xml#add-edit-notes@commit"
           usageId="com_sfa_view_add_edit_notes_add_edit_notes_commitPageDef"/>
     <page path="/CreateNote.jsff" usageId="com_sfa_view_CreateNotePageDef"/>
+    <page path="/ContactDetail.jsff" usageId="com_sfa_view_ContactDetailPageDef"/>
+    <page path="/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact@createInsert"
+          usageId="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_createInsertPageDef"/>
+    <page path="/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact@setCurrentRowWithKey"
+          usageId="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_setCurrentRowWithKeyPageDef"/>
+    <page path="/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact@commitCreate"
+          usageId="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_commitCreatePageDef"/>
+    <page path="/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact@commitEdit"
+          usageId="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_commitEditPageDef"/>
+    <page path="/ContactMainCreate.jsff" usageId="com_sfa_view_ContactMainCreatePageDef"/>
+    <page path="/ContactMainEdit.jsff" usageId="com_sfa_view_ContactMainEditPageDef"/>
+    <page path="/AppointmentDetail.jsff" usageId="com_sfa_view_AppointmentDetailPageDef"/>
+    <page path="/WEB-INF/contacts-taskflow.xml#contacts-taskflow@SetCurrentRowWithKeyValue"
+          usageId="com_sfa_view_contacts_taskflow_contacts_taskflow_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@SetCurrentRowWithKeyValue"
+          usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -195,6 +211,22 @@
     <page id="com_sfa_view_add_edit_notes_add_edit_notes_commitPageDef"
           path="com.sfa.view.pageDefs.add_edit_notes_add_edit_notes_commitPageDef"/>
     <page id="com_sfa_view_CreateNotePageDef" path="com.sfa.view.pageDefs.CreateNotePageDef"/>
+    <page id="com_sfa_view_ContactDetailPageDef" path="com.sfa.view.pageDefs.ContactDetailPageDef"/>
+    <page id="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_createInsertPageDef"
+          path="com.sfa.view.pageDefs.add_edit_toplevel_contact_add_edit_toplevel_contact_createInsertPageDef"/>
+    <page id="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_setCurrentRowWithKeyPageDef"
+          path="com.sfa.view.pageDefs.add_edit_toplevel_contact_add_edit_toplevel_contact_setCurrentRowWithKeyPageDef"/>
+    <page id="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_commitCreatePageDef"
+          path="com.sfa.view.pageDefs.add_edit_toplevel_contact_add_edit_toplevel_contact_commitCreatePageDef"/>
+    <page id="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_commitEditPageDef"
+          path="com.sfa.view.pageDefs.add_edit_toplevel_contact_add_edit_toplevel_contact_commitEditPageDef"/>
+    <page id="com_sfa_view_ContactMainCreatePageDef" path="com.sfa.view.pageDefs.ContactMainCreatePageDef"/>
+    <page id="com_sfa_view_ContactMainEditPageDef" path="com.sfa.view.pageDefs.ContactMainEditPageDef"/>
+    <page id="com_sfa_view_AppointmentDetailPageDef" path="com.sfa.view.pageDefs.AppointmentDetailPageDef"/>
+    <page id="com_sfa_view_contacts_taskflow_contacts_taskflow_SetCurrentRowWithKeyValuePageDef"
+          path="com.sfa.view.pageDefs.contacts_taskflow_contacts_taskflow_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"
+          path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

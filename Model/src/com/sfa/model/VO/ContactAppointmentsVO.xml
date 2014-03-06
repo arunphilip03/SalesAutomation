@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContactAppointmentsVO"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.ContactAppointmentsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="OpportunitiesView1"
+    ViewObjectName="com.sfa.model.VO.OpportunitiesView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RelatedOpportunity"
+    ListVOName="OpportunitiesView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RelatedOpportunity"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OpportunityName"/>
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OpportunityName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="OpportunitiesViewCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,  
+       Appointments.NAME,  
+       Appointments.START_DATETIME,  
+       Appointments.END_DATETIME,  
+       Appointments.LOCATION,  
+       Appointments.OPPURTUNITY_ID,  
+       Appointments.DESCRIPTION,  
+       Appointments.OBJECT_VERSION_NUMBER,  
+       Appointments.CUST_ACCOUNT_ID,  
+       CustomerContacts.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1,  
+       AppointmentInvitees.CONTACT_ID, 
+       AppointmentInvitees.APP_INVITEE_ID,  
+       AppointmentInvitees.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER2 
+FROM  APPOINTMENTS Appointments, CUSTOMER_CONTACTS CustomerContacts, APPOINTMENT_INVITEES AppointmentInvitees 
+WHERE CustomerContacts.CONTACT_ID = AppointmentInvitees.CONTACT_ID 
+AND Appointments.APPOINTMENT_ID = AppointmentInvitees.APPOINTMENT_ID]]></SQLQuery>
+  <EntityUsage
+    Name="Appointments"
+    Entity="com.sfa.model.entity.Appointments"/>
+  <EntityUsage
+    Name="CustomerContacts"
+    Entity="com.sfa.model.entity.CustomerContacts"
+    ReadOnly="true"
+    DeleteParticipant="false">
+    <DesignTime>
+      <Attr Name="_customjoin" Value="true"/>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="AppointmentId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AppointmentId"
+    EntityUsage="Appointments"
+    AliasName="APPOINTMENT_ID"/>
+  <ViewAttribute
+    Name="Name"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="Appointments"
+    AliasName="NAME"/>
+  <ViewAttribute
+    Name="StartDatetime"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StartDatetime"
+    EntityUsage="Appointments"
+    AliasName="START_DATETIME"/>
+  <ViewAttribute
+    Name="EndDatetime"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EndDatetime"
+    EntityUsage="Appointments"
+    AliasName="END_DATETIME"/>
+  <ViewAttribute
+    Name="Location"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Location"
+    EntityUsage="Appointments"
+    AliasName="LOCATION"/>
+  <ViewAttribute
+    Name="OppurtunityId"
+    PrecisionRule="true"
+    EntityAttrName="OppurtunityId"
+    EntityUsage="Appointments"
+    AliasName="OPPURTUNITY_ID"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="Appointments"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="Appointments"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="CustAccountId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustAccountId"
+    EntityUsage="Appointments"
+    AliasName="CUST_ACCOUNT_ID"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber1"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="CustomerContacts"
+    AliasName="OBJECT_VERSION_NUMBER1"/>
+  <ViewAttribute
+    Name="ContactId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="ContactId"
+    EntityUsage="CustomerContacts"
+    AliasName="CONTACT_ID"/>
+  <ViewAttribute
+    Name="RelatedOpportunity"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_RelatedOpportunity">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <LABEL
+          ResId="com.sfa.model.VO.ContactAppointmentsVO.RelatedOpportunity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="CustomerContactsView"
+    ViewLink="com.sfa.model.viewlink.ContactAppointmentsVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

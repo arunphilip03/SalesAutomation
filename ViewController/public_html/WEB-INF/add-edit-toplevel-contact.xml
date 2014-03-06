@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <task-flow-definition id="add-edit-tasks-taskflow">
-    <default-activity>addEditTask</default-activity>
+  <task-flow-definition id="add-edit-toplevel-contact">
+       <default-activity>addEditRouter</default-activity>
     <transaction>
       <requires-transaction/>
     </transaction>
-    <input-parameter-definition id="__18">
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__13">
       <name>selectedRowKeyStr</name>
       <value>#{pageFlowScope.selectedRowKeyStr}</value>
       <class>java.lang.String</class>
       <required/>
     </input-parameter-definition>
-    <input-parameter-definition id="__19">
-      <name>callType</name>
-      <value>#{pageFlowScope.callType}</value>
-      <class>java.lang.String</class>
-      <required/>
-    </input-parameter-definition>
-    <router id="addEditTask">
-      <case id="__16">
+    <router id="addEditRouter">
+      <case id="__11">
         <expression>#{pageFlowScope.selectedRowKeyStr == ''}</expression>
         <outcome>add</outcome>
       </case>
-      <case id="__17">
+      <case id="__12">
         <expression>#{pageFlowScope.selectedRowKeyStr != ''}</expression>
         <outcome>edit</outcome>
       </case>
@@ -40,11 +37,8 @@
         <fixed-outcome>setCurrentRowWithKey</fixed-outcome>
       </outcome>
     </method-call>
-    <view id="createTask">
-      <page>/CreateTask.jsff</page>
-    </view>
-    <view id="editTask">
-      <page>/EditTask.jsff</page>
+    <view id="CreateContact">
+      <page>/ContactMainCreate.jsff</page>
     </view>
     <task-flow-return id="saveCreate">
       <outcome>
@@ -58,12 +52,9 @@
         <rollback/>
       </outcome>
     </task-flow-return>
-    <method-call id="commitCreate">
-      <method>#{bindings.Commit.execute}</method>
-      <outcome>
-        <fixed-outcome>Commit</fixed-outcome>
-      </outcome>
-    </method-call>
+    <view id="EditContact">
+      <page>/ContactMainEdit.jsff</page>
+    </view>
     <task-flow-return id="saveEdit">
       <outcome>
         <name>saveEdit</name>
@@ -76,6 +67,12 @@
         <rollback/>
       </outcome>
     </task-flow-return>
+    <method-call id="commitCreate">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
     <method-call id="commitEdit">
       <method>#{bindings.Commit.execute}</method>
       <outcome>
@@ -83,12 +80,12 @@
       </outcome>
     </method-call>
     <control-flow-rule id="__1">
-      <from-activity-id>addEditTask</from-activity-id>
+      <from-activity-id>addEditRouter</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>add</from-outcome>
         <to-activity-id>createInsert</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__3">
+      <control-flow-case id="__15">
         <from-outcome>edit</from-outcome>
         <to-activity-id>setCurrentRowWithKey</to-activity-id>
       </control-flow-case>
@@ -97,44 +94,44 @@
       <from-activity-id>createInsert</from-activity-id>
       <control-flow-case id="__5">
         <from-outcome>createInsert</from-outcome>
-        <to-activity-id>createTask</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__6">
-      <from-activity-id>setCurrentRowWithKey</from-activity-id>
-      <control-flow-case id="__7">
-        <from-outcome>setCurrentRowWithKey</from-outcome>
-        <to-activity-id>editTask</to-activity-id>
+        <to-activity-id>CreateContact</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__8">
-      <from-activity-id>createTask</from-activity-id>
+      <from-activity-id>CreateContact</from-activity-id>
       <control-flow-case id="__9">
         <from-outcome>saveAndClose</from-outcome>
         <to-activity-id>saveCreate</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__10">
-        <from-outcome>save</from-outcome>
-        <to-activity-id>commitCreate</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__11">
         <from-outcome>cancel</from-outcome>
         <to-activity-id>cancelCreate</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>commitCreate</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__12">
-      <from-activity-id>editTask</from-activity-id>
-      <control-flow-case id="__13">
+    <control-flow-rule id="__3">
+      <from-activity-id>setCurrentRowWithKey</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>setCurrentRowWithKey</from-outcome>
+        <to-activity-id>EditContact</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>EditContact</from-activity-id>
+      <control-flow-case id="__18">
         <from-outcome>saveAndClose</from-outcome>
         <to-activity-id>saveEdit</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__14">
-        <from-outcome>save</from-outcome>
-        <to-activity-id>commitEdit</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__15">
+      <control-flow-case id="__19">
         <from-outcome>cancel</from-outcome>
         <to-activity-id>cancelEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>commitEdit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

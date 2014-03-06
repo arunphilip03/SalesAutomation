@@ -8,6 +8,14 @@
               id="AppointmentsView2Iterator"/>
     <iterator Binds="AppointmentInviteesVO3" RangeSize="25" DataControl="AppModuleDataControl"
               id="AppointmentInviteesVO3Iterator"/>
+    <iterator id="CustomerContactsView2Iterator" Binds="CustomerContactsView2" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="AllUsersVO1Iterator" Binds="AllUsersVO1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="CustomerContactsView1Iterator" Binds="CustomerContactsView1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="RelatedContacts1Iterator" Binds="RelatedContacts1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="ContactsInAccountVO1Iterator" Binds="ContactsInAccountVO1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="AppointmentsView2Iterator" StaticList="false" Uses="LOV_RelatedOppurtunity"
@@ -37,19 +45,16 @@
         <Item Value="Location"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="AppointmentInviteesVO3Iterator" id="AppointmentInviteesVO3">
-      <nodeDefinition DefName="com.sfa.model.VO.AppointmentInviteesVO" Name="AppointmentInviteesVO30">
-        <AttrNames>
-          <Item Value="Name"/>
-          <Item Value="InviteeType"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <attributeValues IterBinding="AppointmentInviteesVO3Iterator" id="AppointmentId">
+    <attributeValues IterBinding="AppointmentsView2Iterator" id="AppointmentId">
       <AttrNames>
         <Item Value="AppointmentId"/>
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

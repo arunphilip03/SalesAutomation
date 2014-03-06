@@ -61,6 +61,15 @@
           Value="date"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:CompareValidationBean
+      Name="DueDateRule0"
+      ResId="com.sfa.model.entity.Tasks.DueDate_Rule_0"
+      OnAttribute="DueDate"
+      OperandType="EXPR"
+      Inverse="false"
+      CompareType="GREATERTHANEQUALTO">
+      <validation:TransientExpression><![CDATA[adf.currentDate]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
   </Attribute>
   <Attribute
     Name="Priority"

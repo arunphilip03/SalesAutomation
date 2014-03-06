@@ -3,7 +3,7 @@
                 xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:panelGroupLayout id="pgl3"
-                       inlineStyle="border-top-style:solid; border-top-width:thin; border-top-color:InactiveCaption;">
+                       inlineStyle="border-top-style:none; border-top-color:currentColor; border-top-width:medium;">
     <af:messages id="m1"/>
     <af:panelGroupLayout layout="vertical" id="pgl1">
       <af:panelSplitter id="ps1" orientation="vertical">

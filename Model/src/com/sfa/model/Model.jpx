@@ -9,8 +9,6 @@
   PackageName="com.sfa.model">
   <DesignTime>
     <Attr Name="_jprName" Value="../../../../Model.jpr"/>
-    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
-    <Attr Name="_NamedConnection" Value="SFAConnection"/>
     <Attr Name="_appModuleNames0" Value="com.sfa.model.service.AppModule"/>
   </DesignTime>
   <Containee
@@ -24,11 +22,7 @@
   <Containee
     Name="entity"
     PackageName="com.sfa.model.entity"
-    ObjectType="JboPackage">
-    <DesignTime>
-      <Attr Name="_EO" Value="true"/>
-    </DesignTime>
-  </Containee>
+    ObjectType="JboPackage"/>
   <Containee
     Name="service"
     PackageName="com.sfa.model.service"

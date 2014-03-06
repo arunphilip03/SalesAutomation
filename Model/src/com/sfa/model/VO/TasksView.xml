@@ -110,7 +110,8 @@
       <Item Value="OpportunityName"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="OpportunitiesViewCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Assignee"
@@ -154,7 +155,14 @@
     PrecisionRule="true"
     EntityAttrName="TaskName"
     EntityUsage="Tasks"
-    AliasName="TASK_NAME"/>
+    AliasName="TASK_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DueDate"
     IsNotNull="true"
@@ -312,6 +320,11 @@
   <ViewLinkAccessor
     Name="TaskTeamView"
     ViewLink="com.sfa.model.viewlink.TaskTeamFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="TaskTeamVO"
+    ViewLink="com.sfa.model.viewlink.TaskTeamVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

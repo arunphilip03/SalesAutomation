@@ -30,23 +30,24 @@ import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Number;
 
-public class InviteeBean {
+public class TaskTeamBean {
+    public TaskTeamBean() {
+        super();
+    }
+    
     private RichSelectManyShuttle selectManyShuttleComponentContacts;
     private RichSelectManyShuttle selectManyShuttleComponentUsers;
 
-    public InviteeBean() {
-        super();
-    }
     private BindingContainer bindings;
     private List allContacts;
     private List selectedContacts;
-
+    
     private List allUsers;
     private List selectedUsers;
     private boolean refreshIterator = false;
 
     /**
-     * Setter method for Bindings
+     * Setter method for Bindings 
      * @param bindings
      */
     //    public void setBindings(BindingContainer bindings) {
@@ -58,7 +59,7 @@ public class InviteeBean {
      * @return
      */
     public BindingContainer getBindings() {
-
+        
         BindingContext context = BindingContext.getCurrent();
         BindingContainer bindings = context.getCurrentBindingsEntry();
         return bindings;
@@ -103,7 +104,7 @@ public class InviteeBean {
             if (pfs.get("selectedListContact") == null || refreshIterator)
                 selectedListContact = attributeListForIteratorContacts();
             else
-                selectedListContact = (List) pfs.get("selectedListContact");
+                selectedListContact = (List)pfs.get("selectedListContact");
         }
         return selectedListContact;
     }
@@ -125,7 +126,7 @@ public class InviteeBean {
     }
 
     public List getSelectedUsers() {
-
+        
         List selectedListUser = null;
         AdfFacesContext fctx = AdfFacesContext.getCurrentInstance();
         Map<String, Object> pfs = fctx.getPageFlowScope();
@@ -133,9 +134,9 @@ public class InviteeBean {
             if (pfs.get("selectedListUser") == null || refreshIterator)
                 selectedListUser = attributeListForIteratorUsers();
             else
-                selectedListUser = (List) pfs.get("selectedListUser");
+                selectedListUser = (List)pfs.get("selectedListUser");
         }
-        return selectedListUser;
+        return selectedListUser;      
     }
 
 
@@ -144,18 +145,18 @@ public class InviteeBean {
      * @return
      */
     public List attributeListForIteratorContacts() {
-        DCBindingContainer bc = (DCBindingContainer) getBindings();
-        DCIteratorBinding iter = bc.findIteratorBinding("AppointmentInviteesVO3Iterator");
+        DCBindingContainer bc = (DCBindingContainer)getBindings();
+        DCIteratorBinding iter = bc.findIteratorBinding("TaskTeamVO1Iterator");
         List attributeList = new ArrayList();
         for (Row row : iter.getAllRowsInRange()) {
             attributeList.add(row.getAttribute("ContactId"));
         }
         return attributeList;
     }
-
+    
     public List attributeListForIteratorUsers() {
-        DCBindingContainer bc = (DCBindingContainer) getBindings();
-        DCIteratorBinding iter = bc.findIteratorBinding("AppointmentInviteesVO3Iterator");
+        DCBindingContainer bc = (DCBindingContainer)getBindings();
+        DCIteratorBinding iter = bc.findIteratorBinding("TaskTeamVO1Iterator");
         List attributeList = new ArrayList();
         for (Row row : iter.getAllRowsInRange()) {
             attributeList.add(row.getAttribute("UserId"));
@@ -164,31 +165,31 @@ public class InviteeBean {
     }
 
     public List<SelectItem> selectItemsForIteratorContacts() {
-
-
+        
         AdfFacesContext fctx = AdfFacesContext.getCurrentInstance();
         Map<String, Object> pfs = fctx.getPageFlowScope();
         String appType = null;
         if (pfs != null) {
 
-            appType = (String) pfs.get("appType");
+            appType = (String) pfs.get("callType");
             System.out.println("Type:: " + appType);
         }
-
-
-        DCBindingContainer bc = (DCBindingContainer) getBindings();
-        DCIteratorBinding iter = null;
+        
+        DCBindingContainer bc = (DCBindingContainer)getBindings();
+        DCIteratorBinding iter = null; 
+        //bc.findIteratorBinding("CustomerContactsView2Iterator");
         List<SelectItem> selectItems = new ArrayList<SelectItem>();
-        if (appType.equals("customer")) {
+        
+        if(appType.equals("customer")) {
             iter = bc.findIteratorBinding("CustomerContactsView2Iterator");
-            //List<SelectItem> selectItems = new ArrayList<SelectItem>();
+            
             for (Row row : iter.getAllRowsInRange()) {
                 selectItems.add(new SelectItem(row.getAttribute("ContactId"),
-                                               (String) row.getAttribute("ContactName")));
+                                               (String)row.getAttribute("ContactName")));
             }
-
-        } else if (appType.equals("contact")) {
-
+            
+        }else if(appType.equals("contact")) {
+            
             AttributeBinding accountId = (AttributeBinding) bc.getControlBinding("CustAccountId");
             System.out.println("Account id= " + accountId.toString());
             //ContactsInAccountVO
@@ -205,20 +206,19 @@ public class InviteeBean {
                 selectItems.add(new SelectItem(row.getAttribute("ContactId"),
                                                (String) row.getAttribute("ContactName")));
             }
-
-
-            //iter = bc.findIteratorBinding("RelatedContacts1Iterator");
+            
         }
-
+        
         return selectItems;
     }
-
+    
     public List<SelectItem> selectItemsForIteratorUsers() {
-        DCBindingContainer bc = (DCBindingContainer) getBindings();
+        DCBindingContainer bc = (DCBindingContainer)getBindings();
         DCIteratorBinding iter = bc.findIteratorBinding("AllUsersVO1Iterator");
         List<SelectItem> selectItems = new ArrayList<SelectItem>();
         for (Row row : iter.getAllRowsInRange()) {
-            selectItems.add(new SelectItem(row.getAttribute("UserId"), (String) row.getAttribute("UserName")));
+            selectItems.add(new SelectItem(row.getAttribute("UserId"),
+                                           (String)row.getAttribute("UserName")));
         }
         return selectItems;
     }
@@ -227,7 +227,7 @@ public class InviteeBean {
         List<Number> selectedListFromUI = null;
         if (valueChangeEvent.getOldValue().equals(valueChangeEvent.getNewValue()))
             return;
-        selectedListFromUI = (ArrayList<Number>) valueChangeEvent.getNewValue();
+        selectedListFromUI = (ArrayList<Number>)valueChangeEvent.getNewValue();
         AdfFacesContext fctx = AdfFacesContext.getCurrentInstance();
         Map<String, Object> pfs = fctx.getPageFlowScope();
         if (pfs != null) {
@@ -238,12 +238,12 @@ public class InviteeBean {
             }
         }
     }
-
+    
     public void onUserChange(ValueChangeEvent valueChangeEvent) {
         List<Number> selectedListFromUI = null;
         if (valueChangeEvent.getOldValue().equals(valueChangeEvent.getNewValue()))
             return;
-        selectedListFromUI = (ArrayList<Number>) valueChangeEvent.getNewValue();
+        selectedListFromUI = (ArrayList<Number>)valueChangeEvent.getNewValue();
         AdfFacesContext fctx = AdfFacesContext.getCurrentInstance();
         Map<String, Object> pfs = fctx.getPageFlowScope();
         if (pfs != null) {
@@ -255,31 +255,31 @@ public class InviteeBean {
         }
     }
 
-    public Number getCurrentAppointmentId() {
-        DCBindingContainer bc = (DCBindingContainer) getBindings();
-        //        AttributeBinding attr = (AttributeBinding)bc.findCtrlBinding("AppointmentId");
+    public Number getCurrentTaskId() {
+        DCBindingContainer bc = (DCBindingContainer)getBindings();
+    //        AttributeBinding attr = (AttributeBinding)bc.findCtrlBinding("AppointmentId");
+        
+        DCIteratorBinding iterBind= (DCIteratorBinding)bc.get("TasksView3Iterator"); 
+        BigDecimal taskId = (BigDecimal)iterBind.getCurrentRow().getAttribute("TaskId"); 
 
-        DCIteratorBinding iterBind = (DCIteratorBinding) bc.get("AppointmentsView2Iterator");
-        BigDecimal appId = (BigDecimal) iterBind.getCurrentRow().getAttribute("AppointmentId");
+    //        AttributeBinding attr2 = (AttributeBinding)bc.get("AppointmentId");
+       
 
-        //        AttributeBinding attr2 = (AttributeBinding)bc.get("AppointmentId");
-
-
-        System.out.println("Appointment ID3: " + appId);
-
-
+        System.out.println("Task ID: "+ taskId );
+        
+        
         Number empId = null;
         try {
-            empId = new Number(appId);
+            empId = new Number(taskId);
         } catch (SQLException e) {
         }
         return empId;
     }
 
     public void onCommit(ActionEvent actionEvent) {
-        DCBindingContainer bc = (DCBindingContainer) getBindings();
-        DCIteratorBinding iter = bc.findIteratorBinding("AppointmentInviteesVO3Iterator");
-
+        DCBindingContainer bc = (DCBindingContainer)getBindings();
+        DCIteratorBinding iter = bc.findIteratorBinding("TaskTeamVO1Iterator");
+        
         //Removing all rows for the current EmpId from EmpRolesVO
         for (Row row : iter.getAllRowsInRange()) {
             row.remove();
@@ -290,33 +290,33 @@ public class InviteeBean {
             for (int i = 0; i < size; i++) {
                 Row row = iter.getRowSetIterator().createRow();
                 //System.out.println("Appointment ID: "+attr.getInputValue() );
-                System.out.println("Contact ID: " + roles.get(i));
-
-                row.setAttribute("AppointmentId", getCurrentAppointmentId());
+                System.out.println("Contact ID: "+roles.get(i));
+                
+                row.setAttribute("TaskId", getCurrentTaskId());
                 row.setAttribute("ContactId", roles.get(i));
                 iter.getRowSetIterator().insertRow(row);
             }
         }
-
+        
         List users = getSelectedUsers();
         int users_size = users.size();
-        if (users_size > 0) {
+        if(users_size > 0) {
             for (int i = 0; i < users_size; i++) {
                 Row row = iter.getRowSetIterator().createRow();
                 //System.out.println("Appointment ID: "+attr.getInputValue() );
-                System.out.println("UserID: " + users.get(i));
-
-                row.setAttribute("AppointmentId", getCurrentAppointmentId());
+                System.out.println("UserID: "+users.get(i));
+                
+                row.setAttribute("TaskId", getCurrentTaskId());
                 row.setAttribute("UserId", users.get(i));
                 iter.getRowSetIterator().insertRow(row);
             }
-
+            
         }
-
-
+        
+        
         OperationBinding op = bc.getOperationBinding("Commit");
         if (op != null) {
-            op.execute();
+           op.execute();
         }
         //return null;
     }
@@ -346,9 +346,11 @@ public class InviteeBean {
 
     public void onClearIndices(ActionEvent actionEvent) {
         List list = new ArrayList();
-        AdfFacesContext.getCurrentInstance().getPageFlowScope().put("selectedList", list);
+        AdfFacesContext.getCurrentInstance().getPageFlowScope().put("selectedList",
+                                                                    list);
         if (selectManyShuttleComponentContacts != null) {
-            AdfFacesContext.getCurrentInstance().addPartialTarget(selectManyShuttleComponentContacts);
+            AdfFacesContext.getCurrentInstance().
+                addPartialTarget(selectManyShuttleComponentContacts);
         }
     }
 }

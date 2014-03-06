@@ -97,5 +97,9 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="AppointmentsView2Iterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.AppointmentId}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>
