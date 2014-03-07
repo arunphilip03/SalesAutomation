@@ -21,7 +21,7 @@
                                 </af:panelList>
                             </af:panelGroupLayout>
                         </af:showDetailItem>
-                        <af:showDetailItem text="Admin" id="sdi1">
+                        <af:showDetailItem text="Admin" id="sdi1" disclosed="true">
                             <af:panelGroupLayout id="pgl2">
                                 <af:panelList id="pl2">
                                     <af:link text="Manage Roles" id="l4"
