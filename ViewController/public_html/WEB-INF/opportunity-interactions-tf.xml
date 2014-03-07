@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="opportunity-interactions-tf">
+    <default-activity>opportunity-interactions-main</default-activity>
+    <view id="opportunity-interactions-main">
+      <page>/opportunity-interactions-main.jsff</page>
+    </view>
+    <view id="opportunity-interactions-create">
+      <page>/opportunity-interactions-create.jsff</page>
+    </view>
+    <view id="opportunity-interactions-edit">
+      <page>/opportunity-interactions-edit.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>opportunity-interactions-main</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>exit</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>create</from-outcome>
+        <to-activity-id>opportunity-interactions-create</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>opportunity-interactions-edit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>opportunity-interactions-edit</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>opportunity-interactions-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>opportunity-interactions-create</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>opportunity-interactions-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

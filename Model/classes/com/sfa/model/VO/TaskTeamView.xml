@@ -6,20 +6,32 @@
   Name="TaskTeamView"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="TaskTeam.TASK_TEAM_ID, 
-       TaskTeam.TASK_ID, 
-       TaskTeam.CONTACT_ID, 
-       TaskTeam.USER_ID, 
-       TaskTeam.CREATION_DATE, 
-       TaskTeam.LAST_UPDATE_DATE, 
-       TaskTeam.CREATED_BY, 
-       TaskTeam.LAST_UPDATED_BY, 
-       TaskTeam.LAST_UPDATE_LOGIN, 
-       TaskTeam.OBJECT_VERSION_NUMBER"
-  FromList="TASK_TEAM TaskTeam"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT TaskTeam.TASK_TEAM_ID,     
+       TaskTeam.TASK_ID,     
+       TaskTeam.CONTACT_ID,     
+       TaskTeam.USER_ID,        
+       TaskTeam.OBJECT_VERSION_NUMBER,   
+        CustomerContacts.CONTACT_NAME AS NAME,                 
+       'CONTACT' AS INVITEE_TYPE 
+FROM  TASK_TEAM TaskTeam, CUSTOMER_CONTACTS CustomerContacts        
+WHERE (TaskTeam.CONTACT_ID = CustomerContacts.CONTACT_ID)    
+UNION       
+       
+SELECT TaskTeam.TASK_TEAM_ID,     
+       TaskTeam.TASK_ID,     
+       TaskTeam.CONTACT_ID,     
+       TaskTeam.USER_ID,        
+       TaskTeam.OBJECT_VERSION_NUMBER,       
+       Users.USER_NAME AS NAME,       
+       'USER' AS INVITEE_TYPE             
+FROM  TASK_TEAM TaskTeam, USERS Users       
+WHERE (TaskTeam.USER_ID = Users.USER_ID)]]></SQLQuery>
   <EntityUsage
     Name="TaskTeam"
     Entity="com.sfa.model.entity.TaskTeam"/>
@@ -50,41 +62,39 @@
     EntityUsage="TaskTeam"
     AliasName="USER_ID"/>
   <ViewAttribute
-    Name="CreationDate"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreationDate"
-    EntityUsage="TaskTeam"
-    AliasName="CREATION_DATE"/>
-  <ViewAttribute
-    Name="LastUpdateDate"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateDate"
-    EntityUsage="TaskTeam"
-    AliasName="LAST_UPDATE_DATE"/>
-  <ViewAttribute
-    Name="CreatedBy"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="TaskTeam"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdatedBy"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedBy"
-    EntityUsage="TaskTeam"
-    AliasName="LAST_UPDATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdateLogin"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateLogin"
-    EntityUsage="TaskTeam"
-    AliasName="LAST_UPDATE_LOGIN"/>
-  <ViewAttribute
     Name="ObjectVersionNumber"
     PrecisionRule="true"
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="TaskTeam"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME"
+    Expression="NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InviteeType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="7"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INVITEE_TYPE"
+    Expression="INVITEE_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
 </ViewObject>

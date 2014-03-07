@@ -67,15 +67,15 @@
                                       shortDesc="#{bindings.Password.hints.tooltip}" id="it6">
                             <f:validator binding="#{bindings.Password.validator}"/>
                         </af:inputText>
-                        <af:inputComboboxListOfValues id="managerIdId"
-                                                      popupTitle="Search and Select: #{bindings.ManagerId.hints.label}"
-                                                      value="#{bindings.ManagerId.inputValue}"
-                                                      label="#{bindings.ManagerId.hints.label}"
-                                                      model="#{bindings.ManagerId.listOfValuesModel}"
-                                                      required="#{bindings.ManagerId.hints.mandatory}"
-                                                      columns="#{bindings.ManagerId.hints.displayWidth}"
-                                                      shortDesc="#{bindings.ManagerId.hints.tooltip}">
-                            <f:validator binding="#{bindings.ManagerId.validator}"/>
+                        <af:inputComboboxListOfValues id="managernameId"
+                                                      popupTitle="Search and Select: #{bindings.Managername.hints.label}"
+                                                      value="#{bindings.Managername.inputValue}"
+                                                      label="#{bindings.Managername.hints.label}"
+                                                      model="#{bindings.Managername.listOfValuesModel}"
+                                                      required="#{bindings.Managername.hints.mandatory}"
+                                                      columns="#{bindings.Managername.hints.displayWidth}"
+                                                      shortDesc="#{bindings.Managername.hints.tooltip}">
+                            <f:validator binding="#{bindings.Managername.validator}"/>
                         </af:inputComboboxListOfValues>
                         <af:inputDate value="#{bindings.EffecStartDate.inputValue}"
                                       label="#{bindings.EffecStartDate.hints.label}"

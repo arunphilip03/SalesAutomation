@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelHeader text="Create Note" id="ph1" inlineStyle="height:43px;" styleClass="AFStretchWidth">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
+                            <af:button text="Save &amp; Close" id="b3" actionListener="#{bindings.Commit.execute}"
+                                       action="back"/>
+                            <af:button text="Close" id="b2" actionListener="#{bindings.Rollback.execute}"
+                                       immediate="true" action="back">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+                <af:panelWindow id="pw1" styleClass="AFStretchWidth">
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputDate value="#{bindings.NoteDatetime.inputValue}"
+                                      label="#{bindings.NoteDatetime.hints.label}"
+                                      required="#{bindings.NoteDatetime.hints.mandatory}"
+                                      columns="#{bindings.NoteDatetime.hints.displayWidth}"
+                                      shortDesc="#{bindings.NoteDatetime.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.NoteDatetime.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.NoteDatetime.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.NotesText.inputValue}" label="#{bindings.NotesText.hints.label}"
+                                      required="#{bindings.NotesText.hints.mandatory}"
+                                      columns="#{bindings.NotesText.hints.displayWidth}"
+                                      maximumLength="#{bindings.NotesText.hints.precision}"
+                                      shortDesc="#{bindings.NotesText.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.NotesText.validator}"/>
+                        </af:inputText>
+                    </af:panelFormLayout>
+                </af:panelWindow>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

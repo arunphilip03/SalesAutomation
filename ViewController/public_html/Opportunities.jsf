@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Opportunities.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/ui/pattern/dynamicShell/dynamicTabShell.jspx" value="#{bindings.ptb1}"
+                             id="pt1">
+                <f:facet name="copyright"/>
+                <f:facet name="about"/>
+                <f:facet name="navigation">
+                    <af:panelAccordion id="pal" discloseMany="true">
+                        <af:showDetailItem text="Opportunities" id="det1" disclosed="true">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:panelList id="pl1">
+                                    <af:link text="Opportunity" id="l1" selected="true"
+                                             actionListener="#{backingBeanScope.launcher.launchOpportunity}"/>
+                                </af:panelList>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                    </af:panelAccordion>
+                </f:facet>
+                <f:facet name="globalLinks"/>
+                <f:facet name="status"/>
+                <f:facet name="globalToolbar"/>
+                <f:facet name="globalSearch">
+                    <af:panelGroupLayout id="ab1" layout="horizontal">
+                        <af:link text="LogOut" id="lg1"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="globalTabs">
+                    <af:navigationPane id="np1">
+                        <af:commandNavigationItem text="Admin" id="cn1" action="goAdmin"/>
+                        <af:commandNavigationItem text="Opportunities" id="cn2" action="goOpportunity" selected="true"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="welcome"/>
+                <f:facet name="innerToolbar"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

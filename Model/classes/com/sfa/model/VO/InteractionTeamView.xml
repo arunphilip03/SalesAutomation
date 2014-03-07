@@ -6,20 +6,32 @@
   Name="InteractionTeamView"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="InteractionTeam.INTERACTION_TEAM_ID, 
-       InteractionTeam.INTERACTION_ID, 
-       InteractionTeam.CONTACT_ID, 
-       InteractionTeam.USER_ID, 
-       InteractionTeam.CREATION_DATE, 
-       InteractionTeam.LAST_UPDATE_DATE, 
-       InteractionTeam.CREATED_BY, 
-       InteractionTeam.LAST_UPDATED_BY, 
-       InteractionTeam.LAST_UPDATE_LOGIN, 
-       InteractionTeam.OBJECT_VERSION_NUMBER"
-  FromList="INTERACTION_TEAM InteractionTeam"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT InteractionTeam.INTERACTION_TEAM_ID,      
+       InteractionTeam.INTERACTION_ID,      
+       InteractionTeam.CONTACT_ID,      
+       InteractionTeam.USER_ID,        
+       InteractionTeam.OBJECT_VERSION_NUMBER,     
+        CustomerContacts.CONTACT_NAME AS NAME,                
+       'CONTACT' AS INVITEE_TYPE     
+FROM  INTERACTION_TEAM InteractionTeam, CUSTOMER_CONTACTS CustomerContacts     
+WHERE (InteractionTeam.CONTACT_ID = CustomerContacts.CONTACT_ID) 
+UNION    
+    
+SELECT InteractionTeam.INTERACTION_TEAM_ID,     
+       InteractionTeam.INTERACTION_ID,     
+       InteractionTeam.CONTACT_ID,     
+       InteractionTeam.USER_ID,       
+       InteractionTeam.OBJECT_VERSION_NUMBER,    
+       Users.USER_NAME AS NAME,    
+       'USER' AS INVITEE_TYPE          
+FROM  INTERACTION_TEAM InteractionTeam, USERS Users    
+WHERE (InteractionTeam.USER_ID = Users.USER_ID)]]></SQLQuery>
   <EntityUsage
     Name="InteractionTeam"
     Entity="com.sfa.model.entity.InteractionTeam"/>
@@ -50,41 +62,39 @@
     EntityUsage="InteractionTeam"
     AliasName="USER_ID"/>
   <ViewAttribute
-    Name="CreationDate"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreationDate"
-    EntityUsage="InteractionTeam"
-    AliasName="CREATION_DATE"/>
-  <ViewAttribute
-    Name="LastUpdateDate"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateDate"
-    EntityUsage="InteractionTeam"
-    AliasName="LAST_UPDATE_DATE"/>
-  <ViewAttribute
-    Name="CreatedBy"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="InteractionTeam"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdatedBy"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedBy"
-    EntityUsage="InteractionTeam"
-    AliasName="LAST_UPDATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdateLogin"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateLogin"
-    EntityUsage="InteractionTeam"
-    AliasName="LAST_UPDATE_LOGIN"/>
-  <ViewAttribute
     Name="ObjectVersionNumber"
     PrecisionRule="true"
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="InteractionTeam"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME"
+    Expression="NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InviteeType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="7"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="INVITEE_TYPE"
+    Expression="INVITEE_TYPE"
+    SQLType="CHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
 </ViewObject>

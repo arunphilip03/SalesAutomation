@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="Opportunity_teamPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitiesView1Iterator"/>
+    <iterator id="OpportunityTeamView2Iterator" Binds="OpportunityTeamView2" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="CustomerContactsView4Iterator" Binds="CustomerContactsView4" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="UsersView1Iterator" Binds="UsersView1" DataControl="AppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_AccountName" id="AccountName"/>
+    <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_ContactName" id="ContactName"/>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="OpportunityName">
+      <AttrNames>
+        <Item Value="OpportunityName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="OppurtunityId">
+      <AttrNames>
+        <Item Value="OppurtunityId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

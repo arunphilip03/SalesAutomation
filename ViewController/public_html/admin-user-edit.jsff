@@ -67,13 +67,16 @@
                                       shortDesc="#{bindings.Password.hints.tooltip}" id="it6" secret="true">
                             <f:validator binding="#{bindings.Password.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.ManagerId.inputValue}" label="#{bindings.ManagerId.hints.label}"
-                                      required="#{bindings.ManagerId.hints.mandatory}"
-                                      columns="#{bindings.ManagerId.hints.displayWidth}"
-                                      maximumLength="#{bindings.ManagerId.hints.precision}"
-                                      shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it7">
-                            <f:validator binding="#{bindings.ManagerId.validator}"/>
-                        </af:inputText>
+                        <af:inputComboboxListOfValues id="managernameId"
+                                                      popupTitle="Search and Select: #{bindings.Managername.hints.label}"
+                                                      value="#{bindings.Managername.inputValue}"
+                                                      label="#{bindings.Managername.hints.label}"
+                                                      model="#{bindings.Managername.listOfValuesModel}"
+                                                      required="#{bindings.Managername.hints.mandatory}"
+                                                      columns="#{bindings.Managername.hints.displayWidth}"
+                                                      shortDesc="#{bindings.Managername.hints.tooltip}">
+                            <f:validator binding="#{bindings.Managername.validator}"/>
+                        </af:inputComboboxListOfValues>
                         <af:inputDate value="#{bindings.EffecStartDate.inputValue}"
                                       label="#{bindings.EffecStartDate.hints.label}"
                                       required="#{bindings.EffecStartDate.hints.mandatory}"

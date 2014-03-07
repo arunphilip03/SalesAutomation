@@ -74,5 +74,6 @@
     <action IterBinding="RoleAssignmentView3Iterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="RoleAssignmentView3Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

@@ -7,6 +7,8 @@ import oracle.adf.view.rich.event.DialogEvent;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import org.apache.myfaces.trinidad.event.ReturnEvent;
+
 public class ConfirmBean {
     public ConfirmBean() {
     }
@@ -24,5 +26,6 @@ public class ConfirmBean {
         
         }
     }
-    
+
+
 }

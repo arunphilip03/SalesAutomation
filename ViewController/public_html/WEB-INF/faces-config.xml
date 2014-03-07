@@ -18,4 +18,29 @@
     <managed-bean-class>com.sfa.view.backing.AssignMultipleRoles</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean>
+    <managed-bean-name>OpportuinyBacking</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.OpportuinyBacking</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>OppoAppnmntSC</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.OppoAppnmntSC</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>OppoInteractionsSC</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.OppoInteractionsSC</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>OppoTaskSC</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.OppoTaskSC</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>OppoTeamSC</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.OppoTeamSC</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </faces-config>

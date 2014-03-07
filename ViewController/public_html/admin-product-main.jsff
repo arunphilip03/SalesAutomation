@@ -25,10 +25,16 @@
                                          actionListener="#{bindings.Create.execute}"
                                          disabled="#{!bindings.Create.enabled}" action="add"/>
                                 <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"/>
+                                <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                    <af:dialog id="d1" title="Are you sure you want to delete the Selected Product?"
+                                               dialogListener="#{ConfirmBean.dialogListener}">
+                                        <f:facet name="buttonBar"/>
+                                    </af:dialog>
+                                </af:popup>
                                 <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                         actionListener="#{bindings.Delete.execute}"
-                                         disabled="#{!bindings.Delete.enabled}" useWindow="true" targetFrame="_top"
-                                         action="delete"/>
+                                         disabled="#{!bindings.Delete.enabled}" useWindow="true" targetFrame="_top">
+                                    <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
+                                </af:link>
                             </af:toolbar>
                         </f:facet>
                         <af:table value="#{bindings.ProductCatalogView1.collectionModel}" var="row"

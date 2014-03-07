@@ -31,11 +31,16 @@
                 <f:facet name="status"/>
                 <f:facet name="globalToolbar"/>
                 <f:facet name="globalSearch">
-                <af:panelGroupLayout id="ab1" layout="horizontal">
-                <af:link text="LogOut" id="lg1"/>
-                </af:panelGroupLayout>
+                    <af:panelGroupLayout id="ab1" layout="horizontal">
+                        <af:link text="LogOut" id="lg1"/>
+                    </af:panelGroupLayout>
                 </f:facet>
-                <f:facet name="globalTabs"/>
+                <f:facet name="globalTabs">
+                    <af:navigationPane id="np1">
+                        <af:commandNavigationItem text="Admin" id="cn1" action="goAdmin" selected="true"/>
+                        <af:commandNavigationItem text="Opportunities" id="cn2" action="goOpportunity" selected="true"/>
+                    </af:navigationPane>
+                </f:facet>
                 <f:facet name="welcome"/>
                 <f:facet name="innerToolbar"/>
                 <f:attribute name="brandingTitle" value="Sales Force Automation"/>

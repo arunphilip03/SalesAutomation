@@ -12,6 +12,10 @@
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="accntId"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
   <ViewAccessor
     Name="ContactBuyingroleLuView1"
     RowLevelBinds="true"
@@ -262,6 +266,43 @@ FROM  CUSTOMER_CONTACTS CustomerContacts]]></SQLQuery>
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="CustomerContacts"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewCriteria
+    Name="CustomerContactsSelectedView"
+    ViewObjectName="com.sfa.model.VO.CustomerContactsView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerContactsViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CustAccountId"
+        ViewAttribute="CustAccountId"
+        Operator="="
+        Conjunction="AND"
+        Value=":accntId"
+        GenerateIsNullClauseForBindVars="false"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="AppointmentInviteesView"
     ViewLink="com.sfa.model.viewlink.AppointmentInviteesFk2Link"

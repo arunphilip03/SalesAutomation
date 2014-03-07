@@ -24,5 +24,6 @@
     <action IterBinding="ProductCatalogView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action IterBinding="ProductCatalogView1Iterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

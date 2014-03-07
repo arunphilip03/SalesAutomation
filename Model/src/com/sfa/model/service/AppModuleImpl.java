@@ -767,5 +767,139 @@ public class AppModuleImpl extends ApplicationModuleImpl {
     public ViewLinkImpl getAppointmentInviteeVL1() {
         return (ViewLinkImpl) findViewLink("AppointmentInviteeVL1");
     }
+
+    /**
+     * Container's getter for PrimaryContactExistsVO1.
+     * @return PrimaryContactExistsVO1
+     */
+    public ViewObjectImpl getPrimaryContactExistsVO1() {
+        return (ViewObjectImpl) findViewObject("PrimaryContactExistsVO1");
+    }
+
+    /**
+     * Container's getter for SelectedCustomerContactView1.
+     * @return SelectedCustomerContactView1
+     */
+    public ViewObjectImpl getSelectedCustomerContactView1() {
+        return (ViewObjectImpl) findViewObject("SelectedCustomerContactView1");
+    }
+
+
+    /**
+     * Container's getter for OpportunityNotes2.
+     * @return OpportunityNotes2
+     */
+    public ViewObjectImpl getOpportunityNotes2() {
+        return (ViewObjectImpl) findViewObject("OpportunityNotes2");
+    }
+
+    /**
+     * Container's getter for noteOpportunityViewLink1.
+     * @return noteOpportunityViewLink1
+     */
+    public ViewLinkImpl getnoteOpportunityViewLink1() {
+        return (ViewLinkImpl) findViewLink("noteOpportunityViewLink1");
+    }
+
+
+    /**
+     * Container's getter for OpportunitytaskView2.
+     * @return OpportunitytaskView2
+     */
+    public ViewObjectImpl getOpportunitytaskView2() {
+        return (ViewObjectImpl) findViewObject("OpportunitytaskView2");
+    }
+
+    /**
+     * Container's getter for OpportunityTaskLink1.
+     * @return OpportunityTaskLink1
+     */
+    public ViewLinkImpl getOpportunityTaskLink1() {
+        return (ViewLinkImpl) findViewLink("OpportunityTaskLink1");
+    }
+
+
+    /**
+     * Container's getter for OpportunityAppointmentView2.
+     * @return OpportunityAppointmentView2
+     */
+    public ViewObjectImpl getOpportunityAppointmentView2() {
+        return (ViewObjectImpl) findViewObject("OpportunityAppointmentView2");
+    }
+
+    /**
+     * Container's getter for OpportunityAppointmentLink1.
+     * @return OpportunityAppointmentLink1
+     */
+    public ViewLinkImpl getOpportunityAppointmentLink1() {
+        return (ViewLinkImpl) findViewLink("OpportunityAppointmentLink1");
+    }
+
+
+    /**
+     * Container's getter for AppointmentInviteesVO4.
+     * @return AppointmentInviteesVO4
+     */
+    public ViewObjectImpl getAppointmentInviteesVO4() {
+        return (ViewObjectImpl) findViewObject("AppointmentInviteesVO4");
+    }
+
+    /**
+     * Container's getter for OppAppointmntInviteeViewLink1.
+     * @return OppAppointmntInviteeViewLink1
+     */
+    public ViewLinkImpl getOppAppointmntInviteeViewLink1() {
+        return (ViewLinkImpl) findViewLink("OppAppointmntInviteeViewLink1");
+    }
+
+
+    /**
+     * Container's getter for CustomerContactsView4.
+     * @return CustomerContactsView4
+     */
+    public ViewObjectImpl getCustomerContactsView4() {
+        return (ViewObjectImpl) findViewObject("CustomerContactsView4");
+    }
+
+    /**
+     * Container's getter for OpportunityContactsView1.
+     * @return OpportunityContactsView1
+     */
+    public ViewLinkImpl getOpportunityContactsView1() {
+        return (ViewLinkImpl) findViewLink("OpportunityContactsView1");
+    }
+
+    /**
+     * Container's getter for InteractionTeamView5.
+     * @return InteractionTeamView5
+     */
+    public ViewObjectImpl getInteractionTeamView5() {
+        return (ViewObjectImpl) findViewObject("InteractionTeamView5");
+    }
+
+    /**
+     * Container's getter for InteractionTeamFk3Link2.
+     * @return InteractionTeamFk3Link2
+     */
+    public ViewLinkImpl getInteractionTeamFk3Link2() {
+        return (ViewLinkImpl) findViewLink("InteractionTeamFk3Link2");
+    }
+
+
+    /**
+     * Container's getter for TaskTeamView6.
+     * @return TaskTeamView6
+     */
+    public ViewObjectImpl getTaskTeamView6() {
+        return (ViewObjectImpl) findViewObject("TaskTeamView6");
+    }
+
+    /**
+     * Container's getter for OpportunityTaskTeamViewLink1.
+     * @return OpportunityTaskTeamViewLink1
+     */
+    public ViewLinkImpl getOpportunityTaskTeamViewLink1() {
+        return (ViewLinkImpl) findViewLink("OpportunityTaskTeamViewLink1");
+    }
 }
 

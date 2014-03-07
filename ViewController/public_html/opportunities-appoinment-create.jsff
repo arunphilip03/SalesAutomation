@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelHeader text="Create Appointment" id="ph1" inlineStyle="height:36px;"
+                                styleClass="AFStretchWidth">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Save" id="b1" actionListener="#{OppoAppnmntSC.onCommit}"/>
+                            <af:button text="Save &amp; Close" id="b2"
+                                       action="back" actionListener="#{OppoAppnmntSC.onCommit}"/>
+                            <af:button text="Close" id="b3" actionListener="#{bindings.Rollback.execute}"
+                                       immediate="true" action="back">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+                <af:panelWindow id="pw1" styleClass="AFStretchWidth">
+                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="103">
+                        <f:facet name="first">
+                            <af:panelFormLayout id="pfl1" rows="4">
+                                <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                                              required="#{bindings.Name.hints.mandatory}"
+                                              columns="#{bindings.Name.hints.displayWidth}"
+                                              maximumLength="#{bindings.Name.hints.precision}"
+                                              shortDesc="#{bindings.Name.hints.tooltip}" id="it1">
+                                    <f:validator binding="#{bindings.Name.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.OppurtunityId.inputValue}"
+                                              label="#{bindings.OppurtunityId.hints.label}"
+                                              required="#{bindings.OppurtunityId.hints.mandatory}"
+                                              columns="#{bindings.OppurtunityId.hints.displayWidth}"
+                                              maximumLength="#{bindings.OppurtunityId.hints.precision}"
+                                              shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it2"
+                                              disabled="true">
+                                    <f:validator binding="#{bindings.OppurtunityId.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
+                                </af:inputText>
+                                <af:inputComboboxListOfValues id="accountNameId"
+                                                              popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                                                              value="#{bindings.AccountName.inputValue}"
+                                                              label="#{bindings.AccountName.hints.label}"
+                                                              model="#{bindings.AccountName.listOfValuesModel}"
+                                                              required="#{bindings.AccountName.hints.mandatory}"
+                                                              columns="#{bindings.AccountName.hints.displayWidth}"
+                                                              shortDesc="#{bindings.AccountName.hints.tooltip}">
+                                    <f:validator binding="#{bindings.AccountName.validator}"/>
+                                </af:inputComboboxListOfValues>
+                                <af:inputText value="#{bindings.Description.inputValue}"
+                                              label="#{bindings.Description.hints.label}"
+                                              required="#{bindings.Description.hints.mandatory}"
+                                              columns="#{bindings.Description.hints.displayWidth}"
+                                              maximumLength="#{bindings.Description.hints.precision}"
+                                              shortDesc="#{bindings.Description.hints.tooltip}" id="it4">
+                                    <f:validator binding="#{bindings.Description.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.EndDatetime.inputValue}"
+                                              label="#{bindings.EndDatetime.hints.label}"
+                                              required="#{bindings.EndDatetime.hints.mandatory}"
+                                              columns="#{bindings.EndDatetime.hints.displayWidth}"
+                                              shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id1">
+                                    <f:validator binding="#{bindings.EndDatetime.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
+                                </af:inputDate>
+                                <af:inputText value="#{bindings.Location.inputValue}"
+                                              label="#{bindings.Location.hints.label}"
+                                              required="#{bindings.Location.hints.mandatory}"
+                                              columns="#{bindings.Location.hints.displayWidth}"
+                                              maximumLength="#{bindings.Location.hints.precision}"
+                                              shortDesc="#{bindings.Location.hints.tooltip}" id="it5">
+                                    <f:validator binding="#{bindings.Location.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.StartDatetime.inputValue}"
+                                              label="#{bindings.StartDatetime.hints.label}"
+                                              required="#{bindings.StartDatetime.hints.mandatory}"
+                                              columns="#{bindings.StartDatetime.hints.displayWidth}"
+                                              shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id2">
+                                    <f:validator binding="#{bindings.StartDatetime.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
+                                </af:inputDate>
+                                <af:inputText value="#{bindings.AppointmentId.inputValue}"
+                                              label="#{bindings.AppointmentId.hints.label}"
+                                              required="#{bindings.AppointmentId.hints.mandatory}"
+                                              columns="#{bindings.AppointmentId.hints.displayWidth}"
+                                              maximumLength="#{bindings.AppointmentId.hints.precision}"
+                                              shortDesc="#{bindings.AppointmentId.hints.tooltip}" id="it6"
+                                              visible="false">
+                                    <f:validator binding="#{bindings.AppointmentId.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.AppointmentId.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelTabbed id="pt1">
+                                <af:showDetailItem text="Appointment Invitees" id="sdi1">
+                                    <af:panelSplitter id="ps2" splitterPosition="544">
+                                        <f:facet name="first">
+                                            <af:selectManyShuttle label="Users" value="#{OppoAppnmntSC.selectedUsers}"
+                                                                  valueChangeListener="#{OppoAppnmntSC.onUserChange}"
+                                                                  id="sms1" autoSubmit="true"
+                                                                  binding="#{OppoAppnmntSC.selectManyShuttleComponentU}">
+                                                <f:selectItems value="#{OppoAppnmntSC.allUsers}" id="si1"/>
+                                            </af:selectManyShuttle>
+                                        </f:facet>
+                                        <f:facet name="second">
+                                            <af:selectManyShuttle label="Contacts"
+                                                                  value="#{OppoAppnmntSC.selectedContacts}"
+                                                                  valueChangeListener="#{OppoAppnmntSC.onContactChange}"
+                                                                  id="sms2" autoSubmit="true"
+                                                                  binding="#{OppoAppnmntSC.selectManyShuttleComponentC}">
+                                                <f:selectItems value="#{OppoAppnmntSC.allContacts}" id="si2"/>
+                                            </af:selectManyShuttle>
+                                        </f:facet>
+                                    </af:panelSplitter>
+                                </af:showDetailItem>
+                            </af:panelTabbed>
+                        </f:facet>
+                    </af:panelSplitter>
+                </af:panelWindow>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>
