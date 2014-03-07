@@ -97,6 +97,9 @@
               usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
         <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@SetCurrentRowWithKeyValue1"
               usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"/>
+        <page path="/EditInteractions.jsff" usageId="com_sfa_view_EditInteractionsPageDef"/>
+        <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@CreateInsert"
+              usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_CreateInsertPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -231,6 +234,9 @@
               path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
         <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"
               path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"/>
+        <page id="com_sfa_view_EditInteractionsPageDef" path="com.sfa.view.pageDefs.EditInteractionsPageDef"/>
+        <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_CreateInsertPageDef"
+              path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_CreateInsertPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

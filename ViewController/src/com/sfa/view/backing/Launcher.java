@@ -68,16 +68,47 @@ public class Launcher {
 //    }
 
 
+//    public void launchRoles(ActionEvent actionEvent) {
+//        _launchActivity("Roles", "/WEB-INF/admin-role-tf.xml#admin-role-task", false);
+//    }
+//    
+//    public void launchUsers(ActionEvent actionEvent) {
+//        _launchActivity("Users", "/WEB-INF/admin-user-tf.xml#admin-user-tf", false);
+//    }
+//
+//    public void launchProducts(ActionEvent actionEvent) {
+//        _launchActivity("Products", "/WEB-INF/admin-product-tf.xml#admin-product-tf", false);
+//    }
+    
+    
+    
     public void launchRoles(ActionEvent actionEvent) {
-        _launchActivity("Roles", "/WEB-INF/admin-role-tf.xml#admin-role-task", false);
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/admin-role-tf.xml#admin-role-task");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+        }
     }
     
+    
     public void launchUsers(ActionEvent actionEvent) {
-        _launchActivity("Users", "/WEB-INF/admin-user-tf.xml#admin-user-tf", false);
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/admin-user-tf.xml#admin-user-tf");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+        }
     }
-
+    
+    
     public void launchProducts(ActionEvent actionEvent) {
-        _launchActivity("Products", "/WEB-INF/admin-product-tf.xml#admin-product-tf", false);
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/admin-product-tf.xml#admin-product-tf");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+        }
     }
 
     

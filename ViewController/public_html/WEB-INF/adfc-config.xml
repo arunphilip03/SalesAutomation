@@ -3,26 +3,6 @@
   <view id="SalesDashboard">
     <page>/SalesHome.jsf</page>
   </view>
-  <view id="AdminDashboard">
-    <page>/AdminDashboard.jsf</page>
-  </view>
-  <view id="Opportunities">
-    <page>/Opportunities.jsf</page>
-  </view>
-  <control-flow-rule id="__1">
-    <from-activity-id>*</from-activity-id>
-    <control-flow-case id="__6">
-      <from-outcome>goAdmin</from-outcome>
-      <to-activity-id>AdminDashboard</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
-  <control-flow-rule id="__4">
-    <from-activity-id>*</from-activity-id>
-    <control-flow-case id="__7">
-      <from-outcome>goOpportunity</from-outcome>
-      <to-activity-id>Opportunities</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
   <managed-bean id="__3">
     <managed-bean-name>launcher</managed-bean-name>
     <managed-bean-class>com.sfa.view.backing.Launcher</managed-bean-class>

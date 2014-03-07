@@ -901,5 +901,165 @@ public class AppModuleImpl extends ApplicationModuleImpl {
     public ViewLinkImpl getOpportunityTaskTeamViewLink1() {
         return (ViewLinkImpl) findViewLink("OpportunityTaskTeamViewLink1");
     }
+
+    /**
+     * Container's getter for AppointmentInvUsersVO1.
+     * @return AppointmentInvUsersVO1
+     */
+    public ViewObjectImpl getAppointmentInvUsersVO1() {
+        return (ViewObjectImpl) findViewObject("AppointmentInvUsersVO1");
+    }
+
+    /**
+     * Container's getter for AppointmentInvContactsVO1.
+     * @return AppointmentInvContactsVO1
+     */
+    public ViewObjectImpl getAppointmentInvContactsVO1() {
+        return (ViewObjectImpl) findViewObject("AppointmentInvContactsVO1");
+    }
+
+    /**
+     * Container's getter for NotesVO1.
+     * @return NotesVO1
+     */
+    public ViewObjectImpl getNotesVO1() {
+        return (ViewObjectImpl) findViewObject("NotesVO1");
+    }
+
+    /**
+     * Container's getter for AllUsersVO1.
+     * @return AllUsersVO1
+     */
+    public ViewObjectImpl getAllUsersVO1() {
+        return (ViewObjectImpl) findViewObject("AllUsersVO1");
+    }
+
+    /**
+     * Container's getter for TaskTeamVO1.
+     * @return TaskTeamVO1
+     */
+    public ViewObjectImpl getTaskTeamVO1() {
+        return (ViewObjectImpl) findViewObject("TaskTeamVO1");
+    }
+
+    /**
+     * Container's getter for RelatedContacts1.
+     * @return RelatedContacts1
+     */
+    public ViewObjectImpl getRelatedContacts1() {
+        return (ViewObjectImpl) findViewObject("RelatedContacts1");
+    }
+
+    /**
+     * Container's getter for ContactsInAccountVO1.
+     * @return ContactsInAccountVO1
+     */
+    public ViewObjectImpl getContactsInAccountVO1() {
+        return (ViewObjectImpl) findViewObject("ContactsInAccountVO1");
+    }
+
+    /**
+     * Container's getter for ContactInteractionsVO1.
+     * @return ContactInteractionsVO1
+     */
+    public ViewObjectImpl getContactInteractionsVO1() {
+        return (ViewObjectImpl) findViewObject("ContactInteractionsVO1");
+    }
+
+    /**
+     * Container's getter for ContactTasksVO1.
+     * @return ContactTasksVO1
+     */
+    public ViewObjectImpl getContactTasksVO1() {
+        return (ViewObjectImpl) findViewObject("ContactTasksVO1");
+    }
+
+    /**
+     * Container's getter for ContactAppointmentsVO1.
+     * @return ContactAppointmentsVO1
+     */
+    public ViewObjectImpl getContactAppointmentsVO1() {
+        return (ViewObjectImpl) findViewObject("ContactAppointmentsVO1");
+    }
+
+    /**
+     * Container's getter for ContactOpportunitiesVO1.
+     * @return ContactOpportunitiesVO1
+     */
+    public ViewObjectImpl getContactOpportunitiesVO1() {
+        return (ViewObjectImpl) findViewObject("ContactOpportunitiesVO1");
+    }
+
+    /**
+     * Container's getter for AppointmentInvUsers1.
+     * @return AppointmentInvUsers1
+     */
+    public ViewLinkImpl getAppointmentInvUsers1() {
+        return (ViewLinkImpl) findViewLink("AppointmentInvUsers1");
+    }
+
+    /**
+     * Container's getter for AppointmentInvContactsVL1.
+     * @return AppointmentInvContactsVL1
+     */
+    public ViewLinkImpl getAppointmentInvContactsVL1() {
+        return (ViewLinkImpl) findViewLink("AppointmentInvContactsVL1");
+    }
+
+    /**
+     * Container's getter for AccountNotesVL1.
+     * @return AccountNotesVL1
+     */
+    public ViewLinkImpl getAccountNotesVL1() {
+        return (ViewLinkImpl) findViewLink("AccountNotesVL1");
+    }
+
+    /**
+     * Container's getter for TaskTeamVL1.
+     * @return TaskTeamVL1
+     */
+    public ViewLinkImpl getTaskTeamVL1() {
+        return (ViewLinkImpl) findViewLink("TaskTeamVL1");
+    }
+
+    /**
+     * Container's getter for RelatedContactsVL1.
+     * @return RelatedContactsVL1
+     */
+    public ViewLinkImpl getRelatedContactsVL1() {
+        return (ViewLinkImpl) findViewLink("RelatedContactsVL1");
+    }
+
+    /**
+     * Container's getter for ContactInteractionsVL1.
+     * @return ContactInteractionsVL1
+     */
+    public ViewLinkImpl getContactInteractionsVL1() {
+        return (ViewLinkImpl) findViewLink("ContactInteractionsVL1");
+    }
+
+    /**
+     * Container's getter for ContactTasksVL1.
+     * @return ContactTasksVL1
+     */
+    public ViewLinkImpl getContactTasksVL1() {
+        return (ViewLinkImpl) findViewLink("ContactTasksVL1");
+    }
+
+    /**
+     * Container's getter for ContactAppointmentsVL1.
+     * @return ContactAppointmentsVL1
+     */
+    public ViewLinkImpl getContactAppointmentsVL1() {
+        return (ViewLinkImpl) findViewLink("ContactAppointmentsVL1");
+    }
+
+    /**
+     * Container's getter for ContactOpportunitiesVL1.
+     * @return ContactOpportunitiesVL1
+     */
+    public ViewLinkImpl getContactOpportunitiesVL1() {
+        return (ViewLinkImpl) findViewLink("ContactOpportunitiesVL1");
+    }
 }
 

@@ -154,7 +154,6 @@
     AliasName="OBJECT_VERSION_NUMBER"/>
   <ViewAttribute
     Name="RelatedOpportunity"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -163,7 +162,8 @@
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"
-    LOVName="LOV_RelatedOpportunity">
+    LOVName="LOV_RelatedOpportunity"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL

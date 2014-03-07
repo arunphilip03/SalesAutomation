@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="EditInteractionsPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ContactInteractionsVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactInteractionsVO1Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_RelatedOpportunity"
+                  id="RelatedOpportunity"/>
+    <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="Type">
+      <AttrNames>
+        <Item Value="Type"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="Direction">
+      <AttrNames>
+        <Item Value="Direction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="StartDatetime">
+      <AttrNames>
+        <Item Value="StartDatetime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="EndDatetime">
+      <AttrNames>
+        <Item Value="EndDatetime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="Resolution">
+      <AttrNames>
+        <Item Value="Resolution"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>
