@@ -119,6 +119,7 @@
       <Attr Name="_isUnique" Value="true"/>
       <Attr Name="_DBObjectName" Value="NOTES_PARENT_UK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="NotesParentFk1">
@@ -127,5 +128,6 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="NOTES_PARENT_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
 </Entity>

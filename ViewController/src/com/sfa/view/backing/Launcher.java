@@ -39,6 +39,9 @@ public class Launcher {
     public void launchProducts(ActionEvent actionEvent) {
         _launchActivity("Products", "/WEB-INF/admin-product-tf.xml#admin-product-tf", false);
     }
+    public void launchOpportunity(ActionEvent actionEvent) {
+        _launchActivity("Opportunity", "/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf", false);
+    }
     
 
     public void launchFirstActivity(ActionEvent actionEvent) {

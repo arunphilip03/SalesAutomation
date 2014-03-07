@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <af:panelHeader text=" " id="ph1" inlineStyle="height:49px;" styleClass="AFStretchWidth">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
+                            <af:button text="Save &amp; Close" id="b2" actionListener="#{bindings.Commit.execute}"
+                                       action="back"/>
+                            <af:button text="Close" id="b3" actionListener="#{bindings.Rollback.execute}"
+                                       immediate="true" action="back">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+                <!-- Content -->
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="203">
+                    <f:facet name="first">
+                        <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="22">
+                            <f:facet name="first">
+                                <af:panelHeader text=" " id="ph2" styleClass="AFStretchWidth">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t3" styleClass="AFStretchWidth">
+                                            <af:button text="Team Members" id="b8" action="team"/>
+                                            <af:spacer width="30" height="10" id="s1"/>
+                                            <af:button text="Appointments" id="b4" action="appointment"/>
+                                            <af:spacer width="30" height="10" id="s2"/>
+                                            <af:button text="Tasks" id="b5" action="task"/>
+                                            <af:spacer width="30" height="10" id="s3"/>
+                                            <af:button text="Interactions" id="b6" action="interaction"/>
+                                            <af:spacer width="30" height="10" id="s4"/>
+                                            <af:button text="Notes" id="b7"
+                                                       actionListener="#{bindings.ExecuteWithParams.execute}"
+                                                       action="notes">
+                                                <af:setActionListener from="#{bindings.OpportunityName}"
+                                                                      to="#{pageFlowScope.opportunityName}"/>
+                                            </af:button>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelFormLayout id="pfl1" rows="5">
+                                    <af:inputText value="#{bindings.OpportunityName.inputValue}"
+                                                  label="#{bindings.OpportunityName.hints.label}"
+                                                  required="#{bindings.OpportunityName.hints.mandatory}"
+                                                  columns="#{bindings.OpportunityName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.OpportunityName.hints.precision}"
+                                                  shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it18"
+                                                  disabled="true">
+                                        <f:validator binding="#{bindings.OpportunityName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputComboboxListOfValues id="accountNameId"
+                                                                  popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                                                                  value="#{bindings.AccountName.inputValue}"
+                                                                  label="#{bindings.AccountName.hints.label}"
+                                                                  model="#{bindings.AccountName.listOfValuesModel}"
+                                                                  required="#{bindings.AccountName.hints.mandatory}"
+                                                                  columns="#{bindings.AccountName.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.AccountName.hints.tooltip}"
+                                                                  autoSubmit="true">
+                                        <f:validator binding="#{bindings.AccountName.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputComboboxListOfValues id="contactNameId"
+                                                                  popupTitle="Search and Select: #{bindings.ContactName.hints.label}"
+                                                                  value="#{bindings.ContactName.inputValue}"
+                                                                  label="#{bindings.ContactName.hints.label}"
+                                                                  model="#{bindings.ContactName.listOfValuesModel}"
+                                                                  required="#{bindings.ContactName.hints.mandatory}"
+                                                                  columns="#{bindings.ContactName.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.ContactName.hints.tooltip}">
+                                        <f:validator binding="#{bindings.ContactName.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputText value="#{bindings.WinProbability.inputValue}"
+                                                  label="#{bindings.WinProbability.hints.label}"
+                                                  required="#{bindings.WinProbability.hints.mandatory}"
+                                                  columns="#{bindings.WinProbability.hints.displayWidth}"
+                                                  maximumLength="#{bindings.WinProbability.hints.precision}"
+                                                  shortDesc="#{bindings.WinProbability.hints.tooltip}" id="it1">
+                                        <f:validator binding="#{bindings.WinProbability.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.WinProbability.format}"/>
+                                    </af:inputText>
+                                    <af:inputDate value="#{bindings.CloseDate.inputValue}"
+                                                  label="#{bindings.CloseDate.hints.label}"
+                                                  required="#{bindings.CloseDate.hints.mandatory}"
+                                                  columns="#{bindings.CloseDate.hints.displayWidth}"
+                                                  shortDesc="#{bindings.CloseDate.hints.tooltip}" id="id1">
+                                        <f:validator binding="#{bindings.CloseDate.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
+                                    </af:inputDate>
+                                    <af:inputText value="#{bindings.PrimaryContactId.inputValue}"
+                                                  label="#{bindings.PrimaryContactId.hints.label}"
+                                                  required="#{bindings.PrimaryContactId.hints.mandatory}"
+                                                  columns="#{bindings.PrimaryContactId.hints.displayWidth}"
+                                                  maximumLength="#{bindings.PrimaryContactId.hints.precision}"
+                                                  shortDesc="#{bindings.PrimaryContactId.hints.tooltip}"
+                                                  partialTriggers="contactNameId" id="it2">
+                                        <f:validator binding="#{bindings.PrimaryContactId.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.PrimaryContactId.format}"/>
+                                    </af:inputText>
+                                    <af:inputComboboxListOfValues id="salesStageId"
+                                                                  popupTitle="Search and Select: #{bindings.SalesStage.hints.label}"
+                                                                  value="#{bindings.SalesStage.inputValue}"
+                                                                  label="#{bindings.SalesStage.hints.label}"
+                                                                  model="#{bindings.SalesStage.listOfValuesModel}"
+                                                                  required="#{bindings.SalesStage.hints.mandatory}"
+                                                                  columns="#{bindings.SalesStage.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.SalesStage.hints.tooltip}">
+                                        <f:validator binding="#{bindings.SalesStage.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputComboboxListOfValues id="salesMethodId"
+                                                                  popupTitle="Search and Select: #{bindings.SalesMethod.hints.label}"
+                                                                  value="#{bindings.SalesMethod.inputValue}"
+                                                                  label="#{bindings.SalesMethod.hints.label}"
+                                                                  model="#{bindings.SalesMethod.listOfValuesModel}"
+                                                                  required="#{bindings.SalesMethod.hints.mandatory}"
+                                                                  columns="#{bindings.SalesMethod.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.SalesMethod.hints.tooltip}">
+                                        <f:validator binding="#{bindings.SalesMethod.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputComboboxListOfValues id="salesChannelId"
+                                                                  popupTitle="Search and Select: #{bindings.SalesChannel.hints.label}"
+                                                                  value="#{bindings.SalesChannel.inputValue}"
+                                                                  label="#{bindings.SalesChannel.hints.label}"
+                                                                  model="#{bindings.SalesChannel.listOfValuesModel}"
+                                                                  required="#{bindings.SalesChannel.hints.mandatory}"
+                                                                  columns="#{bindings.SalesChannel.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.SalesChannel.hints.tooltip}">
+                                        <f:validator binding="#{bindings.SalesChannel.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputText value="#{bindings.RevenueCurrency.inputValue}"
+                                                  label="#{bindings.RevenueCurrency.hints.label}"
+                                                  required="#{bindings.RevenueCurrency.hints.mandatory}"
+                                                  columns="#{bindings.RevenueCurrency.hints.displayWidth}"
+                                                  maximumLength="#{bindings.RevenueCurrency.hints.precision}"
+                                                  shortDesc="#{bindings.RevenueCurrency.hints.tooltip}" id="it3">
+                                        <f:validator binding="#{bindings.RevenueCurrency.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.RevenueAmount.inputValue}"
+                                                  label="#{bindings.RevenueAmount.hints.label}"
+                                                  required="#{bindings.RevenueAmount.hints.mandatory}"
+                                                  columns="#{bindings.RevenueAmount.hints.displayWidth}"
+                                                  maximumLength="#{bindings.RevenueAmount.hints.precision}"
+                                                  shortDesc="#{bindings.RevenueAmount.hints.tooltip}" id="it4">
+                                        <f:validator binding="#{bindings.RevenueAmount.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.RevenueAmount.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.BestCaseRevenue.inputValue}"
+                                                  label="#{bindings.BestCaseRevenue.hints.label}"
+                                                  required="#{bindings.BestCaseRevenue.hints.mandatory}"
+                                                  columns="#{bindings.BestCaseRevenue.hints.displayWidth}"
+                                                  maximumLength="#{bindings.BestCaseRevenue.hints.precision}"
+                                                  shortDesc="#{bindings.BestCaseRevenue.hints.tooltip}" id="it5">
+                                        <f:validator binding="#{bindings.BestCaseRevenue.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.BestCaseRevenue.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.WorstCaseRevenue.inputValue}"
+                                                  label="#{bindings.WorstCaseRevenue.hints.label}"
+                                                  required="#{bindings.WorstCaseRevenue.hints.mandatory}"
+                                                  columns="#{bindings.WorstCaseRevenue.hints.displayWidth}"
+                                                  maximumLength="#{bindings.WorstCaseRevenue.hints.precision}"
+                                                  shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it6">
+                                        <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.WorstCaseRevenue.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.IsBudgeted.inputValue}"
+                                                  label="#{bindings.IsBudgeted.hints.label}"
+                                                  required="#{bindings.IsBudgeted.hints.mandatory}"
+                                                  columns="#{bindings.IsBudgeted.hints.displayWidth}"
+                                                  maximumLength="#{bindings.IsBudgeted.hints.precision}"
+                                                  shortDesc="#{bindings.IsBudgeted.hints.tooltip}" id="it7">
+                                        <f:validator binding="#{bindings.IsBudgeted.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.BudgetAmount.inputValue}"
+                                                  label="#{bindings.BudgetAmount.hints.label}"
+                                                  required="#{bindings.BudgetAmount.hints.mandatory}"
+                                                  columns="#{bindings.BudgetAmount.hints.displayWidth}"
+                                                  maximumLength="#{bindings.BudgetAmount.hints.precision}"
+                                                  shortDesc="#{bindings.BudgetAmount.hints.tooltip}" id="it8">
+                                        <f:validator binding="#{bindings.BudgetAmount.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.BudgetAmount.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.EstimatedDuration.inputValue}"
+                                                  label="#{bindings.EstimatedDuration.hints.label}"
+                                                  required="#{bindings.EstimatedDuration.hints.mandatory}"
+                                                  columns="#{bindings.EstimatedDuration.hints.displayWidth}"
+                                                  maximumLength="#{bindings.EstimatedDuration.hints.precision}"
+                                                  shortDesc="#{bindings.EstimatedDuration.hints.tooltip}" id="it9">
+                                        <f:validator binding="#{bindings.EstimatedDuration.validator}"/>
+                                    </af:inputText>
+                                    <af:inputComboboxListOfValues id="riskLevelId"
+                                                                  popupTitle="Search and Select: #{bindings.RiskLevel.hints.label}"
+                                                                  value="#{bindings.RiskLevel.inputValue}"
+                                                                  label="#{bindings.RiskLevel.hints.label}"
+                                                                  model="#{bindings.RiskLevel.listOfValuesModel}"
+                                                                  required="#{bindings.RiskLevel.hints.mandatory}"
+                                                                  columns="#{bindings.RiskLevel.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.RiskLevel.hints.tooltip}">
+                                        <f:validator binding="#{bindings.RiskLevel.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputComboboxListOfValues id="decisionLevelId"
+                                                                  popupTitle="Search and Select: #{bindings.DecisionLevel.hints.label}"
+                                                                  value="#{bindings.DecisionLevel.inputValue}"
+                                                                  label="#{bindings.DecisionLevel.hints.label}"
+                                                                  model="#{bindings.DecisionLevel.listOfValuesModel}"
+                                                                  required="#{bindings.DecisionLevel.hints.mandatory}"
+                                                                  columns="#{bindings.DecisionLevel.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.DecisionLevel.hints.tooltip}">
+                                        <f:validator binding="#{bindings.DecisionLevel.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputText value="#{bindings.NotesSeqId.inputValue}"
+                                                  label="#{bindings.NotesSeqId.hints.label}"
+                                                  required="#{bindings.NotesSeqId.hints.mandatory}"
+                                                  columns="#{bindings.NotesSeqId.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NotesSeqId.hints.precision}"
+                                                  shortDesc="#{bindings.NotesSeqId.hints.tooltip}" id="it10"
+                                                  visible="false">
+                                        <f:validator binding="#{bindings.NotesSeqId.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.NotesSeqId.format}"/>
+                                    </af:inputText>
+                                </af:panelFormLayout>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t4">
+                                    <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                             actionListener="#{bindings.Create.execute}" action="revenueCreate"/>
+                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="revenueEdit"/>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
+                                        <af:dialog id="d1"
+                                                   title="Are you sure you want to delete the Selected Revenue Item?"
+                                                   dialogListener="#{ConfirmBean.dialogListener}">
+                                            <f:facet name="buttonBar"/>
+                                        </af:dialog>
+                                    </af:popup>
+                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
+                                        <af:showPopupBehavior popupId="deletep" triggerType="click" align="overlap"/>
+                                    </af:link>
+                                </af:toolbar>
+                            </f:facet>
+                            <af:table value="#{bindings.OpportunityRevenueItemsView2.collectionModel}" var="row"
+                                      rows="#{bindings.OpportunityRevenueItemsView2.rangeSize}"
+                                      emptyText="#{bindings.OpportunityRevenueItemsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      fetchSize="#{bindings.OpportunityRevenueItemsView2.rangeSize}" id="t2"
+                                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l1 ::l3"
+                                      selectedRowKeys="#{bindings.OpportunityRevenueItemsView2.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.OpportunityRevenueItemsView2.collectionModel.makeCurrent}"
+                                      rowSelection="single">
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.label}"
+                                           id="c8" width="127"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.ProductName}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.tooltip}"
+                                                   id="ot9"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.label}"
+                                           id="c9" width="165"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.OpportunityName}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.label}"
+                                           id="c1" width="52"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.Quantity}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.tooltip}"
+                                                   id="ot1">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.label}"
+                                           id="c2" width="178"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.EstimatedPrice}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.tooltip}"
+                                                   id="ot4">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.label}"
+                                           id="c3" width="101"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.Revenue}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.tooltip}"
+                                                   id="ot3">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.label}"
+                                           id="c4" width="103"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.WinProbability}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.tooltip}"
+                                                   id="ot8">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.label}"
+                                           id="c5" width="169"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.BestCaseRevenue}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.tooltip}"
+                                                   id="ot5">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.label}"
+                                           id="c6" width="201"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.WorstCaseRevenue}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.tooltip}"
+                                                   id="ot7">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.label}"
+                                           id="c7" width="-196"
+                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.name}"
+                                           sortable="true">
+                                    <af:outputText value="#{row.SalesForecastIncluded}"
+                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                            </af:table>
+                            <f:facet name="statusbar"/>
+                        </af:panelCollection>
+                    </f:facet>
+                </af:panelSplitter>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

@@ -33,6 +33,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Tasks.TaskName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="DueDate"
@@ -41,7 +47,14 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Tasks.DueDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Priority"
     IsNotNull="true"
@@ -73,14 +86,28 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Tasks.AsigneeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PercentageCompletion"
     ColumnName="PERCENTAGE_COMPLETION"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Tasks.PercentageCompletion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="OppurtunityId"
     IsNotNull="true"
@@ -88,7 +115,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Tasks.OppurtunityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CustAccountId"
     IsNotNull="true"
@@ -200,6 +234,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="TASKS_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="TasksFk1">
@@ -208,6 +243,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="TASKS_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="TasksFk2">
@@ -216,6 +252,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="TASKS_FK2"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="TasksFk3">
@@ -224,5 +261,10 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="TASKS_FK3"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

@@ -55,7 +55,14 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="CONTACT_INTERACTIONS"/>
+    TableName="CONTACT_INTERACTIONS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ContactInteractions.StartDatetime_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="EndDatetime"
     IsNotNull="true"
@@ -72,6 +79,12 @@
       CompareType="GREATERTHAN"
       CompareValue="com.sfa.model.VO.ContactInteractionsView.StartDatetime"
       ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_Rule_0"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Description"
@@ -84,6 +97,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Resolution"
@@ -194,6 +213,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="CONTACT_INTERACTIONS_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="ContactInteractionsFk1">
@@ -202,6 +222,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="CONTACT_INTERACTIONS_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <ResourceBundle>
     <PropertiesBundle

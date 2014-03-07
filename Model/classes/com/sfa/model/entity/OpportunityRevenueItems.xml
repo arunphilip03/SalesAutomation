@@ -46,7 +46,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITY_REVENUE_ITEMS"/>
+    TableName="OPPORTUNITY_REVENUE_ITEMS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.OpportunityRevenueItems.EstimatedPrice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Revenue"
     IsNotNull="true"
@@ -63,7 +70,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITY_REVENUE_ITEMS"/>
+    TableName="OPPORTUNITY_REVENUE_ITEMS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.OpportunityRevenueItems.WinProbability_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BestCaseRevenue"
     Precision="10"
@@ -72,7 +86,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITY_REVENUE_ITEMS"/>
+    TableName="OPPORTUNITY_REVENUE_ITEMS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.OpportunityRevenueItems.BestCaseRevenue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WorstCaseRevenue"
     Precision="10"
@@ -81,7 +102,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITY_REVENUE_ITEMS"/>
+    TableName="OPPORTUNITY_REVENUE_ITEMS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.OpportunityRevenueItems.WorstCaseRevenue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="SalesForecastIncluded"
     Precision="5"
@@ -93,6 +121,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.OpportunityRevenueItems.SalesForecastIncluded_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -192,6 +226,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_REV_ITEMS_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="OppurtunityRevenueItemsFk1">
@@ -200,6 +235,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_REVENUE_ITEMS_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="OppurtunityRevenueItemsFk2">
@@ -208,5 +244,10 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_REVENUE_ITEMS_FK2"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

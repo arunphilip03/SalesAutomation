@@ -71,6 +71,25 @@
     <page path="/AdminDashboard.jsf" usageId="com_sfa_view_AdminDashboardPageDef"/>
     <page path="/delete-confirm.jsff" usageId="com_sfa_view_delete_confirmPageDef"/>
     <page path="/delete-confirm.jsf" usageId="com_sfa_view_delete_confirmPageDef1"/>
+    <page path="/opportunity-all-main.jsff" usageId="com_sfa_view_opportunity_all_mainPageDef"/>
+    <page path="/Opportunities.jsf" usageId="com_sfa_view_OpportunitiesPageDef"/>
+    <page path="/opportunity-details-main.jsff" usageId="com_sfa_view_opportunity_details_mainPageDef"/>
+    <page path="/opportunity-create-main.jsff" usageId="com_sfa_view_opportunity_create_mainPageDef"/>
+    <page path="/opportunity-revenue-create.jsff" usageId="com_sfa_view_opportunity_revenue_createPageDef"/>
+    <page path="/opportunity-revenue-edit.jsff" usageId="com_sfa_view_opportunity_revenue_editPageDef"/>
+    <page path="/opportunity-notes-main.jsff" usageId="com_sfa_view_opportunity_notes_mainPageDef"/>
+    <page path="/opportunity-notes-edit.jsff" usageId="com_sfa_view_opportunity_notes_editPageDef"/>
+    <page path="/opportunity-notes-create.jsff" usageId="com_sfa_view_opportunity_notes_createPageDef"/>
+    <page path="/opportunity-task-main.jsff" usageId="com_sfa_view_opportunity_task_mainPageDef"/>
+    <page path="/opportunity-task-edit.jsff" usageId="com_sfa_view_opportunity_task_editPageDef"/>
+    <page path="/opportunity-task-create.jsff" usageId="com_sfa_view_opportunity_task_createPageDef"/>
+    <page path="/opportunity-interactions-main.jsff" usageId="com_sfa_view_opportunity_interactions_mainPageDef"/>
+    <page path="/opportunity-interactions-edit.jsff" usageId="com_sfa_view_opportunity_interactions_editPageDef"/>
+    <page path="/opportunity-interactions-create.jsff" usageId="com_sfa_view_opportunity_interactions_createPageDef"/>
+    <page path="/opportunities-appoinment-main.jsff" usageId="com_sfa_view_opportunities_appoinment_mainPageDef"/>
+    <page path="/opportunities-appoinment-create.jsff" usageId="com_sfa_view_opportunities_appoinment_createPageDef"/>
+    <page path="/opportunities-appoinment-edit.jsff" usageId="com_sfa_view_opportunities_appoinment_editPageDef"/>
+    <page path="/Opportunity-team.jsff" usageId="com_sfa_view_Opportunity_teamPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -160,6 +179,35 @@
     <page id="com_sfa_view_AdminDashboardPageDef" path="com.sfa.view.pageDefs.AdminDashboardPageDef"/>
     <page id="com_sfa_view_delete_confirmPageDef" path="com.sfa.view.pageDefs.delete_confirmPageDef"/>
     <page id="com_sfa_view_delete_confirmPageDef1" path="com.sfa.view.pageDefs.delete_confirmPageDef1"/>
+    <page id="com_sfa_view_opportunity_all_mainPageDef" path="com.sfa.view.pageDefs.opportunity_all_mainPageDef"/>
+    <page id="com_sfa_view_OpportunitiesPageDef" path="com.sfa.view.pageDefs.OpportunitiesPageDef"/>
+    <page id="com_sfa_view_opportunity_details_mainPageDef"
+          path="com.sfa.view.pageDefs.opportunity_details_mainPageDef"/>
+    <page id="com_sfa_view_opportunity_create_mainPageDef" path="com.sfa.view.pageDefs.opportunity_create_mainPageDef"/>
+    <page id="com_sfa_view_opportunity_revenue_createPageDef"
+          path="com.sfa.view.pageDefs.opportunity_revenue_createPageDef"/>
+    <page id="com_sfa_view_opportunity_revenue_editPageDef"
+          path="com.sfa.view.pageDefs.opportunity_revenue_editPageDef"/>
+    <page id="com_sfa_view_opportunity_notes_mainPageDef" path="com.sfa.view.pageDefs.opportunity_notes_mainPageDef"/>
+    <page id="com_sfa_view_opportunity_notes_editPageDef" path="com.sfa.view.pageDefs.opportunity_notes_editPageDef"/>
+    <page id="com_sfa_view_opportunity_notes_createPageDef"
+          path="com.sfa.view.pageDefs.opportunity_notes_createPageDef"/>
+    <page id="com_sfa_view_opportunity_task_mainPageDef" path="com.sfa.view.pageDefs.opportunity_task_mainPageDef"/>
+    <page id="com_sfa_view_opportunity_task_editPageDef" path="com.sfa.view.pageDefs.opportunity_task_editPageDef"/>
+    <page id="com_sfa_view_opportunity_task_createPageDef" path="com.sfa.view.pageDefs.opportunity_task_createPageDef"/>
+    <page id="com_sfa_view_opportunity_interactions_mainPageDef"
+          path="com.sfa.view.pageDefs.opportunity_interactions_mainPageDef"/>
+    <page id="com_sfa_view_opportunity_interactions_editPageDef"
+          path="com.sfa.view.pageDefs.opportunity_interactions_editPageDef"/>
+    <page id="com_sfa_view_opportunity_interactions_createPageDef"
+          path="com.sfa.view.pageDefs.opportunity_interactions_createPageDef"/>
+    <page id="com_sfa_view_opportunities_appoinment_mainPageDef"
+          path="com.sfa.view.pageDefs.opportunities_appoinment_mainPageDef"/>
+    <page id="com_sfa_view_opportunities_appoinment_createPageDef"
+          path="com.sfa.view.pageDefs.opportunities_appoinment_createPageDef"/>
+    <page id="com_sfa_view_opportunities_appoinment_editPageDef"
+          path="com.sfa.view.pageDefs.opportunities_appoinment_editPageDef"/>
+    <page id="com_sfa_view_Opportunity_teamPageDef" path="com.sfa.view.pageDefs.Opportunity_teamPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

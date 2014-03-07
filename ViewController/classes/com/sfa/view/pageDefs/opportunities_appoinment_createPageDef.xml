@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="opportunities_appoinment_createPageDef" Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpportunityAppointmentView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunityAppointmentView2Iterator"/>
+    <iterator id="AppointmentInviteesVO4Iterator" Binds="AppointmentInviteesVO4" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="UsersView1Iterator" Binds="UsersView1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="CustomerContactsView4Iterator" Binds="CustomerContactsView4" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="OppurtunityId">
+      <AttrNames>
+        <Item Value="OppurtunityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="EndDatetime">
+      <AttrNames>
+        <Item Value="EndDatetime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="Location">
+      <AttrNames>
+        <Item Value="Location"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="StartDatetime">
+      <AttrNames>
+        <Item Value="StartDatetime"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="AppointmentId">
+      <AttrNames>
+        <Item Value="AppointmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

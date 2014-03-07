@@ -6,20 +6,33 @@
   Name="OpportunityTeamView"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="OpportunityTeam.OPPORTUNITY_TEAM_ID, 
-       OpportunityTeam.OPPORTUNITY_ID, 
-       OpportunityTeam.CONTACT_ID, 
-       OpportunityTeam.USER_ID, 
-       OpportunityTeam.CREATION_DATE, 
-       OpportunityTeam.LAST_UPDATE_DATE, 
-       OpportunityTeam.CREATED_BY, 
-       OpportunityTeam.LAST_UPDATED_BY, 
-       OpportunityTeam.LAST_UPDATE_LOGIN, 
-       OpportunityTeam.OBJECT_VERSION_NUMBER"
-  FromList="OPPORTUNITY_TEAM OpportunityTeam"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT OpportunityTeam.OPPORTUNITY_TEAM_ID,    
+       OpportunityTeam.OPPORTUNITY_ID,    
+       OpportunityTeam.CONTACT_ID,    
+       OpportunityTeam.USER_ID,      
+       OpportunityTeam.OBJECT_VERSION_NUMBER,   
+       CustomerContacts.CONTACT_NAME AS NAME,              
+       'CONTACT' AS INVITEE_TYPE   
+FROM  OPPORTUNITY_TEAM OpportunityTeam, CUSTOMER_CONTACTS CustomerContacts   
+WHERE (OpportunityTeam.CONTACT_ID = CustomerContacts.CONTACT_ID)   
+   
+UNION   
+   
+SELECT OpportunityTeam.OPPORTUNITY_TEAM_ID,    
+       OpportunityTeam.OPPORTUNITY_ID,    
+       OpportunityTeam.CONTACT_ID,    
+       OpportunityTeam.USER_ID,      
+       OpportunityTeam.OBJECT_VERSION_NUMBER,    
+       Users.USER_NAME AS NAME,   
+       'USER' AS INVITEE_TYPE         
+FROM  OPPORTUNITY_TEAM OpportunityTeam, USERS Users   
+WHERE (OpportunityTeam.USER_ID = Users.USER_ID)]]></SQLQuery>
   <EntityUsage
     Name="OpportunityTeam"
     Entity="com.sfa.model.entity.OpportunityTeam"/>
@@ -50,41 +63,39 @@
     EntityUsage="OpportunityTeam"
     AliasName="USER_ID"/>
   <ViewAttribute
-    Name="CreationDate"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreationDate"
-    EntityUsage="OpportunityTeam"
-    AliasName="CREATION_DATE"/>
-  <ViewAttribute
-    Name="LastUpdateDate"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateDate"
-    EntityUsage="OpportunityTeam"
-    AliasName="LAST_UPDATE_DATE"/>
-  <ViewAttribute
-    Name="CreatedBy"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="OpportunityTeam"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdatedBy"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedBy"
-    EntityUsage="OpportunityTeam"
-    AliasName="LAST_UPDATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdateLogin"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateLogin"
-    EntityUsage="OpportunityTeam"
-    AliasName="LAST_UPDATE_LOGIN"/>
-  <ViewAttribute
     Name="ObjectVersionNumber"
     PrecisionRule="true"
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="OpportunityTeam"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME"
+    Expression="NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InviteeType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="7"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INVITEE_TYPE"
+    Expression="INVITEE_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
 </ViewObject>

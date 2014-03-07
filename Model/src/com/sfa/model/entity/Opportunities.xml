@@ -35,14 +35,28 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITIES"/>
+    TableName="OPPORTUNITIES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.WinProbability_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CloseDate"
     ColumnName="CLOSE_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="OPPORTUNITIES"/>
+    TableName="OPPORTUNITIES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.CloseDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PrimaryContactId"
     IsNotNull="true"
@@ -50,7 +64,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITIES"/>
+    TableName="OPPORTUNITIES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.PrimaryContactId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="SalesStage"
     IsNotNull="true"
@@ -63,6 +84,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.SalesStage_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SalesMethod"
@@ -76,6 +103,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.SalesMethod_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SalesChannel"
@@ -89,6 +122,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.SalesChannel_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="RevenueCurrency"
@@ -102,6 +141,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.RevenueCurrency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="RevenueAmount"
@@ -112,7 +157,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITIES"/>
+    TableName="OPPORTUNITIES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.RevenueAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BestCaseRevenue"
     Precision="10"
@@ -121,7 +173,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITIES"/>
+    TableName="OPPORTUNITIES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.BestCaseRevenue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WorstCaseRevenue"
     Precision="10"
@@ -130,7 +189,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITIES"/>
+    TableName="OPPORTUNITIES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.WorstCaseRevenue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsBudgeted"
     IsNotNull="true"
@@ -143,6 +209,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.IsBudgeted_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="BudgetAmount"
@@ -152,7 +224,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITIES"/>
+    TableName="OPPORTUNITIES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.BudgetAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="EstimatedDuration"
     Precision="20"
@@ -164,6 +243,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.EstimatedDuration_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="RiskLevel"
@@ -176,6 +261,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.RiskLevel_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="DecisionLevel"
@@ -189,6 +280,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.Opportunities.DecisionLevel_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -243,7 +340,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITIES"/>
+    TableName="OPPORTUNITIES">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("NOTES_PARENT_SEQ",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="LastUpdateLogin"
     Precision="32"

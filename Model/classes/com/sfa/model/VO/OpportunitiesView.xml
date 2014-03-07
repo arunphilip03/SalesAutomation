@@ -6,35 +6,12 @@
   Name="OpportunitiesView"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="Opportunities.OPPURTUNITY_ID, 
-       Opportunities.CUST_ACCOUNT_ID, 
-       Opportunities.WIN_PROBABILITY, 
-       Opportunities.CLOSE_DATE, 
-       Opportunities.PRIMARY_CONTACT_ID, 
-       Opportunities.SALES_STAGE, 
-       Opportunities.SALES_METHOD, 
-       Opportunities.SALES_CHANNEL, 
-       Opportunities.REVENUE_CURRENCY, 
-       Opportunities.REVENUE_AMOUNT, 
-       Opportunities.BEST_CASE_REVENUE, 
-       Opportunities.WORST_CASE_REVENUE, 
-       Opportunities.IS_BUDGETED, 
-       Opportunities.BUDGET_AMOUNT, 
-       Opportunities.ESTIMATED_DURATION, 
-       Opportunities.RISK_LEVEL, 
-       Opportunities.DECISION_LEVEL, 
-       Opportunities.CREATION_DATE, 
-       Opportunities.LAST_UPDATE_DATE, 
-       Opportunities.CREATED_BY, 
-       Opportunities.LAST_UPDATED_BY, 
-       Opportunities.NOTES_SEQ_ID, 
-       Opportunities.LAST_UPDATE_LOGIN, 
-       Opportunities.OBJECT_VERSION_NUMBER, 
-       Opportunities.OPPORTUNITY_NAME"
-  FromList="OPPORTUNITIES Opportunities"
   BindingStyle="OracleName"
-  CustomQuery="false"
+    CustomQuery="true"
   PageIterMode="Full">
+    <DesignTime>
+        <Attr Name="_isExpertMode" Value="true"/>
+    </DesignTime>
     <ViewAccessor
       Name="OpportunityDecisionlevelLuView1"
       ViewObjectName="com.sfa.model.VO.OpportunityDecisionlevelLuView"
@@ -55,6 +32,23 @@
       Name="OpportunitySalestageLuView1"
       ViewObjectName="com.sfa.model.VO.OpportunitySalestageLuView"
       RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="CustomerAccountView1"
+        ViewObjectName="com.sfa.model.VO.CustomerAccountView"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="CustomerContactsView1"
+        ViewObjectName="com.sfa.model.VO.CustomerContactsView"
+        RowLevelBinds="true">
+        <ViewCriteriaUsage
+            Name="CustomerContactsSelectedView"
+            FullName="com.sfa.model.VO.CustomerContactsView.CustomerContactsSelectedView"/>
+        <ParameterMap>
+            <PIMap Variable="accntId">
+                <TransientExpression><![CDATA[CustAccountId]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
     <ListBinding
       Name="LOV_DecisionLevel"
       ListVOName="OpportunityDecisionlevelLuView1"
@@ -150,6 +144,82 @@
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
+    <ListBinding
+        Name="LOV_AccountName"
+        ListVOName="CustomerAccountView1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0"
+        ComboRowCountHint="10">
+        <AttrArray Name="AttrNames">
+            <Item Value="AccountName"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="DerivedAttrNames">
+            <Item Value="CustAccountId"/>
+        </AttrArray>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="AccountName"/>
+            <Item Value="CustAccountId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="AccountName"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_ContactName"
+        ListVOName="CustomerContactsView1"
+        ListRangeSize="-1"
+        ComboRowCountHint="10"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="ContactName"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="DerivedAttrNames">
+            <Item Value="PrimaryContactId"/>
+        </AttrArray>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="ContactName"/>
+            <Item Value="ContactId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="ContactName"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <SQLQuery><![CDATA[SELECT Opportunities.OPPURTUNITY_ID,       
+       Opportunities.CUST_ACCOUNT_ID,       
+       Opportunities.WIN_PROBABILITY,       
+       Opportunities.CLOSE_DATE,       
+       Opportunities.PRIMARY_CONTACT_ID,       
+       Opportunities.SALES_STAGE,       
+       Opportunities.SALES_METHOD,       
+       Opportunities.SALES_CHANNEL,       
+       Opportunities.REVENUE_CURRENCY,       
+       Opportunities.REVENUE_AMOUNT,       
+       Opportunities.BEST_CASE_REVENUE,       
+       Opportunities.WORST_CASE_REVENUE,       
+       Opportunities.IS_BUDGETED,       
+       Opportunities.BUDGET_AMOUNT,       
+       Opportunities.ESTIMATED_DURATION,       
+       Opportunities.RISK_LEVEL,       
+       Opportunities.DECISION_LEVEL,       
+       Opportunities.CREATION_DATE,       
+       Opportunities.LAST_UPDATE_DATE,       
+       Opportunities.CREATED_BY,       
+       Opportunities.LAST_UPDATED_BY,       
+       Opportunities.NOTES_SEQ_ID,       
+       Opportunities.LAST_UPDATE_LOGIN,       
+       Opportunities.OBJECT_VERSION_NUMBER,       
+       Opportunities.OPPORTUNITY_NAME,     
+       Cust.ACCOUNT_NAME,    
+       Contact.CONTACT_NAME    
+FROM  OPPORTUNITIES Opportunities left outer join CUSTOMER_ACCOUNT Cust     
+on Opportunities.CUST_ACCOUNT_ID = Cust.CUST_ACCOUNT_ID JOIN CUSTOMER_CONTACTS Contact    
+on Opportunities.PRIMARY_CONTACT_ID = Contact.CONTACT_ID]]></SQLQuery>
     <EntityUsage
       Name="Opportunities"
       Entity="com.sfa.model.entity.Opportunities"/>
@@ -362,6 +432,133 @@
       EntityAttrName="OpportunityName"
       EntityUsage="Opportunities"
       AliasName="OPPORTUNITY_NAME"/>
+    <ViewAttribute
+        Name="AccountName"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="100"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="ACCOUNT_NAME"
+        Expression="ACCOUNT_NAME"
+        SQLType="VARCHAR"
+        LOVName="LOV_AccountName"
+        IsNotNull="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="100"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="combo_lov"/>
+                <LABEL
+                    ResId="com.sfa.model.VO.OpportunitiesView.AccountName_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="50"/>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="ContactName"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Precision="80"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        AliasName="CONTACT_NAME"
+        Expression="CONTACT_NAME"
+        SQLType="VARCHAR"
+        LOVName="LOV_ContactName"
+        IsNotNull="true">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="80"/>
+        </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.sfa.model.VO.OpportunitiesView.ContactName_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="50"/>
+                <CONTROLTYPE
+                    Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewCriteria
+        Name="OpportunitiesViewSearch"
+        ViewObjectName="com.sfa.model.VO.OpportunitiesView"
+        Conjunction="AND">
+        <Properties>
+            <CustomProperties>
+                <Property
+                    Name="displayOperators"
+                    Value="InAdvancedMode"/>
+                <Property
+                    Name="displayName"
+                    ResId="displayName"/>
+                <Property
+                    Name="autoExecute"
+                    Value="true"/>
+                <Property
+                    Name="allowConjunctionOverride"
+                    Value="true"/>
+                <Property
+                    Name="showInList"
+                    Value="true"/>
+                <Property
+                    Name="mode"
+                    Value="Basic"/>
+            </CustomProperties>
+        </Properties>
+        <ViewCriteriaRow
+            Name="OpportunitiesViewCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+                Name="WinProbability"
+                ViewAttribute="WinProbability"
+                Operator="="
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="RevenueCurrency"
+                ViewAttribute="RevenueCurrency"
+                Operator="="
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="RevenueAmount"
+                ViewAttribute="RevenueAmount"
+                Operator="="
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="RiskLevel"
+                ViewAttribute="RiskLevel"
+                Operator="STARTSWITH"
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="OpportunityName"
+                ViewAttribute="OpportunityName"
+                Operator="STARTSWITH"
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="OpportunitiesViewCriteria_OpportunitiesViewCriteria_row_0_AccountName"
+                ViewAttribute="AccountName"
+                Operator="STARTSWITH"
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+        </ViewCriteriaRow>
+    </ViewCriteria>
     <ViewLinkAccessor
       Name="AppointmentsView"
       ViewLink="com.sfa.model.viewlink.AppointmentsFk2Link"
@@ -392,4 +589,28 @@
       ViewLink="com.sfa.model.viewlink.TasksFk2Link"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="OpportunityNotes"
+        ViewLink="com.sfa.model.viewlink.noteOpportunityViewLink"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="OpportunitytaskView"
+        ViewLink="com.sfa.model.viewlink.OpportunityTaskLink"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="OpportunityAppointmentView"
+        ViewLink="com.sfa.model.viewlink.OpportunityAppointmentLink"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="CustomerContactsView"
+        ViewLink="com.sfa.model.viewlink.OpportunityContactsView"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ResourceBundle>
+        <PropertiesBundle
+            PropertiesFile="com.sfa.model.ModelBundle"/>
+    </ResourceBundle>
 </ViewObject>

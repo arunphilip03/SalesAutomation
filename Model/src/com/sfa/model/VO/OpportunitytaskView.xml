@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OpportunitytaskView"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.OpportunitytaskView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="UsersView1"
+    ViewObjectName="com.sfa.model.VO.UsersView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomerAccountView1"
+    ViewObjectName="com.sfa.model.VO.CustomerAccountView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_FirstName"
+    ListVOName="UsersView1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FirstName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="AsigneeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FirstName"/>
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FirstName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AccountName"
+    ListVOName="CustomerAccountView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AccountName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AccountName"/>
+      <Item Value="CustAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccountName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Tasks.ASIGNEE_ID,  
+       Tasks.CUST_ACCOUNT_ID,  
+       Tasks.DESCRIPTION,  
+       Tasks.DUE_DATE,  
+       Tasks.OBJECT_VERSION_NUMBER,  
+       Tasks.OPPURTUNITY_ID,  
+       Tasks.PERCENTAGE_COMPLETION,  
+       Tasks.PRIORITY,  
+       Tasks.TASK_ID,  
+       Tasks.TASK_NAME, 
+       Users.FIRST_NAME,    
+       Customer.ACCOUNT_NAME,    
+       Oppo.OPPORTUNITY_NAME    
+FROM  TASKS Tasks LEFT OUTER JOIN USERS Users on Tasks.ASIGNEE_ID = Users.USER_ID    
+LEFT OUTER JOIN CUSTOMER_ACCOUNT Customer on Tasks.CUST_ACCOUNT_ID = Customer.CUST_ACCOUNT_ID    
+left outer join OPPORTUNITIES Oppo ON Tasks.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID]]></SQLQuery>
+  <EntityUsage
+    Name="Tasks"
+    Entity="com.sfa.model.entity.Tasks"/>
+  <ViewAttribute
+    Name="AsigneeId"
+    PrecisionRule="true"
+    EntityAttrName="AsigneeId"
+    EntityUsage="Tasks"
+    AliasName="ASIGNEE_ID"/>
+  <ViewAttribute
+    Name="CustAccountId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustAccountId"
+    EntityUsage="Tasks"
+    AliasName="CUST_ACCOUNT_ID"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="Tasks"
+    AliasName="DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DueDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DueDate"
+    EntityUsage="Tasks"
+    AliasName="DUE_DATE"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="Tasks"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="OppurtunityId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OppurtunityId"
+    EntityUsage="Tasks"
+    AliasName="OPPURTUNITY_ID"/>
+  <ViewAttribute
+    Name="PercentageCompletion"
+    PrecisionRule="true"
+    EntityAttrName="PercentageCompletion"
+    EntityUsage="Tasks"
+    AliasName="PERCENTAGE_COMPLETION"/>
+  <ViewAttribute
+    Name="Priority"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Priority"
+    EntityUsage="Tasks"
+    AliasName="PRIORITY"/>
+  <ViewAttribute
+    Name="TaskId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TaskId"
+    EntityUsage="Tasks"
+    AliasName="TASK_ID"/>
+  <ViewAttribute
+    Name="TaskName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TaskName"
+    EntityUsage="Tasks"
+    AliasName="TASK_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FirstName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FIRST_NAME"
+    Expression="FIRST_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_FirstName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.OpportunitytaskView.FirstName_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccountName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ACCOUNT_NAME"
+    Expression="ACCOUNT_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_AccountName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.OpportunitytaskView.AccountName_LABEL"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OpportunityName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="OPPORTUNITY_NAME"
+    Expression="OPPORTUNITY_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.OpportunitytaskView.OpportunityName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="OpportunitytaskViewSearch"
+    ViewObjectName="com.sfa.model.VO.OpportunitytaskView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="displayName"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="OpportunitytaskViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="DueDate"
+        ViewAttribute="DueDate"
+        Operator="="
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TaskName"
+        ViewAttribute="TaskName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="FirstName"
+        ViewAttribute="FirstName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OpportunitytaskViewCriteria_OpportunitytaskViewCriteria_row_0_AccountName"
+        ViewAttribute="AccountName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OpportunityName"
+        ViewAttribute="OpportunityName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="TaskTeamView"
+    ViewLink="com.sfa.model.viewlink.OpportunityTaskTeamViewLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
