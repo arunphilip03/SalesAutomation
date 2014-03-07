@@ -24,7 +24,12 @@
   FromList="TASKS Tasks"
   BindingStyle="OracleName"
   CustomQuery="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="com.sfa.model.VO.TasksViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="TaskPriorityLuView1"
     ViewObjectName="com.sfa.model.VO.TaskPriorityLuView"
@@ -33,11 +38,22 @@
     Name="UsersView1"
     ViewObjectName="com.sfa.model.VO.UsersView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UsersView2"
+    ViewObjectName="com.sfa.model.VO.UsersView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OpportunitiesView1"
+    ViewObjectName="com.sfa.model.VO.OpportunitiesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AllUsersVO1"
+    ViewObjectName="com.sfa.model.VO.AllUsersVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Priority"
     ListVOName="TaskPriorityLuView1"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -50,7 +66,8 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Priority"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="hide"/>
   </ListBinding>
   <ListBinding
     Name="LOV_AsigneeId"
@@ -71,6 +88,57 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_RelatedOppurtunity"
+    ListVOName="OpportunitiesView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="RelatedOppurtunity"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OpportunityName"/>
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OpportunityName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"
+      Name="OpportunitiesViewCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Assignee"
+    ListVOName="AllUsersVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="Assignee"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="AsigneeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserName"/>
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FirstName"/>
+      <Item Value="LastName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AllUsersVOCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
   <EntityUsage
     Name="Tasks"
     Entity="com.sfa.model.entity.Tasks"/>
@@ -87,7 +155,14 @@
     PrecisionRule="true"
     EntityAttrName="TaskName"
     EntityUsage="Tasks"
-    AliasName="TASK_NAME"/>
+    AliasName="TASK_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DueDate"
     IsNotNull="true"
@@ -115,7 +190,14 @@
     PrecisionRule="true"
     EntityAttrName="Description"
     EntityUsage="Tasks"
-    AliasName="DESCRIPTION"/>
+    AliasName="DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AsigneeId"
     PrecisionRule="true"
@@ -192,9 +274,61 @@
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="Tasks"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="Assignee"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_Assignee">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RelatedOppurtunity"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_RelatedOppurtunity"
+    IsNotNull="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.TasksView.RelatedOppurtunity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="TaskTeamView"
     ViewLink="com.sfa.model.viewlink.TaskTeamFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="TaskTeamVO"
+    ViewLink="com.sfa.model.viewlink.TaskTeamVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

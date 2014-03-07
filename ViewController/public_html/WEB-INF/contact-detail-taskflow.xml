@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="contact-detail-taskflow">
+    <default-activity>contact-detail</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <managed-bean id="__24">
+      <managed-bean-name>GetAppointmentId</managed-bean-name>
+      <managed-bean-class>com.sfa.view.GetAppointmentId</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="contact-detail">
+      <page>/ContactDetail.jsff</page>
+    </view>
+    <task-flow-return id="cancel">
+      <outcome>
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-call id="add-edit-appointment-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-appointment-taskflow.xml</document>
+        <id>add-edit-appointment-taskflow</id>
+      </task-flow-reference>
+      <input-parameter id="__15">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedAppKeyStr}</value>
+      </input-parameter>
+      <input-parameter id="__16">
+        <name>appType</name>
+        <value>contact</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="add-edit-tasks-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-tasks-taskflow.xml</document>
+        <id>add-edit-tasks-taskflow</id>
+      </task-flow-reference>
+      <input-parameter id="__4">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedTaskKeyStr}</value>
+      </input-parameter>
+      <input-parameter id="__5">
+        <name>callType</name>
+        <value>contact</value>
+      </input-parameter>
+    </task-flow-call>
+    <view id="CustomerAppointmentsEdit">
+      <page>/CustomerAppointmentsEdit.jsff</page>
+      <input-page-parameter id="__12">
+        <from-value>contact</from-value>
+        <to-value>#{pageFlowScope.appType}</to-value>
+      </input-page-parameter>
+    </view>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="EditTask">
+      <page>/EditTask.jsff</page>
+      <input-page-parameter id="__25">
+        <from-value>contact</from-value>
+        <to-value>#{pageFlowScope.callType}</to-value>
+      </input-page-parameter>
+    </view>
+    <method-call id="SetCurrentRowWithKeyValue1">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>contact-detail</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>createAppointment</from-outcome>
+        <to-activity-id>add-edit-appointment-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>createTask</from-outcome>
+        <to-activity-id>add-edit-tasks-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>editAppointment</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>editTask</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>add-edit-tasks-taskflow</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>saveCreate</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>cancelCreate</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>CustomerAppointmentsEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>add-edit-appointment-taskflow</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>saveCreate</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>cancelCreate</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>SetCurrentRowWithKeyValue1</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>EditTask</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id>CustomerAppointmentsEdit</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__29">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>EditTask</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__28">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

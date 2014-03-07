@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelHeader text="Select Contacts" id="ph1">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+            <af:toolbar id="t1">
+                <af:button text="Ok" id="b1" action="#{InviteeBean.onCommit}"/>
+            </af:toolbar>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <!--<af:selectManyShuttle label="Contacts" id="sms1" value="#{InviteeBean.selectedRoles}"
+                              valueChangeListener="#{InviteeBean.onRoleChange}" autoSubmit="true" rendered="true"
+                              binding="#{InviteeBean.selectManyShuttleComponent}">
+            <f:selectItems value="#{InviteeBean.allRoles}" id="si1"/>
+        </af:selectManyShuttle>-->
+        
+        
+        <af:selectManyShuttle value="#{InviteeBean.selectedRoles}" valueChangeListener="#{InviteeBean.onRoleChange}"
+    binding="#{InviteeBean.selectManyShuttleComponent}"
+                          label="Contacts" id="sms2">
+        <f:selectItems value="#{InviteeBean.allRoles}" id="si2"/>
+    </af:selectManyShuttle>
+    </af:panelHeader>
+    
+</ui:composition>

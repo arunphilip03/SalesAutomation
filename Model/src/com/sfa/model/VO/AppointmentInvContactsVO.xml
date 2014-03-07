@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppointmentInvContactsVO"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  SelectList="AppointmentInvitees.CONTACT_ID, 
+       AppointmentInvitees.APP_INVITEE_ID, 
+       AppointmentInvitees.OBJECT_VERSION_NUMBER, 
+       CustomerContacts.CONTACT_NAME, 
+       CustomerContacts.CONTACT_ID AS CONTACT_ID1, 
+       CustomerContacts.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1, 
+       CustomerContacts.TITLE, 
+       AppointmentInvitees.APPOINTMENT_ID"
+  FromList="APPOINTMENT_INVITEES AppointmentInvitees, CUSTOMER_CONTACTS CustomerContacts"
+  Where="AppointmentInvitees.CONTACT_ID = CustomerContacts.CONTACT_ID"
+  OrderBy="CustomerContacts.CONTACT_NAME"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.AppointmentInvContactsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="AppointmentInvitees"
+    Entity="com.sfa.model.entity.AppointmentInvitees"/>
+  <EntityUsage
+    Name="CustomerContacts"
+    Entity="com.sfa.model.entity.CustomerContacts"
+    Association="com.sfa.model.association.AppointmentInviteesFk2Assoc"
+    AssociationEnd="com.sfa.model.association.AppointmentInviteesFk2Assoc.CustomerContacts"
+    SourceUsage="com.sfa.model.VO.AppointmentInvContactsVO.AppointmentInvitees"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.sfa.model.entity.AppointmentInvitees.ContactId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.sfa.model.entity.CustomerContacts.ContactId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="ContactId"
+    PrecisionRule="true"
+    EntityAttrName="ContactId"
+    EntityUsage="AppointmentInvitees"
+    AliasName="CONTACT_ID"/>
+  <ViewAttribute
+    Name="AppInviteeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AppInviteeId"
+    EntityUsage="AppointmentInvitees"
+    AliasName="APP_INVITEE_ID"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="AppointmentInvitees"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="ContactName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContactName"
+    EntityUsage="CustomerContacts"
+    AliasName="CONTACT_NAME"/>
+  <ViewAttribute
+    Name="ContactId1"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="ContactId"
+    EntityUsage="CustomerContacts"
+    AliasName="CONTACT_ID1"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber1"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="CustomerContacts"
+    AliasName="OBJECT_VERSION_NUMBER1"/>
+  <ViewAttribute
+    Name="Title"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="CustomerContacts"
+    AliasName="TITLE"/>
+  <ViewAttribute
+    Name="AppointmentId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AppointmentId"
+    EntityUsage="AppointmentInvitees"
+    AliasName="APPOINTMENT_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="AppInviteeId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="AppointmentInviteesVO1"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvContactsVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

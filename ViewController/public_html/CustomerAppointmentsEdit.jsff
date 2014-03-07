@@ -1,24 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:messages id="m1"/>
-    <af:panelHeader text="Create Appointment" id="ph1" inlineStyle="text-indent:5pt;">
-        <f:facet name="context"/>
-        <f:facet name="menuBar"/>
-        <f:facet name="toolbar">
-            <af:toolbar id="t1">
-                <af:button text="Save" id="b1" action="save"/>
-                <af:button text="Save and Close" id="b4"/>
-                <af:button text="Invite Attendees" id="b3"/>
-                <af:button text="Cancel" id="b2" action="cancel" immediate="true"/>
-            </af:toolbar>
-        </f:facet>
-        <f:facet name="legend"/>
-        <f:facet name="info"/>
-        <af:form id="f1">
-            <af:panelFormLayout id="pfl1">
+    <af:panelGroupLayout id="pgl1">
+        <af:messages id="m1"/>
+        <af:panelHeader text="Edit Appointment" id="ph1" inlineStyle="text-indent:5pt;">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar">
+                <af:toolbar id="t1">
+                    <af:button text="Save" id="b1" action="save" actionListener="#{InviteeBean.onCommit}"/>
+                    <af:button text="Save and Close" id="b4" action="saveAndClose"
+                               actionListener="#{InviteeBean.onCommit}"/>
+                    <af:button text="Cancel" id="b2" action="cancel" immediate="true"/>
+                </af:toolbar>
+            </f:facet>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:panelFormLayout id="pfl1" rows="4">
                 <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
                               required="#{bindings.Name.hints.mandatory}" columns="#{bindings.Name.hints.displayWidth}"
                               maximumLength="#{bindings.Name.hints.precision}"
@@ -29,7 +29,7 @@
                               required="#{bindings.Description.hints.mandatory}"
                               columns="#{bindings.Description.hints.displayWidth}"
                               maximumLength="#{bindings.Description.hints.precision}"
-                              shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
+                              shortDesc="#{bindings.Description.hints.tooltip}" id="it2" rows="4">
                     <f:validator binding="#{bindings.Description.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.StartDatetime.inputValue}" label="#{bindings.StartDatetime.hints.label}"
@@ -46,48 +46,49 @@
                     <f:validator binding="#{bindings.EndDatetime.validator}"/>
                     <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
                 </af:inputDate>
+                <af:inputListOfValues id="relatedOppurtunity1Id"
+                                      popupTitle="Search and Select: #{bindings.RelatedOppurtunity1.hints.label}"
+                                      value="#{bindings.RelatedOppurtunity1.inputValue}"
+                                      label="#{bindings.RelatedOppurtunity1.hints.label}"
+                                      model="#{bindings.RelatedOppurtunity1.listOfValuesModel}"
+                                      required="#{bindings.RelatedOppurtunity1.hints.mandatory}"
+                                      columns="#{bindings.RelatedOppurtunity1.hints.displayWidth}"
+                                      shortDesc="#{bindings.RelatedOppurtunity1.hints.tooltip}">
+                    <f:validator binding="#{bindings.RelatedOppurtunity1.validator}"/>
+                </af:inputListOfValues>
                 <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"
                               required="#{bindings.Location.hints.mandatory}"
                               columns="#{bindings.Location.hints.displayWidth}"
                               maximumLength="#{bindings.Location.hints.precision}"
                               shortDesc="#{bindings.Location.hints.tooltip}" id="it3">
                     <f:validator binding="#{bindings.Location.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Location.format}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.RelatedOppurtunity.inputValue}"
-                                    label="#{bindings.RelatedOppurtunity.label}"
-                                    required="#{bindings.RelatedOppurtunity.hints.mandatory}"
-                                    shortDesc="#{bindings.RelatedOppurtunity.hints.tooltip}" id="soc1">
-                    <f:selectItems value="#{bindings.RelatedOppurtunity.items}" id="si1"/>
-                    <f:validator binding="#{bindings.RelatedOppurtunity.validator}"/>
-                </af:selectOneChoice>
             </af:panelFormLayout>
-            <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1">
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1" styleClass="AFStretchWidth">
                 <f:facet name="context"/>
                 <f:facet name="menuBar"/>
                 <f:facet name="toolbar"/>
+                <af:panelSplitter id="ps1" splitterPosition="500" styleClass="AFStretchWidth">
+                    <f:facet name="first">
+                        <af:selectManyShuttle label="Contacts" id="sms1" value="#{InviteeBean.selectedContacts}"
+                                              valueChangeListener="#{InviteeBean.onContactChange}"
+                                              binding="#{InviteeBean.selectManyShuttleComponentContacts}">
+                            <f:selectItems value="#{InviteeBean.allContacts}" id="si1"/>
+                        </af:selectManyShuttle>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:selectManyShuttle label="Users" id="sms2" value="#{InviteeBean.selectedUsers}"
+                                              valueChangeListener="#{InviteeBean.onUserChange}"
+                                              binding="#{InviteeBean.selectManyShuttleComponentUsers}">
+                            <f:selectItems value="#{InviteeBean.allUsers}" id="si2"/>
+                        </af:selectManyShuttle>
+                    </f:facet>
+                </af:panelSplitter>
                 <f:facet name="legend"/>
                 <f:facet name="info"/>
-                <af:table value="#{bindings.AppointmentInviteesVO3.collectionModel}" var="row"
-                          rows="#{bindings.AppointmentInviteesVO3.rangeSize}"
-                          emptyText="#{bindings.AppointmentInviteesVO3.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.AppointmentInviteesVO3.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.AppointmentInviteesVO3.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.AppointmentInviteesVO3.rangeSize}" id="t2">
-                    <af:column sortProperty="#{bindings.AppointmentInviteesVO3.hints.Name.name}" sortable="true"
-                               headerText="#{bindings.AppointmentInviteesVO3.hints.Name.label}" id="c1" width="115">
-                        <af:outputText value="#{row.Name}"
-                                       shortDesc="#{bindings.AppointmentInviteesVO3.hints.Name.tooltip}" id="ot1"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.AppointmentInviteesVO3.hints.InviteeType.name}" sortable="true"
-                               headerText="#{bindings.AppointmentInviteesVO3.hints.InviteeType.label}" id="c2"
-                               width="156">
-                        <af:outputText value="#{row.InviteeType}"
-                                       shortDesc="#{bindings.AppointmentInviteesVO3.hints.InviteeType.tooltip}"
-                                       id="ot2"/>
-                    </af:column>
-                </af:table>
             </af:showDetailHeader>
-        </af:form>
-    </af:panelHeader>
+        </af:panelHeader>
+    </af:panelGroupLayout>
 </ui:composition>

@@ -18,26 +18,26 @@
         ResId="com.sfa.model.VO.AppointmentInviteesVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT AppointmentInvitees.APPOINTMENT_ID,  
-       AppointmentInvitees.APP_INVITEE_ID,  
-       AppointmentInvitees.OBJECT_VERSION_NUMBER,  
-       AppointmentInvitees.CONTACT_ID,  
-       AppointmentInvitees.USER_ID,  
-       CustomerContacts.CONTACT_NAME AS NAME,            
-       'CONTACT' AS INVITEE_TYPE 
-FROM  APPOINTMENT_INVITEES AppointmentInvitees, CUSTOMER_CONTACTS CustomerContacts 
+  <SQLQuery><![CDATA[SELECT AppointmentInvitees.APPOINTMENT_ID,    
+       AppointmentInvitees.APP_INVITEE_ID,    
+       AppointmentInvitees.OBJECT_VERSION_NUMBER,    
+       AppointmentInvitees.CONTACT_ID,    
+       AppointmentInvitees.USER_ID,    
+       CustomerContacts.CONTACT_NAME AS NAME,              
+       'CONTACT' AS INVITEE_TYPE   
+FROM  APPOINTMENT_INVITEES AppointmentInvitees, CUSTOMER_CONTACTS CustomerContacts   
 WHERE (AppointmentInvitees.CONTACT_ID = CustomerContacts.CONTACT_ID) 
- 
-UNION 
- 
-SELECT AppointmentInvitees.APPOINTMENT_ID,  
-       AppointmentInvitees.APP_INVITEE_ID,  
-       AppointmentInvitees.OBJECT_VERSION_NUMBER,  
-       AppointmentInvitees.CONTACT_ID,  
-       AppointmentInvitees.USER_ID,  
-       Users.USER_NAME AS NAME, 
-       'USER' AS INVITEE_TYPE       
-FROM  APPOINTMENT_INVITEES AppointmentInvitees, USERS Users 
+   
+UNION   
+   
+SELECT AppointmentInvitees.APPOINTMENT_ID,    
+       AppointmentInvitees.APP_INVITEE_ID,    
+       AppointmentInvitees.OBJECT_VERSION_NUMBER,    
+       AppointmentInvitees.CONTACT_ID,    
+       AppointmentInvitees.USER_ID,    
+       Users.USER_NAME AS NAME,   
+       'USER' AS INVITEE_TYPE         
+FROM  APPOINTMENT_INVITEES AppointmentInvitees, USERS Users   
 WHERE (AppointmentInvitees.USER_ID = Users.USER_ID)]]></SQLQuery>
   <EntityUsage
     Name="AppointmentInvitees"
@@ -126,6 +126,12 @@ WHERE (AppointmentInvitees.USER_ID = Users.USER_ID)]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.AppointmentInviteesVO.Name_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="InviteeType"
@@ -141,7 +147,23 @@ WHERE (AppointmentInvitees.USER_ID = Users.USER_ID)]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.AppointmentInviteesVO.InviteeType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="AppointmentInvUsersVO"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvUsers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentInvContactsVO"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvContactsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sfa.model.ModelBundle"/>

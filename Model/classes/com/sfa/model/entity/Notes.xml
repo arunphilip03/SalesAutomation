@@ -36,7 +36,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="NOTES">
+    TableName="NOTES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>
@@ -48,14 +49,17 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="NOTES"/>
+    TableName="NOTES"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="LastUpdateDate"
     ColumnName="LAST_UPDATE_DATE"
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="NOTES"/>
+    TableName="NOTES"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -116,10 +120,23 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
+    Name="NotesNotesTextCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="NOTES_NOTES_TEXT_CHECK"/>
+      <Attr Name="_checkCondition" Value='"NOTES_TEXT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.Notes.NotesText"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="NotesPk"
     PrimaryKey="true">
     <DesignTime>
       <Attr Name="_DBObjectName" Value="NOTES_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
 </Entity>

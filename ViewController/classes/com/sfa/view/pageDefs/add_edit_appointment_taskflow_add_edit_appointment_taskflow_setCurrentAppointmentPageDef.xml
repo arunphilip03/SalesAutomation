@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="add_edit_appointment_taskflow_add_edit_appointment_taskflow_setCurrentAppointmentPageDef"
+                Package="com.sfa.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="AppointmentInviteesVO3" RangeSize="25" DataControl="AppModuleDataControl"
+              id="AppointmentInviteesVO3Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="AppointmentInviteesVO3Iterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{requestScope.appointmentId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

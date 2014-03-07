@@ -11,13 +11,29 @@
       <class>java.lang.String</class>
       <required/>
     </input-parameter-definition>
+    <input-parameter-definition id="__20">
+      <name>appType</name>
+      <value>#{pageFlowScope.appType}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__21">
+      <managed-bean-name>AppointmentInvitee</managed-bean-name>
+      <managed-bean-class>com.sfa.view.backing.AppointmentInvitee</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__5">
+      <managed-bean-name>InviteeBean</managed-bean-name>
+      <managed-bean-class>com.sfa.view.backing.InviteeBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <router id="addEditAppointment">
       <case id="__11">
         <expression>#{pageFlowScope.selectedRowKeyStr == ''}</expression>
         <outcome>add</outcome>
       </case>
       <case id="__12">
-        <expression>#{pageFlowScope.selectedRowKeyStr != ''}</expression>
+        <expression>#{pageFlowScope.selectedRowKeyStr !=''}</expression>
         <outcome>edit</outcome>
       </case>
       <default-outcome>edit</default-outcome>
@@ -34,7 +50,7 @@
         <fixed-outcome>setCurrentRowWithKey</fixed-outcome>
       </outcome>
     </method-call>
-    <view id="editPage">
+    <view id="editAppointment">
       <page>/CustomerAppointmentsEdit.jsff</page>
     </view>
     <task-flow-return id="save">
@@ -49,6 +65,33 @@
         <rollback/>
       </outcome>
     </task-flow-return>
+    <view id="createAppointment">
+      <page>/CustomerAppointmentsCreate.jsff</page>
+    </view>
+    <task-flow-return id="saveCreate">
+      <outcome>
+        <name>saveCreate</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancelCreate">
+      <outcome>
+        <name>cancelCreate</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="commitCreate">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="commitEdit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>addEditAppointment</from-activity-id>
       <control-flow-case id="__2">
@@ -62,27 +105,46 @@
     </control-flow-rule>
     <control-flow-rule id="__4">
       <from-activity-id>createInsert</from-activity-id>
-      <control-flow-case id="__5">
+      <control-flow-case id="__14">
         <from-outcome>createInsert</from-outcome>
-        <to-activity-id>editPage</to-activity-id>
+        <to-activity-id>createAppointment</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
       <from-activity-id>setAppointmentKey</from-activity-id>
       <control-flow-case id="__7">
         <from-outcome>setCurrentRowWithKey</from-outcome>
-        <to-activity-id>editPage</to-activity-id>
+        <to-activity-id>editAppointment</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__8">
-      <from-activity-id>editPage</from-activity-id>
+      <from-activity-id>editAppointment</from-activity-id>
       <control-flow-case id="__9">
-        <from-outcome>save</from-outcome>
+        <from-outcome>saveAndClose</from-outcome>
         <to-activity-id>save</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__10">
         <from-outcome>cancel</from-outcome>
         <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>commitEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>createAppointment</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>saveCreate</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>cancelCreate</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>commitCreate</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

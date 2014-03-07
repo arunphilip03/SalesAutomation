@@ -134,6 +134,34 @@
     AssociationOtherEnd="com.sfa.model.association.AppointmentInviteesFk3Assoc.AppointmentInvitees"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <ViewLinkAccessor
+    Name="AppointmentInvUsersVO"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvUsers"
+    ViewLinkEnd="com.sfa.model.viewlink.AppointmentInvUsers.AppointmentInvUsersVO"
+    ViewLinkOtherEnd="com.sfa.model.viewlink.AppointmentInvUsers.AppointmentInviteesVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentInviteesVO"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvUsers"
+    ViewLinkEnd="com.sfa.model.viewlink.AppointmentInvUsers.AppointmentInviteesVO"
+    ViewLinkOtherEnd="com.sfa.model.viewlink.AppointmentInvUsers.AppointmentInvUsersVO"
+    Type="oracle.jbo.server.ViewRowImpl"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentInvContactsVO"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvContactsVL"
+    ViewLinkEnd="com.sfa.model.viewlink.AppointmentInvContactsVL.AppointmentInvContactsVO"
+    ViewLinkOtherEnd="com.sfa.model.viewlink.AppointmentInvContactsVL.AppointmentInviteesVO1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentInviteesVO1"
+    ViewLink="com.sfa.model.viewlink.AppointmentInvContactsVL"
+    ViewLinkEnd="com.sfa.model.viewlink.AppointmentInvContactsVL.AppointmentInviteesVO1"
+    ViewLinkOtherEnd="com.sfa.model.viewlink.AppointmentInvContactsVL.AppointmentInvContactsVO"
+    Type="oracle.jbo.server.ViewRowImpl"
+    IsUpdateable="false"/>
   <Key
     Name="AppointmentInviteesPk"
     PrimaryKey="true">

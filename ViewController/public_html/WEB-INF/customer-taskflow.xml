@@ -2,11 +2,9 @@
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="customer-account">
     <default-activity>customers</default-activity>
-    <managed-bean id="__5">
-      <managed-bean-name>customerBean</managed-bean-name>
-      <managed-bean-class>com.sfa.view.backing.CustomerBacking</managed-bean-class>
-      <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
+    <transaction>
+      <new-transaction/>
+    </transaction>
     <view id="customers">
       <page>/CustomerOverview.jsff</page>
     </view>

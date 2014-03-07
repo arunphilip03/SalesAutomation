@@ -72,6 +72,9 @@ public class CustomerContactsImpl extends EntityImpl {
     }
 
 
+    public static final String ISPRIMARYVALUE = "Yes";
+
+
     public static final int CONTACTID = AttributesEnum.ContactId.index();
     public static final int CUSTACCOUNTID = AttributesEnum.CustAccountId.index();
     public static final int TITLE = AttributesEnum.Title.index();
@@ -443,13 +446,14 @@ public class CustomerContactsImpl extends EntityImpl {
 
     @Override
     protected void validateEntity() {
-        if (getIsPrimary().equals("Y")) {
+                
+        if (getIsPrimary().equals("ISPRIMARYVALUE")) {
                 
             System.out.println("Primary contact....");
 
             EntityDefImpl def = getDefinitionObject();
             CustomerContactsDefImpl contactImpl = (CustomerContactsDefImpl) def;
-            boolean primaryExist = contactImpl.exists(getDBTransaction(), "Y", getCustAccountId());
+            boolean primaryExist = contactImpl.exists(getDBTransaction(), "ISPRIMARYVALUE", getCustAccountId());
             if (primaryExist) {
                         throw new JboException("Primary contact for the Customer Account exists");
         }

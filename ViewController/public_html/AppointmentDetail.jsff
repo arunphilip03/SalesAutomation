@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Appointment Details" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t2">
+        <af:button text="Cancel" id="b1" action="back"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth" rows="4"
+                        inlineStyle="font-weight:bold;">
+      <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                    required="#{bindings.Name.hints.mandatory}" readOnly="true"
+                    columns="#{bindings.Name.hints.displayWidth}" maximumLength="#{bindings.Name.hints.precision}"
+                    shortDesc="#{bindings.Name.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.Name.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                    required="#{bindings.Description.hints.mandatory}" readOnly="true"
+                    columns="#{bindings.Description.hints.displayWidth}"
+                    maximumLength="#{bindings.Description.hints.precision}"
+                    shortDesc="#{bindings.Description.hints.tooltip}" id="it2" rows="4">
+        <f:validator binding="#{bindings.Description.validator}"/>
+      </af:inputText>
+      <af:inputDate value="#{bindings.StartDatetime.inputValue}" readOnly="true"
+                    label="#{bindings.StartDatetime.hints.label}" required="#{bindings.StartDatetime.hints.mandatory}"
+                    columns="#{bindings.StartDatetime.hints.displayWidth}"
+                    shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1">
+        <f:validator binding="#{bindings.StartDatetime.validator}"/>
+        <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
+      </af:inputDate>
+      <af:inputDate value="#{bindings.EndDatetime.inputValue}" readOnly="true"
+                    label="#{bindings.EndDatetime.hints.label}" required="#{bindings.EndDatetime.hints.mandatory}"
+                    columns="#{bindings.EndDatetime.hints.displayWidth}"
+                    shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2">
+        <f:validator binding="#{bindings.EndDatetime.validator}"/>
+        <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
+      </af:inputDate>
+      <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"
+                    required="#{bindings.Location.hints.mandatory}" readOnly="true"
+                    columns="#{bindings.Location.hints.displayWidth}"
+                    maximumLength="#{bindings.Location.hints.precision}" shortDesc="#{bindings.Location.hints.tooltip}"
+                    id="it3">
+        <f:validator binding="#{bindings.Location.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.RelatedOppurtunity.inputValue}" label="#{bindings.RelatedOppurtunity.hints.label}"
+                    required="#{bindings.RelatedOppurtunity.hints.mandatory}" readOnly="true"
+                    columns="#{bindings.RelatedOppurtunity.hints.displayWidth}"
+                    maximumLength="#{bindings.RelatedOppurtunity.hints.precision}"
+                    shortDesc="#{bindings.RelatedOppurtunity.hints.tooltip}" id="it4">
+        <f:validator binding="#{bindings.RelatedOppurtunity.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+    <af:spacer width="10" height="10" id="s2"/>
+    <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:table value="#{bindings.AppointmentInviteesVO3.collectionModel}" var="row"
+                rows="#{bindings.AppointmentInviteesVO3.rangeSize}"
+                emptyText="#{bindings.AppointmentInviteesVO3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.AppointmentInviteesVO3.collectionModel.selectedRow}"
+                selectionListener="#{bindings.AppointmentInviteesVO3.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.AppointmentInviteesVO3.rangeSize}" id="t1" styleClass="AFStretchWidth"
+                columnStretching="last">
+        <af:column sortProperty="#{bindings.AppointmentInviteesVO3.hints.Name.name}" sortable="true"
+                   headerText="#{bindings.AppointmentInviteesVO3.hints.Name.label}" id="c1" width="237">
+          <af:outputText value="#{row.Name}" shortDesc="#{bindings.AppointmentInviteesVO3.hints.Name.tooltip}"
+                         id="ot1"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.AppointmentInviteesVO3.hints.InviteeType.name}" sortable="true"
+                   headerText="#{bindings.AppointmentInviteesVO3.hints.InviteeType.label}" id="c2" width="93">
+          <af:outputText value="#{row.InviteeType}"
+                         shortDesc="#{bindings.AppointmentInviteesVO3.hints.InviteeType.tooltip}" id="ot2"/>
+        </af:column>
+      </af:table>
+    </af:showDetailHeader>
+  </af:panelHeader>
+</ui:composition>

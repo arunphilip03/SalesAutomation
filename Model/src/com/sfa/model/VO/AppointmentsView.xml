@@ -37,7 +37,9 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="OpportunityName"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="OpportunitiesViewCriteria"
+      Hint="showAndExecute"/>
   </ListBinding>
   <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,  
        Appointments.NAME,  
@@ -170,6 +172,8 @@ FROM  APPOINTMENTS Appointments]]></SQLQuery>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

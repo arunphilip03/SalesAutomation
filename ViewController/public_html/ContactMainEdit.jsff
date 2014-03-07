@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Edit Contact" id="ph1" styleClass="AFStretchWidth">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:button text="Save" id="b1" action="save"/>
+        <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{bindings.Commit.execute}"/>
+        <af:button text="Cancel" id="b3" action="cancel" immediate="true"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="legend"/>
+    <af:panelFormLayout id="pfl1" rows="5" styleClass="AFStretchWidth">
+      <af:inputText value="#{bindings.ContactName.inputValue}" label="#{bindings.ContactName.hints.label}"
+                    required="#{bindings.ContactName.hints.mandatory}"
+                    columns="#{bindings.ContactName.hints.displayWidth}"
+                    maximumLength="#{bindings.ContactName.hints.precision}"
+                    shortDesc="#{bindings.ContactName.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.ContactName.validator}"/>
+      </af:inputText>
+      <af:inputComboboxListOfValues id="titleId" popupTitle="Search and Select: #{bindings.Title.hints.label}"
+                                    value="#{bindings.Title.inputValue}" label="#{bindings.Title.hints.label}"
+                                    model="#{bindings.Title.listOfValuesModel}"
+                                    required="#{bindings.Title.hints.mandatory}"
+                                    columns="#{bindings.Title.hints.displayWidth}"
+                                    shortDesc="#{bindings.Title.hints.tooltip}">
+        <f:validator binding="#{bindings.Title.validator}"/>
+      </af:inputComboboxListOfValues>
+      <af:inputText value="#{bindings.Department.inputValue}" label="#{bindings.Department.hints.label}"
+                    required="#{bindings.Department.hints.mandatory}"
+                    columns="#{bindings.Department.hints.displayWidth}"
+                    maximumLength="#{bindings.Department.hints.precision}"
+                    shortDesc="#{bindings.Department.hints.tooltip}" id="it2">
+        <f:validator binding="#{bindings.Department.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Address.inputValue}" label="#{bindings.Address.hints.label}"
+                    required="#{bindings.Address.hints.mandatory}" columns="#{bindings.Address.hints.displayWidth}"
+                    maximumLength="#{bindings.Address.hints.precision}" shortDesc="#{bindings.Address.hints.tooltip}"
+                    id="it3" rows="4">
+        <f:validator binding="#{bindings.Address.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WorkPhone.inputValue}" label="#{bindings.WorkPhone.hints.label}"
+                    required="#{bindings.WorkPhone.hints.mandatory}" columns="#{bindings.WorkPhone.hints.displayWidth}"
+                    maximumLength="#{bindings.WorkPhone.hints.precision}"
+                    shortDesc="#{bindings.WorkPhone.hints.tooltip}" id="it4">
+        <f:validator binding="#{bindings.WorkPhone.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.MobilePhone.inputValue}" label="#{bindings.MobilePhone.hints.label}"
+                    required="#{bindings.MobilePhone.hints.mandatory}"
+                    columns="#{bindings.MobilePhone.hints.displayWidth}"
+                    maximumLength="#{bindings.MobilePhone.hints.precision}"
+                    shortDesc="#{bindings.MobilePhone.hints.tooltip}" id="it5">
+        <f:validator binding="#{bindings.MobilePhone.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                    required="#{bindings.Email.hints.mandatory}" columns="#{bindings.Email.hints.displayWidth}"
+                    maximumLength="#{bindings.Email.hints.precision}" shortDesc="#{bindings.Email.hints.tooltip}"
+                    id="it6">
+        <f:validator binding="#{bindings.Email.validator}"/>
+      </af:inputText>
+      <af:inputComboboxListOfValues id="buyInfluenceLevelId"
+                                    popupTitle="Search and Select: #{bindings.BuyInfluenceLevel.hints.label}"
+                                    value="#{bindings.BuyInfluenceLevel.inputValue}"
+                                    label="#{bindings.BuyInfluenceLevel.hints.label}"
+                                    model="#{bindings.BuyInfluenceLevel.listOfValuesModel}"
+                                    required="#{bindings.BuyInfluenceLevel.hints.mandatory}"
+                                    columns="#{bindings.BuyInfluenceLevel.hints.displayWidth}"
+                                    shortDesc="#{bindings.BuyInfluenceLevel.hints.tooltip}">
+        <f:validator binding="#{bindings.BuyInfluenceLevel.validator}"/>
+      </af:inputComboboxListOfValues>
+      <af:inputComboboxListOfValues id="isPrimaryId" popupTitle="Search and Select: #{bindings.IsPrimary.hints.label}"
+                                    value="#{bindings.IsPrimary.inputValue}" label="#{bindings.IsPrimary.hints.label}"
+                                    model="#{bindings.IsPrimary.listOfValuesModel}"
+                                    required="#{bindings.IsPrimary.hints.mandatory}"
+                                    columns="#{bindings.IsPrimary.hints.displayWidth}"
+                                    shortDesc="#{bindings.IsPrimary.hints.tooltip}">
+        <f:validator binding="#{bindings.IsPrimary.validator}"/>
+      </af:inputComboboxListOfValues>
+      <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                            value="#{bindings.AccountName.inputValue}" label="#{bindings.AccountName.hints.label}"
+                            model="#{bindings.AccountName.listOfValuesModel}"
+                            required="#{bindings.AccountName.hints.mandatory}"
+                            columns="#{bindings.AccountName.hints.displayWidth}"
+                            shortDesc="#{bindings.AccountName.hints.tooltip}">
+        <f:validator binding="#{bindings.AccountName.validator}"/>
+      </af:inputListOfValues>
+    </af:panelFormLayout>
+    <f:facet name="info"/>
+  </af:panelHeader>
+</ui:composition>

@@ -1,19 +1,70 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <view id="contacts">
-    <page>/ContactsOverview.jsf</page>
-  </view>
-  <task-flow-call id="customer-detail-taskflow">
-    <task-flow-reference>
-      <document>/WEB-INF/customer-detail-taskflow.xml</document>
-      <id>customer-detail-taskflow</id>
-    </task-flow-reference>
-  </task-flow-call>
-  <control-flow-rule id="__1">
-    <from-activity-id>contacts</from-activity-id>
-    <control-flow-case id="__2">
-      <from-outcome>getDetail</from-outcome>
-      <to-activity-id>customer-detail-taskflow</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
+  <task-flow-definition id="contacts-taskflow">
+    <default-activity>contacts</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <view id="contacts">
+      <page>/ContactsOverview.jsff</page>
+    </view>
+    <task-flow-call id="contact-detail-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/contact-detail-taskflow.xml</document>
+        <id>contact-detail-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="add-edit-toplevel-contact">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-toplevel-contact.xml</document>
+        <id>add-edit-toplevel-contact</id>
+      </task-flow-reference>
+      <input-parameter id="__6">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedContactKeyStr}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="customer-detail-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/customer-detail-taskflow.xml</document>
+        <id>customer-detail-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>contacts</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>getDetail</from-outcome>
+        <to-activity-id>contact-detail-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>addEditContact</from-outcome>
+        <to-activity-id>add-edit-toplevel-contact</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>getCustomer</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>contact-detail-taskflow</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>contacts</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>customer-detail-taskflow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
 </adfc-config>

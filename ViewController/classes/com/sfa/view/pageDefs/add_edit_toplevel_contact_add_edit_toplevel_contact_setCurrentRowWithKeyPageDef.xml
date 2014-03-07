@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="add_edit_toplevel_contact_add_edit_toplevel_contact_setCurrentRowWithKeyPageDef"
+                Package="com.sfa.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CustomerContactsView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CustomerContactsView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CustomerContactsView1Iterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDType="java.lang.String" NDValue="#{pageFlowScope.selectedRowKeyStr}"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -25,9 +25,34 @@ public class Launcher {
     
     
     public void launchCustomerAccount(ActionEvent actionEvent) {
-        _launchActivity("Customer Account", "/WEB-INF/customer-taskflow.xml#customer-account", false);
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/customer-taskflow.xml#customer-account");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+    }
     }
     
+
+    //    public void launchCustomerAccount(ActionEvent actionEvent) {
+    //        _launchActivity("Manage Accounts", "/WEB-INF/customer-taskflow.xml#customer-account", false);
+    //    }
+    
+    
+    public void launchContacts(ActionEvent actionEvent) {
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/contacts-taskflow.xml#contacts-taskflow");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+        }
+    }
+
+//    public void launchContacts(ActionEvent actionEvent) {
+//        _launchActivity("Manage Contacts", "/WEB-INF/contacts-taskflow.xml#contacts-taskflow", false);
+//    }
+
+
     public void launchRoles(ActionEvent actionEvent) {
         _launchActivity("Roles", "/WEB-INF/admin-role-tf.xml#admin-role-task", false);
     }
@@ -35,7 +60,7 @@ public class Launcher {
     public void launchUsers(ActionEvent actionEvent) {
         _launchActivity("Users", "/WEB-INF/admin-user-tf.xml#admin-user-tf", false);
     }
-    
+
     public void launchProducts(ActionEvent actionEvent) {
         _launchActivity("Products", "/WEB-INF/admin-product-tf.xml#admin-product-tf", false);
     }
@@ -50,18 +75,15 @@ public class Launcher {
       * to create another tab instance is set to false. The taskflow ID is used
       * to track whether to create a new tab or select an existing one.
       */
-        _launchActivity("The First Activity", "/WEB-INF/demo.xml#demo",
-                        false);
+        _launchActivity("The First Activity", "/WEB-INF/demo.xml#demo", false);
     }
 
     public void launchSecondActivity(ActionEvent actionEvent) {
-        _launchActivity("Next Activity", "/WEB-INF/demo.xml#demo",
-                        false);
+        _launchActivity("Next Activity", "/WEB-INF/demo.xml#demo", false);
     }
 
     public void launchThirdActivity(ActionEvent actionEvent) {
-        _launchActivity("Third Activity", "/WEB-INF/flows/third.xml#third",
-                        false);
+        _launchActivity("Third Activity", "/WEB-INF/flows/third.xml#third", false);
     }
 
     public void closeCurrentActivity(ActionEvent actionEvent) {
@@ -105,20 +127,23 @@ public class Launcher {
         }
     }
 
-    private void _launchActivity(String title, String taskflowId,
-                                 boolean newTab) {
+    private void _launchActivity(String title, String taskflowId, boolean newTab) {
         try {
             if (newTab) {
                 TabContext.getCurrentInstance().addTab(title, taskflowId);
             } else {
-                TabContext.getCurrentInstance().addOrSelectTab(title,
-                                                               taskflowId);
+                TabContext.getCurrentInstance().addOrSelectTab(title, taskflowId);
+
+                //TabContext.getCurrentInstance().setMainContent(taskflowId);
             }
         } catch (TabContext.TabOverflowException toe) {
             // causes a dialog to be displayed to the user saying that there are
             // too many tabs open - the new tab will not be opened...
             toe.handleDefault();
         }
+        //        catch (TabContext.TabContentAreaDirtyException e) {
+        //
+        //        }
     }
 
     public void launchFirstReplaceInPlace(ActionEvent actionEvent) {

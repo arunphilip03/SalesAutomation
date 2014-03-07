@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Create Note" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:button text="Save" id="b1" action="save"/>
+      <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{bindings.Commit.execute}"/>
+      <af:button text="Cancel" id="b3" action="cancel" immediate="true"/>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout id="pfl1">
+      <af:inputDate value="#{bindings.NoteDatetime.inputValue}" label="#{bindings.NoteDatetime.hints.label}"
+                    required="#{bindings.NoteDatetime.hints.mandatory}"
+                    columns="#{bindings.NoteDatetime.hints.displayWidth}"
+                    shortDesc="#{bindings.NoteDatetime.hints.tooltip}" id="id1">
+        <f:validator binding="#{bindings.NoteDatetime.validator}"/>
+        <af:convertDateTime pattern="#{bindings.NoteDatetime.format}"/>
+      </af:inputDate>
+      <af:inputText value="#{bindings.NotesText.inputValue}" label="#{bindings.NotesText.hints.label}"
+                    required="#{bindings.NotesText.hints.mandatory}" columns="#{bindings.NotesText.hints.displayWidth}"
+                    maximumLength="#{bindings.NotesText.hints.precision}"
+                    shortDesc="#{bindings.NotesText.hints.tooltip}" id="it1" rows="8">
+        <f:validator binding="#{bindings.NotesText.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</ui:composition>

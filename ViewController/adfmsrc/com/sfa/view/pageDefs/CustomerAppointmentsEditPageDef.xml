@@ -6,8 +6,15 @@
     <variableIterator id="variables"/>
     <iterator Binds="AppointmentsView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="AppointmentsView2Iterator"/>
-    <iterator Binds="AppointmentInviteesVO3" RangeSize="25" DataControl="AppModuleDataControl"
-              id="AppointmentInviteesVO3Iterator"/>
+    <iterator id="CustomerContactsView2Iterator" Binds="CustomerContactsView2" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="AppointmentInviteesVO3Iterator" Binds="AppointmentInviteesVO3" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="AllUsersVO1Iterator" Binds="AllUsersVO1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="CustomerContactsView1Iterator" Binds="CustomerContactsView1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="ContactsInAccountVO1Iterator" Binds="ContactsInAccountVO1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AppointmentsView2Iterator" id="Name">
@@ -35,15 +42,18 @@
         <Item Value="Location"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="AppointmentsView2Iterator" StaticList="false" Uses="LOV_RelatedOppurtunity"
-          id="RelatedOppurtunity" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <tree IterBinding="AppointmentInviteesVO3Iterator" id="AppointmentInviteesVO3">
-      <nodeDefinition DefName="com.sfa.model.VO.AppointmentInviteesVO" Name="AppointmentInviteesVO30">
-        <AttrNames>
-          <Item Value="Name"/>
-          <Item Value="InviteeType"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
+    <listOfValues IterBinding="AppointmentsView2Iterator" StaticList="false" Uses="LOV_RelatedOppurtunity"
+                  id="RelatedOppurtunity1"/>
+    <attributeValues IterBinding="AppointmentInviteesVO3Iterator" id="AppointmentId">
+      <AttrNames>
+        <Item Value="AppointmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

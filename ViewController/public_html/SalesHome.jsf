@@ -1,24 +1,44 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="Sales Dashboard" id="d1">
+    <af:document title="Sales Force Automation" id="d1">
         <af:form id="f1">
             <af:pageTemplate viewId="/oracle/ui/pattern/dynamicShell/dynamicTabShell.jspx" value="#{bindings.ptb1}"
                              id="pt1">
                 <f:facet name="copyright"/>
                 <f:facet name="about"/>
                 <f:facet name="navigation">
-                    <af:panelGroupLayout id="pgl1">
-                        <af:panelList id="pl1">
-                            <af:link text="Customer Account" id="l1"
-                                     actionListener="#{backingBeanScope.launcher.launchCustomerAccount}"/>
-                        </af:panelList>
-                    </af:panelGroupLayout>
+                    <af:panelAccordion id="pa1" discloseMany="true">
+                        <af:showDetailItem text="Sales" id="sd1" disclosed="true">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:panelList id="pl1">
+                                    <af:link text="Manage Accounts" id="l1"
+                                             actionListener="#{backingBeanScope.launcher.launchCustomerAccount}"/>
+                                    <af:link text="Manage Contacts" id="l2"
+                                             actionListener="#{backingBeanScope.launcher.launchContacts}"/>
+                                </af:panelList>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                    </af:panelAccordion>
                 </f:facet>
-                <f:facet name="globalLinks"/>
+                <f:facet name="globalLinks">
+                    <!--<af:panelGroupLayout id="g1" layout="horizontal">
+                        <af:link text="Logout" id="cl8"/>
+                        <f:facet name="separator">
+                            <af:spacer width="10" id="sp1"/>
+                        </f:facet>
+                    </af:panelGroupLayout>-->
+                </f:facet>
                 <f:facet name="status"/>
                 <f:facet name="globalToolbar"/>
-                <f:facet name="globalSearch"/>
+                <f:facet name="globalSearch">
+                    <af:panelGroupLayout id="g1" layout="horizontal">
+                        <af:link text="Logout" id="cl8" inlineStyle="font-size:small;"/>
+                        <f:facet name="separator">
+                            <af:spacer width="10" id="sp1"/>
+                        </f:facet>
+                    </af:panelGroupLayout>
+                </f:facet>
                 <f:facet name="globalTabs"/>
                 <f:facet name="welcome"/>
                 <f:facet name="innerToolbar"/>
