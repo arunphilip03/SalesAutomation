@@ -108,7 +108,7 @@
                                     <af:spacer width="4" height="10" id="s3"/>
                                     <af:link id="l3" icon="#{resource['images:update_ena.png']}"
                                              action="editAppointment">
-                                        <af:setActionListener from="#{bindings.ContactAppointmentsVO1Iterator.currentRowWithKey}"
+                                        <af:setActionListener from="#{GetAppointmentId.currentAppointmentId}"
                                                               to="#{pageFlowScope.appointmentId}"/>
                                     </af:link>
                                 </af:toolbar>
@@ -199,9 +199,9 @@
                                     </af:link>
                                     <af:spacer width="4" height="10" id="s4"/>
                                     <af:link id="l6" icon="#{resource['images:update_ena.png']}"
-                                             action="addEditTask">
-                                        <af:setActionListener from="#{bindings.CustomerContactsView1Iterator.currentRowKeyString}"
-                                                              to="#{requestScope.selectedTaskKeyStr}"/>
+                                             action="editTask">
+                                        <af:setActionListener from="#{GetAppointmentId.currentTaskId}"
+                                                              to="#{pageFlowScope.taskId}"/>
                                     </af:link>
                                 </af:toolbar>
                             </f:facet>

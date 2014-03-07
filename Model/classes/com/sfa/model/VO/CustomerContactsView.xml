@@ -54,24 +54,14 @@
     Name="TitleLuView1"
     ViewObjectName="com.sfa.model.VO.TitleLuView"
     RowLevelBinds="true"/>
-  <ListBinding
-    Name="LOV_BuyInfluenceLevel"
-    ListVOName="ContactBuyingroleLuView2"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="BuyInfluenceLevel"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Rolename"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Rolename"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
+  <ViewAccessor
+    Name="CustomerAccountView1"
+    ViewObjectName="com.sfa.model.VO.CustomerAccountView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ContactBuyingroleLuView3"
+    ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_IsPrimary"
     ListVOName="BooleanLuView1"
@@ -108,6 +98,51 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Title"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AccountName"
+    ListVOName="CustomerAccountView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AccountName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AccountName"/>
+      <Item Value="CustAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccountName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="CustomerAccountViewCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BuyInfluenceLevel"
+    ListVOName="ContactBuyingroleLuView3"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BuyInfluenceLevel"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Rolename"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Rolename"/>
     </AttrArray>
     <DisplayCriteria
       Hint="hide"/>
@@ -295,7 +330,15 @@
     PrecisionRule="true"
     EntityAttrName="AccountName"
     EntityUsage="CustomerAccount"
-    AliasName="ACCOUNT_NAME"/>
+    AliasName="ACCOUNT_NAME"
+    LOVName="LOV_AccountName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustAccountId1"
     IsQueriable="false"
@@ -386,6 +429,26 @@
   <ViewLinkAccessor
     Name="TaskTeamView"
     ViewLink="com.sfa.model.viewlink.TaskTeamFk2Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactAppointmentsVO"
+    ViewLink="com.sfa.model.viewlink.ContactAppointmentsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="RelatedContacts"
+    ViewLink="com.sfa.model.viewlink.RelatedContactsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactInteractionsVO"
+    ViewLink="com.sfa.model.viewlink.ContactInteractionsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactTasksVO"
+    ViewLink="com.sfa.model.viewlink.ContactTasksVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

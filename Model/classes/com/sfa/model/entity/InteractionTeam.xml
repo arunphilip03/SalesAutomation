@@ -140,6 +140,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="INTERACTION_TEAM_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="InteractionTeamFk1">
@@ -148,6 +149,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="INTERACTION_TEAM_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="InteractionTeamFk2">
@@ -156,6 +158,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="INTERACTION_TEAM_FK2"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="InteractionTeamFk3">
@@ -164,5 +167,6 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="INTERACTION_TEAM_FK3"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
 </Entity>

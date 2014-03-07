@@ -62,6 +62,7 @@
                               maximumLength="#{bindings.Location.hints.precision}"
                               shortDesc="#{bindings.Location.hints.tooltip}" id="it3">
                     <f:validator binding="#{bindings.Location.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Location.format}"/>
                 </af:inputText>
             </af:panelFormLayout>
             <af:spacer width="10" height="10" id="s2"/>

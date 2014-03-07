@@ -5,6 +5,14 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="TasksView3" RangeSize="25" DataControl="AppModuleDataControl" id="TasksView3Iterator"/>
+    <iterator id="TaskTeamVO1Iterator" Binds="TaskTeamVO1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="CustomerContactsView2Iterator" Binds="CustomerContactsView2" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="AllUsersVO1Iterator" Binds="AllUsersVO1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="ContactsInAccountVO1Iterator" Binds="ContactsInAccountVO1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="CustomerContactsView1Iterator" Binds="CustomerContactsView1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="TasksView3Iterator" id="TaskName">
@@ -30,8 +38,13 @@
     </attributeValues>
     <listOfValues IterBinding="TasksView3Iterator" StaticList="false" Uses="LOV_RelatedOppurtunity"
                   id="RelatedOppurtunity1"/>
-    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
     <listOfValues IterBinding="TasksView3Iterator" StaticList="false" Uses="LOV_Assignee" id="Assignee1"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

@@ -40,7 +40,8 @@
   </DesignTime>
   <ViewAccessor
     Name="ContactBuyingroleLuView1"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true"
+    ViewObjectName="ContactBuyingroleLuView1"/>
   <ViewAccessor
     Name="ContactBuyingroleLuView2"
     ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
@@ -57,24 +58,10 @@
     Name="CustomerAccountView1"
     ViewObjectName="com.sfa.model.VO.CustomerAccountView"
     RowLevelBinds="true"/>
-  <ListBinding
-    Name="LOV_BuyInfluenceLevel"
-    ListVOName="ContactBuyingroleLuView2"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="BuyInfluenceLevel"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Rolename"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Rolename"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
+  <ViewAccessor
+    Name="ContactBuyingroleLuView3"
+    ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_IsPrimary"
     ListVOName="BooleanLuView1"
@@ -139,6 +126,26 @@
     <DisplayCriteria
       Name="CustomerAccountViewCriteria"
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BuyInfluenceLevel"
+    ListVOName="ContactBuyingroleLuView3"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BuyInfluenceLevel"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Rolename"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Rolename"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
   </ListBinding>
   <EntityUsage
     Name="CustomerContacts"

@@ -5,11 +5,6 @@
     <transaction>
       <new-transaction/>
     </transaction>
-    <managed-bean id="__5">
-      <managed-bean-name>customerBean</managed-bean-name>
-      <managed-bean-class>com.sfa.view.backing.CustomerBacking</managed-bean-class>
-      <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
     <view id="customers">
       <page>/CustomerOverview.jsff</page>
     </view>

@@ -5,6 +5,11 @@
     <transaction>
       <requires-transaction/>
     </transaction>
+    <managed-bean id="__24">
+      <managed-bean-name>GetAppointmentId</managed-bean-name>
+      <managed-bean-class>com.sfa.view.GetAppointmentId</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <view id="contact-detail">
       <page>/ContactDetail.jsff</page>
     </view>
@@ -55,6 +60,19 @@
         <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="EditTask">
+      <page>/EditTask.jsff</page>
+      <input-page-parameter id="__25">
+        <from-value>contact</from-value>
+        <to-value>#{pageFlowScope.callType}</to-value>
+      </input-page-parameter>
+    </view>
+    <method-call id="SetCurrentRowWithKeyValue1">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>contact-detail</from-activity-id>
       <control-flow-case id="__2">
@@ -73,6 +91,10 @@
         <from-outcome>editAppointment</from-outcome>
         <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>editTask</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue1</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
       <from-activity-id>add-edit-tasks-taskflow</from-activity-id>
@@ -90,6 +112,46 @@
       <control-flow-case id="__11">
         <from-outcome>setCurrentRowWithKeyValue</from-outcome>
         <to-activity-id>CustomerAppointmentsEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>add-edit-appointment-taskflow</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>saveCreate</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>cancelCreate</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>SetCurrentRowWithKeyValue1</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>EditTask</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id>CustomerAppointmentsEdit</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__29">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>EditTask</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__28">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

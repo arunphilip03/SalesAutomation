@@ -59,7 +59,8 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
         ContactBuyingroleLuView2,
         BooleanLuView1,
         TitleLuView1,
-        CustomerAccountView1;
+        CustomerAccountView1,
+        ContactBuyingroleLuView3;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -120,6 +121,7 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     public static final int BOOLEANLUVIEW1 = AttributesEnum.BooleanLuView1.index();
     public static final int TITLELUVIEW1 = AttributesEnum.TitleLuView1.index();
     public static final int CUSTOMERACCOUNTVIEW1 = AttributesEnum.CustomerAccountView1.index();
+    public static final int CONTACTBUYINGROLELUVIEW3 = AttributesEnum.ContactBuyingroleLuView3.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -536,6 +538,13 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
      */
     public RowSet getCustomerAccountView1() {
         return (RowSet) getAttributeInternal(CUSTOMERACCOUNTVIEW1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> ContactBuyingroleLuView3.
+     */
+    public RowSet getContactBuyingroleLuView3() {
+        return (RowSet) getAttributeInternal(CONTACTBUYINGROLELUVIEW3);
     }
 }
 

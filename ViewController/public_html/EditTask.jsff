@@ -6,8 +6,8 @@
     <f:facet name="menuBar"/>
     <f:facet name="toolbar">
       <af:toolbar id="t1">
-        <af:button text="Save" id="b1" action="save"/>
-        <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{bindings.Commit.execute}"/>
+        <af:button text="Save" id="b1" action="save" actionListener="#{TaskTeamBean.onCommit}"/>
+        <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{TaskTeamBean.onCommit}"/>
         <af:button text="Cancel" id="b3" action="cancel" immediate="true"/>
       </af:toolbar>
     </f:facet>
@@ -70,5 +70,28 @@
         <f:validator binding="#{bindings.RelatedOppurtunity1.validator}"/>
       </af:inputListOfValues>
     </af:panelFormLayout>
+    <af:showDetailHeader text="Task Team" disclosed="true" id="sdh1">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <af:panelSplitter id="ps1" splitterPosition="500" styleClass="AFStretchWidth">
+                <f:facet name="first">
+                    <af:selectManyShuttle label="Contacts" id="sms1" value="#{TaskTeamBean.selectedContacts}"
+                                          valueChangeListener="#{TaskTeamBean.onContactChange}"
+                                          binding="#{TaskTeamBean.selectManyShuttleComponentContacts}">
+                        <f:selectItems value="#{TaskTeamBean.allContacts}" id="si1"/>
+                    </af:selectManyShuttle>
+                </f:facet>
+                <f:facet name="second">
+                    <af:selectManyShuttle label="Users" id="sms2" value="#{TaskTeamBean.selectedUsers}"
+                                          valueChangeListener="#{TaskTeamBean.onUserChange}"
+                                          binding="#{TaskTeamBean.selectManyShuttleComponentUsers}">
+                        <f:selectItems value="#{TaskTeamBean.allUsers}" id="si2"/>
+                    </af:selectManyShuttle>
+                </f:facet>
+            </af:panelSplitter>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+        </af:showDetailHeader>
   </af:panelHeader>
 </ui:composition>

@@ -221,9 +221,6 @@
     Name="TaskTeamVO1"
     ViewObjectName="com.sfa.model.VO.TaskTeamVO"/>
   <ViewUsage
-    Name="ContactAppointmentsVO1"
-    ViewObjectName="com.sfa.model.VO.ContactAppointmentsVO"/>
-  <ViewUsage
     Name="RelatedContacts1"
     ViewObjectName="com.sfa.model.VO.RelatedContacts"/>
   <ViewUsage
@@ -235,6 +232,9 @@
   <ViewUsage
     Name="ContactTasksVO1"
     ViewObjectName="com.sfa.model.VO.ContactTasksVO"/>
+  <ViewUsage
+    Name="ContactAppointmentsVO1"
+    ViewObjectName="com.sfa.model.VO.ContactAppointmentsVO"/>
   <ViewLinkUsage
     Name="AppointmentInviteesFk1Link1"
     ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
@@ -434,12 +434,6 @@
     DstViewUsageName="com.sfa.model.service.AppModule.TaskTeamVO1"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="ContactAppointmentsVL1"
-    ViewLinkObjectName="com.sfa.model.viewlink.ContactAppointmentsVL"
-    SrcViewUsageName="com.sfa.model.service.AppModule.CustomerContactsView1"
-    DstViewUsageName="com.sfa.model.service.AppModule.ContactAppointmentsVO1"
-    Reversed="false"/>
-  <ViewLinkUsage
     Name="RelatedContactsVL1"
     ViewLinkObjectName="com.sfa.model.viewlink.RelatedContactsVL"
     SrcViewUsageName="com.sfa.model.service.AppModule.CustomerContactsView1"
@@ -456,5 +450,11 @@
     ViewLinkObjectName="com.sfa.model.viewlink.ContactTasksVL"
     SrcViewUsageName="com.sfa.model.service.AppModule.CustomerContactsView1"
     DstViewUsageName="com.sfa.model.service.AppModule.ContactTasksVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ContactAppointmentsVL1"
+    ViewLinkObjectName="com.sfa.model.viewlink.ContactAppointmentsVL"
+    SrcViewUsageName="com.sfa.model.service.AppModule.CustomerContactsView1"
+    DstViewUsageName="com.sfa.model.service.AppModule.ContactAppointmentsVO1"
     Reversed="false"/>
 </AppModule>

@@ -17,6 +17,7 @@
             </f:facet>
             <f:facet name="legend"/>
             <f:facet name="info"/>
+            <af:spacer width="10" height="10" id="s2"/>
             <af:panelFormLayout id="pfl1" rows="3">
                 <af:inputText value="#{bindings.AccountName.inputValue}" label="#{bindings.AccountName.hints.label}"
                               required="#{bindings.AccountName.hints.mandatory}"

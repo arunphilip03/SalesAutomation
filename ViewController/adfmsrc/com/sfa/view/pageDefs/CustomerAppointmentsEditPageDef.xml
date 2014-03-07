@@ -37,9 +37,9 @@
         <Item Value="EndDatetime"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="AppointmentInviteesVO3Iterator" id="Location">
+    <attributeValues IterBinding="AppointmentsView2Iterator" id="Location">
       <AttrNames>
-        <Item Value="AppointmentId"/>
+        <Item Value="Location"/>
       </AttrNames>
     </attributeValues>
     <listOfValues IterBinding="AppointmentsView2Iterator" StaticList="false" Uses="LOV_RelatedOppurtunity"
