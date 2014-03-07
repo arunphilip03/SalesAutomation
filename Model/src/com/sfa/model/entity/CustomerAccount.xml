@@ -41,7 +41,7 @@
         <LABEL
           ResId="com.sfa.model.entity.CustomerAccount.AccountName_LABEL"/>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="25"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

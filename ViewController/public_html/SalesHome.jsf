@@ -16,6 +16,20 @@
                                              actionListener="#{backingBeanScope.launcher.launchCustomerAccount}"/>
                                     <af:link text="Manage Contacts" id="l2"
                                              actionListener="#{backingBeanScope.launcher.launchContacts}"/>
+                                    <af:link text="Manage Opportunities" id="l3"
+                                             actionListener="#{backingBeanScope.launcher.launchOpportunity}"/>
+                                </af:panelList>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Admin" id="sdi1">
+                            <af:panelGroupLayout id="pgl2">
+                                <af:panelList id="pl2">
+                                    <af:link text="Manage Roles" id="l4"
+                                             actionListener="#{backingBeanScope.launcher.launchRoles}"/>
+                                    <af:link text="Manage Users" id="l5"
+                                             actionListener="#{backingBeanScope.launcher.launchUsers}"/>
+                                    <af:link text="Manage Products" id="l6"
+                                             actionListener="#{backingBeanScope.launcher.launchProducts}"/>
                                 </af:panelList>
                             </af:panelGroupLayout>
                         </af:showDetailItem>

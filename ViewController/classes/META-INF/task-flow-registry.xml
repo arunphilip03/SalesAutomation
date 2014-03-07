@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/opportunity-task-main-tf.xml" id="opportunity-task-main-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/add-edit-notes.xml" id="add-edit-notes" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/opportunities-appointment-tf.xml" id="opportunities-appointment-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/Opportunity_notes_tf.xml" id="Opportunity_notes_tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/opportunity-interactions-tf.xml" id="opportunity-interactions-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/admin-role-tf.xml" id="admin-role-task" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/add-edit-toplevel-contact.xml" id="add-edit-toplevel-contact" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="selectedRowKeyStr"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/Admin-delete-confirm-tf.xml" id="Admin-delete-confirm-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/admin-user-roleAssignment.xml" id="admin-user-roleAssignment" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/customer-appointment-taskflow.xml" id="create-customer-appointment" type="task-flow-definition" uses-page-fragments="false" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/contacts-taskflow.xml" id="contacts-taskflow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/admin-product-tf.xml" id="admin-product-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/add-edit-contact-taskflow.xml" id="add-edit-contact-taskflow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="selectedAccountKeyStr"/>
+      <input-parameter name="selectedRowKeyStr"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/adminUser-roleAssign-create.xml" id="adminUser-roleAssign-create" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/contact-detail-taskflow.xml" id="contact-detail-taskflow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/add-edit-appointment-taskflow.xml" id="add-edit-appointment-taskflow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="appType"/>
+      <input-parameter name="selectedRowKeyStr"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/customer-detail-taskflow.xml" id="customer-detail-taskflow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/select-invitees.xml" id="select-invitees" type="task-flow-definition" uses-page-fragments="false" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/customer-taskflow.xml" id="customer-account" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/add-edit-tasks-taskflow.xml" id="add-edit-tasks-taskflow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="callType"/>
+      <input-parameter name="selectedRowKeyStr"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/opportunity-main-tf.xml" id="opportunity-main-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/add-edit-customer.xml" id="add-edit-customer" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="selectedRowKeyStr"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/admin-productcategory-tf.xml" id="admin-productcategory-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/admin-user-tf.xml" id="admin-user-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" critical="false" page-type="facelets"/>
+</task-flow-registry>

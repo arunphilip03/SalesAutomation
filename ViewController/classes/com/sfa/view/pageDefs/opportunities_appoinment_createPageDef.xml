@@ -23,11 +23,6 @@
         <Item Value="OppurtunityId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="CustAccountId">
-      <AttrNames>
-        <Item Value="CustAccountId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="Description">
       <AttrNames>
         <Item Value="Description"/>
@@ -55,5 +50,7 @@
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <listOfValues IterBinding="OpportunityAppointmentView2Iterator" StaticList="false" Uses="LOV_AccountName"
+                  id="AccountName"/>
   </bindings>
 </pageDefinition>
