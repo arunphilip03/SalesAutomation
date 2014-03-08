@@ -10,15 +10,17 @@
                     <af:panelHeader text="Customer Account: #{bindings.AccountName.inputValue}" id="ph1"
                                     inlineStyle="text-indent:5pt;">
                         <af:spacer width="10" height="10" id="s3"/>
-                        <af:panelFormLayout id="pfl1">
+                        <af:panelFormLayout id="pfl1" rows="3" fieldWidth="350px" labelWidth="75px"
+                                            styleClass="AFStretchWidth"
+                                            inlineStyle="font-size:small;">
                             <af:panelLabelAndMessage label="#{bindings.Address.hints.label}" id="plam3"
                                                      inlineStyle="grid-row-span:4;">
                                 <af:outputText value="#{bindings.Address.inputValue}"
                                                shortDesc="#{bindings.Address.hints.tooltip}" id="ot3"/>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.AccountUrl.hints.label}" id="plam4">
-                                <af:link text="#{bindings.AccountUrl.inputValue}" id="l4"
-                                         destination="#{bindings.AccountUrl.inputValue}" targetFrame="_blank"/>
+                                <af:link text="#{bindings.AccountUrl.inputValue}" id="l4" targetFrame="_blank"
+                                         useWindow="true" inlineStyle="font-size:small;"/>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.ParentAccountName.hints.label}" id="plam6">
                                 <af:outputText value="#{bindings.ParentAccountName.inputValue}"

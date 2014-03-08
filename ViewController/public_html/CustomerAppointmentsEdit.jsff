@@ -18,7 +18,7 @@
             <f:facet name="legend"/>
             <f:facet name="info"/>
             <af:spacer width="10" height="10" id="s1"/>
-            <af:panelFormLayout id="pfl1" rows="4">
+            <af:panelFormLayout id="pfl1" rows="4" fieldWidth="350px" labelWidth="75px">
                 <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
                               required="#{bindings.Name.hints.mandatory}" columns="#{bindings.Name.hints.displayWidth}"
                               maximumLength="#{bindings.Name.hints.precision}"

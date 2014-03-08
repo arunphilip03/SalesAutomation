@@ -73,15 +73,16 @@
         <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
       </outcome>
     </method-call>
-    <view id="EditInteractions">
-      <page>/EditInteractions.jsff</page>
-    </view>
-    <method-call id="CreateInsert">
-      <method>#{bindings.CreateInsert.execute}</method>
-      <outcome>
-        <fixed-outcome>CreateInsert</fixed-outcome>
-      </outcome>
-    </method-call>
+    <task-flow-call id="add-edit-interactions-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-interactions-taskflow.xml</document>
+        <id>add-edit-interactions-taskflow</id>
+      </task-flow-reference>
+      <input-parameter id="__31">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedInteraction}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>contact-detail</from-activity-id>
       <control-flow-case id="__2">
@@ -105,12 +106,8 @@
         <to-activity-id>SetCurrentRowWithKeyValue1</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__30">
-        <from-outcome>editInteraction</from-outcome>
-        <to-activity-id>EditInteractions</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__31">
-        <from-outcome>createInteraction</from-outcome>
-        <to-activity-id>CreateInsert</to-activity-id>
+        <from-outcome>addEditInteraction</from-outcome>
+        <to-activity-id>add-edit-interactions-taskflow</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
@@ -168,24 +165,6 @@
       </control-flow-case>
       <control-flow-case id="__28">
         <from-outcome>saveAndClose</from-outcome>
-        <to-activity-id>contact-detail</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__32">
-      <from-activity-id>CreateInsert</from-activity-id>
-      <control-flow-case id="__33">
-        <from-outcome>CreateInsert</from-outcome>
-        <to-activity-id>EditInteractions</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__34">
-      <from-activity-id>EditInteractions</from-activity-id>
-      <control-flow-case id="__35">
-        <from-outcome>saveAndClose</from-outcome>
-        <to-activity-id>contact-detail</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__36">
-        <from-outcome>cancel</from-outcome>
         <to-activity-id>contact-detail</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

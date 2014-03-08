@@ -8,7 +8,8 @@
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <af:spacer width="10" height="10" id="s1"/>
-                    <af:panelFormLayout id="pfl1" rows="5" styleClass="AFStretchWidth">
+                    <af:panelFormLayout id="pfl1" rows="5" styleClass="AFStretchWidth" fieldWidth="350px"
+                                        labelWidth="75px" inlineStyle="font-size:small;">
                         <af:inputText value="#{bindings.ContactName.inputValue}"
                                       label="#{bindings.ContactName.hints.label}"
                                       required="#{bindings.ContactName.hints.mandatory}" readOnly="true"
@@ -278,14 +279,14 @@
                             <f:facet name="toolbar">
                                 <af:toolbar id="t7">
                                     <af:link id="l7" icon="#{resource['images:new_ena.png']}"
-                                             action="createInteraction">
-                                        <af:setActionListener to="#{requestScope.selectedTaskKeyStr}" from="#{''}"/>
+                                             action="addEditInteraction">
+                                        <af:setActionListener to="#{requestScope.selectedInteraction}" from="#{''}"/>
                                     </af:link>
                                     <af:spacer width="4" height="10" id="s5"/>
                                     <af:link id="l8" icon="#{resource['images:update_ena.png']}"
-                                             action="editInteraction">
-                                        <af:setActionListener from="#{GetAppointmentId.currentTaskId}"
-                                                              to="#{pageFlowScope.taskId}"/>
+                                             action="addEditInteraction">
+                                        <af:setActionListener from="#{GetAppointmentId.currentInteractionId}"
+                                                              to="#{requestScope.selectedInteraction}"/>
                                     </af:link>
                                 </af:toolbar>
                             </f:facet>

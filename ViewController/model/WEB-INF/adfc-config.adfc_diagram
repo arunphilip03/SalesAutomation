@@ -5,16 +5,16 @@
    <View
       id="View2">
       <property
-         name="activityId">SalesDashboard</property>
+         name="activityId">Dashboard</property>
       <property
          name="page">/SalesHome.jsf</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>SalesDashboard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>Dashboard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">-28.25879</property>
+         name="y">-269.01172</property>
       <property
-         name="x">19.0</property>
+         name="x">-244.0</property>
    </View>
 </SDM>

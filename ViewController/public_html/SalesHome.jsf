@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
     <af:document title="Sales Force Automation" id="d1">
         <af:form id="f1">
             <af:pageTemplate viewId="/oracle/ui/pattern/dynamicShell/dynamicTabShell.jspx" value="#{bindings.ptb1}"
@@ -47,7 +48,12 @@
                 <f:facet name="globalToolbar"/>
                 <f:facet name="globalSearch">
                     <af:panelGroupLayout id="g1" layout="horizontal">
-                        <af:link text="Logout" id="cl8" inlineStyle="font-size:small;"/>
+                        <h:outputText value="#{'Welcome'} #{securityContext.userName}" id="ot1"
+                                      style="font-size:small;"/>
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:link text="Sign Out" id="cl8" inlineStyle="font-size:small;"
+                                 destination="#{'/adfAuthentication?logout=true&amp;end_url=/faces/Dashboard'}"/>
+                        <af:spacer width="10" height="10" id="s2"/>
                         <f:facet name="separator">
                             <af:spacer width="10" id="sp1"/>
                         </f:facet>

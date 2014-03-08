@@ -21,7 +21,12 @@
   Where="ContactInteractions.INTERACTION_ID = InteractionTeam.INTERACTION_ID"
   BindingStyle="OracleName"
   CustomQuery="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="com.sfa.model.VO.ContactInteractionsVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -31,6 +36,14 @@
   <ViewAccessor
     Name="OpportunitiesView1"
     ViewObjectName="com.sfa.model.VO.OpportunitiesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InteractionsTypeLuView1"
+    ViewObjectName="com.sfa.model.VO.InteractionsTypeLuView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InteractionsDirectionLuView1"
+    ViewObjectName="com.sfa.model.VO.InteractionsDirectionLuView"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_RelatedOpportunity"
@@ -56,6 +69,46 @@
     <DisplayCriteria
       Name="OpportunitiesViewCriteria"
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Type"
+    ListVOName="InteractionsTypeLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Direction"
+    ListVOName="InteractionsDirectionLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
   </ListBinding>
   <EntityUsage
     Name="ContactInteractions"
@@ -85,7 +138,15 @@
     PrecisionRule="true"
     EntityAttrName="Type"
     EntityUsage="ContactInteractions"
-    AliasName="TYPE"/>
+    AliasName="TYPE"
+    LOVName="LOV_Type">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InteractionId"
     IsNotNull="true"
@@ -99,7 +160,15 @@
     PrecisionRule="true"
     EntityAttrName="Direction"
     EntityUsage="ContactInteractions"
-    AliasName="DIRECTION"/>
+    AliasName="DIRECTION"
+    LOVName="LOV_Direction">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StartDatetime"
     IsNotNull="true"
@@ -163,13 +232,15 @@
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"
     LOVName="LOV_RelatedOpportunity"
-    IsUpdateable="false">
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.VO.ContactInteractionsVO.RelatedOpportunity_LABEL"/>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="40"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

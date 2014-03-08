@@ -10,6 +10,7 @@ import oracle.jbo.Row;
 
 public class GetAppointmentId {
     private String currentTaskId;
+    private String currentInteractionId;
 
     public GetAppointmentId() {
     }
@@ -55,5 +56,31 @@ public class GetAppointmentId {
         System.out.println("selected task= "+ taskId_Str);
         
         return taskId_Str;
+    }
+
+    public void setCurrentInteractionId(String currentInteractionId) {
+        this.currentInteractionId = currentInteractionId;
+    }
+
+    public String getCurrentInteractionId() {
+        
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+
+        DCIteratorBinding iterator = bc.findIteratorBinding("ContactInteractionsVO1Iterator");
+
+        Row row = iterator.getCurrentRow();
+
+        BigDecimal id = (BigDecimal)row.getAttribute("InteractionId");
+        
+        String appointmentId_Str = id.toString();
+        
+        
+        
+        System.out.println("selected appointment= "+ appointmentId_Str);
+        
+        return appointmentId_Str;
+        
+        
+        //return currentInteractionId;
     }
 }
