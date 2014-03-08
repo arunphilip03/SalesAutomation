@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="add_edit_interactions_taskflow_add_edit_interactions_taskflow_createInsertPageDef"
+                Package="com.sfa.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ContactInteractionsVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactInteractionsVO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ContactInteractionsVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

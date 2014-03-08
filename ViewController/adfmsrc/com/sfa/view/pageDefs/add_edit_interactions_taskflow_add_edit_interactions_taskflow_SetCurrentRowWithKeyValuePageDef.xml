@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
-                id="contact_detail_taskflow_contact_detail_taskflow_CreateInsertPageDef"
+                id="add_edit_interactions_taskflow_add_edit_interactions_taskflow_SetCurrentRowWithKeyValuePageDef"
                 Package="com.sfa.view.pageDefs" SkipValidation="true">
   <parameters/>
   <executables>
@@ -8,7 +8,9 @@
               id="ContactInteractionsVO1Iterator"/>
   </executables>
   <bindings>
-    <action IterBinding="ContactInteractionsVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+    <action IterBinding="ContactInteractionsVO1Iterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.selectedRowKeyStr}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

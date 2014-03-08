@@ -89,9 +89,9 @@
         </f:facet>
       </af:panelSplitter>
       <af:popup childCreation="deferred" autoCancel="disabled" id="confirm">
-        <af:dialog id="d2" title="Confirm Delete">
+        <af:dialog id="d2" title="Confirm Delete" dialogListener="#{ConfirmBean.dialogListener}">
           <f:facet name="buttonBar"/>
-          <af:activeOutputText value="Are you sure you want to delete selected Customer?" id="aot1"/>
+          <af:activeOutputText value="#{'Are you sure you want to delete selected Customer?'}" id="aot1"/>
         </af:dialog>
       </af:popup>
     </af:panelGroupLayout>

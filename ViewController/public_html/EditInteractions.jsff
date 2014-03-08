@@ -17,19 +17,24 @@
     <f:facet name="info"/>
     <af:spacer width="10" height="10" id="s1"/>
     <af:panelFormLayout id="pfl2" rows="4" styleClass="AFStretchWidth"
-                        inlineStyle="break-after:auto; column-fill:balance; column-gap:normal; column-span:none; column-width:auto;">
-      <af:inputText value="#{bindings.Type.inputValue}" label="#{bindings.Type.hints.label}"
-                    required="#{bindings.Type.hints.mandatory}" columns="#{bindings.Type.hints.displayWidth}"
-                    maximumLength="#{bindings.Type.hints.precision}" shortDesc="#{bindings.Type.hints.tooltip}"
-                    id="it1">
-        <f:validator binding="#{bindings.Type.validator}"/>
-      </af:inputText>
-      <af:inputText value="#{bindings.Direction.inputValue}" label="#{bindings.Direction.hints.label}"
-                    required="#{bindings.Direction.hints.mandatory}" columns="#{bindings.Direction.hints.displayWidth}"
-                    maximumLength="#{bindings.Direction.hints.precision}"
-                    shortDesc="#{bindings.Direction.hints.tooltip}" id="it2">
-        <f:validator binding="#{bindings.Direction.validator}"/>
-      </af:inputText>
+                        inlineStyle="break-after:auto; column-fill:balance; column-gap:normal; column-span:none; column-width:auto;"
+                        fieldWidth="350px" labelWidth="75px">
+      <af:inputComboboxListOfValues id="type1Id" popupTitle="Search and Select: #{bindings.Type1.hints.label}"
+                                    value="#{bindings.Type1.inputValue}" label="#{bindings.Type1.hints.label}"
+                                    model="#{bindings.Type1.listOfValuesModel}"
+                                    required="#{bindings.Type1.hints.mandatory}"
+                                    columns="#{bindings.Type1.hints.displayWidth}"
+                                    shortDesc="#{bindings.Type1.hints.tooltip}">
+        <f:validator binding="#{bindings.Type1.validator}"/>
+      </af:inputComboboxListOfValues>
+      <af:inputComboboxListOfValues id="direction1Id" popupTitle="Search and Select: #{bindings.Direction1.hints.label}"
+                                    value="#{bindings.Direction1.inputValue}" label="#{bindings.Direction1.hints.label}"
+                                    model="#{bindings.Direction1.listOfValuesModel}"
+                                    required="#{bindings.Direction1.hints.mandatory}"
+                                    columns="#{bindings.Direction1.hints.displayWidth}"
+                                    shortDesc="#{bindings.Direction1.hints.tooltip}">
+        <f:validator binding="#{bindings.Direction1.validator}"/>
+      </af:inputComboboxListOfValues>
       <af:inputDate value="#{bindings.StartDatetime.inputValue}" label="#{bindings.StartDatetime.hints.label}"
                     required="#{bindings.StartDatetime.hints.mandatory}"
                     columns="#{bindings.StartDatetime.hints.displayWidth}"

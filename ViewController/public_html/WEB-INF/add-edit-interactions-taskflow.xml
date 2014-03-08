@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="add-edit-interactions-taskflow">
+       <default-activity>addEditRouter</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <input-parameter-definition id="__13">
+      <name>selectedRowKeyStr</name>
+      <value>#{pageFlowScope.selectedRowKeyStr}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <router id="addEditRouter">
+      <case id="__11">
+        <expression>#{pageFlowScope.selectedRowKeyStr == ''}</expression>
+        <outcome>add</outcome>
+      </case>
+      <case id="__12">
+        <expression>#{pageFlowScope.selectedRowKeyStr != ''}</expression>
+        <outcome>edit</outcome>
+      </case>
+      <default-outcome>edit</default-outcome>
+    </router>
+    <method-call id="createInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>createInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="CreateInteraction">
+      <page>/CreateInteraction.jsff</page>
+    </view>
+    <task-flow-return id="saveCreate">
+      <outcome>
+        <name>saveCreate</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancelCreate">
+      <outcome>
+        <name>cancelCreate</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <view id="EditInteraction">
+      <page>/EditInteractions.jsff</page>
+    </view>
+    <task-flow-return id="saveEdit">
+      <outcome>
+        <name>saveEdit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancelEdit">
+      <outcome>
+        <name>cancelEdit</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="commitCreate">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="commitEdit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>addEditRouter</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>add</from-outcome>
+        <to-activity-id>createInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>createInsert</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>createInsert</from-outcome>
+        <to-activity-id>CreateInteraction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>CreateInteraction</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>saveCreate</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>cancelCreate</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>commitCreate</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>EditInteraction</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>saveEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>cancelEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>commitEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>EditInteraction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

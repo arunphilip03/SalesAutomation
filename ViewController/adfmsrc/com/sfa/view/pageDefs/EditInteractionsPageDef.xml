@@ -10,16 +10,6 @@
   <bindings>
     <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_RelatedOpportunity"
                   id="RelatedOpportunity"/>
-    <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="Type">
-      <AttrNames>
-        <Item Value="Type"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="Direction">
-      <AttrNames>
-        <Item Value="Direction"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ContactInteractionsVO1Iterator" id="StartDatetime">
       <AttrNames>
         <Item Value="StartDatetime"/>
@@ -42,5 +32,7 @@
     </attributeValues>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_Type" id="Type1"/>
+    <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_Direction" id="Direction1"/>
   </bindings>
 </pageDefinition>

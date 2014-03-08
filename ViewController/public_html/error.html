@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Login</title>
+        <link rel="stylesheet" href="resources/css/reset.css"/>
+        <link rel="stylesheet" href="resources/css/styles.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <form method="POST" action="j_security_check">
+                <label for="name">Username:</label>
+                <input type="text" name="j_username"/>
+                <label for="username">Password:</label>
+                <input type="password" name="j_password"/>
+                <div id="lower">
+                <label class="check" for="checkbox">Invalid username or password</label>
+                    <input type="submit" name="submit" value="Login"/>
+                </div>
+            </form>
+        </div>
+        <!--<table cellspacing="2" cellpadding="3" border="1">
+        <tr>
+          <th>
+            Username:
+          </th>
+          <td>
+            <input type="text" name="j_username"/>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Password:
+          </th>
+          <td>
+            <input type="password" name="j_password"/>
+          </td>
+        </tr>
+      </table>-->
+        <!--<p>
+        <input type="submit" name="submit" value="Submit"/>
+      </p>
+    </form>
+    
+    -->
+    </body>
+</html>
+
+
