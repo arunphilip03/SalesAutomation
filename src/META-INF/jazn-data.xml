@@ -4,20 +4,6 @@
   <jazn-realm default="jazn.com">
     <realm>
       <name>jazn.com</name>
-      <users>
-        <user>
-          <name>Aneesh</name>
-          <credentials>{903}Kyv4fgPOERLpiB5K8JOMWwW+mWcR+ezD</credentials>
-        </user>
-        <user>
-          <name>Vivek</name>
-          <credentials>{903}1AscT/SqCPDDmx7U6lwIERRl8UJuxlea</credentials>
-        </user>
-        <user>
-          <name>John</name>
-          <credentials>{903}gGRiNq8iBol0MdB3vyoVkkRYp7sOxMkY</credentials>
-        </user>
-      </users>
     </realm>
   </jazn-realm>
   <policy-store>
@@ -29,30 +15,18 @@
             <name>Administrator</name>
             <class>oracle.security.jps.service.policystore.ApplicationRole</class>
             <members>
-              <member>
-                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
-                <name>Aneesh</name>
-              </member>
             </members>
           </app-role>
           <app-role>
             <name>Sales Representative</name>
             <class>oracle.security.jps.service.policystore.ApplicationRole</class>
             <members>
-              <member>
-                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
-                <name>John</name>
-              </member>
             </members>
           </app-role>
           <app-role>
             <name>Sales Manager</name>
             <class>oracle.security.jps.service.policystore.ApplicationRole</class>
             <members>
-              <member>
-                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
-                <name>Vivek</name>
-              </member>
             </members>
           </app-role>
         </app-roles>
@@ -122,16 +96,6 @@
               <permission>
                 <class>oracle.adf.share.security.authorization.RegionPermission</class>
                 <name>com.sfa.view.pageDefs.SalesHomePageDef</name>
-                <actions>customize,grant,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/customer-taskflow.xml#customer-account</name>
-                <actions>customize,grant,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/customer-detail-taskflow.xml#customer-detail-taskflow</name>
                 <actions>customize,grant,personalize,view</actions>
               </permission>
               <permission>
@@ -217,16 +181,6 @@
                 <actions>customize,grant,personalize,view</actions>
               </permission>
               <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/customer-taskflow.xml#customer-account</name>
-                <actions>customize,grant,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/customer-detail-taskflow.xml#customer-detail-taskflow</name>
-                <actions>customize,grant,personalize,view</actions>
-              </permission>
-              <permission>
                 <class>oracle.adf.share.security.authorization.RegionPermission</class>
                 <name>com.sfa.view.pageDefs.ContactsOverviewPageDef</name>
                 <actions>customize,grant,personalize,view</actions>
@@ -306,12 +260,27 @@
               <permission>
                 <class>oracle.adf.share.security.authorization.RegionPermission</class>
                 <name>oracle.ui.pattern.dynamicShell.model.dynamicTabShellDefinition</name>
-                <actions>view</actions>
+                <actions>customize,personalize,view</actions>
               </permission>
               <permission>
                 <class>oracle.adf.controller.security.TaskFlowPermission</class>
                 <name>/WEB-INF/oracle/ui/pattern/dynamicShell/infra/blank.xml#blank</name>
-                <actions>view</actions>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                <name>com.sfa.view.pageDefs.SalesHomePageDef</name>
+                <actions>customize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/customer-taskflow.xml#customer-account</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/customer-detail-taskflow.xml#customer-detail-taskflow</name>
+                <actions>customize,personalize,view</actions>
               </permission>
             </permissions>
           </grant>

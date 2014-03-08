@@ -19,6 +19,9 @@
                             credentialStoreLocation="../../src/META-INF/jps-config.xml"/>
     <sec:JaasSecurityContext initialContextFactoryClass="oracle.adf.share.security.JAASInitialContextFactory"
                              jaasProviderClass="oracle.adf.share.security.providers.jps.JpsSecurityContext"
-                             authorizationEnforce="true" authenticationRequire="true"/>
+                             authorizationEnforce="true" authenticationRequire="true">
+      <sec:contextEnv name="oracle.adf.security.identity.provider"
+                      value="oracle.adf.share.security.providers.jps.IgfIdentityManagementProvider"/>
+    </sec:JaasSecurityContext>
   </sec:adf-security-child>
 </adf-config>

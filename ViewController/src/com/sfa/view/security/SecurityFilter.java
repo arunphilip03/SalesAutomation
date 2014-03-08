@@ -70,12 +70,19 @@ public class SecurityFilter extends ADFBindingFilter {
 
 
         userName = ADFContext.getCurrent().getSecurityContext().getUserName();
+        String[] roles = ADFContext.getCurrent().getSecurityContext().getUserRoles();
 
         if (userName != null) {
             System.out.println("Logged in user: " + userName);
-            if(!userName.equals("anonymous"))
+           // if(!userName.equals("anonymous"))
             //getRoles(userName);
             
+        }
+        
+        if(roles !=null) {
+            for(String s: roles) {
+                System.out.println(s);
+            }
         }
 
 
