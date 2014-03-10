@@ -196,7 +196,6 @@ left outer join OPPORTUNITIES Oppo ON Tasks.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID
   </ViewAttribute>
   <ViewAttribute
     Name="AccountName"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="100"
@@ -220,7 +219,6 @@ left outer join OPPORTUNITIES Oppo ON Tasks.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID
   </ViewAttribute>
   <ViewAttribute
     Name="OpportunityName"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="50"

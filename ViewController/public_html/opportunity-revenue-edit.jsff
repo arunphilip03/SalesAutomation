@@ -22,80 +22,78 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelWindow id="pw1">
-                    <af:panelFormLayout id="pfl1" rows="4">
-                        <af:inputComboboxListOfValues id="productNameId"
-                                                      popupTitle="Search and Select: #{bindings.ProductName.hints.label}"
-                                                      value="#{bindings.ProductName.inputValue}"
-                                                      label="#{bindings.ProductName.hints.label}"
-                                                      model="#{bindings.ProductName.listOfValuesModel}"
-                                                      required="#{bindings.ProductName.hints.mandatory}"
-                                                      columns="#{bindings.ProductName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.ProductName.hints.tooltip}">
-                            <f:validator binding="#{bindings.ProductName.validator}"/>
-                        </af:inputComboboxListOfValues>
-                        <af:inputText value="#{bindings.Quantity.inputValue}" label="#{bindings.Quantity.hints.label}"
-                                      required="#{bindings.Quantity.hints.mandatory}"
-                                      columns="#{bindings.Quantity.hints.displayWidth}"
-                                      maximumLength="#{bindings.Quantity.hints.precision}"
-                                      shortDesc="#{bindings.Quantity.hints.tooltip}" id="it1">
-                            <f:validator binding="#{bindings.Quantity.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Quantity.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.EstimatedPrice.inputValue}"
-                                      label="#{bindings.EstimatedPrice.hints.label}"
-                                      required="#{bindings.EstimatedPrice.hints.mandatory}"
-                                      columns="#{bindings.EstimatedPrice.hints.displayWidth}"
-                                      maximumLength="#{bindings.EstimatedPrice.hints.precision}"
-                                      shortDesc="#{bindings.EstimatedPrice.hints.tooltip}" id="it2">
-                            <f:validator binding="#{bindings.EstimatedPrice.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.EstimatedPrice.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.Revenue.inputValue}" label="#{bindings.Revenue.hints.label}"
-                                      required="#{bindings.Revenue.hints.mandatory}"
-                                      columns="#{bindings.Revenue.hints.displayWidth}"
-                                      maximumLength="#{bindings.Revenue.hints.precision}"
-                                      shortDesc="#{bindings.Revenue.hints.tooltip}" id="it3">
-                            <f:validator binding="#{bindings.Revenue.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Revenue.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.WinProbability.inputValue}"
-                                      label="#{bindings.WinProbability.hints.label}"
-                                      required="#{bindings.WinProbability.hints.mandatory}"
-                                      columns="#{bindings.WinProbability.hints.displayWidth}"
-                                      maximumLength="#{bindings.WinProbability.hints.precision}"
-                                      shortDesc="#{bindings.WinProbability.hints.tooltip}" id="it4">
-                            <f:validator binding="#{bindings.WinProbability.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.WinProbability.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.BestCaseRevenue.inputValue}"
-                                      label="#{bindings.BestCaseRevenue.hints.label}"
-                                      required="#{bindings.BestCaseRevenue.hints.mandatory}"
-                                      columns="#{bindings.BestCaseRevenue.hints.displayWidth}"
-                                      maximumLength="#{bindings.BestCaseRevenue.hints.precision}"
-                                      shortDesc="#{bindings.BestCaseRevenue.hints.tooltip}" id="it5">
-                            <f:validator binding="#{bindings.BestCaseRevenue.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BestCaseRevenue.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.WorstCaseRevenue.inputValue}"
-                                      label="#{bindings.WorstCaseRevenue.hints.label}"
-                                      required="#{bindings.WorstCaseRevenue.hints.mandatory}"
-                                      columns="#{bindings.WorstCaseRevenue.hints.displayWidth}"
-                                      maximumLength="#{bindings.WorstCaseRevenue.hints.precision}"
-                                      shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it6">
-                            <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.WorstCaseRevenue.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.SalesForecastIncluded.inputValue}"
-                                      label="#{bindings.SalesForecastIncluded.hints.label}"
-                                      required="#{bindings.SalesForecastIncluded.hints.mandatory}"
-                                      columns="#{bindings.SalesForecastIncluded.hints.displayWidth}"
-                                      maximumLength="#{bindings.SalesForecastIncluded.hints.precision}"
-                                      shortDesc="#{bindings.SalesForecastIncluded.hints.tooltip}" id="it7">
-                            <f:validator binding="#{bindings.SalesForecastIncluded.validator}"/>
-                        </af:inputText>
-                    </af:panelFormLayout>
-                </af:panelWindow>
+                <af:panelFormLayout id="pfl1" rows="4">
+                    <af:inputComboboxListOfValues id="productNameId"
+                                                  popupTitle="Search and Select: #{bindings.ProductName.hints.label}"
+                                                  value="#{bindings.ProductName.inputValue}"
+                                                  label="#{bindings.ProductName.hints.label}"
+                                                  model="#{bindings.ProductName.listOfValuesModel}"
+                                                  required="#{bindings.ProductName.hints.mandatory}"
+                                                  columns="#{bindings.ProductName.hints.displayWidth}"
+                                                  shortDesc="#{bindings.ProductName.hints.tooltip}">
+                        <f:validator binding="#{bindings.ProductName.validator}"/>
+                    </af:inputComboboxListOfValues>
+                    <af:inputText value="#{bindings.Quantity.inputValue}" label="#{bindings.Quantity.hints.label}"
+                                  required="#{bindings.Quantity.hints.mandatory}"
+                                  columns="#{bindings.Quantity.hints.displayWidth}"
+                                  maximumLength="#{bindings.Quantity.hints.precision}"
+                                  shortDesc="#{bindings.Quantity.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.Quantity.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Quantity.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.EstimatedPrice.inputValue}"
+                                  label="#{bindings.EstimatedPrice.hints.label}"
+                                  required="#{bindings.EstimatedPrice.hints.mandatory}"
+                                  columns="#{bindings.EstimatedPrice.hints.displayWidth}"
+                                  maximumLength="#{bindings.EstimatedPrice.hints.precision}"
+                                  shortDesc="#{bindings.EstimatedPrice.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.EstimatedPrice.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.EstimatedPrice.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Revenue.inputValue}" label="#{bindings.Revenue.hints.label}"
+                                  required="#{bindings.Revenue.hints.mandatory}"
+                                  columns="#{bindings.Revenue.hints.displayWidth}"
+                                  maximumLength="#{bindings.Revenue.hints.precision}"
+                                  shortDesc="#{bindings.Revenue.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.Revenue.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Revenue.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.WinProbability.inputValue}"
+                                  label="#{bindings.WinProbability.hints.label}"
+                                  required="#{bindings.WinProbability.hints.mandatory}"
+                                  columns="#{bindings.WinProbability.hints.displayWidth}"
+                                  maximumLength="#{bindings.WinProbability.hints.precision}"
+                                  shortDesc="#{bindings.WinProbability.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.WinProbability.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.WinProbability.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.BestCaseRevenue.inputValue}"
+                                  label="#{bindings.BestCaseRevenue.hints.label}"
+                                  required="#{bindings.BestCaseRevenue.hints.mandatory}"
+                                  columns="#{bindings.BestCaseRevenue.hints.displayWidth}"
+                                  maximumLength="#{bindings.BestCaseRevenue.hints.precision}"
+                                  shortDesc="#{bindings.BestCaseRevenue.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.BestCaseRevenue.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.BestCaseRevenue.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.WorstCaseRevenue.inputValue}"
+                                  label="#{bindings.WorstCaseRevenue.hints.label}"
+                                  required="#{bindings.WorstCaseRevenue.hints.mandatory}"
+                                  columns="#{bindings.WorstCaseRevenue.hints.displayWidth}"
+                                  maximumLength="#{bindings.WorstCaseRevenue.hints.precision}"
+                                  shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it6">
+                        <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.WorstCaseRevenue.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SalesForecastIncluded.inputValue}"
+                                  label="#{bindings.SalesForecastIncluded.hints.label}"
+                                  required="#{bindings.SalesForecastIncluded.hints.mandatory}"
+                                  columns="#{bindings.SalesForecastIncluded.hints.displayWidth}"
+                                  maximumLength="#{bindings.SalesForecastIncluded.hints.precision}"
+                                  shortDesc="#{bindings.SalesForecastIncluded.hints.tooltip}" id="it7">
+                        <f:validator binding="#{bindings.SalesForecastIncluded.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

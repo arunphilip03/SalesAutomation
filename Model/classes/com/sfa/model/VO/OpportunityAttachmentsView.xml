@@ -15,7 +15,9 @@
        OpportunityAttachments.LAST_UPDATED_BY, 
        OpportunityAttachments.DESCRIPTION, 
        OpportunityAttachments.LAST_UPDATE_LOGIN, 
-       OpportunityAttachments.OBJECT_VERSION_NUMBER"
+       OpportunityAttachments.OBJECT_VERSION_NUMBER, 
+       OpportunityAttachments.DOCUMENT_NAME, 
+       OpportunityAttachments.DOCUMENT_TYPE"
   FromList="OPPORTUNITY_ATTACHMENTS OpportunityAttachments"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -36,7 +38,9 @@
     PrecisionRule="true"
     EntityAttrName="OpportunityId"
     EntityUsage="OpportunityAttachments"
-    AliasName="OPPORTUNITY_ID"/>
+    AliasName="OPPORTUNITY_ID">
+    <TransientExpression><![CDATA[OpportunitiesView1.getAttribute("OppurtunityId")]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="Document"
     IsQueriable="false"
@@ -50,26 +54,30 @@
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="OpportunityAttachments"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="OpportunityAttachments"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="OpportunityAttachments"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="OpportunityAttachments"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Description"
     PrecisionRule="true"
@@ -81,11 +89,76 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdateLogin"
     EntityUsage="OpportunityAttachments"
-    AliasName="LAST_UPDATE_LOGIN"/>
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ObjectVersionNumber"
     PrecisionRule="true"
     EntityAttrName="ObjectVersionNumber"
     EntityUsage="OpportunityAttachments"
     AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="DocumentName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DocumentName"
+    EntityUsage="OpportunityAttachments"
+    AliasName="DOCUMENT_NAME"/>
+  <ViewAttribute
+    Name="DocumentType"
+    PrecisionRule="true"
+    EntityAttrName="DocumentType"
+    EntityUsage="OpportunityAttachments"
+    AliasName="DOCUMENT_TYPE"/>
+  <ViewCriteria
+    Name="OpportunityAttachmentsViewSearch"
+    ViewObjectName="com.sfa.model.VO.OpportunityAttachmentsView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="displayName"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="OpportunityAttachmentsViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="DocumentName"
+        ViewAttribute="DocumentName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=""
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DocumentType"
+        ViewAttribute="DocumentType"
+        Operator="="
+        Conjunction="AND"
+        Value=""
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

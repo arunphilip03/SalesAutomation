@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="adminUser-roleAssign-create">
-    <default-activity>admin-roleAssign-create</default-activity>
+    <default-activity>ExecuteWithParams</default-activity>
     <transaction>
       <requires-transaction/>
     </transaction>
@@ -11,13 +11,27 @@
     <task-flow-return id="taskFlowReturn1">
       <outcome>
         <name>taskFlowReturn1</name>
+        <commit/>
       </outcome>
     </task-flow-return>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>admin-roleAssign-create</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>back</from-outcome>
         <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>admin-roleAssign-create</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

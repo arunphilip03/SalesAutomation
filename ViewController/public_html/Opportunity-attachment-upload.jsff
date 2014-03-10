@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1" inlineStyle="font-size:large;">
+                <!-- Content -->
+                <af:panelHeader text="Upload Documents" id="ph1" inlineStyle="height:44px;">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Close" id="b2" action="back" immediate="true"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+                <af:spacer width="10" height="10" id="s2"/>
+                <af:inputFile label="Select the document" id="if1" inlineStyle="color:Blue;"
+                              binding="#{OppoAttachmentBean.files}"
+                              valueChangeListener="#{OppoAttachmentBean.onFileUploadVCL}"/>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:link id="l1" icon="#{resource['images:upload.jpg']}"
+                         actionListener="#{OppoAttachmentBean.onFileUpload}" action="back"/>
+                <af:button text="uploadFiletoDB" id="b1" actionListener="#{bindings.uploadFiletoDB.execute}"
+                           visible="false"/>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

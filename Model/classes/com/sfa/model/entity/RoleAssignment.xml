@@ -53,7 +53,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="ROLE_ASSIGNMENT"/>
+    TableName="ROLE_ASSIGNMENT">
+    <validation:CompareValidationBean
+      Name="EffecEndDateRule0"
+      ResId="com.sfa.model.entity.RoleAssignment.EffecEndDate_Rule_0"
+      OnAttribute="EffecEndDate"
+      OperandType="JBO"
+      Inverse="false"
+      CompareType="GREATERTHANEQUALTO"
+      CompareValue="com.sfa.model.VO.RoleAssignmentView.EffecStartDate"/>
+  </Attribute>
   <Attribute
     Name="CreationDate"
     IsNotNull="true"

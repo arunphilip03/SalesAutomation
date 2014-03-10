@@ -22,25 +22,23 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelWindow id="pw1" styleClass="AFStretchWidth">
-                    <af:panelFormLayout id="pfl1">
-                        <af:inputDate value="#{bindings.NoteDatetime.inputValue}"
-                                      label="#{bindings.NoteDatetime.hints.label}"
-                                      required="#{bindings.NoteDatetime.hints.mandatory}"
-                                      columns="#{bindings.NoteDatetime.hints.displayWidth}"
-                                      shortDesc="#{bindings.NoteDatetime.hints.tooltip}" id="id1">
-                            <f:validator binding="#{bindings.NoteDatetime.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.NoteDatetime.format}"/>
-                        </af:inputDate>
-                        <af:inputText value="#{bindings.NotesText.inputValue}" label="#{bindings.NotesText.hints.label}"
-                                      required="#{bindings.NotesText.hints.mandatory}"
-                                      columns="#{bindings.NotesText.hints.displayWidth}"
-                                      maximumLength="#{bindings.NotesText.hints.precision}"
-                                      shortDesc="#{bindings.NotesText.hints.tooltip}" id="it1">
-                            <f:validator binding="#{bindings.NotesText.validator}"/>
-                        </af:inputText>
-                    </af:panelFormLayout>
-                </af:panelWindow>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputDate value="#{bindings.NoteDatetime.inputValue}"
+                                  label="#{bindings.NoteDatetime.hints.label}"
+                                  required="#{bindings.NoteDatetime.hints.mandatory}"
+                                  columns="#{bindings.NoteDatetime.hints.displayWidth}"
+                                  shortDesc="#{bindings.NoteDatetime.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.NoteDatetime.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.NoteDatetime.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.NotesText.inputValue}" label="#{bindings.NotesText.hints.label}"
+                                  required="#{bindings.NotesText.hints.mandatory}"
+                                  columns="#{bindings.NotesText.hints.displayWidth}"
+                                  maximumLength="#{bindings.NotesText.hints.precision}"
+                                  shortDesc="#{bindings.NotesText.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.NotesText.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

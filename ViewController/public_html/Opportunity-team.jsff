@@ -22,75 +22,72 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelWindow id="pw1" styleClass="AFStretchWidth">
-                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="75" styleClass="AFStretchWidth">
-                        <f:facet name="first">
-                            <af:panelFormLayout id="pfl1" rows="2">
-                                <af:inputText value="#{bindings.OpportunityName.inputValue}"
-                                              label="#{bindings.OpportunityName.hints.label}"
-                                              required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
-                                              columns="#{bindings.OpportunityName.hints.displayWidth}"
-                                              maximumLength="#{bindings.OpportunityName.hints.precision}"
-                                              shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it1">
-                                    <f:validator binding="#{bindings.OpportunityName.validator}"/>
-                                </af:inputText>
-                                <af:inputComboboxListOfValues id="accountNameId"
-                                                              popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
-                                                              value="#{bindings.AccountName.inputValue}"
-                                                              label="#{bindings.AccountName.hints.label}"
-                                                              model="#{bindings.AccountName.listOfValuesModel}"
-                                                              required="#{bindings.AccountName.hints.mandatory}"
-                                                              columns="#{bindings.AccountName.hints.displayWidth}"
-                                                              shortDesc="#{bindings.AccountName.hints.tooltip}"
-                                                              autoSubmit="true" disabled="true">
-                                    <f:validator binding="#{bindings.AccountName.validator}"/>
-                                </af:inputComboboxListOfValues>
-                                <af:inputComboboxListOfValues id="contactNameId"
-                                                              popupTitle="Search and Select: #{bindings.ContactName.hints.label}"
-                                                              value="#{bindings.ContactName.inputValue}"
-                                                              label="#{bindings.ContactName.hints.label}"
-                                                              model="#{bindings.ContactName.listOfValuesModel}"
-                                                              required="#{bindings.ContactName.hints.mandatory}"
-                                                              columns="#{bindings.ContactName.hints.displayWidth}"
-                                                              shortDesc="#{bindings.ContactName.hints.tooltip}"
-                                                              disabled="true">
-                                    <f:validator binding="#{bindings.ContactName.validator}"/>
-                                </af:inputComboboxListOfValues>
-                                <af:inputText value="#{bindings.OppurtunityId.inputValue}"
-                                              label="#{bindings.OppurtunityId.hints.label}"
-                                              required="#{bindings.OppurtunityId.hints.mandatory}"
-                                              columns="#{bindings.OppurtunityId.hints.displayWidth}"
-                                              maximumLength="#{bindings.OppurtunityId.hints.precision}"
-                                              shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it2"
-                                              visible="false">
-                                    <f:validator binding="#{bindings.OppurtunityId.validator}"/>
-                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
-                                </af:inputText>
-                                <f:facet name="footer"/>
-                            </af:panelFormLayout>
-                        </f:facet>
-                        <f:facet name="second">
-                            <af:panelSplitter id="ps2" splitterPosition="517">
-                                <f:facet name="first">
-                                    <af:selectManyShuttle label="Users" value="#{OppoTeamSC.selectedUsers}"
-                                                          valueChangeListener="#{OppoTeamSC.onUserChange}" id="sms1"
-                                                          autoSubmit="true"
-                                                          binding="#{OppoTeamSC.selectManyShuttleComponentU}">
-                                        <f:selectItems value="#{OppoTeamSC.allUsers}" id="si1"/>
-                                    </af:selectManyShuttle>
-                                </f:facet>
-                                <f:facet name="second">
-                                    <af:selectManyShuttle label="Contacts" value="#{OppoTeamSC.selectedContacts}"
-                                                          valueChangeListener="#{OppoTeamSC.onContactChange}" id="sms2"
-                                                          autoSubmit="true"
-                                                          binding="#{OppoTeamSC.selectManyShuttleComponentC}">
-                                        <f:selectItems value="#{OppoTeamSC.allContacts}" id="si2"/>
-                                    </af:selectManyShuttle>
-                                </f:facet>
-                            </af:panelSplitter>
-                        </f:facet>
-                    </af:panelSplitter>
-                </af:panelWindow>
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="75" styleClass="AFStretchWidth">
+                    <f:facet name="first">
+                        <af:panelFormLayout id="pfl1" rows="2">
+                            <af:inputText value="#{bindings.OpportunityName.inputValue}"
+                                          label="#{bindings.OpportunityName.hints.label}"
+                                          required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.OpportunityName.hints.displayWidth}"
+                                          maximumLength="#{bindings.OpportunityName.hints.precision}"
+                                          shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.OpportunityName.validator}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="accountNameId"
+                                                          popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                                                          value="#{bindings.AccountName.inputValue}"
+                                                          label="#{bindings.AccountName.hints.label}"
+                                                          model="#{bindings.AccountName.listOfValuesModel}"
+                                                          required="#{bindings.AccountName.hints.mandatory}"
+                                                          columns="#{bindings.AccountName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.AccountName.hints.tooltip}"
+                                                          autoSubmit="true" disabled="true">
+                                <f:validator binding="#{bindings.AccountName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputComboboxListOfValues id="contactNameId"
+                                                          popupTitle="Search and Select: #{bindings.ContactName.hints.label}"
+                                                          value="#{bindings.ContactName.inputValue}"
+                                                          label="#{bindings.ContactName.hints.label}"
+                                                          model="#{bindings.ContactName.listOfValuesModel}"
+                                                          required="#{bindings.ContactName.hints.mandatory}"
+                                                          columns="#{bindings.ContactName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.ContactName.hints.tooltip}"
+                                                          disabled="true">
+                                <f:validator binding="#{bindings.ContactName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.OppurtunityId.inputValue}"
+                                          label="#{bindings.OppurtunityId.hints.label}"
+                                          required="#{bindings.OppurtunityId.hints.mandatory}"
+                                          columns="#{bindings.OppurtunityId.hints.displayWidth}"
+                                          maximumLength="#{bindings.OppurtunityId.hints.precision}"
+                                          shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it2" visible="false">
+                                <f:validator binding="#{bindings.OppurtunityId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
+                            </af:inputText>
+                            <f:facet name="footer"/>
+                        </af:panelFormLayout>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelSplitter id="ps2" splitterPosition="517">
+                            <f:facet name="first">
+                                <af:selectManyShuttle label="Users" value="#{OppoTeamSC.selectedUsers}"
+                                                      valueChangeListener="#{OppoTeamSC.onUserChange}" id="sms1"
+                                                      autoSubmit="true"
+                                                      binding="#{OppoTeamSC.selectManyShuttleComponentU}">
+                                    <f:selectItems value="#{OppoTeamSC.allUsers}" id="si1"/>
+                                </af:selectManyShuttle>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:selectManyShuttle label="Contacts" value="#{OppoTeamSC.selectedContacts}"
+                                                      valueChangeListener="#{OppoTeamSC.onContactChange}" id="sms2"
+                                                      autoSubmit="true"
+                                                      binding="#{OppoTeamSC.selectManyShuttleComponentC}">
+                                    <f:selectItems value="#{OppoTeamSC.allContacts}" id="si2"/>
+                                </af:selectManyShuttle>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </f:facet>
+                </af:panelSplitter>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

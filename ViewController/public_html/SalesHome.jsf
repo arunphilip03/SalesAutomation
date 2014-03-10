@@ -1,12 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-        xmlns:h="http://java.sun.com/jsf/html">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="Sales Force Automation" id="d1">
-    
-
- 
-  <!--<af:clientListener method="onPageLoad" type="load"/>
+        <!--<af:clientListener method="onPageLoad" type="load"/>
   <f:facet name="metaContainer">
     <af:resource type="javascript">
       function onPageLoad(evt) {
@@ -14,17 +11,16 @@
       }
     </af:resource>
   </f:facet>-->
-
-    
-        <af:form id="f1">
+        <af:form id="f1" usesUpload="true">
             <af:pageTemplate viewId="/oracle/ui/pattern/dynamicShell/dynamicTabShell.jspx" value="#{bindings.ptb1}"
                              id="pt1">
                 <f:facet name="copyright"/>
                 <f:facet name="about"/>
                 <f:facet name="navigation">
                     <af:panelAccordion id="pa1" discloseMany="true">
-                        <af:showDetailItem text="Sales" id="sd1" disclosed="true"
-                                           rendered="#{securityContext.userInRole['Sales Manager,Sales Representative']}">
+                        <af:showDetailItem text="Sales" id="sd1"
+                                           rendered="#{securityContext.userInRole['Sales Manager,Sales Representative']}"
+                                           disclosed="true">
                             <af:panelGroupLayout id="pgl1">
                                 <af:panelList id="pl1">
                                     <af:link text="Manage Accounts" id="l1"
@@ -36,7 +32,7 @@
                                 </af:panelList>
                             </af:panelGroupLayout>
                         </af:showDetailItem>
-                        <af:showDetailItem text="Admin" id="sdi1" disclosed="true"
+                        <af:showDetailItem disclosed="true" text="Admin" id="sdi1"
                                            rendered="#{securityContext.userInRole['Administrator']}">
                             <af:panelGroupLayout id="pgl2">
                                 <af:panelList id="pl2">
@@ -66,8 +62,8 @@
                         <h:outputText value="#{'Welcome'} #{securityContext.userName}" id="ot1"
                                       style="font-size:small;"/>
                         <af:spacer width="10" height="10" id="s1"/>
-                        <af:link text="Sign Out" id="cl8" inlineStyle="font-size:small;"
-                                 destination="#{'/adfAuthentication?logout=true&amp;end_url=/faces/Dashboard'}"/>
+                        <af:link destination="#{'/adfAuthentication?logout=true&amp;end_url=/faces/Dashboard'}"
+                                 text="Sign Out" id="cl8" inlineStyle="font-size:small;"/>
                         <af:spacer width="10" height="10" id="s2"/>
                         <f:facet name="separator">
                             <af:spacer width="10" id="sp1"/>
@@ -80,6 +76,5 @@
                 <f:attribute name="brandingTitle" value="Sales Force Automation"/>
             </af:pageTemplate>
         </af:form>
-        
     </af:document>
 </f:view>

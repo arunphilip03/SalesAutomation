@@ -2,6 +2,11 @@
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="admin-user-roleAssignment">
     <default-activity>admin-user-roleassign</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name>UserIdStoreBean</managed-bean-name>
+      <managed-bean-class>com.sfa.view.backing.UserIdStoreBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <view id="admin-user-roleassign">
       <page>/admin-user-roleassign.jsff</page>
     </view>

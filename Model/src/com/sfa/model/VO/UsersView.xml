@@ -250,7 +250,6 @@ on Users.MANAGER_ID =  Users1.EMPLOYEE_ID]]></SQLQuery>
   </ViewAttribute>
   <ViewAttribute
     Name="Managername"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="50"

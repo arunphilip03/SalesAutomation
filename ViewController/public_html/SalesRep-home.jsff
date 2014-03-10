@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelHeader text="Recently Created Opportunities" id="ph1" inlineStyle="height:40px;">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+                <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.SalesRepOppoCreatedView1.collectionModel}" var="row"
+                              rows="#{bindings.SalesRepOppoCreatedView1.rangeSize}"
+                              emptyText="#{bindings.SalesRepOppoCreatedView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.SalesRepOppoCreatedView1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.SalesRepOppoCreatedView1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.SalesRepOppoCreatedView1.rangeSize}" id="t2">
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.OpportunityName.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.OpportunityName.label}"
+                                   id="c23">
+                            <af:outputText value="#{row.OpportunityName}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.OpportunityName.tooltip}"
+                                           id="ot23"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.BestCaseRevenue.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.BestCaseRevenue.label}"
+                                   id="c17">
+                            <af:outputText value="#{row.BestCaseRevenue}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.BestCaseRevenue.tooltip}"
+                                           id="ot17">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SalesRepOppoCreatedView1.hints.BestCaseRevenue.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.BudgetAmount.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.BudgetAmount.label}" id="c18">
+                            <af:outputText value="#{row.BudgetAmount}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.BudgetAmount.tooltip}"
+                                           id="ot18">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SalesRepOppoCreatedView1.hints.BudgetAmount.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.CloseDate.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.CloseDate.label}" id="c19">
+                            <af:outputText value="#{row.CloseDate}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.CloseDate.tooltip}"
+                                           id="ot19">
+                                <af:convertDateTime pattern="#{bindings.SalesRepOppoCreatedView1.hints.CloseDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.DecisionLevel.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.DecisionLevel.label}" id="c20">
+                            <af:outputText value="#{row.DecisionLevel}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.DecisionLevel.tooltip}"
+                                           id="ot20"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.EstimatedDuration.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.EstimatedDuration.label}"
+                                   id="c21">
+                            <af:outputText value="#{row.EstimatedDuration}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.EstimatedDuration.tooltip}"
+                                           id="ot21"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.IsBudgeted.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.IsBudgeted.label}" id="c22">
+                            <af:outputText value="#{row.IsBudgeted}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.IsBudgeted.tooltip}"
+                                           id="ot22"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.RevenueAmount.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.RevenueAmount.label}" id="c24">
+                            <af:outputText value="#{row.RevenueAmount}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.RevenueAmount.tooltip}"
+                                           id="ot24">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SalesRepOppoCreatedView1.hints.RevenueAmount.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.RevenueCurrency.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.RevenueCurrency.label}"
+                                   id="c25">
+                            <af:outputText value="#{row.RevenueCurrency}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.RevenueCurrency.tooltip}"
+                                           id="ot25"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.RiskLevel.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.RiskLevel.label}" id="c26">
+                            <af:outputText value="#{row.RiskLevel}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.RiskLevel.tooltip}"
+                                           id="ot26"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.SalesChannel.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.SalesChannel.label}" id="c27">
+                            <af:outputText value="#{row.SalesChannel}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.SalesChannel.tooltip}"
+                                           id="ot27"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.SalesMethod.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.SalesMethod.label}" id="c28">
+                            <af:outputText value="#{row.SalesMethod}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.SalesMethod.tooltip}"
+                                           id="ot28"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.SalesStage.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.SalesStage.label}" id="c29">
+                            <af:outputText value="#{row.SalesStage}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.SalesStage.tooltip}"
+                                           id="ot29"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.WinProbability.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.WinProbability.label}"
+                                   id="c30">
+                            <af:outputText value="#{row.WinProbability}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.WinProbability.tooltip}"
+                                           id="ot30">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SalesRepOppoCreatedView1.hints.WinProbability.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SalesRepOppoCreatedView1.hints.WorstCaseRevenue.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.SalesRepOppoCreatedView1.hints.WorstCaseRevenue.label}"
+                                   id="c31">
+                            <af:outputText value="#{row.WorstCaseRevenue}"
+                                           shortDesc="#{bindings.SalesRepOppoCreatedView1.hints.WorstCaseRevenue.tooltip}"
+                                           id="ot31">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SalesRepOppoCreatedView1.hints.WorstCaseRevenue.format}"/>
+                            </af:outputText>
+                        </af:column>
+                    </af:table>
+                </af:panelCollection>
+                <af:button text="Other Opportunities" id="b1" action="other"/>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

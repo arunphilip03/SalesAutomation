@@ -44,6 +44,12 @@
     <view id="Opportunity-team">
       <page>/Opportunity-team.jsff</page>
     </view>
+    <task-flow-call id="Opportunity-attachments-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/Opportunity-attachments-tf.xml</document>
+        <id>Opportunity-attachments-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
     <control-flow-rule id="__3">
       <from-activity-id>opportunity-all-main</from-activity-id>
       <control-flow-case id="__4">
@@ -88,6 +94,10 @@
       <control-flow-case id="__19">
         <from-outcome>team</from-outcome>
         <to-activity-id>Opportunity-team</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__22">
+        <from-outcome>attachment</from-outcome>
+        <to-activity-id>Opportunity-attachments-tf</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">

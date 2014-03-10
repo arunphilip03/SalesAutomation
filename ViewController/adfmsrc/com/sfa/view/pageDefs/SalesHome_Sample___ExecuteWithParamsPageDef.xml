@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="SalesHome_Sample___ExecuteWithParamsPageDef" Package="com.sfa.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SalesHomeOppoView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="SalesHomeOppoView1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SalesHomeOppoView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P1" NDValue="John" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

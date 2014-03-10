@@ -134,7 +134,6 @@ on  Appointments.CUST_ACCOUNT_ID =  Cust.CUST_ACCOUNT_ID]]></SQLQuery>
     AliasName="START_DATETIME"/>
   <ViewAttribute
     Name="OpportunityName"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="50"
@@ -155,7 +154,6 @@ on  Appointments.CUST_ACCOUNT_ID =  Cust.CUST_ACCOUNT_ID]]></SQLQuery>
   </ViewAttribute>
   <ViewAttribute
     Name="AccountName"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="100"

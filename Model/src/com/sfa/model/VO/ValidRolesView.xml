@@ -18,7 +18,8 @@
        Roles.ROLE_ID, 
        Roles.ROLE_NAME"
   FromList="ROLES Roles"
-  Where="Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE &lt;= SYSDATE"
+  Where="Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE &lt;= SYSDATE and Roles.ROLE_ID not in 
+(select ra.ROLE_ID from ROLE_ASSIGNMENT ra where ra.USER_ID = :UserId)"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full">
@@ -28,6 +29,10 @@
         ResId="com.sfa.model.VO.ValidRolesView_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="UserId"
+    Kind="where"
+    Type="java.math.BigDecimal"/>
   <EntityUsage
     Name="Roles"
     Entity="com.sfa.model.entity.Roles"/>

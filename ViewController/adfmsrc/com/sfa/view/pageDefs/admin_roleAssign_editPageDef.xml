@@ -20,7 +20,6 @@
         <Item Value="EffecEndDate"/>
       </AttrNames>
     </attributeValues>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
   </bindings>
 </pageDefinition>

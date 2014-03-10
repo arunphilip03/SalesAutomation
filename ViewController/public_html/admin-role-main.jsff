@@ -6,7 +6,7 @@
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
                 <af:panelGroupLayout layout="vertical" id="pgl2">
-                    <af:panelHeader text=" " id="ph1">
+                    <af:panelHeader text=" Roles" id="ph1">
                         <af:query id="qryId1" headerText="Search" disclosed="true"
                                   value="#{bindings.RolesViewSearchQuery.queryDescriptor}"
                                   model="#{bindings.RolesViewSearchQuery.queryModel}"

@@ -22,88 +22,84 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelWindow id="pw1">
-                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="83">
-                        <f:facet name="first">
-                            <af:panelFormLayout id="pfl1" rows="3">
-                                <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
-                                              required="#{bindings.Name.hints.mandatory}"
-                                              columns="#{bindings.Name.hints.displayWidth}"
-                                              maximumLength="#{bindings.Name.hints.precision}"
-                                              shortDesc="#{bindings.Name.hints.tooltip}" id="it1">
-                                    <f:validator binding="#{bindings.Name.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.Description.inputValue}"
-                                              label="#{bindings.Description.hints.label}"
-                                              required="#{bindings.Description.hints.mandatory}"
-                                              columns="#{bindings.Description.hints.displayWidth}"
-                                              maximumLength="#{bindings.Description.hints.precision}"
-                                              shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
-                                    <f:validator binding="#{bindings.Description.validator}"/>
-                                </af:inputText>
-                                <af:inputDate value="#{bindings.StartDatetime.inputValue}"
-                                              label="#{bindings.StartDatetime.hints.label}"
-                                              required="#{bindings.StartDatetime.hints.mandatory}"
-                                              columns="#{bindings.StartDatetime.hints.displayWidth}"
-                                              shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1">
-                                    <f:validator binding="#{bindings.StartDatetime.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
-                                </af:inputDate>
-                                <af:inputDate value="#{bindings.EndDatetime.inputValue}"
-                                              label="#{bindings.EndDatetime.hints.label}"
-                                              required="#{bindings.EndDatetime.hints.mandatory}"
-                                              columns="#{bindings.EndDatetime.hints.displayWidth}"
-                                              shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2">
-                                    <f:validator binding="#{bindings.EndDatetime.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
-                                </af:inputDate>
-                                <af:inputText value="#{bindings.Location.inputValue}"
-                                              label="#{bindings.Location.hints.label}"
-                                              required="#{bindings.Location.hints.mandatory}"
-                                              columns="#{bindings.Location.hints.displayWidth}"
-                                              maximumLength="#{bindings.Location.hints.precision}"
-                                              shortDesc="#{bindings.Location.hints.tooltip}" id="it3">
-                                    <f:validator binding="#{bindings.Location.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.AppointmentId.inputValue}"
-                                              label="#{bindings.AppointmentId.hints.label}"
-                                              required="#{bindings.AppointmentId.hints.mandatory}"
-                                              columns="#{bindings.AppointmentId.hints.displayWidth}"
-                                              maximumLength="#{bindings.AppointmentId.hints.precision}"
-                                              shortDesc="#{bindings.AppointmentId.hints.tooltip}" id="it4"
-                                              visible="false">
-                                    <f:validator binding="#{bindings.AppointmentId.validator}"/>
-                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.AppointmentId.format}"/>
-                                </af:inputText>
-                            </af:panelFormLayout>
-                        </f:facet>
-                        <f:facet name="second">
-                            <af:panelTabbed id="pt1">
-                                <af:showDetailItem text="Appointment Invitees" id="sdi1">
-                                    <af:panelSplitter id="ps2" splitterPosition="686">
-                                        <f:facet name="first">
-                                            <af:selectManyShuttle label="Users" value="#{OppoAppnmntSC.selectedUsers}"
-                                                                  valueChangeListener="#{OppoAppnmntSC.onUserChange}"
-                                                                  id="sms1" autoSubmit="true"
-                                                                  binding="#{OppoAppnmntSC.selectManyShuttleComponentU}">
-                                                <f:selectItems value="#{OppoAppnmntSC.allUsers}" id="si1"/>
-                                            </af:selectManyShuttle>
-                                        </f:facet>
-                                        <f:facet name="second">
-                                            <af:selectManyShuttle label="Contacts"
-                                                                  value="#{OppoAppnmntSC.selectedContacts}" id="sms2"
-                                                                  autoSubmit="true"
-                                                                  valueChangeListener="#{OppoAppnmntSC.onContactChange}"
-                                                                  binding="#{OppoAppnmntSC.selectManyShuttleComponentC}">
-                                                <f:selectItems value="#{OppoAppnmntSC.allContacts}" id="si2"/>
-                                            </af:selectManyShuttle>
-                                        </f:facet>
-                                    </af:panelSplitter>
-                                </af:showDetailItem>
-                            </af:panelTabbed>
-                        </f:facet>
-                    </af:panelSplitter>
-                </af:panelWindow>
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="83">
+                    <f:facet name="first">
+                        <af:panelFormLayout id="pfl1" rows="3">
+                            <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                                          required="#{bindings.Name.hints.mandatory}"
+                                          columns="#{bindings.Name.hints.displayWidth}"
+                                          maximumLength="#{bindings.Name.hints.precision}"
+                                          shortDesc="#{bindings.Name.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.Name.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Description.inputValue}"
+                                          label="#{bindings.Description.hints.label}"
+                                          required="#{bindings.Description.hints.mandatory}"
+                                          columns="#{bindings.Description.hints.displayWidth}"
+                                          maximumLength="#{bindings.Description.hints.precision}"
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.Description.validator}"/>
+                            </af:inputText>
+                            <af:inputDate value="#{bindings.StartDatetime.inputValue}"
+                                          label="#{bindings.StartDatetime.hints.label}"
+                                          required="#{bindings.StartDatetime.hints.mandatory}"
+                                          columns="#{bindings.StartDatetime.hints.displayWidth}"
+                                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1">
+                                <f:validator binding="#{bindings.StartDatetime.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
+                            </af:inputDate>
+                            <af:inputDate value="#{bindings.EndDatetime.inputValue}"
+                                          label="#{bindings.EndDatetime.hints.label}"
+                                          required="#{bindings.EndDatetime.hints.mandatory}"
+                                          columns="#{bindings.EndDatetime.hints.displayWidth}"
+                                          shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2">
+                                <f:validator binding="#{bindings.EndDatetime.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
+                            </af:inputDate>
+                            <af:inputText value="#{bindings.Location.inputValue}"
+                                          label="#{bindings.Location.hints.label}"
+                                          required="#{bindings.Location.hints.mandatory}"
+                                          columns="#{bindings.Location.hints.displayWidth}"
+                                          maximumLength="#{bindings.Location.hints.precision}"
+                                          shortDesc="#{bindings.Location.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.Location.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.AppointmentId.inputValue}"
+                                          label="#{bindings.AppointmentId.hints.label}"
+                                          required="#{bindings.AppointmentId.hints.mandatory}"
+                                          columns="#{bindings.AppointmentId.hints.displayWidth}"
+                                          maximumLength="#{bindings.AppointmentId.hints.precision}"
+                                          shortDesc="#{bindings.AppointmentId.hints.tooltip}" id="it4" visible="false">
+                                <f:validator binding="#{bindings.AppointmentId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.AppointmentId.format}"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelTabbed id="pt1">
+                            <af:showDetailItem text="Appointment Invitees" id="sdi1">
+                                <af:panelSplitter id="ps2" splitterPosition="686">
+                                    <f:facet name="first">
+                                        <af:selectManyShuttle label="Users" value="#{OppoAppnmntSC.selectedUsers}"
+                                                              valueChangeListener="#{OppoAppnmntSC.onUserChange}"
+                                                              id="sms1" autoSubmit="true"
+                                                              binding="#{OppoAppnmntSC.selectManyShuttleComponentU}">
+                                            <f:selectItems value="#{OppoAppnmntSC.allUsers}" id="si1"/>
+                                        </af:selectManyShuttle>
+                                    </f:facet>
+                                    <f:facet name="second">
+                                        <af:selectManyShuttle label="Contacts" value="#{OppoAppnmntSC.selectedContacts}"
+                                                              id="sms2" autoSubmit="true"
+                                                              valueChangeListener="#{OppoAppnmntSC.onContactChange}"
+                                                              binding="#{OppoAppnmntSC.selectManyShuttleComponentC}">
+                                            <f:selectItems value="#{OppoAppnmntSC.allContacts}" id="si2"/>
+                                        </af:selectManyShuttle>
+                                    </f:facet>
+                                </af:panelSplitter>
+                            </af:showDetailItem>
+                        </af:panelTabbed>
+                    </f:facet>
+                </af:panelSplitter>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

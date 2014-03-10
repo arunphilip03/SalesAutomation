@@ -30,7 +30,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ROLES">
+    TableName="ROLES"
+    IsUnique="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
@@ -63,6 +64,12 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="ROLES">
+    <validation:PreDefinedValidationBean
+      Name="EffecEndDateMandatory0"
+      ResId="com.sfa.model.entity.Roles.EffecEndDate_Rule_1"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
     <validation:CompareValidationBean
       Name="EffecEndDateRule0"
       ResId="com.sfa.model.entity.Roles.EffecEndDate_Rule_0"
@@ -155,6 +162,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="ROLES_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <ResourceBundle>
     <PropertiesBundle

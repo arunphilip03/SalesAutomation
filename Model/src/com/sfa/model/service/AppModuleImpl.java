@@ -1,5 +1,9 @@
 package com.sfa.model.service;
 
+import com.sfa.model.service.common.AppModule;
+
+import oracle.jbo.Row;
+import oracle.jbo.domain.BlobDomain;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
 import oracle.jbo.server.ViewObjectImpl;
@@ -9,7 +13,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class AppModuleImpl extends ApplicationModuleImpl {
+public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     /**
      * This is the default constructor (do not remove).
      */
@@ -1032,6 +1036,21 @@ public class AppModuleImpl extends ApplicationModuleImpl {
         return (ViewLinkImpl) findViewLink("OpportunityTaskTeamViewLink1");
     }
 
+    public void uploadFiletoDB(String fileName, String contentType, BlobDomain blob) {
+        System.out.println("am");
+        ViewObjectImpl vo = this.getOpportunityAttachmentsView2();
+        try {
+            Row row = vo.createRow();
+            row.setAttribute("DocumentName", fileName);
+            row.setAttribute("DocumentType", contentType);
+            row.setAttribute("Document", blob);
+            vo.insertRow(row);
+            this.getDBTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Container's getter for ContactAppointmentsVL1.
      * @return ContactAppointmentsVL1
@@ -1039,6 +1058,24 @@ public class AppModuleImpl extends ApplicationModuleImpl {
     public ViewLinkImpl getContactAppointmentsVL1() {
         return (ViewLinkImpl) findViewLink("ContactAppointmentsVL1");
     }
+
+
+    /**
+     * Container's getter for SalesHomeOppoView1.
+     * @return SalesHomeOppoView1
+     */
+    public ViewObjectImpl getSalesHomeOppoView1() {
+        return (ViewObjectImpl) findViewObject("SalesHomeOppoView1");
+    }
+
+    /**
+     * Container's getter for SalesRepOppoCreatedView1.
+     * @return SalesRepOppoCreatedView1
+     */
+    public ViewObjectImpl getSalesRepOppoCreatedView1() {
+        return (ViewObjectImpl) findViewObject("SalesRepOppoCreatedView1");
+    }
+
 
     /**
      * Container's getter for ContactOpportunitiesVL1.

@@ -4,7 +4,7 @@
     <af:panelGridLayout id="pgl1">
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
-                <af:panelHeader text="Interaction for the Opportunity" id="ph1" inlineStyle="height:39px;"
+                <af:panelHeader text="Interaction for  Opportunity #{bindings.OpportunityName}" id="ph1" inlineStyle="height:39px;"
                                 styleClass="AFStretchWidth">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
@@ -17,140 +17,135 @@
                     <f:facet name="info"/>
                 </af:panelHeader>
                 <!-- Content -->
-                <af:panelWindow id="pw2" visible="false">
-                    <af:panelFormLayout id="pfl1" rows="1">
-                        <af:inputText value="#{bindings.OpportunityName.inputValue}"
-                                      label="#{bindings.OpportunityName.hints.label}"
-                                      required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
-                                      columns="#{bindings.OpportunityName.hints.displayWidth}"
-                                      maximumLength="#{bindings.OpportunityName.hints.precision}"
-                                      shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it1" disabled="true">
-                            <f:validator binding="#{bindings.OpportunityName.validator}"/>
-                        </af:inputText>
-                        <af:inputComboboxListOfValues id="accountNameId"
-                                                      popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
-                                                      value="#{bindings.AccountName.inputValue}"
-                                                      label="#{bindings.AccountName.hints.label}"
-                                                      model="#{bindings.AccountName.listOfValuesModel}"
-                                                      required="#{bindings.AccountName.hints.mandatory}"
-                                                      columns="#{bindings.AccountName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.AccountName.hints.tooltip}"
-                                                      autoSubmit="true" disabled="true">
-                            <f:validator binding="#{bindings.AccountName.validator}"/>
-                        </af:inputComboboxListOfValues>
-                    </af:panelFormLayout>
-                </af:panelWindow>
-                <af:panelWindow id="pw1">
-                    <af:panelSplitter id="ps1" orientation="vertical">
-                        <f:facet name="first">
-                            <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">
-                                <af:panelHeader text="ContactInteractions" id="ph2">
-                                    <af:query id="qryId1" headerText="Search" disclosed="true"
-                                              value="#{bindings.ContactInteractionsViewSearchQuery.queryDescriptor}"
-                                              model="#{bindings.ContactInteractionsViewSearchQuery.queryModel}"
-                                              queryListener="#{bindings.ContactInteractionsViewSearchQuery.processQuery}"
-                                              queryOperationListener="#{bindings.ContactInteractionsViewSearchQuery.processQueryOperation}"/>
-                                </af:panelHeader>
-                            </af:panelGroupLayout>
-                        </f:facet>
-                        <f:facet name="second">
-                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                <f:facet name="menus"/>
-                                <f:facet name="toolbar">
-                                    <af:toolbar id="t3">
-                                        <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                                 actionListener="#{bindings.Create.execute}" action="create"/>
-                                        <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"/>
-                                        <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
-                                            <af:dialog id="d1"
-                                                       title="Are you sure you want to delete the Selected Interaction?"
-                                                       dialogListener="#{ConfirmBean.dialogListener}">
-                                                <f:facet name="buttonBar"/>
-                                            </af:dialog>
-                                        </af:popup>
-                                        <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
-                                            <af:showPopupBehavior popupId="deletep" triggerType="click"
-                                                                  align="overlap"/>
-                                        </af:link>
-                                        <af:button text="Details" id="b2" action="edit"/>
-                                    </af:toolbar>
-                                </f:facet>
-                                <f:facet name="statusbar"/>
-                                <af:table value="#{bindings.ContactInteractionsView2.collectionModel}" var="row"
-                                          rows="#{bindings.ContactInteractionsView2.rangeSize}"
-                                          emptyText="#{bindings.ContactInteractionsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
-                                          selectedRowKeys="#{bindings.ContactInteractionsView2.collectionModel.selectedRow}"
-                                          selectionListener="#{bindings.ContactInteractionsView2.collectionModel.makeCurrent}"
-                                          rowSelection="single"
-                                          fetchSize="#{bindings.ContactInteractionsView2.rangeSize}" id="t1"
-                                          styleClass="AFStretchWidth" columnStretching="last"
-                                          partialTriggers="::l1 ::l3">
-                                    <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.OpportunityName.name}"
-                                               sortable="true"
-                                               headerText="#{bindings.ContactInteractionsView2.hints.OpportunityName.label}"
-                                               id="c1" width="135">
-                                        <af:outputText value="#{row.OpportunityName}"
-                                                       shortDesc="#{bindings.ContactInteractionsView2.hints.OpportunityName.tooltip}"
-                                                       id="ot1"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Type.name}"
-                                               sortable="true"
-                                               headerText="#{bindings.ContactInteractionsView2.hints.Type.label}"
-                                               id="c2" width="124">
-                                        <af:outputText value="#{row.Type}"
-                                                       shortDesc="#{bindings.ContactInteractionsView2.hints.Type.tooltip}"
-                                                       id="ot2"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Direction.name}"
-                                               sortable="true"
-                                               headerText="#{bindings.ContactInteractionsView2.hints.Direction.label}"
-                                               id="c3" width="156">
-                                        <af:outputText value="#{row.Direction}"
-                                                       shortDesc="#{bindings.ContactInteractionsView2.hints.Direction.tooltip}"
-                                                       id="ot3"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.StartDatetime.name}"
-                                               sortable="true"
-                                               headerText="#{bindings.ContactInteractionsView2.hints.StartDatetime.label}"
-                                               id="c4" width="144">
-                                        <af:outputText value="#{row.StartDatetime}"
-                                                       shortDesc="#{bindings.ContactInteractionsView2.hints.StartDatetime.tooltip}"
-                                                       id="ot4">
-                                            <af:convertDateTime pattern="#{bindings.ContactInteractionsView2.hints.StartDatetime.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.EndDatetime.name}"
-                                               sortable="true"
-                                               headerText="#{bindings.ContactInteractionsView2.hints.EndDatetime.label}"
-                                               id="c5" width="196">
-                                        <af:outputText value="#{row.EndDatetime}"
-                                                       shortDesc="#{bindings.ContactInteractionsView2.hints.EndDatetime.tooltip}"
-                                                       id="ot5">
-                                            <af:convertDateTime pattern="#{bindings.ContactInteractionsView2.hints.EndDatetime.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Description.name}"
-                                               sortable="true"
-                                               headerText="#{bindings.ContactInteractionsView2.hints.Description.label}"
-                                               id="c6" width="267">
-                                        <af:outputText value="#{row.Description}"
-                                                       shortDesc="#{bindings.ContactInteractionsView2.hints.Description.tooltip}"
-                                                       id="ot6"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Resolution.name}"
-                                               sortable="true"
-                                               headerText="#{bindings.ContactInteractionsView2.hints.Resolution.label}"
-                                               id="c7" width="-322">
-                                        <af:outputText value="#{row.Resolution}"
-                                                       shortDesc="#{bindings.ContactInteractionsView2.hints.Resolution.tooltip}"
-                                                       id="ot7"/>
-                                    </af:column>
-                                </af:table>
-                            </af:panelCollection>
-                        </f:facet>
-                    </af:panelSplitter>
-                </af:panelWindow>
+                <af:panelFormLayout id="pfl1" rows="1">
+                    <af:inputText value="#{bindings.OpportunityName.inputValue}"
+                                  label="#{bindings.OpportunityName.hints.label}"
+                                  required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.OpportunityName.hints.displayWidth}"
+                                  maximumLength="#{bindings.OpportunityName.hints.precision}"
+                                  shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it1" disabled="true"
+                                  visible="false">
+                        <f:validator binding="#{bindings.OpportunityName.validator}"/>
+                    </af:inputText>
+                    <af:inputComboboxListOfValues id="accountNameId"
+                                                  popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                                                  value="#{bindings.AccountName.inputValue}"
+                                                  label="#{bindings.AccountName.hints.label}"
+                                                  model="#{bindings.AccountName.listOfValuesModel}"
+                                                  required="#{bindings.AccountName.hints.mandatory}"
+                                                  columns="#{bindings.AccountName.hints.displayWidth}"
+                                                  shortDesc="#{bindings.AccountName.hints.tooltip}" autoSubmit="true"
+                                                  disabled="true" visible="false">
+                        <f:validator binding="#{bindings.AccountName.validator}"/>
+                    </af:inputComboboxListOfValues>
+                </af:panelFormLayout>
+                <af:panelSplitter id="ps1" orientation="vertical">
+                    <f:facet name="first">
+                        <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">
+                            <af:panelHeader text="ContactInteractions" id="ph2">
+                                <af:query id="qryId1" headerText="Search" disclosed="true"
+                                          value="#{bindings.ContactInteractionsViewSearchQuery.queryDescriptor}"
+                                          model="#{bindings.ContactInteractionsViewSearchQuery.queryModel}"
+                                          queryListener="#{bindings.ContactInteractionsViewSearchQuery.processQuery}"
+                                          queryOperationListener="#{bindings.ContactInteractionsViewSearchQuery.processQueryOperation}"/>
+                            </af:panelHeader>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t3">
+                                    <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                             actionListener="#{bindings.Create.execute}" action="create"/>
+                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"/>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
+                                        <af:dialog id="d1"
+                                                   title="Are you sure you want to delete the Selected Interaction?"
+                                                   dialogListener="#{ConfirmBean.dialogListener}">
+                                            <f:facet name="buttonBar"/>
+                                        </af:dialog>
+                                    </af:popup>
+                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
+                                        <af:showPopupBehavior popupId="deletep" triggerType="click" align="overlap"/>
+                                    </af:link>
+                                    <af:button text="Details" id="b2" action="edit"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.ContactInteractionsView2.collectionModel}" var="row"
+                                      rows="#{bindings.ContactInteractionsView2.rangeSize}"
+                                      emptyText="#{bindings.ContactInteractionsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.ContactInteractionsView2.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.ContactInteractionsView2.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.ContactInteractionsView2.rangeSize}"
+                                      id="t1" styleClass="AFStretchWidth" columnStretching="last"
+                                      partialTriggers="::l1 ::l3">
+                                <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.OpportunityName.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactInteractionsView2.hints.OpportunityName.label}"
+                                           id="c1" width="135">
+                                    <af:outputText value="#{row.OpportunityName}"
+                                                   shortDesc="#{bindings.ContactInteractionsView2.hints.OpportunityName.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Type.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactInteractionsView2.hints.Type.label}" id="c2"
+                                           width="124">
+                                    <af:outputText value="#{row.Type}"
+                                                   shortDesc="#{bindings.ContactInteractionsView2.hints.Type.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Direction.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactInteractionsView2.hints.Direction.label}"
+                                           id="c3" width="156">
+                                    <af:outputText value="#{row.Direction}"
+                                                   shortDesc="#{bindings.ContactInteractionsView2.hints.Direction.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.StartDatetime.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactInteractionsView2.hints.StartDatetime.label}"
+                                           id="c4" width="144">
+                                    <af:outputText value="#{row.StartDatetime}"
+                                                   shortDesc="#{bindings.ContactInteractionsView2.hints.StartDatetime.tooltip}"
+                                                   id="ot4">
+                                        <af:convertDateTime pattern="#{bindings.ContactInteractionsView2.hints.StartDatetime.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.EndDatetime.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactInteractionsView2.hints.EndDatetime.label}"
+                                           id="c5" width="196">
+                                    <af:outputText value="#{row.EndDatetime}"
+                                                   shortDesc="#{bindings.ContactInteractionsView2.hints.EndDatetime.tooltip}"
+                                                   id="ot5">
+                                        <af:convertDateTime pattern="#{bindings.ContactInteractionsView2.hints.EndDatetime.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Description.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactInteractionsView2.hints.Description.label}"
+                                           id="c6" width="267">
+                                    <af:outputText value="#{row.Description}"
+                                                   shortDesc="#{bindings.ContactInteractionsView2.hints.Description.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Resolution.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactInteractionsView2.hints.Resolution.label}"
+                                           id="c7" width="-322">
+                                    <af:outputText value="#{row.Resolution}"
+                                                   shortDesc="#{bindings.ContactInteractionsView2.hints.Resolution.tooltip}"
+                                                   id="ot7"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </f:facet>
+                </af:panelSplitter>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

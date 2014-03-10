@@ -44,6 +44,17 @@ public class InviteeBean {
     private List allUsers;
     private List selectedUsers;
     private boolean refreshIterator = false;
+    
+    private BigDecimal user;
+
+
+    public void setUser(BigDecimal user) {
+        this.user = user;
+    }
+
+    public BigDecimal getUser() {
+        return user;
+    }
 
     /**
      * Setter method for Bindings

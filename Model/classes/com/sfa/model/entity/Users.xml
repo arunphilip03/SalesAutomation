@@ -129,6 +129,12 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="USERS">
+    <validation:PreDefinedValidationBean
+      Name="EffecEndDateMandatory0"
+      ResId="com.sfa.model.entity.Users.EffecEndDate_Rule_1"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
     <validation:CompareValidationBean
       Name="EffecEndDateRule0"
       ResId="com.sfa.model.entity.Users.EffecEndDate_Rule_0"
@@ -263,6 +269,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="USER_ACCOUNTS_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="UserAccountsUk1">
@@ -270,6 +277,7 @@
       <Attr Name="_isUnique" Value="true"/>
       <Attr Name="_DBObjectName" Value="USER_ACCOUNTS_UK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="UsersUsernameUk1">
@@ -277,6 +285,7 @@
       <Attr Name="_isUnique" Value="true"/>
       <Attr Name="_DBObjectName" Value="USERS_USERNAME_UK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="UserAccountsFk1">
@@ -285,6 +294,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="USER_ACCOUNTS_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <ResourceBundle>
     <PropertiesBundle
