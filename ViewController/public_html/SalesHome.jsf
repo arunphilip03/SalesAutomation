@@ -24,7 +24,8 @@
                             <af:panelGroupLayout id="pgl1">
                                 <af:panelList id="pl1">
                                     <af:link text="Manage Accounts" id="l1"
-                                             actionListener="#{backingBeanScope.launcher.launchCustomerAccount}"/>
+                                             actionListener="#{backingBeanScope.launcher.launchCustomerAccount}"
+                                             inlineStyle="font-size:small;"/>
                                     <af:link text="Manage Contacts" id="l2"
                                              actionListener="#{backingBeanScope.launcher.launchContacts}"/>
                                     <af:link text="Manage Opportunities" id="l3"
@@ -56,7 +57,13 @@
                     </af:panelGroupLayout>-->
                 </f:facet>
                 <f:facet name="status"/>
-                <f:facet name="globalToolbar"/>
+                <f:facet name="globalToolbar">
+                    <af:toolbar id="t1">
+                        <af:link text="Home" id="l7" inlineStyle="font-size:small;"
+                                 actionListener="#{backingBeanScope.launcher.launchSalesHome}"
+                                 rendered="#{securityContext.userInRole['Sales Manager, Sales Representative']}"/>
+                    </af:toolbar>
+                </f:facet>
                 <f:facet name="globalSearch">
                     <af:panelGroupLayout id="g1" layout="horizontal">
                         <h:outputText value="#{'Welcome'} #{securityContext.userName}" id="ot1"
@@ -71,7 +78,10 @@
                     </af:panelGroupLayout>
                 </f:facet>
                 <f:facet name="globalTabs"/>
-                <f:facet name="welcome"/>
+                <f:facet name="welcome">
+                    <af:region value="#{bindings.SalesrepHometf1.regionModel}" id="r1"
+                               rendered="#{securityContext.userInRole['Sales Manager, Sales Representative']}"/>
+                </f:facet>
                 <f:facet name="innerToolbar"/>
                 <f:attribute name="brandingTitle" value="Sales Force Automation"/>
             </af:pageTemplate>

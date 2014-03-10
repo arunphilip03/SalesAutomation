@@ -6,6 +6,10 @@
     <variableIterator id="variables"/>
     <iterator Binds="SalesRepOppoCreatedView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="SalesRepOppoCreatedView1Iterator"/>
+    <iterator Binds="SalesHomeOppoView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="SalesHomeOppoView1Iterator"/>
+    <searchRegion Binds="SalesHomeOppoView1Iterator" Criteria="SalesHomeOppoViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SalesHomeOppoView1Query"/>
   </executables>
   <bindings>
     <tree IterBinding="SalesRepOppoCreatedView1Iterator" id="SalesRepOppoCreatedView1">
@@ -29,5 +33,35 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <tree IterBinding="SalesHomeOppoView1Iterator" id="SalesHomeOppoView1">
+      <nodeDefinition DefName="com.sfa.model.VO.SalesHomeOppoView" Name="SalesHomeOppoView10">
+        <AttrNames>
+          <Item Value="BestCaseRevenue"/>
+          <Item Value="BudgetAmount"/>
+          <Item Value="CloseDate"/>
+          <Item Value="CustAccountId"/>
+          <Item Value="DecisionLevel"/>
+          <Item Value="EstimatedDuration"/>
+          <Item Value="IsBudgeted"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="OpportunityName"/>
+          <Item Value="OppurtunityId"/>
+          <Item Value="PrimaryContactId"/>
+          <Item Value="RevenueAmount"/>
+          <Item Value="RevenueCurrency"/>
+          <Item Value="RiskLevel"/>
+          <Item Value="SalesChannel"/>
+          <Item Value="SalesMethod"/>
+          <Item Value="SalesStage"/>
+          <Item Value="WinProbability"/>
+          <Item Value="WorstCaseRevenue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SalesHomeOppoView1Iterator" id="ExecuteWithParams"
+            InstanceName="AppModuleDataControl.SalesHomeOppoView1" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="UserName" NDValue="#{securityContext.userName}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

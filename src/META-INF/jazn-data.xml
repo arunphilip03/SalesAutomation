@@ -288,6 +288,16 @@
                 <name>/WEB-INF/Admin-delete-confirm-tf.xml#Admin-delete-confirm-tf</name>
                 <actions>customize,personalize,view</actions>
               </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/Opportunity-attachments-tf.xml#Opportunity-attachments-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
             </permissions>
           </grant>
         </jazn-policy>

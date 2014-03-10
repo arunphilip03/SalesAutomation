@@ -22,23 +22,33 @@ public class Launcher {
 
         _launchActivity("A New Activity", "/WEB-INF/flows/new.xml#new", true);
     }
-    
-    
+
+
+    public void launchSalesHome(ActionEvent actionEvent) {
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+        }
+    }
+
+
     public void launchCustomerAccount(ActionEvent actionEvent) {
         TabContext tabContext = TabContext.getCurrentInstance();
         try {
             tabContext.setMainContent("/WEB-INF/customer-taskflow.xml#customer-account");
         } catch (TabContext.TabContentAreaDirtyException toe) {
             // TODO: warn user TabContext api needed for this use case.
+        }
     }
-    }
-    
+
 
     //    public void launchCustomerAccount(ActionEvent actionEvent) {
     //        _launchActivity("Manage Accounts", "/WEB-INF/customer-taskflow.xml#customer-account", false);
     //    }
-    
-    
+
+
     public void launchContacts(ActionEvent actionEvent) {
         TabContext tabContext = TabContext.getCurrentInstance();
         try {
@@ -47,8 +57,8 @@ public class Launcher {
             // TODO: warn user TabContext api needed for this use case.
         }
     }
-    
-    
+
+
     public void launchOpportunity(ActionEvent actionEvent) {
         TabContext tabContext = TabContext.getCurrentInstance();
         try {
@@ -57,31 +67,30 @@ public class Launcher {
             // TODO: warn user TabContext api needed for this use case.
         }
     }
-    
-    
-//    public void launchOpportunity(ActionEvent actionEvent) {
-//        _launchActivity("Opportunity", "/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf", false);
-//    }
-
-//    public void launchContacts(ActionEvent actionEvent) {
-//        _launchActivity("Manage Contacts", "/WEB-INF/contacts-taskflow.xml#contacts-taskflow", false);
-//    }
 
 
-//    public void launchRoles(ActionEvent actionEvent) {
-//        _launchActivity("Roles", "/WEB-INF/admin-role-tf.xml#admin-role-task", false);
-//    }
-//    
-//    public void launchUsers(ActionEvent actionEvent) {
-//        _launchActivity("Users", "/WEB-INF/admin-user-tf.xml#admin-user-tf", false);
-//    }
-//
-//    public void launchProducts(ActionEvent actionEvent) {
-//        _launchActivity("Products", "/WEB-INF/admin-product-tf.xml#admin-product-tf", false);
-//    }
-    
-    
-    
+    //    public void launchOpportunity(ActionEvent actionEvent) {
+    //        _launchActivity("Opportunity", "/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf", false);
+    //    }
+
+    //    public void launchContacts(ActionEvent actionEvent) {
+    //        _launchActivity("Manage Contacts", "/WEB-INF/contacts-taskflow.xml#contacts-taskflow", false);
+    //    }
+
+
+    //    public void launchRoles(ActionEvent actionEvent) {
+    //        _launchActivity("Roles", "/WEB-INF/admin-role-tf.xml#admin-role-task", false);
+    //    }
+    //
+    //    public void launchUsers(ActionEvent actionEvent) {
+    //        _launchActivity("Users", "/WEB-INF/admin-user-tf.xml#admin-user-tf", false);
+    //    }
+    //
+    //    public void launchProducts(ActionEvent actionEvent) {
+    //        _launchActivity("Products", "/WEB-INF/admin-product-tf.xml#admin-product-tf", false);
+    //    }
+
+
     public void launchRoles(ActionEvent actionEvent) {
         TabContext tabContext = TabContext.getCurrentInstance();
         try {
@@ -90,8 +99,8 @@ public class Launcher {
             // TODO: warn user TabContext api needed for this use case.
         }
     }
-    
-    
+
+
     public void launchUsers(ActionEvent actionEvent) {
         TabContext tabContext = TabContext.getCurrentInstance();
         try {
@@ -100,8 +109,8 @@ public class Launcher {
             // TODO: warn user TabContext api needed for this use case.
         }
     }
-    
-    
+
+
     public void launchProducts(ActionEvent actionEvent) {
         TabContext tabContext = TabContext.getCurrentInstance();
         try {
@@ -111,7 +120,6 @@ public class Launcher {
         }
     }
 
-    
 
     public void launchFirstActivity(ActionEvent actionEvent) {
         /**

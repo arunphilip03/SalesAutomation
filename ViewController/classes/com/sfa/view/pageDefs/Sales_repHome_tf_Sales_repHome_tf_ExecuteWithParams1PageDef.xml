@@ -10,7 +10,7 @@
   <bindings>
     <action IterBinding="SalesHomeOppoView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
-      <NamedData NDName="UserName" NDValue="John" NDType="java.lang.String"/>
+      <NamedData NDName="UserName" NDValue="#{securityContext.userName}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

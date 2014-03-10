@@ -105,7 +105,14 @@ where Oppoteam.User_id = (select users.user_id from USERS users where users.USER
     PrecisionRule="true"
     EntityAttrName="OpportunityName"
     EntityUsage="Opportunities"
-    AliasName="OPPORTUNITY_NAME"/>
+    AliasName="OPPORTUNITY_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OppurtunityId"
     IsNotNull="true"

@@ -5,12 +5,12 @@
   <parameters/>
   <executables>
     <iterator Binds="SalesRepOppoCreatedView1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="SalesRepOppoCreatedView1Iterator" Refresh="never"/>
+              id="SalesRepOppoCreatedView1Iterator"/>
   </executables>
   <bindings>
     <action IterBinding="SalesRepOppoCreatedView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
-      <NamedData NDName="UserName" NDValue="John" NDType="java.lang.String"/>
+      <NamedData NDName="UserName" NDValue="#{securityContext.userName}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

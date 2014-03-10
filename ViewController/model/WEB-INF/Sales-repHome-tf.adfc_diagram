@@ -15,62 +15,12 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">212.0918</property>
+         name="y">287.39062</property>
       <property
-         name="x">336.0</property>
+         name="x">620.0</property>
       <property
          name="pageFragment">true</property>
    </View>
-   <View
-      id="View9">
-      <property
-         name="activityId">SalesRep-other</property>
-      <property
-         name="page">/SalesRep-other.jsff</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>SalesRep-other&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">323.59766</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">528.0</property>
-   </View>
-   <MethodCall
-      id="MethodCall11">
-      <property
-         name="activityId">ExecuteWithParams1</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">215.44824</property>
-      <property
-         name="x">741.6885</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase13"
-      from="MethodCall11"
-      to="View9">
-      <property
-         name="fromOutcome">ExecuteWithParams</property>
-      <property
-         name="sdm:polyPoints">L54,700.6885,218.59766,569.0,323.24707,R50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase16"
-      from="View3"
-      to="MethodCall11">
-      <property
-         name="fromOutcome">other</property>
-      <property
-         name="sdm:polyPoints">R50,377.0,211.74121,699.4664,211.59766,L46</property>
-   </ControlFlowCase>
    <MethodCall
       id="MethodCall17">
       <property
@@ -82,9 +32,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">208.44824</property>
+         name="y">216.74707</property>
       <property
-         name="x">79.35156</property>
+         name="x">429.35156</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -94,16 +44,6 @@
       <property
          name="fromOutcome">ExecuteWithParams</property>
       <property
-         name="sdm:polyPoints">R50,120.35156,208.09766,295.0,211.74121,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="View9"
-      to="View3">
-      <property
-         name="fromOutcome">back</property>
-      <property
-         name="sdm:polyPoints">L50,487.0,323.24707,377.0,215.24121,R54</property>
+         name="sdm:polyPoints">R50,471.47623,216.39648,577.87537,287.04004,L50</property>
    </ControlFlowCase>
 </SDM>

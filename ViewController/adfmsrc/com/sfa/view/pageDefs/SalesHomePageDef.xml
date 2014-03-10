@@ -5,6 +5,8 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="oracle.ui.pattern.dynamicShell.model.dynamicTabShellDefinition" id="ptb1" Refresh="ifNeeded"/>
+    <taskFlow id="SalesrepHometf1" taskFlowId="/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>
