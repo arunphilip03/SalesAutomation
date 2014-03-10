@@ -11,14 +11,16 @@
             <f:facet name="toolbar">
                 <af:toolbar id="t1">
                     <af:button text="Save" id="b1" action="save"/>
-                    <af:button text="Save and Close" id="b2" action="saveAndClose"/>
-                    <af:button text="Cancel" id="b3" immediate="true" action="cancel"/>
+                    <af:button text="Save and Close" id="b2" action="saveAndClose"
+                               actionListener="#{bindings.Commit.execute}"/>
+                    <af:button text="Cancel" id="b3" immediate="true" action="cancel"
+                               actionListener="#{bindings.Rollback.execute}"/>
                 </af:toolbar>
             </f:facet>
             <f:facet name="legend"/>
             <f:facet name="info"/>
             <af:spacer width="10" height="10" id="s2"/>
-            <af:panelFormLayout id="pfl1" rows="3">
+            <af:panelFormLayout id="pfl1" rows="3" fieldWidth="350px" labelWidth="75px" styleClass="AFStretchWidth">
                 <af:inputText value="#{bindings.AccountName.inputValue}" label="#{bindings.AccountName.hints.label}"
                               required="#{bindings.AccountName.hints.mandatory}"
                               columns="#{bindings.AccountName.hints.displayWidth}"

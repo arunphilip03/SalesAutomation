@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="NOTES"
   AliasName="Notes"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="NotesId"
     IsNotNull="true"
@@ -28,7 +29,17 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="NOTES"/>
+    TableName="NOTES">
+    <TransientExpression><![CDATA[adf.currentDateTime]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.Notes.NoteDatetime_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sfa.model.entity.Notes.NoteDatetime_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="NotesText"
     Precision="500"
@@ -139,4 +150,8 @@
     </DesignTime>
     <AttrArray Name="Attributes"/>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

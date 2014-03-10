@@ -22,12 +22,13 @@
     Name="ACCOUNTID"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,   
-       CustomerContacts.CONTACT_ID,   
-       CustomerContacts.OBJECT_VERSION_NUMBER,   
-       CustomerContacts.EMAIL  
-FROM  CUSTOMER_CONTACTS CustomerContacts  
-WHERE CustomerContacts.CUST_ACCOUNT_ID =:ACCOUNTID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,     
+       CustomerContacts.CONTACT_ID,     
+       CustomerContacts.OBJECT_VERSION_NUMBER,     
+       CustomerContacts.EMAIL    
+FROM  CUSTOMER_CONTACTS CustomerContacts    
+WHERE CustomerContacts.CUST_ACCOUNT_ID =:ACCOUNTID  
+AND CustomerContacts.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="CustomerContacts"
     Entity="com.sfa.model.entity.CustomerContacts"

@@ -10,7 +10,8 @@
   DBObjectName="CUSTOMER_ACCOUNT"
   AliasName="CustomerAccount"
   BindingStyle="OracleName"
-  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="CustAccountId"
     IsNotNull="true"
@@ -44,6 +45,18 @@
           Value="25"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="AccountNameMandatory0"
+      ResId="com.sfa.model.entity.CustomerAccount.AccountName_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+    <validation:RegExpValidationBean
+      Name="AccountNameRule0"
+      ResId="com.sfa.model.entity.CustomerAccount.AccountName_Rule_1"
+      OnAttribute="AccountName"
+      Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+      Inverse="true"/>
   </Attribute>
   <Attribute
     Name="Address"
@@ -102,7 +115,7 @@
       Name="URLFormat"
       ResId="com.sfa.model.entity.CustomerAccount.AccountUrl_Rule_0"
       OnAttribute="AccountUrl"
-      Pattern="(?&lt;http>(https?:[/][/]|www.)([a-z]|[A-Z]|[0-9]|[/.]|[~])*)"
+      Pattern="^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$"
       Inverse="false"
       Flags="CaseInsensitive"/>
   </Attribute>
@@ -156,6 +169,12 @@
           Value="10"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:RegExpValidationBean
+      Name="NoEmployeesRule0"
+      ResId="com.sfa.model.entity.CustomerAccount.NoEmployees_Rule_0"
+      OnAttribute="NoEmployees"
+      Pattern="^[0-9]+$"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -244,6 +263,19 @@
     HistoryColumn="VersionHistory"
     ChangeIndicator="true"
     IsQueriable="false"/>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_ACCOUNT"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Appointments"
     Association="com.sfa.model.association.AppointmentsFk1Assoc"

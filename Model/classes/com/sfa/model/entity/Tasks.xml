@@ -10,7 +10,8 @@
     DBObjectType="table"
     DBObjectName="TASKS"
     AliasName="Tasks"
-    BindingStyle="OracleName">
+    BindingStyle="OracleName"
+    RowClass="com.sfa.model.base.BaseEntityImpl">
     <Attribute
         Name="TaskId"
         IsNotNull="true"
@@ -41,6 +42,12 @@
                     ResId="com.sfa.model.entity.Tasks.TaskName_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
+        <validation:RegExpValidationBean
+            Name="TaskNameRule0"
+            ResId="com.sfa.model.entity.Tasks.TaskName_Rule_0"
+            OnAttribute="TaskName"
+            Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+            Inverse="true"/>
     </Attribute>
     <Attribute
         Name="DueDate"

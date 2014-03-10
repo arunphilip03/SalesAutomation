@@ -17,6 +17,37 @@ public class GetAppointmentId {
     
     
     
+    
+    public String getCurrentAccountName() {
+        
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iterator = bc.findIteratorBinding("CustomerAccountView1Iterator");
+        Row row = iterator.getCurrentRow();
+        
+        String accountName = (String)row.getAttribute("AccountName");
+    
+        System.out.println("selected account = "+ accountName);
+        
+        return accountName;
+        
+    }
+    
+    
+    public String getCurrentContactName() {
+        
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iterator = bc.findIteratorBinding("CustomerContactsView2Iterator");
+        Row row = iterator.getCurrentRow();
+        
+        String contactName = (String)row.getAttribute("ContactName");
+    
+        System.out.println("selected contact = "+ contactName);
+        
+        return contactName;
+        
+    }
+    
+    
     public String getCurrentAppointmentId() {
         DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
 

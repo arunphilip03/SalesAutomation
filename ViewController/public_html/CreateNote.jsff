@@ -7,7 +7,7 @@
     <f:facet name="toolbar">
       <af:button text="Save" id="b1" action="save"/>
       <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{bindings.Commit.execute}"/>
-      <af:button text="Cancel" id="b3" action="cancel" immediate="true"/>
+      <af:button text="Cancel" id="b3" action="cancel" immediate="true" actionListener="#{bindings.Rollback.execute}"/>
     </f:facet>
     <f:facet name="legend"/>
     <f:facet name="info"/>

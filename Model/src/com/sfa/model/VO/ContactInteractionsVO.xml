@@ -175,7 +175,9 @@
     PrecisionRule="true"
     EntityAttrName="StartDatetime"
     EntityUsage="ContactInteractions"
-    AliasName="START_DATETIME"/>
+    AliasName="START_DATETIME">
+    <TransientExpression><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="EndDatetime"
     IsNotNull="true"
@@ -237,10 +239,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.VO.ContactInteractionsVO.RelatedOpportunity_LABEL"/>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -252,6 +254,11 @@
     ViewLink="com.sfa.model.viewlink.ContactInteractionsVL"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactInteractionTeamVO"
+    ViewLink="com.sfa.model.viewlink.ContactInteractionsTeamVL"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle

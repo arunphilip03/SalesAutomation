@@ -1047,5 +1047,21 @@ public class AppModuleImpl extends ApplicationModuleImpl {
     public ViewLinkImpl getContactOpportunitiesVL1() {
         return (ViewLinkImpl) findViewLink("ContactOpportunitiesVL1");
     }
+
+    /**
+     * Container's getter for ContactInteractionTeamVO1.
+     * @return ContactInteractionTeamVO1
+     */
+    public ViewObjectImpl getContactInteractionTeamVO1() {
+        return (ViewObjectImpl) findViewObject("ContactInteractionTeamVO1");
+    }
+
+    /**
+     * Container's getter for ContactInteractionsTeamVL1.
+     * @return ContactInteractionsTeamVL1
+     */
+    public ViewLinkImpl getContactInteractionsTeamVL1() {
+        return (ViewLinkImpl) findViewLink("ContactInteractionsTeamVL1");
+    }
 }
 

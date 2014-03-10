@@ -18,30 +18,54 @@
         ResId="com.sfa.model.VO.ContactOpportunitiesVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT Opportunities.OPPORTUNITY_NAME,  
-       Opportunities.OPPURTUNITY_ID,  
-       Opportunities.OBJECT_VERSION_NUMBER,  
-       Opportunities.ESTIMATED_DURATION,  
-       Opportunities.CUST_ACCOUNT_ID,  
-       Opportunities.BEST_CASE_REVENUE,  
-       Opportunities.BUDGET_AMOUNT,  
-       Opportunities.CLOSE_DATE,  
-       Opportunities.DECISION_LEVEL,  
-       Opportunities.IS_BUDGETED,  
-       Opportunities.PRIMARY_CONTACT_ID,  
-       Opportunities.REVENUE_AMOUNT,  
-       Opportunities.REVENUE_CURRENCY,  
-       Opportunities.RISK_LEVEL,  
-       Opportunities.SALES_CHANNEL,  
-       Opportunities.SALES_METHOD,  
-       Opportunities.SALES_STAGE,  
-       Opportunities.WIN_PROBABILITY,  
-       Opportunities.WORST_CASE_REVENUE,  
-       OpportunityTeam.CONTACT_ID,  
-       OpportunityTeam.OPPORTUNITY_TEAM_ID,  
-       OpportunityTeam.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1,  
-       OpportunityTeam.OPPORTUNITY_ID 
-FROM  OPPORTUNITIES Opportunities, OPPORTUNITY_TEAM OpportunityTeam 
+  <SQLQuery><![CDATA[SELECT Opportunities.OPPORTUNITY_NAME,        
+       Opportunities.OPPURTUNITY_ID,        
+       Opportunities.OBJECT_VERSION_NUMBER,        
+       Opportunities.ESTIMATED_DURATION,        
+       Opportunities.CUST_ACCOUNT_ID,        
+       Opportunities.BEST_CASE_REVENUE,        
+       Opportunities.BUDGET_AMOUNT,        
+       Opportunities.CLOSE_DATE,        
+       Opportunities.DECISION_LEVEL,        
+       Opportunities.IS_BUDGETED,        
+       Opportunities.PRIMARY_CONTACT_ID,        
+       Opportunities.REVENUE_AMOUNT,        
+       Opportunities.REVENUE_CURRENCY,        
+       Opportunities.RISK_LEVEL,        
+       Opportunities.SALES_CHANNEL,        
+       Opportunities.SALES_METHOD,        
+       Opportunities.SALES_STAGE,        
+       Opportunities.WIN_PROBABILITY,        
+       Opportunities.WORST_CASE_REVENUE,        
+       OpportunityTeam.CONTACT_ID,     
+       OpportunityTeam.OPPORTUNITY_TEAM_ID  
+      FROM  OPPORTUNITIES Opportunities, OPPORTUNITY_TEAM OpportunityTeam       
+WHERE Opportunities.OPPURTUNITY_ID = OpportunityTeam.OPPORTUNITY_ID      
+      
+UNION      
+      
+SELECT Opportunities.OPPORTUNITY_NAME,        
+       Opportunities.OPPURTUNITY_ID,        
+       Opportunities.OBJECT_VERSION_NUMBER,        
+       Opportunities.ESTIMATED_DURATION,        
+       Opportunities.CUST_ACCOUNT_ID,        
+       Opportunities.BEST_CASE_REVENUE,        
+       Opportunities.BUDGET_AMOUNT,        
+       Opportunities.CLOSE_DATE,        
+       Opportunities.DECISION_LEVEL,        
+       Opportunities.IS_BUDGETED,        
+       Opportunities.PRIMARY_CONTACT_ID,        
+       Opportunities.REVENUE_AMOUNT,        
+       Opportunities.REVENUE_CURRENCY,        
+       Opportunities.RISK_LEVEL,        
+       Opportunities.SALES_CHANNEL,        
+       Opportunities.SALES_METHOD,        
+       Opportunities.SALES_STAGE,        
+       Opportunities.WIN_PROBABILITY,        
+       Opportunities.WORST_CASE_REVENUE,        
+       Opportunities.PRIMARY_CONTACT_ID AS CONTACT_ID,     
+       OpportunityTeam.OPPORTUNITY_TEAM_ID 
+      FROM  OPPORTUNITIES Opportunities, OPPORTUNITY_TEAM OpportunityTeam       
 WHERE Opportunities.OPPURTUNITY_ID = OpportunityTeam.OPPORTUNITY_ID]]></SQLQuery>
   <EntityUsage
     Name="Opportunities"
@@ -198,24 +222,11 @@ WHERE Opportunities.OPPURTUNITY_ID = OpportunityTeam.OPPORTUNITY_ID]]></SQLQuery
     AliasName="CONTACT_ID"/>
   <ViewAttribute
     Name="OpportunityTeamId"
-    IsNotNull="true"
+    IsUpdateable="false"
     PrecisionRule="true"
+    AliasName="OPPORTUNITY_TEAM_ID"
     EntityAttrName="OpportunityTeamId"
-    EntityUsage="OpportunityTeam"
-    AliasName="OPPORTUNITY_TEAM_ID"/>
-  <ViewAttribute
-    Name="ObjectVersionNumber1"
-    PrecisionRule="true"
-    EntityAttrName="ObjectVersionNumber"
-    EntityUsage="OpportunityTeam"
-    AliasName="OBJECT_VERSION_NUMBER1"/>
-  <ViewAttribute
-    Name="OpportunityId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="OpportunityId"
-    EntityUsage="OpportunityTeam"
-    AliasName="OPPORTUNITY_ID"/>
+    EntityUsage="OpportunityTeam"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="OppurtunityId"/>
   </AttrArray>

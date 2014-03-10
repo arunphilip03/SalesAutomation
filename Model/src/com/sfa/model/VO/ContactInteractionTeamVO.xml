@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContactInteractionTeamVO"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.ContactInteractionTeamVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT    
+InteractionTeam.INTERACTION_ID,       
+InteractionTeam.INTERACTION_TEAM_ID,       
+InteractionTeam.OBJECT_VERSION_NUMBER,       
+InteractionTeam.USER_ID,       
+InteractionTeam.CONTACT_ID,      
+CustomerContacts.CONTACT_NAME AS NAME,       
+'CONTACT' AS TEAM_TYPE       
+FROM  INTERACTION_TEAM InteractionTeam, CUSTOMER_CONTACTS CustomerContacts       
+WHERE (InteractionTeam.CONTACT_ID = CustomerContacts.CONTACT_ID)       
+       
+UNION       
+       
+SELECT     
+InteractionTeam.INTERACTION_ID,       
+InteractionTeam.INTERACTION_TEAM_ID,       
+InteractionTeam.OBJECT_VERSION_NUMBER,       
+InteractionTeam.USER_ID,       
+InteractionTeam.CONTACT_ID,       
+Users.USER_NAME AS NAME,       
+'USER' AS TEAM_TYPE       
+FROM  INTERACTION_TEAM InteractionTeam, USERS Users       
+WHERE (InteractionTeam.USER_ID = Users.USER_ID)]]></SQLQuery>
+  <EntityUsage
+    Name="InteractionTeam"
+    Entity="com.sfa.model.entity.InteractionTeam"/>
+  <EntityUsage
+    Name="CustomerContacts"
+    Entity="com.sfa.model.entity.CustomerContacts"
+    Association="com.sfa.model.association.InteractionTeamFk1Assoc"
+    AssociationEnd="com.sfa.model.association.InteractionTeamFk1Assoc.CustomerContacts"
+    SourceUsage="com.sfa.model.VO.ContactInteractionTeamVO.InteractionTeam"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.sfa.model.entity.InteractionTeam.ContactId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.sfa.model.entity.CustomerContacts.ContactId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Users"
+    Entity="com.sfa.model.entity.Users"
+    Association="com.sfa.model.association.InteractionTeamFk2Assoc"
+    AssociationEnd="com.sfa.model.association.InteractionTeamFk2Assoc.Users"
+    SourceUsage="com.sfa.model.VO.ContactInteractionTeamVO.InteractionTeam"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.sfa.model.entity.InteractionTeam.UserId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.sfa.model.entity.Users.UserId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="InteractionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InteractionId"
+    EntityUsage="InteractionTeam"
+    AliasName="INTERACTION_ID"/>
+  <ViewAttribute
+    Name="InteractionTeamId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InteractionTeamId"
+    EntityUsage="InteractionTeam"
+    AliasName="INTERACTION_TEAM_ID"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="InteractionTeam"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="UserId"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="InteractionTeam"
+    AliasName="USER_ID"/>
+  <ViewAttribute
+    Name="ContactId"
+    PrecisionRule="true"
+    EntityAttrName="ContactId"
+    EntityUsage="InteractionTeam"
+    AliasName="CONTACT_ID"/>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME"
+    Expression="NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TeamType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="7"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TEAM_TYPE"
+    Expression="TEAM_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="InteractionTeamId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="ContactInteractionsVO"
+    ViewLink="com.sfa.model.viewlink.ContactInteractionsTeamVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
