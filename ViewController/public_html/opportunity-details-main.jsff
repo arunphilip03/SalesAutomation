@@ -4,7 +4,7 @@
     <af:panelGridLayout id="pgl1">
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
-                <af:panelHeader text=" " id="ph1" inlineStyle="height:49px;" styleClass="AFStretchWidth">
+                <af:panelHeader text=" Opportunity Details" id="ph1" inlineStyle="height:49px;" styleClass="AFStretchWidth">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
@@ -32,19 +32,21 @@
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3" styleClass="AFStretchWidth">
                                             <af:button text="Team Members" id="b8" action="team"/>
-                                            <af:spacer width="30" height="10" id="s1"/>
+                                            <af:spacer width="15" height="10" id="s1"/>
                                             <af:button text="Appointments" id="b4" action="appointment"/>
-                                            <af:spacer width="30" height="10" id="s2"/>
+                                            <af:spacer width="15" height="10" id="s2"/>
                                             <af:button text="Tasks" id="b5" action="task"/>
-                                            <af:spacer width="30" height="10" id="s3"/>
+                                            <af:spacer width="15" height="10" id="s3"/>
                                             <af:button text="Interactions" id="b6" action="interaction"/>
-                                            <af:spacer width="30" height="10" id="s4"/>
+                                            <af:spacer width="15" height="10" id="s4"/>
                                             <af:button text="Notes" id="b7"
                                                        actionListener="#{bindings.ExecuteWithParams.execute}"
                                                        action="notes">
                                                 <af:setActionListener from="#{bindings.OpportunityName}"
                                                                       to="#{pageFlowScope.opportunityName}"/>
                                             </af:button>
+                                            <af:spacer width="15" height="10" id="s5"/>
+                                            <af:button text="Attachments" id="b9" action="attachment"/>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="legend"/>
@@ -216,16 +218,6 @@
                                                                   shortDesc="#{bindings.RiskLevel.hints.tooltip}">
                                         <f:validator binding="#{bindings.RiskLevel.validator}"/>
                                     </af:inputComboboxListOfValues>
-                                    <af:inputComboboxListOfValues id="decisionLevelId"
-                                                                  popupTitle="Search and Select: #{bindings.DecisionLevel.hints.label}"
-                                                                  value="#{bindings.DecisionLevel.inputValue}"
-                                                                  label="#{bindings.DecisionLevel.hints.label}"
-                                                                  model="#{bindings.DecisionLevel.listOfValuesModel}"
-                                                                  required="#{bindings.DecisionLevel.hints.mandatory}"
-                                                                  columns="#{bindings.DecisionLevel.hints.displayWidth}"
-                                                                  shortDesc="#{bindings.DecisionLevel.hints.tooltip}">
-                                        <f:validator binding="#{bindings.DecisionLevel.validator}"/>
-                                    </af:inputComboboxListOfValues>
                                     <af:inputText value="#{bindings.NotesSeqId.inputValue}"
                                                   label="#{bindings.NotesSeqId.hints.label}"
                                                   required="#{bindings.NotesSeqId.hints.mandatory}"
@@ -236,6 +228,16 @@
                                         <f:validator binding="#{bindings.NotesSeqId.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.NotesSeqId.format}"/>
                                     </af:inputText>
+                                    <af:inputComboboxListOfValues id="decisionLevelId"
+                                                                  popupTitle="Search and Select: #{bindings.DecisionLevel.hints.label}"
+                                                                  value="#{bindings.DecisionLevel.inputValue}"
+                                                                  label="#{bindings.DecisionLevel.hints.label}"
+                                                                  model="#{bindings.DecisionLevel.listOfValuesModel}"
+                                                                  required="#{bindings.DecisionLevel.hints.mandatory}"
+                                                                  columns="#{bindings.DecisionLevel.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.DecisionLevel.hints.tooltip}">
+                                        <f:validator binding="#{bindings.DecisionLevel.validator}"/>
+                                    </af:inputComboboxListOfValues>
                                 </af:panelFormLayout>
                             </f:facet>
                         </af:panelSplitter>

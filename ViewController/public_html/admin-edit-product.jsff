@@ -21,53 +21,48 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelWindow id="pw1">
-                    <af:panelFormLayout id="pfl1" rows="3">
-                        <af:inputText value="#{bindings.ProductCode.inputValue}"
-                                      label="#{bindings.ProductCode.hints.label}"
-                                      required="#{bindings.ProductCode.hints.mandatory}"
-                                      columns="#{bindings.ProductCode.hints.displayWidth}"
-                                      maximumLength="#{bindings.ProductCode.hints.precision}"
-                                      shortDesc="#{bindings.ProductCode.hints.tooltip}" id="it1">
-                            <f:validator binding="#{bindings.ProductCode.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.ProductName.inputValue}"
-                                      label="#{bindings.ProductName.hints.label}"
-                                      required="#{bindings.ProductName.hints.mandatory}"
-                                      columns="#{bindings.ProductName.hints.displayWidth}"
-                                      maximumLength="#{bindings.ProductName.hints.precision}"
-                                      shortDesc="#{bindings.ProductName.hints.tooltip}" id="it2">
-                            <f:validator binding="#{bindings.ProductName.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.ProductDesc.inputValue}"
-                                      label="#{bindings.ProductDesc.hints.label}"
-                                      required="#{bindings.ProductDesc.hints.mandatory}"
-                                      columns="#{bindings.ProductDesc.hints.displayWidth}"
-                                      maximumLength="#{bindings.ProductDesc.hints.precision}"
-                                      shortDesc="#{bindings.ProductDesc.hints.tooltip}" id="it3">
-                            <f:validator binding="#{bindings.ProductDesc.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.CurrentPrice.inputValue}"
-                                      label="#{bindings.CurrentPrice.hints.label}"
-                                      required="#{bindings.CurrentPrice.hints.mandatory}"
-                                      columns="#{bindings.CurrentPrice.hints.displayWidth}"
-                                      maximumLength="#{bindings.CurrentPrice.hints.precision}"
-                                      shortDesc="#{bindings.CurrentPrice.hints.tooltip}" id="it4">
-                            <f:validator binding="#{bindings.CurrentPrice.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CurrentPrice.format}"/>
-                        </af:inputText>
-                        <af:inputComboboxListOfValues id="productCategoryId"
-                                                      popupTitle="Search and Select: #{bindings.ProductCategory.hints.label}"
-                                                      value="#{bindings.ProductCategory.inputValue}"
-                                                      label="#{bindings.ProductCategory.hints.label}"
-                                                      model="#{bindings.ProductCategory.listOfValuesModel}"
-                                                      required="#{bindings.ProductCategory.hints.mandatory}"
-                                                      columns="#{bindings.ProductCategory.hints.displayWidth}"
-                                                      shortDesc="#{bindings.ProductCategory.hints.tooltip}">
-                            <f:validator binding="#{bindings.ProductCategory.validator}"/>
-                        </af:inputComboboxListOfValues>
-                    </af:panelFormLayout>
-                </af:panelWindow>
+                <af:panelFormLayout id="pfl1" rows="3">
+                    <af:inputText value="#{bindings.ProductCode.inputValue}" label="#{bindings.ProductCode.hints.label}"
+                                  required="#{bindings.ProductCode.hints.mandatory}"
+                                  columns="#{bindings.ProductCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.ProductCode.hints.precision}"
+                                  shortDesc="#{bindings.ProductCode.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.ProductCode.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ProductName.inputValue}" label="#{bindings.ProductName.hints.label}"
+                                  required="#{bindings.ProductName.hints.mandatory}"
+                                  columns="#{bindings.ProductName.hints.displayWidth}"
+                                  maximumLength="#{bindings.ProductName.hints.precision}"
+                                  shortDesc="#{bindings.ProductName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.ProductName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ProductDesc.inputValue}" label="#{bindings.ProductDesc.hints.label}"
+                                  required="#{bindings.ProductDesc.hints.mandatory}"
+                                  columns="#{bindings.ProductDesc.hints.displayWidth}"
+                                  maximumLength="#{bindings.ProductDesc.hints.precision}"
+                                  shortDesc="#{bindings.ProductDesc.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.ProductDesc.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CurrentPrice.inputValue}"
+                                  label="#{bindings.CurrentPrice.hints.label}"
+                                  required="#{bindings.CurrentPrice.hints.mandatory}"
+                                  columns="#{bindings.CurrentPrice.hints.displayWidth}"
+                                  maximumLength="#{bindings.CurrentPrice.hints.precision}"
+                                  shortDesc="#{bindings.CurrentPrice.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.CurrentPrice.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CurrentPrice.format}"/>
+                    </af:inputText>
+                    <af:inputComboboxListOfValues id="productCategoryId"
+                                                  popupTitle="Search and Select: #{bindings.ProductCategory.hints.label}"
+                                                  value="#{bindings.ProductCategory.inputValue}"
+                                                  label="#{bindings.ProductCategory.hints.label}"
+                                                  model="#{bindings.ProductCategory.listOfValuesModel}"
+                                                  required="#{bindings.ProductCategory.hints.mandatory}"
+                                                  columns="#{bindings.ProductCategory.hints.displayWidth}"
+                                                  shortDesc="#{bindings.ProductCategory.hints.tooltip}">
+                        <f:validator binding="#{bindings.ProductCategory.validator}"/>
+                    </af:inputComboboxListOfValues>
+                </af:panelFormLayout>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

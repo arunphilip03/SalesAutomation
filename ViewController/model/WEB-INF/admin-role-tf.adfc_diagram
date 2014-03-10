@@ -18,11 +18,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">91.149414</property>
-      <property
-         name="x">88.01758</property>
+         name="y">249.44824</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">507.01758</property>
    </View>
    <View
       id="View3">
@@ -39,9 +39,9 @@
       <property
          name="y">98.79883</property>
       <property
-         name="x">267.53516</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">267.53516</property>
    </View>
    <View
       id="View4">
@@ -54,11 +54,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">91.149414</property>
-      <property
-         name="x">439.05176</property>
+         name="y">95.74707</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">512.05176</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -68,7 +68,7 @@
       <property
          name="fromOutcome">add</property>
       <property
-         name="sdm:polyPoints">L46,226.53516,94.94824,129.2917,87.29883,R46</property>
+         name="sdm:polyPoints">R54,311.26562,101.94824,466.01758,245.59766,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -78,7 +78,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L46,397.88947,87.29883,308.53516,91.44824,R42</property>
+         name="sdm:polyPoints">L46,471.05176,91.896484,312.74963,87.94824,R38</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -88,7 +88,7 @@
       <property
          name="fromOutcome">edit</property>
       <property
-         name="sdm:polyPoints">R54,308.8337,101.94824,398.05176,94.29883,L54</property>
+         name="sdm:polyPoints">R46,312.66464,94.94824,470.9645,98.896484,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -98,35 +98,6 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">R54,129.01758,94.29883,226.26065,101.94824,L54</property>
-   </ControlFlowCase>
-   <TaskFlowCall
-      id="TaskFlowCall9">
-      <property
-         name="taskFlowId">Admin-delete-confirm-tf</property>
-      <property
-         name="activityId">Admin-delete-confirm-tf</property>
-      <property
-         name="documentReference">/WEB-INF/Admin-delete-confirm-tf.xml</property>
-      <property
-         name="runAsDialog">true</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>Admin-delete-confirm-tf&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">265.1494</property>
-      <property
-         name="x">581.56836</property>
-   </TaskFlowCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="View3"
-      to="TaskFlowCall9">
-      <property
-         name="fromOutcome">delete</property>
-      <property
-         name="sdm:polyPoints">R58,308.53516,105.44824,540.56836,264.79883,L50</property>
+         name="sdm:polyPoints">L54,463.30457,252.59766,308.53516,108.94824,R62</property>
    </ControlFlowCase>
 </SDM>

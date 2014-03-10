@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="SalesRep_homePageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SalesRepOppoCreatedView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="SalesRepOppoCreatedView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SalesRepOppoCreatedView1Iterator" id="SalesRepOppoCreatedView1">
+      <nodeDefinition DefName="com.sfa.model.VO.SalesRepOppoCreatedView" Name="SalesRepOppoCreatedView10">
+        <AttrNames>
+          <Item Value="BestCaseRevenue"/>
+          <Item Value="BudgetAmount"/>
+          <Item Value="CloseDate"/>
+          <Item Value="DecisionLevel"/>
+          <Item Value="EstimatedDuration"/>
+          <Item Value="IsBudgeted"/>
+          <Item Value="OpportunityName"/>
+          <Item Value="RevenueAmount"/>
+          <Item Value="RevenueCurrency"/>
+          <Item Value="RiskLevel"/>
+          <Item Value="SalesChannel"/>
+          <Item Value="SalesMethod"/>
+          <Item Value="SalesStage"/>
+          <Item Value="WinProbability"/>
+          <Item Value="WorstCaseRevenue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

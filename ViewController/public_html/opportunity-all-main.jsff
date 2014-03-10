@@ -8,7 +8,7 @@
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="249">
                     <f:facet name="first">
                         <af:panelGroupLayout layout="vertical" id="pgl2">
-                            <af:panelHeader text=" " id="ph1">
+                            <af:panelHeader text=" Opportunities" id="ph1">
                                 <af:query id="qryId1" headerText="Search" disclosed="true"
                                           value="#{bindings.OpportunitiesViewSearchQuery.queryDescriptor}"
                                           model="#{bindings.OpportunitiesViewSearchQuery.queryModel}"

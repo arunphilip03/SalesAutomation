@@ -21,41 +21,38 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelWindow id="pw1">
-                    <af:panelFormLayout id="pfl1" rows="2">
-                        <af:inputText value="#{bindings.RoleName.inputValue}" label="#{bindings.RoleName.hints.label}"
-                                      required="#{bindings.RoleName.hints.mandatory}"
-                                      columns="#{bindings.RoleName.hints.displayWidth}"
-                                      maximumLength="#{bindings.RoleName.hints.precision}"
-                                      shortDesc="#{bindings.RoleName.hints.tooltip}" id="it1">
-                            <f:validator binding="#{bindings.RoleName.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.Description.inputValue}"
-                                      label="#{bindings.Description.hints.label}"
-                                      required="#{bindings.Description.hints.mandatory}"
-                                      columns="#{bindings.Description.hints.displayWidth}"
-                                      maximumLength="#{bindings.Description.hints.precision}"
-                                      shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
-                            <f:validator binding="#{bindings.Description.validator}"/>
-                        </af:inputText>
-                        <af:inputDate value="#{bindings.EffecStartDate.inputValue}"
-                                      label="#{bindings.EffecStartDate.hints.label}"
-                                      required="#{bindings.EffecStartDate.hints.mandatory}"
-                                      columns="#{bindings.EffecStartDate.hints.displayWidth}"
-                                      shortDesc="#{bindings.EffecStartDate.hints.tooltip}" id="id1">
-                            <f:validator binding="#{bindings.EffecStartDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.EffecStartDate.format}"/>
-                        </af:inputDate>
-                        <af:inputDate value="#{bindings.EffecEndDate.inputValue}"
-                                      label="#{bindings.EffecEndDate.hints.label}"
-                                      required="#{bindings.EffecEndDate.hints.mandatory}"
-                                      columns="#{bindings.EffecEndDate.hints.displayWidth}"
-                                      shortDesc="#{bindings.EffecEndDate.hints.tooltip}" id="id2">
-                            <f:validator binding="#{bindings.EffecEndDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.EffecEndDate.format}"/>
-                        </af:inputDate>
-                    </af:panelFormLayout>
-                </af:panelWindow>
+                <af:panelFormLayout id="pfl1" rows="2">
+                    <af:inputText value="#{bindings.RoleName.inputValue}" label="#{bindings.RoleName.hints.label}"
+                                  required="#{bindings.RoleName.hints.mandatory}"
+                                  columns="#{bindings.RoleName.hints.displayWidth}"
+                                  maximumLength="#{bindings.RoleName.hints.precision}"
+                                  shortDesc="#{bindings.RoleName.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.RoleName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                                  required="#{bindings.Description.hints.mandatory}"
+                                  columns="#{bindings.Description.hints.displayWidth}"
+                                  maximumLength="#{bindings.Description.hints.precision}"
+                                  shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.Description.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.EffecStartDate.inputValue}"
+                                  label="#{bindings.EffecStartDate.hints.label}"
+                                  required="#{bindings.EffecStartDate.hints.mandatory}"
+                                  columns="#{bindings.EffecStartDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.EffecStartDate.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.EffecStartDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EffecStartDate.format}"/>
+                    </af:inputDate>
+                    <af:inputDate value="#{bindings.EffecEndDate.inputValue}"
+                                  label="#{bindings.EffecEndDate.hints.label}"
+                                  required="#{bindings.EffecEndDate.hints.mandatory}"
+                                  columns="#{bindings.EffecEndDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.EffecEndDate.hints.tooltip}" id="id2">
+                        <f:validator binding="#{bindings.EffecEndDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EffecEndDate.format}"/>
+                    </af:inputDate>
+                </af:panelFormLayout>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

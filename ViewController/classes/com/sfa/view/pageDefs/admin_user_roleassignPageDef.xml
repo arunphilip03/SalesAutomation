@@ -75,5 +75,10 @@
             Action="removeCurrentRow"/>
     <action IterBinding="RoleAssignmentView3Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="UsersView1Iterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

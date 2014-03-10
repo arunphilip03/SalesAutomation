@@ -119,6 +119,43 @@
     TableName="OPPORTUNITY_ATTACHMENTS"
     HistoryColumn="VersionHistory"
     ChangeIndicator="true"/>
+    <Attribute
+    Name="DocumentName"
+    IsNotNull="true"
+    Precision="40"
+    ColumnName="DOCUMENT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPORTUNITY_ATTACHMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.OpportunityAttachments.DocumentName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DocumentType"
+    Precision="20"
+    ColumnName="DOCUMENT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPORTUNITY_ATTACHMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.OpportunityAttachments.DocumentType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="Opportunities"
     Association="com.sfa.model.association.OppurtunityDocumentsFk1Assoc"
@@ -132,6 +169,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_DOCUMENTS_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="OppurtunityDocumentsFk1">
@@ -140,5 +178,10 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_DOCUMENTS_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

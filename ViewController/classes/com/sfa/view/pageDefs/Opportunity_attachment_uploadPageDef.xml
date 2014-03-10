@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="Opportunity_attachment_uploadPageDef" Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="uploadFiletoDB" RequiresUpdateModel="true" Action="invokeMethod" MethodName="uploadFiletoDB"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider">
+      <NamedData NDName="fileName" NDType="java.lang.String"/>
+      <NamedData NDName="contentType" NDType="java.lang.String"/>
+      <NamedData NDName="blob" NDType="oracle.jbo.domain.BlobDomain"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

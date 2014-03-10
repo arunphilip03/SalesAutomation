@@ -5,55 +5,54 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelWindow id="pw1">
-                    <af:panelHeader text="PRODUCT CATEGORIES" id="ph1" inlineStyle="height:22px;">
-                        <f:facet name="context"/>
-                        <f:facet name="menuBar"/>
-                        <f:facet name="toolbar"/>
-                        <f:facet name="legend"/>
-                        <f:facet name="info"/>
+                <af:panelHeader text="PRODUCT CATEGORIES" id="ph1" inlineStyle="height:22px;">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t3">
+                            <af:button text="Back" id="b1" action="back"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="ProductCategory" id="ph2">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.ProductCategoryViewSearchQuery.queryDescriptor}"
+                                  model="#{bindings.ProductCategoryViewSearchQuery.queryModel}"
+                                  queryListener="#{bindings.ProductCategoryViewSearchQuery.processQuery}"
+                                  queryOperationListener="#{bindings.ProductCategoryViewSearchQuery.processQueryOperation}"/>
                     </af:panelHeader>
-                    <af:panelGroupLayout layout="vertical" id="pgl2">
-                        <af:panelHeader text="ProductCategory" id="ph2">
-                            <af:query id="qryId1" headerText="Search" disclosed="true"
-                                      value="#{bindings.ProductCategoryViewSearchQuery.queryDescriptor}"
-                                      model="#{bindings.ProductCategoryViewSearchQuery.queryModel}"
-                                      queryListener="#{bindings.ProductCategoryViewSearchQuery.processQuery}"
-                                      queryOperationListener="#{bindings.ProductCategoryViewSearchQuery.processQueryOperation}"/>
-                        </af:panelHeader>
-                    </af:panelGroupLayout>
-                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                        <f:facet name="menus"/>
-                        <f:facet name="toolbar">
-                            <af:toolbar id="t2">
-                                <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                         actionListener="#{bindings.Create.execute}"
-                                         disabled="#{!bindings.Create.enabled}" action="create"/>
-                            </af:toolbar>
-                        </f:facet>
-                        <af:table value="#{bindings.ProductCategoryView1.collectionModel}" var="row"
-                                  rows="#{bindings.ProductCategoryView1.rangeSize}"
-                                  emptyText="#{bindings.ProductCategoryView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  rowBandingInterval="0"
-                                  selectedRowKeys="#{bindings.ProductCategoryView1.collectionModel.selectedRow}"
-                                  selectionListener="#{bindings.ProductCategoryView1.collectionModel.makeCurrent}"
-                                  rowSelection="single" fetchSize="#{bindings.ProductCategoryView1.rangeSize}" id="t1" partialTriggers="::l1"
-                                  styleClass="AFStretchWidth" columnStretching="last">
-                            <af:column sortProperty="#{bindings.ProductCategoryView1.hints.Categoryname.name}"
-                                       sortable="true"
-                                       headerText="#{bindings.ProductCategoryView1.hints.Categoryname.label}" id="c1"
-                                       width="150">
-                                <af:outputText value="#{row.Categoryname}"
-                                               shortDesc="#{bindings.ProductCategoryView1.hints.Categoryname.tooltip}"
-                                               id="ot1"/>
-                            </af:column>
-                        </af:table>
-                        <f:facet name="statusbar"/>
-                    </af:panelCollection>
-                    <af:toolbar id="t3">
-                        <af:button text="Back" id="b1" action="back"/>
-                    </af:toolbar>
-                </af:panelWindow>
+                </af:panelGroupLayout>
+                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t2">
+                            <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                     actionListener="#{bindings.Create.execute}" disabled="#{!bindings.Create.enabled}"
+                                     action="create"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <af:table value="#{bindings.ProductCategoryView1.collectionModel}" var="row"
+                              rows="#{bindings.ProductCategoryView1.rangeSize}"
+                              emptyText="#{bindings.ProductCategoryView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.ProductCategoryView1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.ProductCategoryView1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.ProductCategoryView1.rangeSize}" id="t1"
+                              partialTriggers="::l1" styleClass="AFStretchWidth" columnStretching="last">
+                        <af:column sortProperty="#{bindings.ProductCategoryView1.hints.Categoryname.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.ProductCategoryView1.hints.Categoryname.label}" id="c1"
+                                   width="150">
+                            <af:outputText value="#{row.Categoryname}"
+                                           shortDesc="#{bindings.ProductCategoryView1.hints.Categoryname.tooltip}"
+                                           id="ot1"/>
+                        </af:column>
+                    </af:table>
+                    <f:facet name="statusbar"/>
+                </af:panelCollection>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

@@ -97,6 +97,19 @@
               usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
         <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@SetCurrentRowWithKeyValue1"
               usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"/>
+        <page path="/Opportunity-attachments.jsff" usageId="com_sfa_view_Opportunity_attachmentsPageDef"/>
+        <page path="/Opportunity-attachment-upload.jsff" usageId="com_sfa_view_Opportunity_attachment_uploadPageDef"/>
+        <page path="/SalesRepHome.jsf" usageId="com_sfa_view_SalesRepHomePageDef"/>
+        <page path="PageFlow#ExecuteWithParams" usageId="com_sfa_view_SalesHome_Sample___ExecuteWithParamsPageDef"/>
+        <page path="/SalesRep-home.jsff" usageId="com_sfa_view_SalesRep_homePageDef"/>
+        <page path="/untitled1.jsf" usageId="com_sfa_view_untitled1PageDef111"/>
+        <page path="/SalesRep-other.jsff" usageId="com_sfa_view_SalesRep_otherPageDef"/>
+        <page path="/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf@ExecuteWithParams1"
+              usageId="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"/>
+        <page path="/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf@ExecuteWithParams"
+              usageId="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParamsPageDef"/>
+        <page path="/WEB-INF/adminUser-roleAssign-create.xml#adminUser-roleAssign-create@ExecuteWithParams"
+              usageId="com_sfa_view_adminUser_roleAssign_create_adminUser_roleAssign_create_ExecuteWithParamsPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -231,6 +244,22 @@
               path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
         <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"
               path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"/>
+        <page id="com_sfa_view_Opportunity_attachmentsPageDef"
+              path="com.sfa.view.pageDefs.Opportunity_attachmentsPageDef"/>
+        <page id="com_sfa_view_Opportunity_attachment_uploadPageDef"
+              path="com.sfa.view.pageDefs.Opportunity_attachment_uploadPageDef"/>
+        <page id="com_sfa_view_SalesRepHomePageDef" path="com.sfa.view.pageDefs.SalesRepHomePageDef"/>
+        <page id="com_sfa_view_SalesHome_Sample___ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.SalesHome_Sample___ExecuteWithParamsPageDef"/>
+        <page id="com_sfa_view_SalesRep_homePageDef" path="com.sfa.view.pageDefs.SalesRep_homePageDef"/>
+        <page id="com_sfa_view_untitled1PageDef111" path="com.sfa.view.pageDefs.untitled1PageDef11"/>
+        <page id="com_sfa_view_SalesRep_otherPageDef" path="com.sfa.view.pageDefs.SalesRep_otherPageDef"/>
+        <page id="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"
+              path="com.sfa.view.pageDefs.Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"/>
+        <page id="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParamsPageDef"/>
+        <page id="com_sfa_view_adminUser_roleAssign_create_adminUser_roleAssign_create_ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.adminUser_roleAssign_create_adminUser_roleAssign_create_ExecuteWithParamsPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

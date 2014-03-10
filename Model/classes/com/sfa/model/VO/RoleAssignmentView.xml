@@ -109,8 +109,7 @@ FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID =
     EntityAttrName="RoleId"
     EntityUsage="RoleAssignment"
     AliasName="ROLE_ID"
-    LOVName="LOV_RoleId_Assign"
-    DefaultValue="1">
+    LOVName="LOV_RoleId_Assign">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

@@ -17,9 +17,9 @@
       <property
          name="y">-148.85645</property>
       <property
-         name="x">77.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">77.0</property>
    </View>
    <View
       id="View3">
@@ -34,9 +34,9 @@
       <property
          name="y">-150.50586</property>
       <property
-         name="x">457.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">457.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -71,9 +71,9 @@
       <property
          name="y">106.04004</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">296.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -118,9 +118,9 @@
       <property
          name="y">93.390625</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">765.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View12">
@@ -135,9 +135,9 @@
       <property
          name="y">95.390625</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">556.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -285,7 +285,7 @@
       <property
          name="fromOutcome">appointment</property>
       <property
-         name="sdm:polyPoints">T61,464.0,-204.85645,677.91797,-399.90234,B50</property>
+         name="sdm:polyPoints">T67,467.5,-204.85645,677.91797,-399.90234,B50</property>
    </ControlFlowCase>
    <View
       id="View25">
@@ -298,11 +298,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">-461.10352</property>
-      <property
-         name="x">439.0</property>
+         name="y">-489.8047</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">458.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -312,7 +312,7 @@
       <property
          name="fromOutcome">team</property>
       <property
-         name="sdm:polyPoints">T39,450.0,-204.85645,435.5,-407.20377,B44</property>
+         name="sdm:polyPoints">T56,460.5,-206.39207,461.5,-436.14005,B56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -322,6 +322,33 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">B56,442.5,-407.4541,457.0,-205.10663,T50</property>
+         name="sdm:polyPoints">B44,454.5,-436.15527,453.5,-206.40721,T44</property>
    </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase29"
+      from="View3"
+      to="TaskFlowCall30">
+      <property
+         name="fromOutcome">attachment</property>
+      <property
+         name="sdm:polyPoints">T33,446.5,-204.85645,254.23828,-328.20117,B50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall30">
+      <property
+         name="taskFlowId">Opportunity-attachments-tf</property>
+      <property
+         name="activityId">Opportunity-attachments-tf</property>
+      <property
+         name="documentReference">/WEB-INF/Opportunity-attachments-tf.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Opportunity-attachments-tf&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-382.55176</property>
+      <property
+         name="x">254.23828</property>
+   </TaskFlowCall>
 </SDM>

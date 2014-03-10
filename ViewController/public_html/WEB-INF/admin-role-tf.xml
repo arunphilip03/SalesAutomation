@@ -14,17 +14,6 @@
     <view id="admin-role-edit">
       <page>/admin-role-edit.jsff</page>
     </view>
-    <task-flow-call id="Admin-delete-confirm-tf">
-      <task-flow-reference>
-        <document>/WEB-INF/Admin-delete-confirm-tf.xml</document>
-        <id>Admin-delete-confirm-tf</id>
-      </task-flow-reference>
-      <run-as-dialog>
-        <display-type>
-          <external-window/>
-        </display-type>
-      </run-as-dialog>
-    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>admin-role-main</from-activity-id>
       <control-flow-case id="__2">
@@ -34,10 +23,6 @@
       <control-flow-case id="__5">
         <from-outcome>edit</from-outcome>
         <to-activity-id>admin-role-edit</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__8">
-        <from-outcome>delete</from-outcome>
-        <to-activity-id>Admin-delete-confirm-tf</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__3">
