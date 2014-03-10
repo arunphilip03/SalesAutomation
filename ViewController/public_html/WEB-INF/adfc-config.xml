@@ -1,28 +1,8 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <view id="SalesDashboard">
+  <view id="Dashboard">
     <page>/SalesHome.jsf</page>
   </view>
-  <view id="AdminDashboard">
-    <page>/AdminDashboard.jsf</page>
-  </view>
-  <view id="Opportunities">
-    <page>/Opportunities.jsf</page>
-  </view>
-  <control-flow-rule id="__1">
-    <from-activity-id>*</from-activity-id>
-    <control-flow-case id="__6">
-      <from-outcome>goAdmin</from-outcome>
-      <to-activity-id>AdminDashboard</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
-  <control-flow-rule id="__4">
-    <from-activity-id>*</from-activity-id>
-    <control-flow-case id="__7">
-      <from-outcome>goOpportunity</from-outcome>
-      <to-activity-id>Opportunities</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
   <managed-bean id="__3">
     <managed-bean-name>launcher</managed-bean-name>
     <managed-bean-class>com.sfa.view.backing.Launcher</managed-bean-class>
@@ -36,6 +16,16 @@
   <managed-bean id="__2">
     <managed-bean-name>TaskTeamBean</managed-bean-name>
     <managed-bean-class>com.sfa.view.backing.TaskTeamBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name>InteractionTeamBean</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.InteractionTeamBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name>GeneralInfoBean</managed-bean-name>
+    <managed-bean-class>com.sfa.view.GetAppointmentId</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
 </adfc-config>

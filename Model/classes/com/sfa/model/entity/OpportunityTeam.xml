@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="OPPORTUNITY_TEAM"
   AliasName="OpportunityTeam"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="OpportunityTeamId"
     IsNotNull="true"
@@ -140,6 +141,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_TEAM_PK"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="OppurtunityTeamFk1">
@@ -148,6 +150,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_TEAM_FK1"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="OppurtunityTeamFk2">
@@ -156,6 +159,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_TEAM_FK2"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="OppurtunityTeamFk3">
@@ -164,5 +168,6 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="OPPURTUNITY_TEAM_FK3"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
 </Entity>

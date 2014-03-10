@@ -97,6 +97,16 @@
               usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
         <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@SetCurrentRowWithKeyValue1"
               usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"/>
+        <page path="/EditInteractions.jsff" usageId="com_sfa_view_EditInteractionsPageDef"/>
+        <page path="/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow@createInsert"
+              usageId="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_createInsertPageDef"/>
+        <page path="/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow@commitCreate"
+              usageId="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitCreatePageDef"/>
+        <page path="/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow@commitEdit"
+              usageId="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitEditPageDef"/>
+        <page path="/CreateInteraction.jsff" usageId="com_sfa_view_CreateInteractionPageDef"/>
+        <page path="/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow@SetCurrentRowWithKeyValue"
+              usageId="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_SetCurrentRowWithKeyValuePageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -231,6 +241,16 @@
               path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
         <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"
               path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyValue1PageDef"/>
+        <page id="com_sfa_view_EditInteractionsPageDef" path="com.sfa.view.pageDefs.EditInteractionsPageDef"/>
+        <page id="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_createInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_interactions_taskflow_add_edit_interactions_taskflow_createInsertPageDef"/>
+        <page id="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitCreatePageDef"
+              path="com.sfa.view.pageDefs.add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitCreatePageDef"/>
+        <page id="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitEditPageDef"
+              path="com.sfa.view.pageDefs.add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitEditPageDef"/>
+        <page id="com_sfa_view_CreateInteractionPageDef" path="com.sfa.view.pageDefs.CreateInteractionPageDef"/>
+        <page id="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_SetCurrentRowWithKeyValuePageDef"
+              path="com.sfa.view.pageDefs.add_edit_interactions_taskflow_add_edit_interactions_taskflow_SetCurrentRowWithKeyValuePageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

@@ -60,6 +60,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.ContactInteractions.StartDatetime_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sfa.model.entity.ContactInteractions.StartDatetime_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.ContactInteractions.StartDatetime_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -71,6 +75,12 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="CONTACT_INTERACTIONS">
+    <validation:PreDefinedValidationBean
+      Name="EndDatetimeMandatory0"
+      ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_Rule_1"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
     <validation:CompareValidationBean
       Name="EndDatetimeRule0"
       OnAttribute="EndDatetime"
@@ -83,6 +93,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -100,7 +114,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="100"/>
+          Value="40"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -115,6 +129,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="OppurtunityId"

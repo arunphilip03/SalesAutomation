@@ -68,6 +68,7 @@
    <value n="oracle.jbo.AMPackage" v="service"/>
    <value n="oracle.jbo.ASPackage" v="association"/>
    <value n="oracle.jbo.EOPackage" v="entity"/>
+   <value n="oracle.jbo.extends.entityRow" v="com.sfa.model.base.BaseEntityImpl"/>
    <value n="oracle.jbo.SavedPreferences" v="true"/>
    <value n="oracle.jbo.VLPackage" v="viewlink"/>
    <value n="oracle.jbo.VOPackage" v="VO"/>

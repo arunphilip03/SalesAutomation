@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
-                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:h="http://java.sun.com/jsf/html">
     <af:panelGroupLayout id="pgl2">
         <af:messages id="m1"/>
         <af:panelGroupLayout layout="vertical" id="pgl1">
@@ -10,15 +10,18 @@
                     <af:panelHeader text="Customer Account: #{bindings.AccountName.inputValue}" id="ph1"
                                     inlineStyle="text-indent:5pt;">
                         <af:spacer width="10" height="10" id="s3"/>
-                        <af:panelFormLayout id="pfl1">
+                        <af:panelFormLayout id="pfl1" rows="3" fieldWidth="350px" labelWidth="75px"
+                                            styleClass="AFStretchWidth"
+                                            inlineStyle="font-size:small;">
                             <af:panelLabelAndMessage label="#{bindings.Address.hints.label}" id="plam3"
                                                      inlineStyle="grid-row-span:4;">
                                 <af:outputText value="#{bindings.Address.inputValue}"
                                                shortDesc="#{bindings.Address.hints.tooltip}" id="ot3"/>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.AccountUrl.hints.label}" id="plam4">
-                                <af:link text="#{bindings.AccountUrl.inputValue}" id="l4"
-                                         destination="#{bindings.AccountUrl.inputValue}" targetFrame="_blank"/>
+                                <af:link text="#{bindings.AccountUrl.inputValue}" id="l4" targetFrame="_blank"
+                                         useWindow="true" inlineStyle="font-size:small;"
+                                         destination="#{bindings.AccountUrl.inputValue}"/>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.ParentAccountName.hints.label}" id="plam6">
                                 <af:outputText value="#{bindings.ParentAccountName.inputValue}"
@@ -61,7 +64,10 @@
                                                                   from="#{bindings.CustomerAccountView1Iterator.currentRowKeyString}"/>
                                         </af:link>
                                         <af:spacer width="4" height="10" id="s2"/>
-                                        <af:link id="l3" icon="#{resource['images:delete_ena.png']}"/>
+                                        <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
+                                            <af:showPopupBehavior popupId="::p1" triggerType="action" align="endAfter"
+                                                                  alignId="l3"/>
+                                        </af:link>
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="statusbar"/>
@@ -353,6 +359,12 @@
                     </af:panelTabbed>
                 </f:facet>
             </af:panelSplitter>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
+                <af:dialog id="d1" title="Confrim Delete" dialogListener="#{ConfirmBean.dialogListener}">
+                    <f:facet name="buttonBar"/>
+                    <af:activeOutputText value="#{'Are you sure you want to delete selected Contact? '} #{GeneralInfoBean.currentContactName}" id="aot1"/>
+                </af:dialog>
+            </af:popup>
         </af:panelGroupLayout>
     </af:panelGroupLayout>
 </ui:composition>

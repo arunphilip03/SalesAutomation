@@ -11,6 +11,8 @@
     <iterator Binds="ContactInteractionsVO1" RangeSize="25" DataControl="AppModuleDataControl"
               id="ContactInteractionsVO1Iterator"/>
     <iterator Binds="ContactTasksVO1" RangeSize="25" DataControl="AppModuleDataControl" id="ContactTasksVO1Iterator"/>
+    <iterator Binds="ContactOpportunitiesVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactOpportunitiesVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="CustomerContactsView1Iterator" id="ContactName">
@@ -99,6 +101,22 @@
           <Item Value="Description"/>
           <Item Value="RelatedOpportunity"/>
           <Item Value="Assignee"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ContactOpportunitiesVO1Iterator" id="ContactOpportunitiesVO1">
+      <nodeDefinition DefName="com.sfa.model.VO.ContactOpportunitiesVO" Name="ContactOpportunitiesVO10">
+        <AttrNames>
+          <Item Value="OpportunityName"/>
+          <Item Value="EstimatedDuration"/>
+          <Item Value="BudgetAmount"/>
+          <Item Value="CloseDate"/>
+          <Item Value="DecisionLevel"/>
+          <Item Value="IsBudgeted"/>
+          <Item Value="SalesChannel"/>
+          <Item Value="SalesMethod"/>
+          <Item Value="SalesStage"/>
+          <Item Value="WinProbability"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -1,5 +1,6 @@
 package com.sfa.model.VO;
 
+import com.sfa.model.base.BaseEntityImpl;
 import com.sfa.model.entity.CustomerContactsImpl;
 
 import java.math.BigDecimal;
@@ -55,6 +56,7 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
         RelatedContacts,
         ContactInteractionsVO,
         ContactTasksVO,
+        ContactOpportunitiesVO,
         ContactBuyingroleLuView1,
         ContactBuyingroleLuView2,
         BooleanLuView1,
@@ -116,6 +118,7 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     public static final int RELATEDCONTACTS = AttributesEnum.RelatedContacts.index();
     public static final int CONTACTINTERACTIONSVO = AttributesEnum.ContactInteractionsVO.index();
     public static final int CONTACTTASKSVO = AttributesEnum.ContactTasksVO.index();
+    public static final int CONTACTOPPORTUNITIESVO = AttributesEnum.ContactOpportunitiesVO.index();
     public static final int CONTACTBUYINGROLELUVIEW1 = AttributesEnum.ContactBuyingroleLuView1.index();
     public static final int CONTACTBUYINGROLELUVIEW2 = AttributesEnum.ContactBuyingroleLuView2.index();
     public static final int BOOLEANLUVIEW1 = AttributesEnum.BooleanLuView1.index();
@@ -141,8 +144,8 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
      * Gets CustomerAccount entity object.
      * @return the CustomerAccount
      */
-    public EntityImpl getCustomerAccount() {
-        return (EntityImpl) getEntity(ENTITY_CUSTOMERACCOUNT);
+    public BaseEntityImpl getCustomerAccount() {
+        return (BaseEntityImpl) getEntity(ENTITY_CUSTOMERACCOUNT);
     }
 
     /**
@@ -503,6 +506,13 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
      */
     public RowIterator getContactTasksVO() {
         return (RowIterator) getAttributeInternal(CONTACTTASKSVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ContactOpportunitiesVO.
+     */
+    public RowIterator getContactOpportunitiesVO() {
+        return (RowIterator) getAttributeInternal(CONTACTOPPORTUNITIESVO);
     }
 
     /**

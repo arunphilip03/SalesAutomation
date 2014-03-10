@@ -318,6 +318,25 @@
           Value="25"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:RegExpValidationBean
+      Name="ContactNameRule0"
+      ResId="com.sfa.model.entity.CustomerContacts.ContactName_Rule_0"
+      OnAttribute="ContactName"
+      Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+      Inverse="true"/>
+  </Attribute>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_CONTACTS"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
   </Attribute>
   <AccessorAttribute
     Name="AppointmentInvitees"

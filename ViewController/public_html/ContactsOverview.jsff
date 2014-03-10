@@ -127,7 +127,7 @@
                                                id="ot9"/>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.IsPrimary.label}"
-                                       id="resId1c10" width="-90"
+                                       id="resId1c10" width="90"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.IsPrimary.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.IsPrimary}"

@@ -55,5 +55,6 @@
         <Item Value="CustAccountId"/>
       </AttrNames>
     </attributeValues>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

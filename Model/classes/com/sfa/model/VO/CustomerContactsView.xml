@@ -4,39 +4,17 @@
 <ViewObject
     xmlns="http://xmlns.oracle.com/bc4j"
     Name="CustomerContactsView"
-    OrderBy="CustomerContacts.CONTACT_NAME"
+    OrderBy="CONTACT_NAME"
     Version="12.1.2.66.68"
-    Where="CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID"
     InheritPersonalization="merge"
     BindingStyle="OracleName"
-    CustomQuery="false"
-    FromList="CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount"
+    CustomQuery="true"
     PageIterMode="Full"
-    RowClass="com.sfa.model.VO.CustomerContactsViewRowImpl"
-    SelectList="CustomerContacts.CONTACT_NAME,
-    CustomerContacts.CONTACT_ID,
-    CustomerContacts.CUST_ACCOUNT_ID,
-    CustomerContacts.TITLE,
-    CustomerContacts.DEPARTMENT,
-    CustomerContacts.ADDRESS,
-    CustomerContacts.WORK_PHONE,
-    CustomerContacts.MOBILE_PHONE,
-    CustomerContacts.EMAIL,
-    CustomerContacts.BUY_INFLUENCE_LEVEL,
-    CustomerContacts.IS_PRIMARY,
-    CustomerContacts.CREATION_DATE,
-    CustomerContacts.LAST_UPDATE_DATE,
-    CustomerContacts.CREATED_BY,
-    CustomerContacts.LAST_UPDATED_BY,
-    CustomerContacts.NOTES_SEQ_ID,
-    CustomerContacts.LAST_UPDATE_LOGIN,
-    CustomerContacts.OBJECT_VERSION_NUMBER,
-    CustomerAccount.ACCOUNT_NAME,
-    CustomerAccount.CUST_ACCOUNT_ID AS CUST_ACCOUNT_ID1,
-    CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1">
+    RowClass="com.sfa.model.VO.CustomerContactsViewRowImpl">
     <DesignTime>
         <Attr Name="_codeGenFlag2" Value="Access"/>
         <Attr Name="_isCodegen" Value="true"/>
+        <Attr Name="_isExpertMode" Value="true"/>
     </DesignTime>
     <Variable
         Name="accntId"
@@ -151,6 +129,30 @@
         <DisplayCriteria
             Hint="hide"/>
     </ListBinding>
+    <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,    
+       CustomerContacts.CONTACT_ID,    
+       CustomerContacts.CUST_ACCOUNT_ID,    
+       CustomerContacts.TITLE,    
+       CustomerContacts.DEPARTMENT,    
+       CustomerContacts.ADDRESS,    
+       CustomerContacts.WORK_PHONE,    
+       CustomerContacts.MOBILE_PHONE,    
+       CustomerContacts.EMAIL,    
+       CustomerContacts.BUY_INFLUENCE_LEVEL,    
+       CustomerContacts.IS_PRIMARY,    
+       CustomerContacts.CREATION_DATE,    
+       CustomerContacts.LAST_UPDATE_DATE,    
+       CustomerContacts.CREATED_BY,    
+       CustomerContacts.LAST_UPDATED_BY,    
+       CustomerContacts.NOTES_SEQ_ID,    
+       CustomerContacts.LAST_UPDATE_LOGIN,    
+       CustomerContacts.OBJECT_VERSION_NUMBER,    
+       CustomerAccount.ACCOUNT_NAME,    
+       CustomerAccount.CUST_ACCOUNT_ID AS CUST_ACCOUNT_ID1,    
+       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1   
+FROM  CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount   
+WHERE CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID  
+AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]></SQLQuery>
     <EntityUsage
         Name="CustomerContacts"
         Entity="com.sfa.model.entity.CustomerContacts"/>
@@ -490,6 +492,11 @@
     <ViewLinkAccessor
         Name="ContactTasksVO"
         ViewLink="com.sfa.model.viewlink.ContactTasksVL"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="ContactOpportunitiesVO"
+        ViewLink="com.sfa.model.viewlink.ContactOpportunitiesVL"
         Type="oracle.jbo.RowIterator"
         IsUpdateable="false"/>
     <ResourceBundle>

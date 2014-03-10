@@ -73,6 +73,16 @@
         <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
       </outcome>
     </method-call>
+    <task-flow-call id="add-edit-interactions-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/add-edit-interactions-taskflow.xml</document>
+        <id>add-edit-interactions-taskflow</id>
+      </task-flow-reference>
+      <input-parameter id="__31">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedInteraction}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>contact-detail</from-activity-id>
       <control-flow-case id="__2">
@@ -94,6 +104,10 @@
       <control-flow-case id="__19">
         <from-outcome>editTask</from-outcome>
         <to-activity-id>SetCurrentRowWithKeyValue1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome>addEditInteraction</from-outcome>
+        <to-activity-id>add-edit-interactions-taskflow</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">

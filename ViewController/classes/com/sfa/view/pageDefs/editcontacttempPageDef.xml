@@ -13,11 +13,6 @@
         <Item Value="ContactName"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="CustomerContactsView2Iterator" id="Title">
-      <AttrNames>
-        <Item Value="Title"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="CustomerContactsView2Iterator" id="Department">
       <AttrNames>
         <Item Value="Department"/>
@@ -48,5 +43,6 @@
     <listOfValues IterBinding="CustomerContactsView2Iterator" StaticList="false" Uses="LOV_IsPrimary" id="IsPrimary1"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <listOfValues IterBinding="CustomerContactsView2Iterator" StaticList="false" Uses="LOV_Title" id="Title1"/>
   </bindings>
 </pageDefinition>

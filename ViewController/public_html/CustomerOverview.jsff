@@ -20,7 +20,7 @@
           </af:panelGroupLayout>
         </f:facet>
         <f:facet name="second">
-          <af:panelCollection id="pc1" styleClass="AFStretchWidth" inlineStyle="height:167px;">
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t2">
@@ -36,8 +36,9 @@
                 </af:link>
                 <af:spacer width="4" height="10" id="s2"/>
                 <af:link id="l4" icon="#{resource['images:delete_ena.png']}"
-                         actionListener="#{bindings.Delete.execute}">
-                  <af:showPopupBehavior popupId="::confirm" triggerType="action" align="afterEnd"/>
+                         actionListener="#{bindings.Delete.execute}"
+                         rendered="#{securityContext.userInRole['Sales Manager']}">
+                  <af:showPopupBehavior popupId="::confirm" triggerType="action" align="endAfter" alignId="l4"/>
                 </af:link>
               </af:toolbar>
             </f:facet>
@@ -88,10 +89,10 @@
           </af:panelCollection>
         </f:facet>
       </af:panelSplitter>
-      <af:popup childCreation="deferred" autoCancel="disabled" id="confirm">
-        <af:dialog id="d2" title="Confirm Delete">
+      <af:popup childCreation="deferred" autoCancel="disabled" id="confirm" contentDelivery="lazyUncached">
+        <af:dialog id="d2" title="Confirm Delete" dialogListener="#{ConfirmBean.dialogListener}">
           <f:facet name="buttonBar"/>
-          <af:activeOutputText value="Are you sure you want to delete selected Customer?" id="aot1"/>
+          <af:activeOutputText value="#{'Are you sure you want to delete selected Customer? '} #{GeneralInfoBean.currentAccountName}" id="aot1"/>
         </af:dialog>
       </af:popup>
     </af:panelGroupLayout>

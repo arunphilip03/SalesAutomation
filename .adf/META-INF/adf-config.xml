@@ -17,5 +17,11 @@
   <sec:adf-security-child xmlns="http://xmlns.oracle.com/adf/security/config">
     <CredentialStoreContext credentialStoreClass="oracle.adf.share.security.providers.jps.CSFCredentialStore"
                             credentialStoreLocation="../../src/META-INF/jps-config.xml"/>
+    <sec:JaasSecurityContext initialContextFactoryClass="oracle.adf.share.security.JAASInitialContextFactory"
+                             jaasProviderClass="oracle.adf.share.security.providers.jps.JpsSecurityContext"
+                             authorizationEnforce="true" authenticationRequire="true">
+      <sec:contextEnv name="oracle.adf.security.identity.provider"
+                      value="oracle.adf.share.security.providers.jps.IgfIdentityManagementProvider"/>
+    </sec:JaasSecurityContext>
   </sec:adf-security-child>
 </adf-config>

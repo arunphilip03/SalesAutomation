@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="OPPORTUNITIES"
   AliasName="Opportunities"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="OppurtunityId"
     IsNotNull="true"
@@ -370,7 +371,7 @@
   <Attribute
     Name="OpportunityName"
     IsNotNull="true"
-    Precision="50"
+    Precision="255"
     ColumnName="OPPORTUNITY_NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"

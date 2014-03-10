@@ -8,13 +8,14 @@
       <af:toolbar id="t1">
         <af:button text="Save" id="b1" action="save" actionListener="#{TaskTeamBean.onCommit}"/>
         <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{TaskTeamBean.onCommit}"/>
-        <af:button text="Cancel" id="b3" action="cancel" immediate="true"/>
+        <af:button text="Cancel" id="b3" action="cancel" immediate="true"
+                   actionListener="#{bindings.Rollback.execute}"/>
       </af:toolbar>
     </f:facet>
     <f:facet name="legend"/>
     <f:facet name="info"/>
     <af:spacer width="10" height="10" id="s1"/>
-    <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth" rows="4">
+    <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth" rows="4" fieldWidth="350px" labelWidth="75px">
       <af:inputText value="#{bindings.TaskName.inputValue}" label="#{bindings.TaskName.hints.label}"
                     required="#{bindings.TaskName.hints.mandatory}" columns="#{bindings.TaskName.hints.displayWidth}"
                     maximumLength="#{bindings.TaskName.hints.precision}" shortDesc="#{bindings.TaskName.hints.tooltip}"
