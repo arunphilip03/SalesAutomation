@@ -18,4 +18,14 @@
     <managed-bean-class>com.sfa.view.backing.TaskTeamBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name>InteractionTeamBean</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.InteractionTeamBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name>GeneralInfoBean</managed-bean-name>
+    <managed-bean-class>com.sfa.view.GetAppointmentId</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

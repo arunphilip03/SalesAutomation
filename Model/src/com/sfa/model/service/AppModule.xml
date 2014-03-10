@@ -263,6 +263,9 @@
     <ViewUsage
         Name="ContactOpportunitiesVO1"
         ViewObjectName="com.sfa.model.VO.ContactOpportunitiesVO"/>
+    <ViewUsage
+        Name="ContactInteractionTeamVO1"
+        ViewObjectName="com.sfa.model.VO.ContactInteractionTeamVO"/>
     <ViewLinkUsage
         Name="AppointmentInviteesFk1Link1"
         ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
@@ -532,5 +535,11 @@
         ViewLinkObjectName="com.sfa.model.viewlink.ContactOpportunitiesVL"
         SrcViewUsageName="com.sfa.model.service.AppModule.CustomerContactsView1"
         DstViewUsageName="com.sfa.model.service.AppModule.ContactOpportunitiesVO1"
+        Reversed="false"/>
+    <ViewLinkUsage
+        Name="ContactInteractionsTeamVL1"
+        ViewLinkObjectName="com.sfa.model.viewlink.ContactInteractionsTeamVL"
+        SrcViewUsageName="com.sfa.model.service.AppModule.ContactInteractionsVO1"
+        DstViewUsageName="com.sfa.model.service.AppModule.ContactInteractionTeamVO1"
         Reversed="false"/>
 </AppModule>

@@ -70,7 +70,7 @@
       <property
          name="fromOutcome">addorEdit</property>
       <property
-         name="sdm:polyPoints">R50,222.31503,308.74707,384.56094,310.293,L50</property>
+         name="sdm:polyPoints">R50,221.5,308.74707,385.37598,310.29297,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -80,7 +80,7 @@
       <property
          name="fromOutcome">addEditAppointment</property>
       <property
-         name="sdm:polyPoints">T57,184.81503,253.93202,353.56085,140.64355,L50</property>
+         name="sdm:polyPoints">T67,191.0,254.74707,354.37598,140.64355,L50</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn9">
@@ -105,7 +105,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">T43,176.18494,253.93202,51.000015,182.4127,B50</property>
+         name="sdm:polyPoints">T33,170.0,254.74707,51.0,181.59766,B50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall10">
@@ -132,7 +132,7 @@
       <property
          name="fromOutcome">addEditTask</property>
       <property
-         name="sdm:polyPoints">B57,184.81503,363.56213,353.54135,470.39648,L50</property>
+         name="sdm:polyPoints">B56,184.0,362.74707,354.35645,470.39648,L50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall12">
@@ -159,6 +159,43 @@
       <property
          name="fromOutcome">addNote</property>
       <property
-         name="sdm:polyPoints">B43,176.18494,363.56213,147.3584,490.98373,T50</property>
+         name="sdm:polyPoints">B44,177.0,362.74707,147.3584,491.79883,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View14">
+      <property
+         name="activityId">AppointmentDetail</property>
+      <property
+         name="page">/AppointmentDetail.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>AppointmentDetail&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">59.396484</property>
+      <property
+         name="x">224.03613</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase15"
+      from="View4"
+      to="View14">
+      <property
+         name="fromOutcome">appointmentDetail</property>
+      <property
+         name="sdm:polyPoints">T56,184.0,252.39685,227.53613,114.11779,B56</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase16"
+      from="View14"
+      to="View4">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">B44,220.53613,113.0459,177.0,251.34576,T44</property>
    </ControlFlowCase>
 </SDM>

@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="OPPORTUNITY_TEAM"
   AliasName="OpportunityTeam"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="OpportunityTeamId"
     IsNotNull="true"

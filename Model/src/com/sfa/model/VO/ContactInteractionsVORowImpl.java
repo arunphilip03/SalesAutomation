@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.Key;
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.AttributeDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -37,10 +38,12 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
         ObjectVersionNumber,
         RelatedOpportunity,
         CustomerContactsView,
+        ContactInteractionTeamVO,
         OpportunitiesView1,
         InteractionsTypeLuView1,
         InteractionsDirectionLuView1;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -62,6 +65,7 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int TYPE = AttributesEnum.Type.index();
     public static final int INTERACTIONID = AttributesEnum.InteractionId.index();
     public static final int DIRECTION = AttributesEnum.Direction.index();
@@ -75,6 +79,7 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
     public static final int OBJECTVERSIONNUMBER = AttributesEnum.ObjectVersionNumber.index();
     public static final int RELATEDOPPORTUNITY = AttributesEnum.RelatedOpportunity.index();
     public static final int CUSTOMERCONTACTSVIEW = AttributesEnum.CustomerContactsView.index();
+    public static final int CONTACTINTERACTIONTEAMVO = AttributesEnum.ContactInteractionTeamVO.index();
     public static final int OPPORTUNITIESVIEW1 = AttributesEnum.OpportunitiesView1.index();
     public static final int INTERACTIONSTYPELUVIEW1 = AttributesEnum.InteractionsTypeLuView1.index();
     public static final int INTERACTIONSDIRECTIONLUVIEW1 = AttributesEnum.InteractionsDirectionLuView1.index();
@@ -322,6 +327,13 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
      */
     public void setCustomerContactsView(Row value) {
         setAttributeInternal(CUSTOMERCONTACTSVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ContactInteractionTeamVO.
+     */
+    public RowIterator getContactInteractionTeamVO() {
+        return (RowIterator) getAttributeInternal(CONTACTINTERACTIONTEAMVO);
     }
 
     /**

@@ -1,73 +1,100 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelHeader text="Create Interaction: for Contact" id="ph1" styleClass="AFStretchWidth">
-    <f:facet name="context"/>
-    <f:facet name="menuBar"/>
-    <f:facet name="toolbar">
-      <af:toolbar id="t1">
-        <af:button text="Save" id="b1" action="save"/>
-        <af:button text="Save and Close" id="b2" action="saveAndClose"/>
-        <af:button text="Cancel" id="b3" action="cancel" immediate="true"/>
-      </af:toolbar>
-    </f:facet>
-    <f:facet name="legend"/>
-    <f:facet name="info"/>
-    <af:spacer width="10" height="10" id="s1"/>
-    <af:panelFormLayout id="pfl1" rows="4" fieldWidth="350px" labelWidth="75px" styleClass="AFStretchWidth">
-      <af:inputComboboxListOfValues id="type1Id" popupTitle="Search and Select: #{bindings.Type1.hints.label}"
-                                    value="#{bindings.Type1.inputValue}" label="#{bindings.Type1.hints.label}"
-                                    model="#{bindings.Type1.listOfValuesModel}"
-                                    required="#{bindings.Type1.hints.mandatory}"
-                                    columns="#{bindings.Type1.hints.displayWidth}"
-                                    shortDesc="#{bindings.Type1.hints.tooltip}">
-        <f:validator binding="#{bindings.Type1.validator}"/>
-      </af:inputComboboxListOfValues>
-      <af:inputComboboxListOfValues id="direction1Id" popupTitle="Search and Select: #{bindings.Direction1.hints.label}"
-                                    value="#{bindings.Direction1.inputValue}" label="#{bindings.Direction1.hints.label}"
-                                    model="#{bindings.Direction1.listOfValuesModel}"
-                                    required="#{bindings.Direction1.hints.mandatory}"
-                                    columns="#{bindings.Direction1.hints.displayWidth}"
-                                    shortDesc="#{bindings.Direction1.hints.tooltip}">
-        <f:validator binding="#{bindings.Direction1.validator}"/>
-      </af:inputComboboxListOfValues>
-      <af:inputDate value="#{bindings.StartDatetime.inputValue}" label="#{bindings.StartDatetime.hints.label}"
-                    required="#{bindings.StartDatetime.hints.mandatory}"
-                    columns="#{bindings.StartDatetime.hints.displayWidth}"
-                    shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1">
-        <f:validator binding="#{bindings.StartDatetime.validator}"/>
-        <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
-      </af:inputDate>
-      <af:inputDate value="#{bindings.EndDatetime.inputValue}" label="#{bindings.EndDatetime.hints.label}"
-                    required="#{bindings.EndDatetime.hints.mandatory}"
-                    columns="#{bindings.EndDatetime.hints.displayWidth}"
-                    shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2">
-        <f:validator binding="#{bindings.EndDatetime.validator}"/>
-        <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
-      </af:inputDate>
-      <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
-                    required="#{bindings.Description.hints.mandatory}"
-                    columns="#{bindings.Description.hints.displayWidth}"
-                    maximumLength="#{bindings.Description.hints.precision}"
-                    shortDesc="#{bindings.Description.hints.tooltip}" id="it3" rows="4">
-        <f:validator binding="#{bindings.Description.validator}"/>
-      </af:inputText>
-      <af:inputText value="#{bindings.Resolution.inputValue}" label="#{bindings.Resolution.hints.label}"
-                    required="#{bindings.Resolution.hints.mandatory}"
-                    columns="#{bindings.Resolution.hints.displayWidth}"
-                    maximumLength="#{bindings.Resolution.hints.precision}"
-                    shortDesc="#{bindings.Resolution.hints.tooltip}" id="it4" rows="4">
-        <f:validator binding="#{bindings.Resolution.validator}"/>
-      </af:inputText>
-      <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.RelatedOpportunity.hints.label}"
-                            value="#{bindings.RelatedOpportunity.inputValue}"
-                            label="#{bindings.RelatedOpportunity.hints.label}"
-                            model="#{bindings.RelatedOpportunity.listOfValuesModel}"
-                            required="#{bindings.RelatedOpportunity.hints.mandatory}"
-                            columns="#{bindings.RelatedOpportunity.hints.displayWidth}"
-                            shortDesc="#{bindings.RelatedOpportunity.hints.tooltip}">
-        <f:validator binding="#{bindings.RelatedOpportunity.validator}"/>
-      </af:inputListOfValues>
-    </af:panelFormLayout>
-  </af:panelHeader>
+    <af:panelHeader text="Create Interaction: for Contact" id="ph1" styleClass="AFStretchWidth">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+            <af:toolbar id="t1">
+                <af:button text="Save" id="b1" action="save" actionListener="#{InteractionTeamBean.onCommit}"/>
+                <af:button text="Save and Close" id="b2" action="saveAndClose"
+                           actionListener="#{InteractionTeamBean.onCommit}"/>
+                <af:button text="Cancel" id="b3" action="cancel" immediate="true"
+                           actionListener="#{bindings.Rollback.execute}"/>
+            </af:toolbar>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:panelFormLayout id="pfl1" rows="4" fieldWidth="350px" labelWidth="75px" styleClass="AFStretchWidth">
+            <af:inputComboboxListOfValues id="type1Id" popupTitle="Search and Select: #{bindings.Type1.hints.label}"
+                                          value="#{bindings.Type1.inputValue}" label="#{bindings.Type1.hints.label}"
+                                          model="#{bindings.Type1.listOfValuesModel}"
+                                          required="#{bindings.Type1.hints.mandatory}"
+                                          columns="#{bindings.Type1.hints.displayWidth}"
+                                          shortDesc="#{bindings.Type1.hints.tooltip}">
+                <f:validator binding="#{bindings.Type1.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="direction1Id"
+                                          popupTitle="Search and Select: #{bindings.Direction1.hints.label}"
+                                          value="#{bindings.Direction1.inputValue}"
+                                          label="#{bindings.Direction1.hints.label}"
+                                          model="#{bindings.Direction1.listOfValuesModel}"
+                                          required="#{bindings.Direction1.hints.mandatory}"
+                                          columns="#{bindings.Direction1.hints.displayWidth}"
+                                          shortDesc="#{bindings.Direction1.hints.tooltip}">
+                <f:validator binding="#{bindings.Direction1.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputDate value="#{bindings.StartDatetime.inputValue}" label="#{bindings.StartDatetime.hints.label}"
+                          required="#{bindings.StartDatetime.hints.mandatory}"
+                          columns="#{bindings.StartDatetime.hints.displayWidth}"
+                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1">
+                <f:validator binding="#{bindings.StartDatetime.validator}"/>
+                <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.EndDatetime.inputValue}" label="#{bindings.EndDatetime.hints.label}"
+                          required="#{bindings.EndDatetime.hints.mandatory}"
+                          columns="#{bindings.EndDatetime.hints.displayWidth}"
+                          shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2">
+                <f:validator binding="#{bindings.EndDatetime.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                          required="#{bindings.Description.hints.mandatory}"
+                          columns="#{bindings.Description.hints.displayWidth}"
+                          maximumLength="#{bindings.Description.hints.precision}"
+                          shortDesc="#{bindings.Description.hints.tooltip}" id="it3" rows="4">
+                <f:validator binding="#{bindings.Description.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Resolution.inputValue}" label="#{bindings.Resolution.hints.label}"
+                          required="#{bindings.Resolution.hints.mandatory}"
+                          columns="#{bindings.Resolution.hints.displayWidth}"
+                          maximumLength="#{bindings.Resolution.hints.precision}"
+                          shortDesc="#{bindings.Resolution.hints.tooltip}" id="it4" rows="4">
+                <f:validator binding="#{bindings.Resolution.validator}"/>
+            </af:inputText>
+            <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.RelatedOpportunity.hints.label}"
+                                  value="#{bindings.RelatedOpportunity.inputValue}"
+                                  label="#{bindings.RelatedOpportunity.hints.label}"
+                                  model="#{bindings.RelatedOpportunity.listOfValuesModel}"
+                                  required="#{bindings.RelatedOpportunity.hints.mandatory}"
+                                  columns="#{bindings.RelatedOpportunity.hints.displayWidth}"
+                                  shortDesc="#{bindings.RelatedOpportunity.hints.tooltip}">
+                <f:validator binding="#{bindings.RelatedOpportunity.validator}"/>
+            </af:inputListOfValues>
+        </af:panelFormLayout>
+        <af:showDetailHeader text="Team Involved" disclosed="true" id="sdh1" styleClass="AFStretchWidth">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <af:panelSplitter id="ps1" splitterPosition="500" styleClass="AFStretchWidth">
+                <f:facet name="first">
+                    <af:selectManyShuttle label="Contacts" id="sms1" value="#{InteractionTeamBean.selectedContacts}"
+                                          valueChangeListener="#{InteractionTeamBean.onContactChange}"
+                                          binding="#{InteractionTeamBean.selectManyShuttleComponentContacts}">
+                        <f:selectItems value="#{InteractionTeamBean.allContacts}" id="si1"/>
+                    </af:selectManyShuttle>
+                </f:facet>
+                <f:facet name="second">
+                    <af:selectManyShuttle label="Users" id="sms2" value="#{InteractionTeamBean.selectedUsers}"
+                                          valueChangeListener="#{InteractionTeamBean.onUserChange}"
+                                          binding="#{InteractionTeamBean.selectManyShuttleComponentUsers}">
+                        <f:selectItems value="#{InteractionTeamBean.allUsers}" id="si2"/>
+                    </af:selectManyShuttle>
+                </f:facet>
+            </af:panelSplitter>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+        </af:showDetailHeader>
+    </af:panelHeader>
 </ui:composition>

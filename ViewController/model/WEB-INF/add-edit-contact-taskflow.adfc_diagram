@@ -56,9 +56,9 @@
       <property
          name="y">82.84473</property>
       <property
-         name="x">593.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">593.0</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn6">
@@ -98,7 +98,7 @@
       <property
          name="fromOutcome">add</property>
       <property
-         name="sdm:polyPoints">R50,176.0,177.82129,299.0,83.143555,L50</property>
+         name="sdm:polyPoints">R46,176.0,174.32129,299.0,83.143555,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -143,9 +143,9 @@
       <property
          name="y">376.1953</property>
       <property
-         name="x">763.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">763.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -205,7 +205,7 @@
       <property
          name="fromOutcome">cancel</property>
       <property
-         name="sdm:polyPoints">B50,763.0,429.84473,851.0,481.1953,L50</property>
+         name="sdm:polyPoints">B50,763.0,430.8108,850.0339,481.1953,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall23">

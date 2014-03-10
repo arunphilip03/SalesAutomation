@@ -4,6 +4,12 @@
   <jazn-realm default="jazn.com">
     <realm>
       <name>jazn.com</name>
+      <users>
+        <user>
+          <name>test-user</name>
+          <credentials>{903}q+6IgH8mR7uSj8nfMh3vKwY23t9JsEaQ</credentials>
+        </user>
+      </users>
     </realm>
   </jazn-realm>
   <policy-store>
@@ -29,6 +35,21 @@
             <members>
             </members>
           </app-role>
+          <app-role>
+            <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+            <name>test-all</name>
+            <display-name>test-all</display-name>
+            <members>
+              <member>
+                <class>oracle.security.jps.internal.core.principals.JpsAnonymousRoleImpl</class>
+                <name>anonymous-role</name>
+              </member>
+              <member>
+                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
+                <name>test-user</name>
+              </member>
+            </members>
+          </app-role>
         </app-roles>
         <jazn-policy>
           <grant>
@@ -49,36 +70,6 @@
               <permission>
                 <class>oracle.adf.controller.security.TaskFlowPermission</class>
                 <name>/WEB-INF/welcome-taskflow.xml#welcome-taskflow</name>
-                <actions>customize,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/admin-role-tf.xml#admin-role-task</name>
-                <actions>customize,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/admin-user-roleAssignment.xml#admin-user-roleAssignment</name>
-                <actions>customize,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/admin-user-tf.xml#admin-user-tf</name>
-                <actions>customize,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/adminUser-roleAssign-create.xml#adminUser-roleAssign-create</name>
-                <actions>customize,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/admin-product-tf.xml#admin-product-tf</name>
-                <actions>customize,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/admin-productcategory-tf.xml#admin-productcategory-tf</name>
                 <actions>customize,personalize,view</actions>
               </permission>
             </permissions>
@@ -106,56 +97,6 @@
               <permission>
                 <class>oracle.adf.share.security.authorization.RegionPermission</class>
                 <name>com.sfa.view.pageDefs.CustomerOverviewPageDef</name>
-                <actions>customize,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/contacts-taskflow.xml#contacts-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-customer.xml#add-edit-customer</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-notes.xml#add-edit-notes</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/customer-appointment-taskflow.xml#create-customer-appointment</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow</name>
                 <actions>customize,personalize,view</actions>
               </permission>
               <permission>
@@ -188,56 +129,6 @@
               <permission>
                 <class>oracle.adf.share.security.authorization.RegionPermission</class>
                 <name>com.sfa.view.pageDefs.CustomerOverviewPageDef</name>
-                <actions>customize,personalize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/contacts-taskflow.xml#contacts-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-customer.xml#add-edit-customer</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-notes.xml#add-edit-notes</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/customer-appointment-taskflow.xml#create-customer-appointment</name>
-                <actions>customize,view</actions>
-              </permission>
-              <permission>
-                <class>oracle.adf.controller.security.TaskFlowPermission</class>
-                <name>/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow</name>
                 <actions>customize,personalize,view</actions>
               </permission>
               <permission>
@@ -280,6 +171,121 @@
               <permission>
                 <class>oracle.adf.controller.security.TaskFlowPermission</class>
                 <name>/WEB-INF/customer-detail-taskflow.xml#customer-detail-taskflow</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/contacts-taskflow.xml#contacts-taskflow</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/add-edit-customer.xml#add-edit-customer</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/add-edit-notes.xml#add-edit-notes</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/opportunities-appointment-tf.xml#opportunities-appointment-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/opportunity-interactions-tf.xml#opportunity-interactions-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/opportunity-task-main-tf.xml#opportunity-task-main-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/Opportunity_notes_tf.xml#Opportunity_notes_tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/select-invitees.xml#select-invitees</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/customer-appointment-taskflow.xml#create-customer-appointment</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/adminUser-roleAssign-create.xml#adminUser-roleAssign-create</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/admin-user-tf.xml#admin-user-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/admin-user-roleAssignment.xml#admin-user-roleAssignment</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/admin-role-tf.xml#admin-role-task</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/admin-productcategory-tf.xml#admin-productcategory-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/admin-product-tf.xml#admin-product-tf</name>
+                <actions>customize,personalize,view</actions>
+              </permission>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/Admin-delete-confirm-tf.xml#Admin-delete-confirm-tf</name>
                 <actions>customize,personalize,view</actions>
               </permission>
             </permissions>

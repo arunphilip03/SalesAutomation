@@ -58,23 +58,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT CustomerAccount.CUST_ACCOUNT_ID,     
-       CustomerAccount.ACCOUNT_NAME,     
-       CustomerAccount.ADDRESS,     
-       CustomerAccount.ACCOUNT_URL,     
-       CustomerAccount.PARENT_ACCOUNT_ID,     
-       CustomerAccountB.ACCOUNT_NAME AS PARENT_ACCOUNT_NAME,   
-       CustomerAccount.CEO,     
-       CustomerAccount.NO_EMPLOYEES,     
-       CustomerAccount.CREATION_DATE,     
-       CustomerAccount.LAST_UPDATE_DATE,     
-       CustomerAccount.CREATED_BY,     
-       CustomerAccount.LAST_UPDATED_BY,     
-       CustomerAccount.NOTES_SEQ_ID,     
-       CustomerAccount.LAST_UPDATE_LOGIN,     
-       CustomerAccount.OBJECT_VERSION_NUMBER    
-FROM  CUSTOMER_ACCOUNT CustomerAccount LEFT JOIN CUSTOMER_ACCOUNT CustomerAccountB   
-ON CustomerAccount.PARENT_ACCOUNT_ID = CustomerAccountB.CUST_ACCOUNT_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT CustomerAccount.CUST_ACCOUNT_ID,             
+       CustomerAccount.ACCOUNT_NAME,             
+       CustomerAccount.ADDRESS,             
+       CustomerAccount.ACCOUNT_URL,             
+       CustomerAccount.PARENT_ACCOUNT_ID,             
+       CustomerAccountB.ACCOUNT_NAME AS PARENT_ACCOUNT_NAME,           
+       CustomerAccount.CEO,             
+       CustomerAccount.NO_EMPLOYEES,             
+       CustomerAccount.CREATION_DATE,             
+       CustomerAccount.LAST_UPDATE_DATE,             
+       CustomerAccount.CREATED_BY,             
+       CustomerAccount.LAST_UPDATED_BY,             
+       CustomerAccount.NOTES_SEQ_ID,             
+       CustomerAccount.LAST_UPDATE_LOGIN,             
+       CustomerAccount.OBJECT_VERSION_NUMBER            
+FROM  CUSTOMER_ACCOUNT CustomerAccount LEFT JOIN CUSTOMER_ACCOUNT CustomerAccountB           
+ON CustomerAccount.PARENT_ACCOUNT_ID = CustomerAccountB.CUST_ACCOUNT_ID        
+WHERE CustomerAccount.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="CustomerAccount"
     Entity="com.sfa.model.entity.CustomerAccount"/>
@@ -92,7 +93,14 @@ ON CustomerAccount.PARENT_ACCOUNT_ID = CustomerAccountB.CUST_ACCOUNT_ID]]></SQLQ
     PrecisionRule="true"
     EntityAttrName="AccountName"
     EntityUsage="CustomerAccount"
-    AliasName="ACCOUNT_NAME"/>
+    AliasName="ACCOUNT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Address"
     IsNotNull="true"
@@ -152,7 +160,14 @@ ON CustomerAccount.PARENT_ACCOUNT_ID = CustomerAccountB.CUST_ACCOUNT_ID]]></SQLQ
     PrecisionRule="true"
     EntityAttrName="Ceo"
     EntityUsage="CustomerAccount"
-    AliasName="CEO"/>
+    AliasName="CEO">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NoEmployees"
     PrecisionRule="true"

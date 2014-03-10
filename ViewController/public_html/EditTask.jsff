@@ -8,7 +8,8 @@
       <af:toolbar id="t1">
         <af:button text="Save" id="b1" action="save" actionListener="#{TaskTeamBean.onCommit}"/>
         <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{TaskTeamBean.onCommit}"/>
-        <af:button text="Cancel" id="b3" action="cancel" immediate="true"/>
+        <af:button text="Cancel" id="b3" action="cancel" immediate="true"
+                   actionListener="#{bindings.Rollback.execute}"/>
       </af:toolbar>
     </f:facet>
     <f:facet name="legend"/>

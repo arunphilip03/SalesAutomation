@@ -53,26 +53,14 @@ public class CustomerContactsDefImpl extends EntityDefImpl {
             System.out.println("found contact in database!");
             return true;
         }
-        // If we didn't find it in the database, try checking against any
-        // contacts in cache
-//        Iterator iter = getAllEntityInstancesIterator(t);
-//        while (iter.hasNext()) {
-//            CustomerContactsImpl contact = (CustomerContactsImpl) iter.next();
-//            if (contact.getContactName() == null) {
-//                System.out.println("empty cache element");
-//            } else {
-//
-//                String isPrimaryContact = contact.getIsPrimary();
-//                oracle.jbo.domain.Number account = toADFNumber(contact.getCustAccountId());
-//
-//                if (account.equals(accountId) && isPrimaryContact.equals(isPrimary)) {
-//                    System.out.println("found contact in cache!");
-//                    return true;
-//                }
-//            }
-//        }
+       
         return false;
     }
+    
+    
+//    public boolean contactExists(DBTransaction t, String contactName, Number accountId) {
+//        
+//    }
 
     public static oracle.jbo.domain.Number toADFNumber(BigDecimal l) {
         oracle.jbo.domain.Number n = null;

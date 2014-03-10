@@ -10,6 +10,7 @@
   <DesignTime>
     <Attr Name="_jprName" Value="../../../../Model.jpr"/>
     <Attr Name="_appModuleNames0" Value="com.sfa.model.service.AppModule"/>
+    <Attr Name="_NamedConnection" Value="SFAConnection"/>
   </DesignTime>
   <Containee
     Name="association"
@@ -22,7 +23,11 @@
   <Containee
     Name="entity"
     PackageName="com.sfa.model.entity"
-    ObjectType="JboPackage"/>
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
   <Containee
     Name="service"
     PackageName="com.sfa.model.service"

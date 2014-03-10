@@ -7,8 +7,10 @@
         <f:facet name="toolbar">
             <af:toolbar id="t1">
                 <af:button text="Save" id="b1" action="save"/>
-                <af:button text="Save and Close" id="b3" action="saveAndClose"/>
-                <af:button text="Cancel" id="b2" action="cancel" immediate="true"/>
+                <af:button text="Save and Close" id="b3" action="saveAndClose"
+                           actionListener="#{bindings.Commit.execute}"/>
+                <af:button text="Cancel" id="b2" action="cancel" immediate="true"
+                           actionListener="#{bindings.Rollback.execute}"/>
             </af:toolbar>
         </f:facet>
         <f:facet name="legend"/>
@@ -21,12 +23,14 @@
                           shortDesc="#{bindings.ContactName.hints.tooltip}" id="it1">
                 <f:validator binding="#{bindings.ContactName.validator}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.Title.inputValue}" label="#{bindings.Title.hints.label}"
-                          required="#{bindings.Title.hints.mandatory}" columns="#{bindings.Title.hints.displayWidth}"
-                          maximumLength="#{bindings.Title.hints.precision}" shortDesc="#{bindings.Title.hints.tooltip}"
-                          id="it2">
-                <f:validator binding="#{bindings.Title.validator}"/>
-            </af:inputText>
+            <af:inputComboboxListOfValues id="title1Id" popupTitle="Search and Select: #{bindings.Title1.hints.label}"
+                                          value="#{bindings.Title1.inputValue}" label="#{bindings.Title1.hints.label}"
+                                          model="#{bindings.Title1.listOfValuesModel}"
+                                          required="#{bindings.Title1.hints.mandatory}"
+                                          columns="#{bindings.Title1.hints.displayWidth}"
+                                          shortDesc="#{bindings.Title1.hints.tooltip}">
+                <f:validator binding="#{bindings.Title1.validator}"/>
+            </af:inputComboboxListOfValues>
             <af:inputText value="#{bindings.Department.inputValue}" label="#{bindings.Department.hints.label}"
                           required="#{bindings.Department.hints.mandatory}"
                           columns="#{bindings.Department.hints.displayWidth}"

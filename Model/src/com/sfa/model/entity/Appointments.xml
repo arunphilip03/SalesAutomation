@@ -10,7 +10,8 @@
   DBObjectName="APPOINTMENTS"
   AliasName="Appointments"
   BindingStyle="OracleName"
-  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="AppointmentId"
     IsNotNull="true"
@@ -40,6 +41,12 @@
           ResId="com.sfa.model.entity.Appointments.Name_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:RegExpValidationBean
+      Name="NameRule0"
+      ResId="com.sfa.model.entity.Appointments.Name_Rule_0"
+      OnAttribute="Name"
+      Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+      Inverse="true"/>
   </Attribute>
   <Attribute
     Name="Description"

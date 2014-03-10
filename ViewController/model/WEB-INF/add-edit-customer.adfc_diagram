@@ -128,7 +128,7 @@
       <property
          name="fromOutcome">saveAndClose</property>
       <property
-         name="sdm:polyPoints">T50,477.0,283.84473,604.0,223.44238,L50</property>
+         name="sdm:polyPoints">T50,477.0,282.8787,603.03394,223.44238,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

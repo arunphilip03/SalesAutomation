@@ -6,6 +6,13 @@
     <variableIterator id="variables"/>
     <iterator Binds="ContactInteractionsVO1" RangeSize="25" DataControl="AppModuleDataControl"
               id="ContactInteractionsVO1Iterator"/>
+    <iterator id="ContactInteractionTeamVO1Iterator" Binds="ContactInteractionTeamVO1"
+              DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="ContactsInAccountVO1Iterator" Binds="ContactsInAccountVO1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="AllUsersVO1Iterator" Binds="AllUsersVO1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="CustomerContactsView1Iterator" Binds="CustomerContactsView1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_RelatedOpportunity"
@@ -34,5 +41,10 @@
     <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
     <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_Type" id="Type1"/>
     <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_Direction" id="Direction1"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

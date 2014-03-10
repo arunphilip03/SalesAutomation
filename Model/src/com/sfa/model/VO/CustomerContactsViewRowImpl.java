@@ -1,5 +1,6 @@
 package com.sfa.model.VO;
 
+import com.sfa.model.base.BaseEntityImpl;
 import com.sfa.model.entity.CustomerContactsImpl;
 
 import java.math.BigDecimal;
@@ -143,8 +144,8 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
      * Gets CustomerAccount entity object.
      * @return the CustomerAccount
      */
-    public EntityImpl getCustomerAccount() {
-        return (EntityImpl) getEntity(ENTITY_CUSTOMERACCOUNT);
+    public BaseEntityImpl getCustomerAccount() {
+        return (BaseEntityImpl) getEntity(ENTITY_CUSTOMERACCOUNT);
     }
 
     /**

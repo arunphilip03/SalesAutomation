@@ -101,5 +101,10 @@
             Action="setCurrentRowWithKey">
       <NamedData NDName="rowKey" NDValue="#{row.AppointmentId}" NDType="java.lang.String"/>
     </action>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="CustomerContactsView2Iterator" id="Delete"
+            InstanceName="AppModuleDataControl.CustomerContactsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

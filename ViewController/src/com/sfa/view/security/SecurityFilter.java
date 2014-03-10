@@ -48,7 +48,6 @@ public class SecurityFilter extends ADFBindingFilter {
         ApplicationModule am  = bindings.getDataControl().getApplicationModule();
 
         ViewObject vo = am.findViewObject("GetUserRolesVO");
-        //vo.setWhereClause("First_Name = :bEmpName");
         vo.defineNamedWhereClauseParam("USER_NAME", null, null);
         vo.setNamedWhereClauseParam("USER_NAME", userName);
         vo.executeQuery();
@@ -66,27 +65,24 @@ public class SecurityFilter extends ADFBindingFilter {
                          FilterChain filterChain) throws IOException, ServletException {
         super.doFilter(servletRequest, servletResponse, filterChain);
 
-        System.out.println("Inside security filter");
+        //System.out.println("Inside security filter");
 
 
-        userName = ADFContext.getCurrent().getSecurityContext().getUserName();
-        String[] roles = ADFContext.getCurrent().getSecurityContext().getUserRoles();
-
-        if (userName != null) {
-            System.out.println("Logged in user: " + userName);
-           // if(!userName.equals("anonymous"))
-            //getRoles(userName);
-            
-        }
-        
-        if(roles !=null) {
-            for(String s: roles) {
-                System.out.println(s);
-            }
-        }
-
-
-        // filterChain.doFilter(servletRequest, servletResponse);
+//        userName = ADFContext.getCurrent().getSecurityContext().getUserName();
+//        String[] roles = ADFContext.getCurrent().getSecurityContext().getUserRoles();
+//
+//        if (userName != null) {
+//            System.out.println("Logged in user: " + userName);
+//           // if(!userName.equals("anonymous"))
+//            //getRoles(userName);
+//            
+//        }
+//        
+//        if(roles !=null) {
+//            for(String s: roles) {
+//                System.out.println(s);
+//            }
+//        }
 
 
     }
