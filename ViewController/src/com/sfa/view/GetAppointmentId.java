@@ -66,6 +66,27 @@ public class GetAppointmentId {
         return appointmentId_Str;
         
     }
+    
+    
+    public String getCurrentContactId() {
+        
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+
+        DCIteratorBinding iterator = bc.findIteratorBinding("CustomerContactsView2Iterator");
+
+        Row row = iterator.getCurrentRow();
+
+        BigDecimal contactId = (BigDecimal)row.getAttribute("ContactId");
+        
+        String conactId_Str = contactId.toString();
+        
+        
+        
+        System.out.println("selected contact id in link = "+ conactId_Str);
+        
+        return conactId_Str;
+        
+    }
 
     public void setCurrentTaskId(String currentTaskId) {
         this.currentTaskId = currentTaskId;

@@ -43,7 +43,16 @@
     </attributeValues>
     <listOfValues IterBinding="CustomerContactsView1Iterator" StaticList="false" Uses="LOV_BuyInfluenceLevel"
                   id="BuyInfluenceLevel"/>
-    <listOfValues IterBinding="CustomerContactsView1Iterator" StaticList="false" Uses="LOV_IsPrimary" id="IsPrimary"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <button IterBinding="CustomerContactsView1Iterator" id="IsPrimaryBoolean" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="IsPrimaryBoolean"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

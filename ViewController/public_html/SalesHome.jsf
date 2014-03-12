@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
         xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="Sales Force Automation" id="d1">
+    <af:document title="Sales Force Automation" id="d1" theme="light">
         <!--<af:clientListener method="onPageLoad" type="load"/>
   <f:facet name="metaContainer">
     <af:resource type="javascript">
@@ -24,8 +24,7 @@
                             <af:panelGroupLayout id="pgl1">
                                 <af:panelList id="pl1">
                                     <af:link text="Manage Accounts" id="l1"
-                                             actionListener="#{backingBeanScope.launcher.launchCustomerAccount}"
-                                             inlineStyle="font-size:small;"/>
+                                             actionListener="#{backingBeanScope.launcher.launchCustomerAccount}"/>
                                     <af:link text="Manage Contacts" id="l2"
                                              actionListener="#{backingBeanScope.launcher.launchContacts}"/>
                                     <af:link text="Manage Opportunities" id="l3"

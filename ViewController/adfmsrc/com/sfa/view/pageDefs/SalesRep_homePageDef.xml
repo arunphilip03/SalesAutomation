@@ -24,8 +24,8 @@
           <Item Value="DecisionLevel"/>
           <Item Value="EstimatedDuration"/>
           <Item Value="IsBudgeted"/>
-          <Item Value="RevenueAmount"/>
           <Item Value="RevenueCurrency"/>
+          <Item Value="RevenueAmount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -42,7 +42,6 @@
           <Item Value="SalesMethod"/>
           <Item Value="SalesStage"/>
           <Item Value="CloseDate"/>
-          <Item Value="BestCaseRevenue"/>
           <Item Value="BudgetAmount"/>
           <Item Value="DecisionLevel"/>
           <Item Value="EstimatedDuration"/>
@@ -51,9 +50,13 @@
           <Item Value="RevenueCurrency"/>
           <Item Value="RiskLevel"/>
           <Item Value="WinProbability"/>
-          <Item Value="WorstCaseRevenue"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="SalesRepOppoCreatedView1Iterator" id="ExecuteWithParams1"
+            InstanceName="AppModuleDataControl.SalesRepOppoCreatedView1" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="UserName" NDValue="#{securityContext.userName}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

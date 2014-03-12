@@ -11,8 +11,7 @@
                                     inlineStyle="text-indent:5pt;">
                         <af:spacer width="10" height="10" id="s3"/>
                         <af:panelFormLayout id="pfl1" rows="3" fieldWidth="350px" labelWidth="75px"
-                                            styleClass="AFStretchWidth"
-                                            inlineStyle="font-size:small;">
+                                            styleClass="AFStretchWidth">
                             <af:panelLabelAndMessage label="#{bindings.Address.hints.label}" id="plam3"
                                                      inlineStyle="grid-row-span:4;">
                                 <af:outputText value="#{bindings.Address.inputValue}"
@@ -20,7 +19,7 @@
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.AccountUrl.hints.label}" id="plam4">
                                 <af:link text="#{bindings.AccountUrl.inputValue}" id="l4" targetFrame="_blank"
-                                         useWindow="true" inlineStyle="font-size:small;"
+                                         useWindow="true"
                                          destination="#{bindings.AccountUrl.inputValue}"/>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.ParentAccountName.hints.label}" id="plam6">
@@ -57,14 +56,18 @@
                                                                   to="#{requestScope.selectedAccountKeyStr}"/>
                                         </af:link>
                                         <af:spacer width="4" height="10" id="s1"/>
-                                        <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="addorEdit">
+                                        <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="addorEdit"
+                                                 disabled="#{bindings.CustomerContactsView2.estimatedRowCount eq 0}"
+                                                 disabledIcon="#{resource['images:update_dis.png']}">
                                             <af:setActionListener from="#{bindings.CustomerContactsView2Iterator.currentRowKeyString}"
                                                                   to="#{requestScope.selectedContactKeyStr}"/>
                                             <af:setActionListener to="#{requestScope.selectedAccountKeyStr}"
                                                                   from="#{bindings.CustomerAccountView1Iterator.currentRowKeyString}"/>
                                         </af:link>
                                         <af:spacer width="4" height="10" id="s2"/>
-                                        <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
+                                        <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                                 disabled="#{bindings.CustomerContactsView2.estimatedRowCount eq 0}"
+                                                 disabledIcon="#{resource['images:delete_dis.png']}">
                                             <af:showPopupBehavior popupId="::p1" triggerType="action" align="endAfter"
                                                                   alignId="l3"/>
                                         </af:link>
@@ -84,9 +87,8 @@
                                                sortable="true" id="c18"
                                                sortProperty="#{bindings.CustomerContactsView2.hints.ContactName.name}"
                                                width="128">
-                                        <af:outputText value="#{row.ContactName}"
-                                                       shortDesc="#{bindings.CustomerContactsView2.hints.ContactName.tooltip}"
-                                                       id="ot33"/>
+                                        <af:outputText shortDesc="#{bindings.CustomerContactsView2.hints.ContactName.tooltip}"
+                                                       id="ot33" value="#{row.ContactName}"/>
                                     </af:column>
                                     <af:column headerText="#{bindings.CustomerContactsView2.hints.Title.label}"
                                                sortable="true" id="c3"
@@ -159,7 +161,9 @@
                                         </af:link>
                                         <af:spacer width="4" height="10" id="s4"/>
                                         <af:link id="l6" icon="#{resource['images:update_ena.png']}"
-                                                 action="addEditAppointment">
+                                                 action="addEditAppointment"
+                                                 disabled="#{bindings.AppointmentsView2.estimatedRowCount eq 0}"
+                                                 disabledIcon="#{resource['images:update_dis.png']}">
                                             <af:setActionListener to="#{requestScope.selectedAppmntKeyStr}"
                                                                   from="#{bindings.AppointmentsView2Iterator.currentRowKeyString}"/>
                                         </af:link>

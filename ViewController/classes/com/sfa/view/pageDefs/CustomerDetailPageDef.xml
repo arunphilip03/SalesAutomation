@@ -56,6 +56,7 @@
           <Item Value="MobilePhone"/>
           <Item Value="Email"/>
           <Item Value="BuyInfluenceLevel"/>
+          <Item Value="ContactId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -71,11 +72,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="CustomerContactsView2Iterator" id="ContactId">
-      <AttrNames>
-        <Item Value="ContactId"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="TasksView3Iterator" id="TasksView3">
       <nodeDefinition DefName="com.sfa.model.VO.TasksView" Name="TasksView30">
         <AttrNames>

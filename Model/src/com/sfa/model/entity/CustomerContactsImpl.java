@@ -24,8 +24,8 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class CustomerContactsImpl extends BaseEntityImpl {
-    
-    
+
+
     private ViewObject getContactNameExistsView(DBTransaction t) {
         ApplicationModule root = t.getRootApplicationModule();
         ViewObject vo = root.findViewObject("ContactNameExists");
@@ -34,37 +34,60 @@ public class CustomerContactsImpl extends BaseEntityImpl {
         }
         return vo;
     }
-    
+
     /**
      * Validation method for ContactName.
      */
     public boolean validateContactName(String contactname) {
-        
+
         System.out.println("Validating contact name");
-        
+
         //String contactName = getContactName();
         BigDecimal accountId = getCustAccountId();
-        
-        System.out.println("Contact Name "+contactname );
-        
-        System.out.println("Account Id "+accountId);
-        
+
+        System.out.println("Contact Name " + contactname);
+
+        System.out.println("Account Id " + accountId);
+
         ViewObject vo = getContactNameExistsView(getDBTransaction());
-        
+
         vo.defineNamedWhereClauseParam("ACCOUNT_ID", null, null);
         vo.defineNamedWhereClauseParam("NAME", null, null);
-        
+
         vo.setNamedWhereClauseParam("ACCOUNT_ID", accountId);
         vo.setNamedWhereClauseParam("NAME", contactname);
         vo.setForwardOnly(true);
         vo.executeQuery();
-        
-        if(vo.first() == null) {
+
+        if (vo.first() == null) {
             System.out.println("contact exists");
             return false;
         }
-        
-        
+
+
+        return true;
+    }
+
+    /**
+     * Validation method for IsPrimary.
+     */
+    public boolean validateIsPrimary(String isprimary) {
+
+        System.out.println("Is Primary Value::: " + isprimary);
+
+        if (isprimary.equals("Yes")) {
+
+            System.out.println("YES Primary contact....");
+
+            EntityDefImpl def = getDefinitionObject();
+            CustomerContactsDefImpl contactImpl = (CustomerContactsDefImpl) def;
+            boolean primaryExist = contactImpl.exists(getDBTransaction(), "Yes", getCustAccountId());
+            if (primaryExist) {
+                return false;
+            }
+        }
+
+
         return true;
     }
 
@@ -504,21 +527,21 @@ public class CustomerContactsImpl extends BaseEntityImpl {
         super.doDML(operation, e);
     }
 
-    @Override
-    protected void validateEntity() {
-                
-        if (getIsPrimary().equals("ISPRIMARYVALUE")) {
-                
-            System.out.println("Primary contact....");
-
-            EntityDefImpl def = getDefinitionObject();
-            CustomerContactsDefImpl contactImpl = (CustomerContactsDefImpl) def;
-            boolean primaryExist = contactImpl.exists(getDBTransaction(), "ISPRIMARYVALUE", getCustAccountId());
-            if (primaryExist) {
-                        throw new JboException("Primary contact for the Customer Account exists");
-        }
-        super.validateEntity();
-    }
-}
+    //    @Override
+    //    protected void validateEntity() {
+    //
+    //        if (getIsPrimary().equals("ISPRIMARYVALUE")) {
+    //
+    //            System.out.println("Primary contact....");
+    //
+    //            EntityDefImpl def = getDefinitionObject();
+    //            CustomerContactsDefImpl contactImpl = (CustomerContactsDefImpl) def;
+    //            boolean primaryExist = contactImpl.exists(getDBTransaction(), "ISPRIMARYVALUE", getCustAccountId());
+    //            if (primaryExist) {
+    //                        throw new JboException("Primary contact for the Customer Account exists");
+    //        }
+    //        super.validateEntity();
+    //    }
+    //}
 
 }

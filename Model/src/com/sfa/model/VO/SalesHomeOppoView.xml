@@ -21,7 +21,63 @@
   <Variable
     Name="UserName"
     Kind="where"
-    Type="java.lang.String"/>
+    Type="java.lang.String"
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="OpportunitySalestageLuView1"
+    ViewObjectName="com.sfa.model.VO.OpportunitySalestageLuView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OpportunitySalesmethodLuView1"
+    ViewObjectName="com.sfa.model.VO.OpportunitySalesmethodLuView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_SalesStage"
+    ListVOName="OpportunitySalestageLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SalesStage"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Salesstage"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Salesstage"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SalesMethod"
+    ListVOName="OpportunitySalesmethodLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SalesMethod"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Salesmethod"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Salesmethod"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT Opportunities.BEST_CASE_REVENUE,    
        Opportunities.BUDGET_AMOUNT,    
        Opportunities.CLOSE_DATE,    
@@ -64,7 +120,16 @@ where Oppoteam.User_id = (select users.user_id from USERS users where users.USER
     PrecisionRule="true"
     EntityAttrName="CloseDate"
     EntityUsage="Opportunities"
-    AliasName="CLOSE_DATE"/>
+    AliasName="CLOSE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sfa.model.VO.SalesHomeOppoView.CloseDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.VO.SalesHomeOppoView.CloseDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustAccountId"
     IsNotNull="true"
@@ -160,14 +225,30 @@ where Oppoteam.User_id = (select users.user_id from USERS users where users.USER
     PrecisionRule="true"
     EntityAttrName="SalesMethod"
     EntityUsage="Opportunities"
-    AliasName="SALES_METHOD"/>
+    AliasName="SALES_METHOD"
+    LOVName="LOV_SalesMethod">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SalesStage"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="SalesStage"
     EntityUsage="Opportunities"
-    AliasName="SALES_STAGE"/>
+    AliasName="SALES_STAGE"
+    LOVName="LOV_SalesStage">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WinProbability"
     PrecisionRule="true"
@@ -210,13 +291,6 @@ where Oppoteam.User_id = (select users.user_id from USERS users where users.USER
       Name="SalesHomeOppoViewCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="BudgetAmount"
-        ViewAttribute="BudgetAmount"
-        Operator="="
-        Conjunction="AND"
-        GenerateIsNullClauseForBindVars="false"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="CloseDate"
         ViewAttribute="CloseDate"
         Operator="="
@@ -231,15 +305,15 @@ where Oppoteam.User_id = (select users.user_id from USERS users where users.USER
         GenerateIsNullClauseForBindVars="false"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="RevenueAmount"
-        ViewAttribute="RevenueAmount"
+        Name="SalesMethod"
+        ViewAttribute="SalesMethod"
         Operator="="
         Conjunction="AND"
         GenerateIsNullClauseForBindVars="false"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="WinProbability"
-        ViewAttribute="WinProbability"
+        Name="SalesStage"
+        ViewAttribute="SalesStage"
         Operator="="
         Conjunction="AND"
         GenerateIsNullClauseForBindVars="false"

@@ -16,6 +16,7 @@
       <Attr Name="_finderName" Value="CustomerAccountView"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_accessor" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.sfa.model.VO.CustomerAccountView.CustAccountId"/>

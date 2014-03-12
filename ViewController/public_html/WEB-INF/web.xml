@@ -96,11 +96,6 @@
     <filter-name>ADFLibraryFilter</filter-name>
     <filter-class>oracle.adf.library.webapp.LibraryFilter</filter-class>
   </filter>
-  <filter>
-    <display-name>SecurityFilter</display-name>
-    <filter-name>SecurityFilter</filter-name>
-    <filter-class>com.sfa.view.security.SecurityFilter</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>JpsFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -132,10 +127,6 @@
     <servlet-name>adfAuthentication</servlet-name>
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>REQUEST</dispatcher>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>SecurityFilter</filter-name>
-    <url-pattern>/faces/Dashboard</url-pattern>
   </filter-mapping>
   <context-param>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>

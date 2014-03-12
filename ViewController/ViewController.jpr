@@ -75,6 +75,10 @@
          <list n="constituent-sets">
             <hash>
                <list n="pattern-filters">
+                  <string v="+update_dis.png"/>
+                  <string v="+update_dis.png"/>
+                  <string v="+update_dis.png"/>
+                  <string v="+update_dis.png"/>
                   <string v="+delete_ena.png"/>
                   <string v="+new_ena.png"/>
                   <string v="+new_ena.png"/>
