@@ -15,7 +15,7 @@
         </f:facet>
         <f:facet name="legend"/>
         <f:facet name="info"/>
-        <af:panelFormLayout id="pfl1" rows="5" styleClass="AFStretchWidth">
+        <af:panelFormLayout id="pfl1" rows="5" styleClass="AFStretchWidth" fieldWidth="350px" labelWidth="75px">
             <af:inputText value="#{bindings.ContactName.inputValue}" label="#{bindings.ContactName.hints.label}"
                           required="#{bindings.ContactName.hints.mandatory}"
                           columns="#{bindings.ContactName.hints.displayWidth}"
@@ -75,16 +75,9 @@
                                           shortDesc="#{bindings.BuyInfluenceLevel.hints.tooltip}">
                 <f:validator binding="#{bindings.BuyInfluenceLevel.validator}"/>
             </af:inputComboboxListOfValues>
-            <af:inputComboboxListOfValues id="isPrimaryId"
-                                          popupTitle="Search and Select: #{bindings.IsPrimary.hints.label}"
-                                          value="#{bindings.IsPrimary.inputValue}"
-                                          label="#{bindings.IsPrimary.hints.label}"
-                                          model="#{bindings.IsPrimary.listOfValuesModel}"
-                                          required="#{bindings.IsPrimary.hints.mandatory}"
-                                          columns="#{bindings.IsPrimary.hints.displayWidth}"
-                                          shortDesc="#{bindings.IsPrimary.hints.tooltip}">
-                <f:validator binding="#{bindings.IsPrimary.validator}"/>
-            </af:inputComboboxListOfValues>
+            <af:selectBooleanCheckbox value="#{bindings.IsPrimaryBoolean.inputValue}"
+                                      label="#{bindings.IsPrimaryBoolean.label}"
+                                      shortDesc="#{bindings.IsPrimaryBoolean.hints.tooltip}" id="sbc1"/>
         </af:panelFormLayout>
     </af:panelHeader>
 </ui:composition>

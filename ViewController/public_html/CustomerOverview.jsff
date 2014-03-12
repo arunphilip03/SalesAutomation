@@ -24,8 +24,7 @@
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t2">
-                <af:link id="l1" icon="#{resource['images:new_ena.png']}" action="addorEditCustomer"
-                         returnListener="#{RefreshViewBean.customerDialogReturnListener}">
+                <af:link id="l1" icon="#{resource['images:new_ena.png']}" action="addorEditCustomer">
                   <af:setActionListener to="#{requestScope.selectedAccountKeyStr}" from="#{''}"/>
                 </af:link>
                 <af:spacer width="4" height="10" id="s1"/>

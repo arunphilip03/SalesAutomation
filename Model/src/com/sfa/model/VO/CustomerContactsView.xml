@@ -270,6 +270,7 @@ AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]><
         EntityUsage="CustomerContacts"
         AliasName="IS_PRIMARY"
         LOVName="LOV_IsPrimary">
+        <TransientExpression><![CDATA[IsPrimaryBoolean==true? "Yes": "No"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
                 <DISPLAYWIDTH
@@ -360,6 +361,22 @@ AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]><
         EntityAttrName="ObjectVersionNumber"
         EntityUsage="CustomerAccount"
         AliasName="OBJECT_VERSION_NUMBER1"/>
+    <ViewAttribute
+        Name="IsPrimaryBoolean"
+        IsSelected="false"
+        IsPersistent="false"
+        PrecisionRule="true"
+        Type="java.lang.Boolean"
+        ColumnType="NUMBER"
+        AliasName="VIEW_ATTR"
+        SQLType="BIT">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.sfa.model.VO.CustomerContactsView.IsPrimaryBoolean_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewCriteria
         Name="CustomerContactsViewCriteria"
         ViewObjectName="com.sfa.model.VO.CustomerContactsView"
@@ -498,6 +515,12 @@ AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]><
         Name="ContactOpportunitiesVO"
         ViewLink="com.sfa.model.viewlink.ContactOpportunitiesVL"
         Type="oracle.jbo.RowIterator"
+        IsUpdateable="false"/>
+    <ViewLinkAccessor
+        Name="CustomerAccountView"
+        ViewLink="com.sfa.model.viewlink.CustomerContactsFk1Link"
+        Type="oracle.jbo.Row"
+        Reversed="true"
         IsUpdateable="false"/>
     <ResourceBundle>
         <PropertiesBundle

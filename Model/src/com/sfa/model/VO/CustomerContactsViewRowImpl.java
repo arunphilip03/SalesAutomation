@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.AttributeDefImpl;
@@ -47,6 +48,7 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
         AccountName,
         CustAccountId1,
         ObjectVersionNumber1,
+        IsPrimaryBoolean,
         AppointmentInviteesView,
         InteractionTeamView,
         OpportunitiesView,
@@ -57,6 +59,7 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
         ContactInteractionsVO,
         ContactTasksVO,
         ContactOpportunitiesVO,
+        CustomerAccountView,
         ContactBuyingroleLuView1,
         ContactBuyingroleLuView2,
         BooleanLuView1,
@@ -109,6 +112,7 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     public static final int ACCOUNTNAME = AttributesEnum.AccountName.index();
     public static final int CUSTACCOUNTID1 = AttributesEnum.CustAccountId1.index();
     public static final int OBJECTVERSIONNUMBER1 = AttributesEnum.ObjectVersionNumber1.index();
+    public static final int ISPRIMARYBOOLEAN = AttributesEnum.IsPrimaryBoolean.index();
     public static final int APPOINTMENTINVITEESVIEW = AttributesEnum.AppointmentInviteesView.index();
     public static final int INTERACTIONTEAMVIEW = AttributesEnum.InteractionTeamView.index();
     public static final int OPPORTUNITIESVIEW = AttributesEnum.OpportunitiesView.index();
@@ -119,6 +123,7 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     public static final int CONTACTINTERACTIONSVO = AttributesEnum.ContactInteractionsVO.index();
     public static final int CONTACTTASKSVO = AttributesEnum.ContactTasksVO.index();
     public static final int CONTACTOPPORTUNITIESVO = AttributesEnum.ContactOpportunitiesVO.index();
+    public static final int CUSTOMERACCOUNTVIEW = AttributesEnum.CustomerAccountView.index();
     public static final int CONTACTBUYINGROLELUVIEW1 = AttributesEnum.ContactBuyingroleLuView1.index();
     public static final int CONTACTBUYINGROLELUVIEW2 = AttributesEnum.ContactBuyingroleLuView2.index();
     public static final int BOOLEANLUVIEW1 = AttributesEnum.BooleanLuView1.index();
@@ -445,6 +450,29 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute IsPrimaryBoolean.
+     * @return the IsPrimaryBoolean
+     */
+    public Boolean getIsPrimaryBoolean() {
+        //return (Boolean) getAttributeInternal(ISPRIMARYBOOLEAN);
+        if (this.getIsPrimary() != null && this.getIsPrimary().equalsIgnoreCase("Yes")) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public void setIsPrimaryBoolean(Boolean value) {
+        if (value) {
+            this.setIsPrimary("Yes");
+        } else {
+            this.setIsPrimary("No");
+        }
+    }
+
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link AppointmentInviteesView.
      */
     public RowIterator getAppointmentInviteesView() {
@@ -513,6 +541,20 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
      */
     public RowIterator getContactOpportunitiesVO() {
         return (RowIterator) getAttributeInternal(CONTACTOPPORTUNITIESVO);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link CustomerAccountView.
+     */
+    public Row getCustomerAccountView() {
+        return (Row) getAttributeInternal(CUSTOMERACCOUNTVIEW);
+    }
+
+    /**
+     * Sets the master-detail link CustomerAccountView between this object and <code>value</code>.
+     */
+    public void setCustomerAccountView(Row value) {
+        setAttributeInternal(CUSTOMERACCOUNTVIEW, value);
     }
 
     /**

@@ -11,9 +11,22 @@
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
-    <control-flow-rule id="__17">
+    <method-call id="ExecuteWithParams1">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__4">
       <from-activity-id>ExecuteWithParams</from-activity-id>
-      <control-flow-case id="__18">
+      <control-flow-case id="__5">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ExecuteWithParams1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>ExecuteWithParams1</from-activity-id>
+      <control-flow-case id="__7">
         <from-outcome>ExecuteWithParams</from-outcome>
         <to-activity-id>SalesRep-home</to-activity-id>
       </control-flow-case>

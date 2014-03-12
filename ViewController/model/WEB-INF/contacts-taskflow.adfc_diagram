@@ -17,9 +17,9 @@
       <property
          name="y">31.896484</property>
       <property
-         name="x">233.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">233.0</property>
    </View>
    <TaskFlowCall
       id="TaskFlowCall3">
@@ -34,9 +34,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">247.0459</property>
+         name="y">126.34473</property>
       <property
-         name="x">-124.3125</property>
+         name="x">-188.3125</property>
    </TaskFlowCall>
    <TaskFlowCall
       id="TaskFlowCall4">
@@ -103,7 +103,7 @@
       <property
          name="fromOutcome">getCustomer</property>
       <property
-         name="sdm:polyPoints">B44,229.5,85.5459,44.700195,193.79883,T50</property>
+         name="sdm:polyPoints">B44,229.5,85.5459,44.700195,193.44824,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -123,7 +123,7 @@
       <property
          name="fromOutcome">setCurrentRowWithKeyValue</property>
       <property
-         name="sdm:polyPoints">L50,3.7001953,247.79883,-83.3125,246.69531,R50</property>
+         name="sdm:polyPoints">L50,3.7001953,247.44824,-147.3125,125.99414,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

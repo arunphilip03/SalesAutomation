@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelDashboard id="pd1">
+    <af:panelBox text="Revenue generated" id="pb1" type="stretch" inlineStyle="width:801px;">
+      <f:facet name="toolbar"/>
+    </af:panelBox>
+    <af:panelBox text="Potential revenue" id="pb2">
+      <f:facet name="toolbar"/>
+    </af:panelBox>
+    <af:panelBox text="PanelBox1" id="pb3">
+      <f:facet name="toolbar"/>
+    </af:panelBox>
+  </af:panelDashboard>
+</ui:composition>

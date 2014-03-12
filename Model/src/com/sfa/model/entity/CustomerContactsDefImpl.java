@@ -45,8 +45,6 @@ public class CustomerContactsDefImpl extends EntityDefImpl {
         vo.setNamedWhereClauseParam("ISPRIMARY", isPrimary);
 
 
-        //        vo.setWhereClauseParam(1,accountId);
-        //        vo.setWhereClauseParam(2,isPrimary);
         vo.setForwardOnly(true);
         vo.executeQuery();
         if (vo.first() != null) {

@@ -67,9 +67,9 @@
       <property
          name="y">199.39648</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">1059.499</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn6">
@@ -101,9 +101,9 @@
       <property
          name="y">307.24902</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">526.2129</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -208,9 +208,9 @@
       <property
          name="y">356.18945</property>
       <property
-         name="x">1066.5</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">1066.5</property>
    </View>
    <MethodCall
       id="MethodCall18">

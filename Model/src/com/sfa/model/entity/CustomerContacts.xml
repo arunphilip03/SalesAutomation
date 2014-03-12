@@ -217,6 +217,10 @@
           Value="3"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:MethodValidationBean
+      Name="IsPrimaryRule0"
+      ResId="com.sfa.model.entity.CustomerContacts.IsPrimary_Rule_0"
+      MethodName="validateIsPrimary"/>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -322,7 +326,7 @@
       Name="ContactNameRule0"
       ResId="com.sfa.model.entity.CustomerContacts.ContactName_Rule_0"
       OnAttribute="ContactName"
-      Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+      Pattern=".*[,/'#~@}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
       Inverse="true"/>
   </Attribute>
   <Attribute
