@@ -57,8 +57,10 @@
                             <f:facet name="toolbar">
                                 <af:toolbar id="t3">
                                     <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                             actionListener="#{bindings.Create.execute}" action="create"/>
-                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"/>
+                                             actionListener="#{bindings.CreateInsert1.execute}" action="create"/>
+                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"
+                                             disabledIcon="#{resource['images:update_dis.png']}"
+                                             disabled="#{bindings.ContactInteractionsView2Iterator.estimatedRowCount eq 0}"/>
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
                                         <af:dialog id="d1"
                                                    title="Are you sure you want to delete the Selected Interaction?"
@@ -66,7 +68,9 @@
                                             <f:facet name="buttonBar"/>
                                         </af:dialog>
                                     </af:popup>
-                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
+                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                             disabledIcon="#{resource['images:delete_dis.png']}"
+                                             disabled="#{bindings.ContactInteractionsView2Iterator.estimatedRowCount eq 0}">
                                         <af:showPopupBehavior popupId="deletep" triggerType="click" align="overlap"/>
                                     </af:link>
                                     <af:button text="Details" id="b2" action="edit"/>

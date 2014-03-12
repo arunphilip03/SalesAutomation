@@ -16,6 +16,12 @@
         <name>taskFlowReturn1</name>
       </outcome>
     </task-flow-return>
+    <task-flow-call id="opportunities-appoinment-create-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunities-appoinment-create-tf.xml</document>
+        <id>opportunities-appoinment-create-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>opportunities-appoinment-main</from-activity-id>
       <control-flow-case id="__2">

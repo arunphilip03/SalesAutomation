@@ -36,7 +36,8 @@ FROM PRODUCT_CATEGORY_LU ProductCategoryLu]]></SQLQuery>
     ColumnType="VARCHAR2"
     AliasName="CATEGORYNAME"
     Expression="CATEGORYNAME"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>

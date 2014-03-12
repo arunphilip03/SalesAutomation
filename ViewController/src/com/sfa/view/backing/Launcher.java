@@ -120,6 +120,15 @@ public class Launcher {
         }
     }
 
+    public void launchProductCategory(ActionEvent actionEvent) {
+        TabContext tabContext = TabContext.getCurrentInstance();
+        try {
+            tabContext.setMainContent("/WEB-INF/admin-productcategory-tf.xml#admin-productcategory-tf");
+        } catch (TabContext.TabContentAreaDirtyException toe) {
+            // TODO: warn user TabContext api needed for this use case.
+        }
+    }
+
 
     public void launchFirstActivity(ActionEvent actionEvent) {
         /**

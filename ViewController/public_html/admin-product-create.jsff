@@ -11,7 +11,7 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b4" actionListener="#{bindings.Commit.execute}"/>
-                            <af:button actionListener="#{bindings.Commit.execute}" text="Save &amp; Close" id="b2"
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Save and Close" id="b2"
                                        action="back"/>
                             <af:button text="Cancel" id="b1" actionListener="#{bindings.Rollback.execute}"
                                        immediate="true" action="back">

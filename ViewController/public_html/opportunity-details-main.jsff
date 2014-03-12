@@ -10,9 +10,9 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
-                            <af:button text="Save &amp; Close" id="b2" actionListener="#{bindings.Commit.execute}"
+                            <af:button text="Save and Close" id="b2" actionListener="#{bindings.Commit.execute}"
                                        action="back"/>
-                            <af:button text="Close" id="b3" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b3"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>
@@ -32,20 +32,15 @@
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3" styleClass="AFStretchWidth">
                                             <af:button text="Team Members" id="b8" action="team"/>
-                                            <af:spacer width="15" height="10" id="s1"/>
                                             <af:button text="Appointments" id="b4" action="appointment"/>
-                                            <af:spacer width="15" height="10" id="s2"/>
                                             <af:button text="Tasks" id="b5" action="task"/>
-                                            <af:spacer width="15" height="10" id="s3"/>
                                             <af:button text="Interactions" id="b6" action="interaction"/>
-                                            <af:spacer width="15" height="10" id="s4"/>
                                             <af:button text="Notes" id="b7"
                                                        actionListener="#{bindings.ExecuteWithParams.execute}"
                                                        action="notes">
                                                 <af:setActionListener from="#{bindings.OpportunityName}"
                                                                       to="#{pageFlowScope.opportunityName}"/>
                                             </af:button>
-                                            <af:spacer width="15" height="10" id="s5"/>
                                             <af:button text="Attachments" id="b9" action="attachment"/>
                                         </af:toolbar>
                                     </f:facet>
@@ -144,14 +139,16 @@
                                                                   shortDesc="#{bindings.SalesChannel.hints.tooltip}">
                                         <f:validator binding="#{bindings.SalesChannel.validator}"/>
                                     </af:inputComboboxListOfValues>
-                                    <af:inputText value="#{bindings.RevenueCurrency.inputValue}"
-                                                  label="#{bindings.RevenueCurrency.hints.label}"
-                                                  required="#{bindings.RevenueCurrency.hints.mandatory}"
-                                                  columns="#{bindings.RevenueCurrency.hints.displayWidth}"
-                                                  maximumLength="#{bindings.RevenueCurrency.hints.precision}"
-                                                  shortDesc="#{bindings.RevenueCurrency.hints.tooltip}" id="it3">
-                                        <f:validator binding="#{bindings.RevenueCurrency.validator}"/>
-                                    </af:inputText>
+                                    <af:inputComboboxListOfValues id="revenueCurrency1Id"
+                                                                  popupTitle="Search and Select: #{bindings.RevenueCurrency1.hints.label}"
+                                                                  value="#{bindings.RevenueCurrency1.inputValue}"
+                                                                  label="#{bindings.RevenueCurrency1.hints.label}"
+                                                                  model="#{bindings.RevenueCurrency1.listOfValuesModel}"
+                                                                  required="#{bindings.RevenueCurrency1.hints.mandatory}"
+                                                                  columns="#{bindings.RevenueCurrency1.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.RevenueCurrency1.hints.tooltip}">
+                                        <f:validator binding="#{bindings.RevenueCurrency1.validator}"/>
+                                    </af:inputComboboxListOfValues>
                                     <af:inputText value="#{bindings.RevenueAmount.inputValue}"
                                                   label="#{bindings.RevenueAmount.hints.label}"
                                                   required="#{bindings.RevenueAmount.hints.mandatory}"
@@ -243,127 +240,148 @@
                         </af:panelSplitter>
                     </f:facet>
                     <f:facet name="second">
-                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                            <f:facet name="menus"/>
-                            <f:facet name="toolbar">
-                                <af:toolbar id="t4">
-                                    <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                             actionListener="#{bindings.Create.execute}" action="revenueCreate"/>
-                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="revenueEdit"/>
-                                    <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
-                                        <af:dialog id="d1"
-                                                   title="Are you sure you want to delete the Selected Revenue Item?"
-                                                   dialogListener="#{ConfirmBean.dialogListener}">
-                                            <f:facet name="buttonBar"/>
-                                        </af:dialog>
-                                    </af:popup>
-                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
-                                        <af:showPopupBehavior popupId="deletep" triggerType="click" align="overlap"/>
-                                    </af:link>
-                                </af:toolbar>
+                        <af:panelSplitter id="ps3" orientation="vertical" splitterPosition="30">
+                            <f:facet name="first">
+                                <af:panelHeader text="Revenue Items" id="ph3">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
                             </f:facet>
-                            <af:table value="#{bindings.OpportunityRevenueItemsView2.collectionModel}" var="row"
-                                      rows="#{bindings.OpportunityRevenueItemsView2.rangeSize}"
-                                      emptyText="#{bindings.OpportunityRevenueItemsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
-                                      fetchSize="#{bindings.OpportunityRevenueItemsView2.rangeSize}" id="t2"
-                                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l1 ::l3"
-                                      selectedRowKeys="#{bindings.OpportunityRevenueItemsView2.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.OpportunityRevenueItemsView2.collectionModel.makeCurrent}"
-                                      rowSelection="single">
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.label}"
-                                           id="c8" width="127"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.ProductName}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.tooltip}"
-                                                   id="ot9"/>
-                                </af:column>
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.label}"
-                                           id="c9" width="165"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.OpportunityName}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.tooltip}"
-                                                   id="ot2"/>
-                                </af:column>
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.label}"
-                                           id="c1" width="52"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.Quantity}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.tooltip}"
-                                                   id="ot1">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.label}"
-                                           id="c2" width="178"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.EstimatedPrice}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.tooltip}"
-                                                   id="ot4">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.label}"
-                                           id="c3" width="101"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.Revenue}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.tooltip}"
-                                                   id="ot3">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.label}"
-                                           id="c4" width="103"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.WinProbability}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.tooltip}"
-                                                   id="ot8">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.label}"
-                                           id="c5" width="169"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.BestCaseRevenue}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.tooltip}"
-                                                   id="ot5">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.label}"
-                                           id="c6" width="201"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.WorstCaseRevenue}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.tooltip}"
-                                                   id="ot7">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.label}"
-                                           id="c7" width="-196"
-                                           sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.name}"
-                                           sortable="true">
-                                    <af:outputText value="#{row.SalesForecastIncluded}"
-                                                   shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.tooltip}"
-                                                   id="ot6"/>
-                                </af:column>
-                            </af:table>
-                            <f:facet name="statusbar"/>
-                        </af:panelCollection>
+                            <f:facet name="second">
+                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t4">
+                                            <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                                     actionListener="#{bindings.Create.execute}"
+                                                     action="revenueCreate"/>
+                                            <af:link id="l2" icon="#{resource['images:update_ena.png']}"
+                                                     action="revenueEdit"
+                                                     disabledIcon="#{resource['images:update_dis.png']}"
+                                                     disabled="#{bindings.OpportunityRevenueItemsView2Iterator.estimatedRowCount eq 0}"/>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
+                                                <af:dialog id="d1"
+                                                           title="Are you sure you want to delete the Selected Revenue Item?"
+                                                           dialogListener="#{ConfirmBean.dialogListener}">
+                                                    <f:facet name="buttonBar"/>
+                                                </af:dialog>
+                                            </af:popup>
+                                            <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                                     disabledIcon="#{resource['images:delete_dis.png']}"
+                                                     disabled="#{bindings.OpportunityRevenueItemsView2Iterator.estimatedRowCount eq 0}">
+                                                <af:showPopupBehavior popupId="deletep" triggerType="click"
+                                                                      align="overlap"/>
+                                            </af:link>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <af:table value="#{bindings.OpportunityRevenueItemsView2.collectionModel}" var="row"
+                                              rows="#{bindings.OpportunityRevenueItemsView2.rangeSize}"
+                                              emptyText="#{bindings.OpportunityRevenueItemsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              fetchSize="#{bindings.OpportunityRevenueItemsView2.rangeSize}" id="t2"
+                                              styleClass="AFStretchWidth" columnStretching="last"
+                                              partialTriggers="::l1 ::l3"
+                                              selectedRowKeys="#{bindings.OpportunityRevenueItemsView2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.OpportunityRevenueItemsView2.collectionModel.makeCurrent}"
+                                              rowSelection="single">
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.label}"
+                                                   id="c8" width="127"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.ProductName}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.tooltip}"
+                                                           id="ot9"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.label}"
+                                                   id="c9" width="165"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.OpportunityName}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.OpportunityName.tooltip}"
+                                                           id="ot2"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.label}"
+                                                   id="c1" width="52"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.Quantity}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.tooltip}"
+                                                           id="ot1">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.label}"
+                                                   id="c2" width="178"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.EstimatedPrice}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.tooltip}"
+                                                           id="ot4">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.label}"
+                                                   id="c3" width="101"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.Revenue}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.tooltip}"
+                                                           id="ot3">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.label}"
+                                                   id="c4" width="103"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.WinProbability}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.tooltip}"
+                                                           id="ot8">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.label}"
+                                                   id="c5" width="169"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.BestCaseRevenue}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.tooltip}"
+                                                           id="ot5">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.label}"
+                                                   id="c6" width="201"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.WorstCaseRevenue}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.tooltip}"
+                                                           id="ot7">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.label}"
+                                                   id="c7" width="-196"
+                                                   sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.name}"
+                                                   sortable="true">
+                                            <af:outputText value="#{row.SalesForecastIncluded}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.tooltip}"
+                                                           id="ot6"/>
+                                        </af:column>
+                                    </af:table>
+                                    <f:facet name="statusbar"/>
+                                </af:panelCollection>
+                            </f:facet>
+                        </af:panelSplitter>
                     </f:facet>
                 </af:panelSplitter>
             </af:gridCell>

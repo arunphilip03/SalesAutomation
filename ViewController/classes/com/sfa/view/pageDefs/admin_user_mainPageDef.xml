@@ -25,7 +25,6 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="UsersView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
-    <action IterBinding="UsersView1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="RoleAssignmentView1Iterator" id="Create1" RequiresUpdateModel="true" Action="createRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>

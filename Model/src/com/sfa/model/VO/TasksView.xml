@@ -25,7 +25,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
-  RowClass="com.sfa.model.VO.TasksViewRowImpl">
+  RowClass="com.sfa.model.VO.TasksViewRowImpl"
+  Where="Tasks.DELETE_FLAG = 'N'">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -231,7 +232,9 @@
     PrecisionRule="true"
     EntityAttrName="CustAccountId"
     EntityUsage="Tasks"
-    AliasName="CUST_ACCOUNT_ID"/>
+    AliasName="CUST_ACCOUNT_ID">
+    <TransientExpression><![CDATA[OpportunitiesView1.getAttribute("CustAccountId")]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreationDate"
     IsNotNull="true"

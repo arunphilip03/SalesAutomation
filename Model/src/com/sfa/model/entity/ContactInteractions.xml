@@ -10,7 +10,8 @@
   DBObjectName="CONTACT_INTERACTIONS"
   AliasName="ContactInteractions"
   BindingStyle="OracleName"
-  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="InteractionId"
     IsNotNull="true"
@@ -213,6 +214,19 @@
     ColumnType="NUMBER"
     TableName="CONTACT_INTERACTIONS"
     HistoryColumn="VersionHistory"/>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CONTACT_INTERACTIONS"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="InteractionTeam"
     Association="com.sfa.model.association.InteractionTeamFk3Assoc"

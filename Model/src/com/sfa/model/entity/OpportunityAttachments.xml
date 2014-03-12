@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="OPPORTUNITY_ATTACHMENTS"
   AliasName="OpportunityAttachments"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="OppDocId"
     IsNotNull="true"
@@ -121,7 +122,6 @@
     ChangeIndicator="true"/>
     <Attribute
     Name="DocumentName"
-    IsNotNull="true"
     Precision="40"
     ColumnName="DOCUMENT_NAME"
     SQLType="VARCHAR"
@@ -155,6 +155,19 @@
           ResId="com.sfa.model.entity.OpportunityAttachments.DocumentType_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+  </Attribute>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPORTUNITY_ATTACHMENTS"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
   </Attribute>
   <AccessorAttribute
     Name="Opportunities"

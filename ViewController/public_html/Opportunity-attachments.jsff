@@ -17,38 +17,38 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="349">
+                <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
+                    <af:inputText value="#{bindings.OpportunityName.inputValue}"
+                                  label="#{bindings.OpportunityName.hints.label}"
+                                  required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.OpportunityName.hints.displayWidth}"
+                                  maximumLength="#{bindings.OpportunityName.hints.precision}"
+                                  shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it1" visible="false">
+                        <f:validator binding="#{bindings.OpportunityName.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="349" styleClass="AFStretchWidth">
                     <f:facet name="first">
-                        <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="177">
+                        <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="177"
+                                          styleClass="AFStretchWidth">
                             <f:facet name="first">
-                                <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
-                                    <af:inputText value="#{bindings.OpportunityName.inputValue}"
-                                                  label="#{bindings.OpportunityName.hints.label}"
-                                                  required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
-                                                  columns="#{bindings.OpportunityName.hints.displayWidth}"
-                                                  maximumLength="#{bindings.OpportunityName.hints.precision}"
-                                                  shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it1"
-                                                  visible="false">
-                                        <f:validator binding="#{bindings.OpportunityName.validator}"/>
-                                    </af:inputText>
-                                    <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">
-                                        <af:panelHeader text=" " id="ph2" styleClass="AFStretchWidth">
-                                            <af:query id="qryId1" headerText="Search" disclosed="true"
-                                                      value="#{bindings.OpportunityAttachmentsViewSearchQuery.queryDescriptor}"
-                                                      model="#{bindings.OpportunityAttachmentsViewSearchQuery.queryModel}"
-                                                      queryListener="#{bindings.OpportunityAttachmentsViewSearchQuery.processQuery}"
-                                                      queryOperationListener="#{bindings.OpportunityAttachmentsViewSearchQuery.processQueryOperation}"
-                                                      styleClass="AFStretchWidth"/>
-                                        </af:panelHeader>
-                                    </af:panelGroupLayout>
-                                </af:panelFormLayout>
+                                <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">
+                                    <af:panelHeader text=" " id="ph2" styleClass="AFStretchWidth">
+                                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                                  value="#{bindings.OpportunityAttachmentsViewSearchQuery.queryDescriptor}"
+                                                  model="#{bindings.OpportunityAttachmentsViewSearchQuery.queryModel}"
+                                                  queryListener="#{bindings.OpportunityAttachmentsViewSearchQuery.processQuery}"
+                                                  queryOperationListener="#{bindings.OpportunityAttachmentsViewSearchQuery.processQueryOperation}"/>
+                                    </af:panelHeader>
+                                </af:panelGroupLayout>
                             </f:facet>
                             <f:facet name="second">
                                 <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t2">
-                                            <af:link id="l2" icon="#{resource['images:new_ena.png']}" action="new"/>
+                                            <af:link id="l2" icon="#{resource['images:new_ena.png']}"
+                                                     actionListener="#{bindings.Create.execute}" action="new"/>
                                             <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                                                 <af:dialog id="d1"
                                                            title="Are you sure you want to delete selected Document?"
@@ -56,7 +56,9 @@
                                                     <f:facet name="buttonBar"/>
                                                 </af:dialog>
                                             </af:popup>
-                                            <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
+                                            <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                                     disabledIcon="#{resource['images:delete_dis.png']}"
+                                                     disabled="#{bindings.OpportunityAttachmentsView2Iterator.estimatedRowCount eq 0}">
                                                 <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
                                             </af:link>
                                         </af:toolbar>
@@ -69,7 +71,8 @@
                                               selectionListener="#{bindings.OpportunityAttachmentsView2.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.OpportunityAttachmentsView2.rangeSize}" id="t1"
-                                              styleClass="AFStretchWidth" columnStretching="last">
+                                              styleClass="AFStretchWidth" columnStretching="last"
+                                              partialTriggers="::l2">
                                         <af:column sortProperty="#{bindings.OpportunityAttachmentsView2.hints.DocumentName.name}"
                                                    sortable="true"
                                                    headerText="#{bindings.OpportunityAttachmentsView2.hints.DocumentName.label}"
@@ -93,29 +96,35 @@
                         </af:panelSplitter>
                     </f:facet>
                     <f:facet name="second">
-                        <af:panelFormLayout id="pfl2">
-                            <af:inputText value="#{bindings.DocumentName.inputValue}"
-                                          label="#{bindings.DocumentName.hints.label}"
-                                          required="#{bindings.DocumentName.hints.mandatory}" readOnly="true"
-                                          columns="#{bindings.DocumentName.hints.displayWidth}"
-                                          maximumLength="#{bindings.DocumentName.hints.precision}"
-                                          shortDesc="#{bindings.DocumentName.hints.tooltip}" id="it2">
-                                <f:validator binding="#{bindings.DocumentName.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.DocumentType.inputValue}"
-                                          label="#{bindings.DocumentType.hints.label}"
-                                          required="#{bindings.DocumentType.hints.mandatory}" readOnly="true"
-                                          columns="#{bindings.DocumentType.hints.displayWidth}"
-                                          maximumLength="#{bindings.DocumentType.hints.precision}"
-                                          shortDesc="#{bindings.DocumentType.hints.tooltip}" id="it3">
-                                <f:validator binding="#{bindings.DocumentType.validator}"/>
-                            </af:inputText>
-                            <af:link id="l1" icon="#{resource['images:downloadIcon_small.jpg']}">
-                                <af:fileDownloadActionListener contentType="#{bindings.DocumentType}"
-                                                               filename="#{bindings.DocumentName}"
-                                                               method="#{OppoAttachmentBean.downloadFile}"/>
-                            </af:link>
-                        </af:panelFormLayout>
+                        <af:panelSplitter id="ps3" splitterPosition="327" disabled="true">
+                            <f:facet name="first">
+                                <af:panelFormLayout id="pfl2">
+                                    <af:inputText value="#{bindings.DocumentName.inputValue}"
+                                                  label="#{bindings.DocumentName.hints.label}"
+                                                  required="#{bindings.DocumentName.hints.mandatory}" readOnly="true"
+                                                  columns="#{bindings.DocumentName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.DocumentName.hints.precision}"
+                                                  shortDesc="#{bindings.DocumentName.hints.tooltip}" id="it2">
+                                        <f:validator binding="#{bindings.DocumentName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.DocumentType.inputValue}"
+                                                  label="#{bindings.DocumentType.hints.label}"
+                                                  required="#{bindings.DocumentType.hints.mandatory}" readOnly="true"
+                                                  columns="#{bindings.DocumentType.hints.displayWidth}"
+                                                  maximumLength="#{bindings.DocumentType.hints.precision}"
+                                                  shortDesc="#{bindings.DocumentType.hints.tooltip}" id="it3">
+                                        <f:validator binding="#{bindings.DocumentType.validator}"/>
+                                    </af:inputText>
+                                </af:panelFormLayout>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:link id="l1" icon="#{resource['images:downloadIcon_small.jpg']}">
+                                    <af:fileDownloadActionListener contentType="#{bindings.DocumentType}"
+                                                                   filename="#{bindings.DocumentName}"
+                                                                   method="#{OppoAttachmentBean.downloadFile}"/>
+                                </af:link>
+                            </f:facet>
+                        </af:panelSplitter>
                     </f:facet>
                 </af:panelSplitter>
             </af:gridCell>

@@ -8,7 +8,6 @@
               id="OpportunityNotes2Iterator"/>
   </executables>
   <bindings>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="OpportunityNotes2Iterator" id="NoteDatetime">
       <AttrNames>

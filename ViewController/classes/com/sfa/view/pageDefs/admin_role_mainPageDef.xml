@@ -20,5 +20,8 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="RolesView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="RolesView1Iterator" id="Delete" InstanceName="AppModuleDataControl.RolesView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

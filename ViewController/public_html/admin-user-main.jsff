@@ -20,7 +20,9 @@
                                 <af:link id="l1" icon="#{resource['images:new_ena.png']}"
                                          actionListener="#{bindings.Create.execute}"
                                          disabled="#{!bindings.Create.enabled}" action="create"/>
-                                <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"/>
+                                <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"
+                                         disabledIcon="#{resource['images:update_dis.png']}"
+                                         disabled="#{bindings.UsersView1Iterator.estimatedRowCount eq 0}"/>
                                 <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                                     <af:dialog id="d1" title="Are you sure you want to delete the Selected User?"
                                                dialogListener="#{ConfirmBean.dialogListener}">
@@ -28,9 +30,14 @@
                                     </af:dialog>
                                 </af:popup>
                                 <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                         disabled="#{!bindings.Delete.enabled}">
+                                         disabled="#{bindings.UsersView1Iterator.estimatedRowCount eq 0}"
+                                         disabledIcon="#{resource['images:delete_dis.png']}">
                                     <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
                                 </af:link>
+                            </af:toolbar>
+                            <af:toolbar id="t3">
+                                <af:button text="Manage  Roles" id="b1" actionListener="#{bindings.Create1.execute}"
+                                           disabled="#{!bindings.Create1.enabled}" action="assign"/>
                             </af:toolbar>
                         </f:facet>
                         <af:table value="#{bindings.UsersView1.collectionModel}" var="row"
@@ -84,10 +91,6 @@
                         </af:table>
                         <f:facet name="statusbar"/>
                     </af:panelCollection>
-                    <af:toolbar id="t3">
-                        <af:button text="Manage  Roles" id="b1" actionListener="#{bindings.Create1.execute}"
-                                   disabled="#{!bindings.Create1.enabled}" action="assign"/>
-                    </af:toolbar>
                 </af:panelGroupLayout>
             </af:gridCell>
         </af:gridRow>

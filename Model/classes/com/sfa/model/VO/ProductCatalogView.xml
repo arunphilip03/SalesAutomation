@@ -21,7 +21,8 @@
   FromList="PRODUCT_CATALOG ProductCatalog"
   BindingStyle="OracleName"
   CustomQuery="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  Where="ProductCatalog.DELETE_FLAG = 'N'">
   <ViewAccessor
     Name="ProductCategoryLuView1"
     ViewObjectName="com.sfa.model.VO.ProductCategoryLuView"

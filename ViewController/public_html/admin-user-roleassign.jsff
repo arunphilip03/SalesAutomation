@@ -10,7 +10,7 @@
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t3">
-                            <af:button text="Back" id="b1" action="back"/>
+                            <af:button text="Close" id="b1" action="back"/>
                         </af:toolbar>
                     </f:facet>
                     <f:facet name="legend"/>
@@ -100,12 +100,14 @@
                                 <af:toolbar id="t2">
                                     <af:link id="l1" icon="#{resource['images:new_ena.png']}"
                                              disabled="#{!bindings.Create.enabled}"
-                                             partialSubmit="true"
+                                             partialSubmit="true" actionListener="#{bindings.Create.execute}"
                                              action="create">
                                         <af:setActionListener from="#{UserIdStoreBean.user}"
                                                               to="#{InviteeBean.user}"/>
                                     </af:link>
-                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"/>
+                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"
+                                             disabledIcon="#{resource['images:update_dis.png']}"
+                                             disabled="#{bindings.RoleAssignmentView3Iterator.estimatedRowCount eq 0}"/>
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                                         <af:dialog id="d1"
                                                    title="Are you sure you want to delete the Selected Role of the User?"
@@ -114,7 +116,8 @@
                                         </af:dialog>
                                     </af:popup>
                                     <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                             disabled="#{!bindings.Delete.enabled}">
+                                             disabled="#{bindings.RoleAssignmentView3Iterator.estimatedRowCount eq 0}"
+                                             disabledIcon="#{resource['images:delete_dis.png']}">
                                         <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
                                     </af:link>
                                 </af:toolbar>
@@ -128,14 +131,6 @@
                                       rowSelection="single" fetchSize="#{bindings.RoleAssignmentView3.rangeSize}"
                                       id="t1" partialTriggers="::l3 ::l1" columnStretching="last"
                                       styleClass="AFStretchWidth">
-                                <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.FirstName.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.RoleAssignmentView3.hints.FirstName.label}" id="c4"
-                                           width="269">
-                                    <af:outputText value="#{row.FirstName}"
-                                                   shortDesc="#{bindings.RoleAssignmentView3.hints.FirstName.tooltip}"
-                                                   id="ot4"/>
-                                </af:column>
                                 <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.RoleName.name}"
                                            sortable="true"
                                            headerText="#{bindings.RoleAssignmentView3.hints.RoleName.label}" id="c3"
@@ -147,7 +142,7 @@
                                 <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.EffecStartDate.name}"
                                            sortable="true"
                                            headerText="#{bindings.RoleAssignmentView3.hints.EffecStartDate.label}"
-                                           id="c1" width="288">
+                                           id="c1" width="398">
                                     <af:outputText value="#{row.EffecStartDate}"
                                                    shortDesc="#{bindings.RoleAssignmentView3.hints.EffecStartDate.tooltip}"
                                                    id="ot1">
@@ -157,7 +152,7 @@
                                 <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.EffecEndDate.name}"
                                            sortable="true"
                                            headerText="#{bindings.RoleAssignmentView3.hints.EffecEndDate.label}" id="c2"
-                                           width="-544">
+                                           width="-654">
                                     <af:outputText value="#{row.EffecEndDate}"
                                                    shortDesc="#{bindings.RoleAssignmentView3.hints.EffecEndDate.tooltip}"
                                                    id="ot2">

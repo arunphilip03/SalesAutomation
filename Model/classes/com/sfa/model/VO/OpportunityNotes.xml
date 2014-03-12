@@ -16,7 +16,7 @@
        NotesParent.ROWID, 
        Notes.CREATION_DATE"
   FromList="NOTES Notes, NOTES_PARENT NotesParent"
-  Where="Notes.NOTES_ID = NotesParent.NOTE_ID and NotesParent.NOTES_SEQ_ID = :p2"
+  Where="Notes.DELETE_FLAG = 'N' AND Notes.NOTES_ID = NotesParent.NOTE_ID and NotesParent.NOTES_SEQ_ID = :p2"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full">
@@ -130,7 +130,8 @@
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="Notes"
-    AliasName="CREATION_DATE">
+    AliasName="CREATION_DATE"
+    IsUpdateable="false">
     <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
   </ViewAttribute>
   <ViewCriteria

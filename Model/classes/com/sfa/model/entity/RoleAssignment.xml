@@ -10,7 +10,8 @@
   DBObjectName="ROLE_ASSIGNMENT"
   AliasName="RoleAssignment"
   BindingStyle="OracleName"
-  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="UserRoleId"
     IsNotNull="true"
@@ -37,7 +38,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="ROLE_ASSIGNMENT"/>
+    TableName="ROLE_ASSIGNMENT"
+    DefaultValue="1"/>
   <Attribute
     Name="EffecStartDate"
     IsNotNull="true"
@@ -132,6 +134,19 @@
     ColumnType="NUMBER"
     TableName="ROLE_ASSIGNMENT"
     HistoryColumn="VersionHistory"/>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ROLE_ASSIGNMENT"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Roles"
     Association="com.sfa.model.association.UserRolesFk2Assoc"

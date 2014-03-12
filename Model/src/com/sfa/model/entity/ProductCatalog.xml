@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="PRODUCT_CATALOG"
   AliasName="ProductCatalog"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="ProductId"
     IsNotNull="true"
@@ -150,6 +151,19 @@
     TableName="PRODUCT_CATALOG"
     HistoryColumn="VersionHistory"
     ChangeIndicator="true"/>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCT_CATALOG"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="OpportunityRevenueItems"
     Association="com.sfa.model.association.OppurtunityRevenueItemsFk1Assoc"

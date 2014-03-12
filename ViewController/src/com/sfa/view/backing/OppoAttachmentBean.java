@@ -1,6 +1,8 @@
 package com.sfa.view.backing;
 
 
+import com.sfa.model.service.AppModuleImpl;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -14,12 +16,20 @@ import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCDataControl;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
 
+import oracle.adf.view.rich.component.rich.input.RichInputText;
+
+import oracle.binding.AttributeBinding;
+import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.Row;
 import oracle.jbo.domain.BlobDomain;
+
+import oracle.jbo.server.ViewObjectImpl;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.myfaces.trinidad.model.UploadedFile;
@@ -32,6 +42,7 @@ public class OppoAttachmentBean {
     private BlobDomain blob;
 
     private UploadedFile file;
+    private RichInputText it1;
 
     public OppoAttachmentBean() {
     }
@@ -68,10 +79,21 @@ public class OppoAttachmentBean {
     }
 
     public void onFileUpload(ActionEvent actionEvent) {
+        
         // Add event code here...
         System.out.println("onFileUpld");
         if (fileName != null) {
-            DCBindingContainer bc = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            BindingContext bctx = BindingContext.getCurrent();
+            BindingContainer bindings = bctx.getCurrentBindingsEntry();
+            DCBindingContainer bc = (DCBindingContainer) bctx.getCurrentBindingsEntry();
+            
+            AttributeBinding attr = (AttributeBinding) bindings.getControlBinding("DocumentName");
+            String fileN = (String)it1.getValue();
+            System.out.println(fileN);
+            if(fileN != null){
+                fileName = fileN;
+            }
+ 
             OperationBinding operationbinding = bc.getOperationBinding("uploadFiletoDB");
             if (operationbinding != null) {
                 operationbinding.getParamsMap().put("fileName", fileName);
@@ -79,7 +101,7 @@ public class OppoAttachmentBean {
                 operationbinding.getParamsMap().put("blob", blob);
                 operationbinding.execute();
             }
-            //System.out.println("File uploaded successfully");
+            System.out.println("File uploaded successfully");
             if (files != null) {
                 files.resetValue();
                 files.setValid(true);
@@ -133,6 +155,14 @@ public class OppoAttachmentBean {
 
     public UploadedFile getFile() {
         return file;
+    }
+
+    public void setIt1(RichInputText it1) {
+        this.it1 = it1;
+    }
+
+    public RichInputText getIt1() {
+        return it1;
     }
 }
 

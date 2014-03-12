@@ -40,5 +40,7 @@
     <action IterBinding="OpportunityAttachmentsView2Iterator" id="Delete"
             InstanceName="AppModuleDataControl.OpportunityAttachmentsView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunityAttachmentsView2Iterator" id="Create" RequiresUpdateModel="true"
+            Action="createRow"/>
   </bindings>
 </pageDefinition>

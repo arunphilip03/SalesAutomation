@@ -11,6 +11,8 @@
     <iterator id="UsersView1Iterator" Binds="UsersView1" DataControl="AppModuleDataControl" RangeSize="25"/>
     <iterator id="CustomerContactsView4Iterator" Binds="CustomerContactsView4" DataControl="AppModuleDataControl"
               RangeSize="25"/>
+    <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitiesView1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="Name">
@@ -43,14 +45,21 @@
         <Item Value="StartDatetime"/>
       </AttrNames>
     </attributeValues>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="AppointmentId">
       <AttrNames>
         <Item Value="AppointmentId"/>
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <listOfValues IterBinding="OpportunityAppointmentView2Iterator" StaticList="false" Uses="LOV_AccountName"
-                  id="AccountName"/>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="CustAccountId1">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

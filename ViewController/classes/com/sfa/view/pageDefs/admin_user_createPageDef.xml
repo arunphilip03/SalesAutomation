@@ -8,7 +8,6 @@
   </executables>
   <bindings>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="UsersView1Iterator" id="UserName">
       <AttrNames>
         <Item Value="UserName"/>
@@ -50,5 +49,6 @@
       </AttrNames>
     </attributeValues>
     <listOfValues IterBinding="UsersView1Iterator" StaticList="false" Uses="LOV_Managername" id="Managername"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

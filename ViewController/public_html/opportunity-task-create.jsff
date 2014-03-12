@@ -12,9 +12,9 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b3" actionListener="#{OppoTaskSC.onCommit}"/>
-                            <af:button text="Save &amp; Close" id="b1" action="back"
+                            <af:button text="Save and Close" id="b1" action="back"
                                        actionListener="#{OppoTaskSC.onCommit}"/>
-                            <af:button text="Close" id="b2" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b2" actionListener="#{bindings.Rollback.execute}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>
@@ -23,6 +23,17 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
+                <af:panelFormLayout id="pfl2">
+                    <af:inputText value="#{bindings.CustAccountId.inputValue}"
+                                  label="#{bindings.CustAccountId.hints.label}"
+                                  required="#{bindings.CustAccountId.hints.mandatory}"
+                                  columns="#{bindings.CustAccountId.hints.displayWidth}"
+                                  maximumLength="#{bindings.CustAccountId.hints.precision}"
+                                  shortDesc="#{bindings.CustAccountId.hints.tooltip}" id="it6" visible="false">
+                        <f:validator binding="#{bindings.CustAccountId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CustAccountId.format}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="112">
                     <f:facet name="first">
                         <af:panelFormLayout id="pfl1" rows="4">
@@ -34,16 +45,6 @@
                                           shortDesc="#{bindings.TaskName.hints.tooltip}" id="it5">
                                 <f:validator binding="#{bindings.TaskName.validator}"/>
                             </af:inputText>
-                            <af:inputComboboxListOfValues id="accountName1Id"
-                                                          popupTitle="Search and Select: #{bindings.AccountName1.hints.label}"
-                                                          value="#{bindings.AccountName1.inputValue}"
-                                                          label="#{bindings.AccountName1.hints.label}"
-                                                          model="#{bindings.AccountName1.listOfValuesModel}"
-                                                          required="#{bindings.AccountName1.hints.mandatory}"
-                                                          columns="#{bindings.AccountName1.hints.displayWidth}"
-                                                          shortDesc="#{bindings.AccountName1.hints.tooltip}">
-                                <f:validator binding="#{bindings.AccountName1.validator}"/>
-                            </af:inputComboboxListOfValues>
                             <af:selectOneChoice value="#{bindings.FirstName.inputValue}"
                                                 label="#{bindings.FirstName.label}"
                                                 required="#{bindings.FirstName.hints.mandatory}"

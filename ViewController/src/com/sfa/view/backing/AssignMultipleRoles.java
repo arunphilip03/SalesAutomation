@@ -38,7 +38,6 @@ public class AssignMultipleRoles {
    
 
     private Number userId;
-    private List<Number> roleId = new ArrayList<Number>();
     private Timestamp srtDate;
     private Timestamp endDate;
 
@@ -46,6 +45,8 @@ public class AssignMultipleRoles {
     }
 
     public void assignSelectedRoles(ActionEvent actionEvent) {
+        List<Number> roleId = new ArrayList<Number>();
+
         System.out.println("hi");
         BindingContext bctx = BindingContext.getCurrent();
         BindingContainer bindings = bctx.getCurrentBindingsEntry();
@@ -72,10 +73,19 @@ public class AssignMultipleRoles {
 
         for (int indx : selVals) {
             Row rw = allRolesList.getRowAtRangeIndex(indx);
-            this.roleId.add((Number) rw.getAttribute("RoleId"));
+            roleId.add((Number) rw.getAttribute("RoleId"));
         }
-        for (Object o : this.roleId) {
-            Row r2 = impl.createRow();
+        int i=0;
+        for (Object o : roleId) {
+            Row r2=null;
+            if(i==0)
+            {
+             r2 = impl.getCurrentRow();
+            }
+            else {
+            r2= impl.createRow();
+            }
+           // Row r2 = impl.getCurrentRow();
             r2.setAttribute("UserId", userId);
             r2.setAttribute("EffecStartDate", srtDate);
             r2.setAttribute("EffecEndDate", endDate);
@@ -83,6 +93,7 @@ public class AssignMultipleRoles {
             //impl.insertRow(r2);
             aapM.getDBTransaction().commit();
             impl.executeQuery();
+            i++;
             //System.out.println("hi");
         }
         // System.out.println(roleId);

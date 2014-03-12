@@ -217,6 +217,19 @@
     TableName="APPOINTMENTS"
     HistoryColumn="VersionHistory"
     ChangeIndicator="true"/>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="APPOINTMENTS"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="AppointmentInvitees"
     Association="com.sfa.model.association.AppointmentInviteesFk1Assoc"

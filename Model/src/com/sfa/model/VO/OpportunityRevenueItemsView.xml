@@ -66,28 +66,29 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT OpportunityRevenueItems.OPP_REV_ITEM_ID,    
-       OpportunityRevenueItems.PRODUCT_ID,    
-       OpportunityRevenueItems.QUANTITY,    
-       OpportunityRevenueItems.ESTIMATED_PRICE,    
-       OpportunityRevenueItems.REVENUE,    
-       OpportunityRevenueItems.WIN_PROBABILITY,    
-       OpportunityRevenueItems.BEST_CASE_REVENUE,    
-       OpportunityRevenueItems.WORST_CASE_REVENUE,    
-       OpportunityRevenueItems.SALES_FORECAST_INCLUDED,    
-       OpportunityRevenueItems.CREATION_DATE,    
-       OpportunityRevenueItems.LAST_UPDATE_DATE,    
-       OpportunityRevenueItems.CREATED_BY,    
-       OpportunityRevenueItems.LAST_UPDATED_BY,    
-       OpportunityRevenueItems.OPPORTUNITY_ID,    
-       OpportunityRevenueItems.LAST_UPDATE_LOGIN,    
-       OpportunityRevenueItems.OBJECT_VERSION_NUMBER,  
-       Product.PRODUCT_NAME,  
-       Opportunity.OPPORTUNITY_NAME  
-FROM  OPPORTUNITY_REVENUE_ITEMS OpportunityRevenueItems LEFT OUTER JOIN PRODUCT_CATALOG Product  
-ON OpportunityRevenueItems.PRODUCT_ID = Product.PRODUCT_ID   
-LEFT OUTER JOIN OPPORTUNITIES Opportunity   
-ON OpportunityRevenueItems.OPPORTUNITY_ID = Opportunity.OPPURTUNITY_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT OpportunityRevenueItems.OPP_REV_ITEM_ID,     
+       OpportunityRevenueItems.PRODUCT_ID,     
+       OpportunityRevenueItems.QUANTITY,     
+       OpportunityRevenueItems.ESTIMATED_PRICE,     
+       OpportunityRevenueItems.REVENUE,     
+       OpportunityRevenueItems.WIN_PROBABILITY,     
+       OpportunityRevenueItems.BEST_CASE_REVENUE,     
+       OpportunityRevenueItems.WORST_CASE_REVENUE,     
+       OpportunityRevenueItems.SALES_FORECAST_INCLUDED,     
+       OpportunityRevenueItems.CREATION_DATE,     
+       OpportunityRevenueItems.LAST_UPDATE_DATE,     
+       OpportunityRevenueItems.CREATED_BY,     
+       OpportunityRevenueItems.LAST_UPDATED_BY,     
+       OpportunityRevenueItems.OPPORTUNITY_ID,     
+       OpportunityRevenueItems.LAST_UPDATE_LOGIN,     
+       OpportunityRevenueItems.OBJECT_VERSION_NUMBER,   
+       Product.PRODUCT_NAME,   
+       Opportunity.OPPORTUNITY_NAME   
+FROM  OPPORTUNITY_REVENUE_ITEMS OpportunityRevenueItems LEFT OUTER JOIN PRODUCT_CATALOG Product   
+ON OpportunityRevenueItems.PRODUCT_ID = Product.PRODUCT_ID    
+LEFT OUTER JOIN OPPORTUNITIES Opportunity    
+ON OpportunityRevenueItems.OPPORTUNITY_ID = Opportunity.OPPURTUNITY_ID 
+WHERE OpportunityRevenueItems.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="OpportunityRevenueItems"
     Entity="com.sfa.model.entity.OpportunityRevenueItems"/>

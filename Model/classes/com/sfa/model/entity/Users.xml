@@ -10,7 +10,8 @@
   DBObjectName="USERS"
   AliasName="Users"
   BindingStyle="OracleName"
-  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="UserId"
     IsNotNull="true"
@@ -120,7 +121,9 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="USERS"/>
+    TableName="USERS">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="EffecEndDate"
     IsNotNull="true"
@@ -221,6 +224,19 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="USERS"/>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="InteractionTeam"
     Association="com.sfa.model.association.InteractionTeamFk2Assoc"

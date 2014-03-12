@@ -11,9 +11,9 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b3" actionListener="#{OppoAppnmntSC.onCommit}"/>
-                            <af:button text="Save &amp; Close" id="b1"
+                            <af:button text="Save and Close" id="b1"
                                        action="back" actionListener="#{OppoAppnmntSC.onCommit}"/>
-                            <af:button text="Close" id="b2" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b2"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>
@@ -22,6 +22,17 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
+                <af:panelFormLayout id="pfl2">
+                    <af:inputText value="#{bindings.CustAccountId.inputValue}"
+                                  label="#{bindings.CustAccountId.hints.label}"
+                                  required="#{bindings.CustAccountId.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.CustAccountId.hints.displayWidth}"
+                                  maximumLength="#{bindings.CustAccountId.hints.precision}"
+                                  shortDesc="#{bindings.CustAccountId.hints.tooltip}" id="it5" visible="false">
+                        <f:validator binding="#{bindings.CustAccountId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CustAccountId.format}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="83">
                     <f:facet name="first">
                         <af:panelFormLayout id="pfl1" rows="3">

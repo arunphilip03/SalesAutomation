@@ -10,7 +10,8 @@
   DBObjectName="ROLES"
   AliasName="Roles"
   BindingStyle="OracleName"
-  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="RoleId"
     IsNotNull="true"
@@ -149,6 +150,19 @@
     TableName="ROLES"
     HistoryColumn="VersionHistory"
     ChangeIndicator="true"/>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ROLES"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="RoleAssignment"
     Association="com.sfa.model.association.UserRolesFk2Assoc"

@@ -30,6 +30,7 @@ public class UserIdStoreBean {
     }
 
     public Number getUser() {
+        System.out.println("hi");
         BindingContext context = BindingContext.getCurrent();
         BindingContainer bindings = context.getCurrentBindingsEntry();
         DCBindingContainer bc = (DCBindingContainer)bindings;

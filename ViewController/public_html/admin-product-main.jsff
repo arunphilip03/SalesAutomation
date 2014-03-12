@@ -24,7 +24,9 @@
                                 <af:link id="l1" icon="#{resource['images:new_ena.png']}"
                                          actionListener="#{bindings.Create.execute}"
                                          disabled="#{!bindings.Create.enabled}" action="add"/>
-                                <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"/>
+                                <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"
+                                         disabled="#{bindings.ProductCatalogView1Iterator.estimatedRowCount eq 0}"
+                                         disabledIcon="#{resource['images:update_dis.png']}"/>
                                 <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                                     <af:dialog id="d1" title="Are you sure you want to delete the Selected Product?"
                                                dialogListener="#{ConfirmBean.dialogListener}">
@@ -32,7 +34,8 @@
                                     </af:dialog>
                                 </af:popup>
                                 <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                         disabled="#{!bindings.Delete.enabled}" useWindow="true" targetFrame="_top">
+                                         disabled="#{bindings.ProductCatalogView1Iterator.estimatedRowCount eq 0}" useWindow="true" targetFrame="_top"
+                                         disabledIcon="#{resource['images:delete_dis.png']}">
                                     <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
                                 </af:link>
                             </af:toolbar>
@@ -91,9 +94,6 @@
                         </af:table>
                         <f:facet name="statusbar"/>
                     </af:panelCollection>
-                    <af:toolbar id="t3">
-                        <af:button text="Product categories" id="b1" action="productCategory"/>
-                    </af:toolbar>
                 </af:panelGroupLayout>
             </af:gridCell>
         </af:gridRow>

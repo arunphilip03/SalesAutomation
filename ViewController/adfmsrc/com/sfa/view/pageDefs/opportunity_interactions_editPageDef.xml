@@ -41,7 +41,6 @@
         <Item Value="Resolution"/>
       </AttrNames>
     </attributeValues>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="ContactInteractionsView2Iterator" id="InteractionId">
       <AttrNames>
         <Item Value="InteractionId"/>

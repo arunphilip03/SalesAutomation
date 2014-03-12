@@ -16,6 +16,12 @@
         <name>taskFlowReturn1</name>
       </outcome>
     </task-flow-return>
+    <task-flow-call id="opportunity-task-create-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunity-task-create-tf.xml</document>
+        <id>opportunity-task-create-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>opportunity-task-main</from-activity-id>
       <control-flow-case id="__2">

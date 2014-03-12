@@ -14,12 +14,6 @@
     <view id="admin-edit-product">
       <page>/admin-edit-product.jsff</page>
     </view>
-    <task-flow-call id="admin-productcategory-tf">
-      <task-flow-reference>
-        <document>/WEB-INF/admin-productcategory-tf.xml</document>
-        <id>admin-productcategory-tf</id>
-      </task-flow-reference>
-    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>admin-product-main</from-activity-id>
       <control-flow-case id="__2">
@@ -29,10 +23,6 @@
       <control-flow-case id="__5">
         <from-outcome>edit</from-outcome>
         <to-activity-id>admin-edit-product</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__8">
-        <from-outcome>productCategory</from-outcome>
-        <to-activity-id>admin-productcategory-tf</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__3">

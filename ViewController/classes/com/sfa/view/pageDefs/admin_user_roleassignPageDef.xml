@@ -64,15 +64,12 @@
     <tree IterBinding="RoleAssignmentView3Iterator" id="RoleAssignmentView3">
       <nodeDefinition DefName="com.sfa.model.VO.RoleAssignmentView" Name="RoleAssignmentView30">
         <AttrNames>
-          <Item Value="FirstName"/>
           <Item Value="RoleName"/>
           <Item Value="EffecStartDate"/>
           <Item Value="EffecEndDate"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="RoleAssignmentView3Iterator" id="Delete" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
     <action IterBinding="RoleAssignmentView3Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <attributeValues IterBinding="UsersView1Iterator" id="UserId">

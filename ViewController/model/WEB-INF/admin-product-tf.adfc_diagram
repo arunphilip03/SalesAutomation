@@ -22,27 +22,10 @@
       <property
          name="y">307.02588</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">273.4043</property>
+      <property
+         name="pageFragment">true</property>
    </View>
-   <TaskFlowCall
-      id="TaskFlowCall3">
-      <property
-         name="taskFlowId">admin-productcategory-tf</property>
-      <property
-         name="activityId">admin-productcategory-tf</property>
-      <property
-         name="documentReference">/WEB-INF/admin-productcategory-tf.xml</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>admin-productcategory-tf&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">83.5</property>
-      <property
-         name="x">473.66504</property>
-   </TaskFlowCall>
    <View
       id="View4">
       <property
@@ -56,9 +39,9 @@
       <property
          name="y">299.37646</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">90.024414</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View5">
@@ -71,22 +54,12 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">428.90234</property>
+         name="y">306.20117</property>
+      <property
+         name="x">587.66504</property>
       <property
          name="pageFragment">true</property>
-      <property
-         name="x">473.66504</property>
    </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase7"
-      from="View2"
-      to="TaskFlowCall3">
-      <property
-         name="fromOutcome">productCategory</property>
-      <property
-         name="sdm:polyPoints">T50,273.4043,252.6753,473.66504,137.14941,B50</property>
-   </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase8"
@@ -95,7 +68,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L46,432.66504,425.05176,317.36572,303.1753,R46</property>
+         name="sdm:polyPoints">L46,546.6526,302.3506,314.4043,303.1753,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -105,7 +78,7 @@
       <property
          name="fromOutcome">add</property>
       <property
-         name="sdm:polyPoints">R54,314.4043,310.1753,429.6774,432.05176,L54</property>
+         name="sdm:polyPoints">R54,314.41672,310.1753,546.66504,309.3506,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

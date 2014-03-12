@@ -31,6 +31,6 @@
     </attributeValues>
     <listOfValues IterBinding="ProductCatalogView1Iterator" StaticList="false" Uses="LOV_ProductCategory"
                   id="ProductCategory"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

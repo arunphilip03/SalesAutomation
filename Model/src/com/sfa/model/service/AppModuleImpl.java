@@ -1100,5 +1100,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getContactInteractionsTeamVL1() {
         return (ViewLinkImpl) findViewLink("ContactInteractionsTeamVL1");
     }
+
+    /**
+     * Container's getter for CurrencyLuView1.
+     * @return CurrencyLuView1
+     */
+    public ViewObjectImpl getCurrencyLuView1() {
+        return (ViewObjectImpl) findViewObject("CurrencyLuView1");
+    }
 }
 

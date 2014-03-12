@@ -29,11 +29,6 @@
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_SalesMethod" id="SalesMethod"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_SalesChannel"
                   id="SalesChannel"/>
-    <attributeValues IterBinding="OpportunitiesView1Iterator" id="RevenueCurrency">
-      <AttrNames>
-        <Item Value="RevenueCurrency"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="RevenueAmount">
       <AttrNames>
         <Item Value="RevenueAmount"/>
@@ -72,12 +67,18 @@
         <Item Value="OpportunityName"/>
       </AttrNames>
     </attributeValues>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="OppurtunityId">
       <AttrNames>
         <Item Value="OppurtunityId"/>
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_RevenueCurrency"
+                  id="RevenueCurrency1"/>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="PrimaryContactId">
+      <AttrNames>
+        <Item Value="PrimaryContactId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

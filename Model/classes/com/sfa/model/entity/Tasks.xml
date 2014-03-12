@@ -239,6 +239,19 @@
         TableName="TASKS"
         HistoryColumn="VersionHistory"
         ChangeIndicator="true"/>
+    <Attribute
+        Name="DeleteFlag"
+        Precision="1"
+        ColumnName="DELETE_FLAG"
+        SQLType="VARCHAR"
+        Type="java.lang.String"
+        ColumnType="VARCHAR2"
+        TableName="TASKS"
+        HistoryColumn="11">
+        <DesignTime>
+            <Attr Name="_DisplaySize" Value="1"/>
+        </DesignTime>
+    </Attribute>
     <AccessorAttribute
         Name="Opportunities"
         Association="com.sfa.model.association.TasksFk2Assoc"

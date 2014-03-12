@@ -43,26 +43,28 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT Users.USER_ID,      
-       Users.USER_NAME,      
-       Users.EMPLOYEE_ID,      
-       Users.FIRST_NAME,      
-       Users.MIDDLE_NAME,      
-       Users.LAST_NAME,      
-       Users.PASSWORD,      
-       Users.MANAGER_ID,      
-       Users.EFFEC_START_DATE,      
-       Users.EFFEC_END_DATE,      
-       Users.CREATION_DATE,      
-       Users.LAST_UPDATE_DATE,      
-       Users.CREATED_BY,      
-       Users.LAST_UPDATED_BY,      
-       Users.LAST_UPDATE_LOGIN,      
-       Users.OBJECT_VERSION_NUMBER,      
-       Users.CORPORATE_CUSTOMER_ID,   
-       Users1.FIRST_NAME AS MANAGERNAME    
-FROM  USERS Users left outer join USERS Users1    
-on Users.MANAGER_ID =  Users1.EMPLOYEE_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT Users.USER_ID,        
+       Users.USER_NAME,        
+       Users.EMPLOYEE_ID,        
+       Users.FIRST_NAME,        
+       Users.MIDDLE_NAME,        
+       Users.LAST_NAME,        
+       Users.PASSWORD,        
+       Users.MANAGER_ID,        
+       Users.EFFEC_START_DATE,        
+       Users.EFFEC_END_DATE,        
+       Users.CREATION_DATE,        
+       Users.LAST_UPDATE_DATE,        
+       Users.CREATED_BY,        
+       Users.LAST_UPDATED_BY,        
+       Users.LAST_UPDATE_LOGIN,        
+       Users.OBJECT_VERSION_NUMBER,        
+       Users.CORPORATE_CUSTOMER_ID,     
+       Users1.FIRST_NAME AS MANAGERNAME      
+FROM  USERS Users left outer join USERS Users1      
+on Users.MANAGER_ID =  Users1.EMPLOYEE_ID  
+WHERE Users.EFFEC_END_DATE >= SYSDATE AND Users.EFFEC_START_DATE <= SYSDATE and 
+Users.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="Users"
     Entity="com.sfa.model.entity.Users"/>
@@ -171,6 +173,8 @@ on Users.MANAGER_ID =  Users1.EMPLOYEE_ID]]></SQLQuery>
     EntityAttrName="EffecStartDate"
     EntityUsage="Users"
     AliasName="EFFEC_START_DATE">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

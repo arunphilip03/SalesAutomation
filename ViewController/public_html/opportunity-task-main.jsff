@@ -55,8 +55,10 @@
                             <f:facet name="toolbar">
                                 <af:toolbar id="t2">
                                     <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                             actionListener="#{bindings.Create.execute}" action="create"/>
-                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"/>
+                                             actionListener="#{bindings.CreateInsert1.execute}" action="create"/>
+                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"
+                                             disabledIcon="#{resource['images:update_dis.png']}"
+                                             disabled="#{bindings.OpportunitytaskView2Iterator.estimatedRowCount eq 0}"/>
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                                         <af:dialog id="d1" title="Are you sure you want to delete the Selected Task?"
                                                    dialogListener="#{ConfirmBean.dialogListener}">
@@ -64,7 +66,9 @@
                                         </af:dialog>
                                     </af:popup>
                                     <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                             actionListener="#{bindings.Delete.execute}">
+                                             actionListener="#{bindings.Delete.execute}"
+                                             disabled="#{bindings.OpportunitytaskView2Iterator.estimatedRowCount eq 0}"
+                                             disabledIcon="#{resource['images:delete_dis.png']}">
                                         <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
                                     </af:link>
                                 </af:toolbar>
@@ -159,8 +163,6 @@
                         </af:panelCollection>
                     </f:facet>
                 </af:panelSplitter>
-                <af:panelWindow id="pw2" visible="false"/>
-                <af:panelWindow id="pw3"/>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>
