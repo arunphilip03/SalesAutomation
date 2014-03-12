@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="opportunity_task_mainPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpportunitytaskView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitytaskView2Iterator"/>
+    <searchRegion Criteria="OpportunitytaskViewSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="OpportunitytaskView2Iterator" id="OpportunitytaskViewSearchQuery"/>
+    <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitiesView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OpportunitytaskView2Iterator" id="OpportunitytaskView2">
+      <nodeDefinition DefName="com.sfa.model.VO.OpportunitytaskView" Name="OpportunitytaskView20">
+        <AttrNames>
+          <Item Value="TaskName"/>
+          <Item Value="OpportunityName"/>
+          <Item Value="AccountName"/>
+          <Item Value="FirstName"/>
+          <Item Value="Description"/>
+          <Item Value="DueDate"/>
+          <Item Value="PercentageCompletion"/>
+          <Item Value="Priority"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OpportunitytaskView2Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_AccountName" id="AccountName"/>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="OpportunityName">
+      <AttrNames>
+        <Item Value="OpportunityName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="OpportunitytaskView2Iterator" id="Delete1"
+            InstanceName="AppModuleDataControl.OpportunitytaskView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunitytaskView2Iterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.OpportunitytaskView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="OpportunitytaskView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

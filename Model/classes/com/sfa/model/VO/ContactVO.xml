@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContactVO"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  SelectList="CustomerContacts.CONTACT_NAME, 
+       CustomerContacts.CONTACT_ID, 
+       CustomerContacts.OBJECT_VERSION_NUMBER, 
+       CustomerContacts.TITLE, 
+       CustomerAccount.ACCOUNT_NAME, 
+       CustomerAccount.CUST_ACCOUNT_ID, 
+       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1, 
+       CustomerContacts.DEPARTMENT, 
+       CustomerContacts.ADDRESS, 
+       CustomerContacts.WORK_PHONE, 
+       CustomerContacts.MOBILE_PHONE, 
+       CustomerContacts.EMAIL, 
+       CustomerContacts.BUY_INFLUENCE_LEVEL, 
+       CustomerContacts.IS_PRIMARY"
+  FromList="CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount"
+  Where="CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID"
+  OrderBy="CustomerContacts.CONTACT_NAME"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.ContactVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="CustomerContacts"
+    Entity="com.sfa.model.entity.CustomerContacts"/>
+  <EntityUsage
+    Name="CustomerAccount"
+    Entity="com.sfa.model.entity.CustomerAccount"
+    Association="com.sfa.model.association.CustomerContactsFk1Assoc"
+    AssociationEnd="com.sfa.model.association.CustomerContactsFk1Assoc.CustomerAccount"
+    SourceUsage="com.sfa.model.VO.ContactVO.CustomerContacts"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.sfa.model.entity.CustomerContacts.CustAccountId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.sfa.model.entity.CustomerAccount.CustAccountId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="ContactName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContactName"
+    EntityUsage="CustomerContacts"
+    AliasName="CONTACT_NAME"/>
+  <ViewAttribute
+    Name="ContactId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContactId"
+    EntityUsage="CustomerContacts"
+    AliasName="CONTACT_ID"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="CustomerContacts"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="Title"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="CustomerContacts"
+    AliasName="TITLE"/>
+  <ViewAttribute
+    Name="AccountName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AccountName"
+    EntityUsage="CustomerAccount"
+    AliasName="ACCOUNT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.ContactVO.AccountName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustAccountId"
+    IsQueriable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustAccountId"
+    EntityUsage="CustomerAccount"
+    AliasName="CUST_ACCOUNT_ID"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber1"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="CustomerAccount"
+    AliasName="OBJECT_VERSION_NUMBER1"/>
+  <ViewAttribute
+    Name="Department"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Department"
+    EntityUsage="CustomerContacts"
+    AliasName="DEPARTMENT"/>
+  <ViewAttribute
+    Name="Address"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Address"
+    EntityUsage="CustomerContacts"
+    AliasName="ADDRESS"/>
+  <ViewAttribute
+    Name="WorkPhone"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="WorkPhone"
+    EntityUsage="CustomerContacts"
+    AliasName="WORK_PHONE"/>
+  <ViewAttribute
+    Name="MobilePhone"
+    PrecisionRule="true"
+    EntityAttrName="MobilePhone"
+    EntityUsage="CustomerContacts"
+    AliasName="MOBILE_PHONE"/>
+  <ViewAttribute
+    Name="Email"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="CustomerContacts"
+    AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="BuyInfluenceLevel"
+    PrecisionRule="true"
+    EntityAttrName="BuyInfluenceLevel"
+    EntityUsage="CustomerContacts"
+    AliasName="BUY_INFLUENCE_LEVEL"/>
+  <ViewAttribute
+    Name="IsPrimary"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsPrimary"
+    EntityUsage="CustomerContacts"
+    AliasName="IS_PRIMARY"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ContactId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

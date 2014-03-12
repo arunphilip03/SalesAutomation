@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="customer_searchPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustomerAccountView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CustomerAccountView1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerAccountView1Iterator" id="ImplicitViewCriteriaQuery"/>
+    <iterator Binds="CustomerSearchVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CustomerSearchVO1Iterator"/>
+    <searchRegion Criteria="CustomerSearchVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerSearchVO1Iterator" id="CustomerSearchVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CustomerAccountView1Iterator" id="CustomerAccountView1">
+      <nodeDefinition DefName="com.sfa.model.VO.CustomerAccountView" Name="CustomerAccountView10">
+        <AttrNames>
+          <Item Value="AccountName"/>
+          <Item Value="Address"/>
+          <Item Value="AccountUrl"/>
+          <Item Value="ParentAccountName"/>
+          <Item Value="Ceo"/>
+          <Item Value="NoEmployees"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustomerSearchVO1Iterator" id="CustomerSearchVO1">
+      <nodeDefinition DefName="com.sfa.model.VO.CustomerSearchVO" Name="CustomerSearchVO10">
+        <AttrNames>
+          <Item Value="AccountName"/>
+          <Item Value="Ceo"/>
+          <Item Value="ParentAccount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

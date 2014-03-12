@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContactInteractionsVO"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  SelectList="ContactInteractions.TYPE, 
+       ContactInteractions.INTERACTION_ID, 
+       ContactInteractions.DIRECTION, 
+       ContactInteractions.START_DATETIME, 
+       ContactInteractions.END_DATETIME, 
+       ContactInteractions.DESCRIPTION, 
+       ContactInteractions.RESOLUTION, 
+       ContactInteractions.OPPURTUNITY_ID, 
+       InteractionTeam.CONTACT_ID, 
+       InteractionTeam.INTERACTION_TEAM_ID, 
+       InteractionTeam.OBJECT_VERSION_NUMBER"
+  FromList="CONTACT_INTERACTIONS ContactInteractions, INTERACTION_TEAM InteractionTeam"
+  Where="ContactInteractions.INTERACTION_ID = InteractionTeam.INTERACTION_ID"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  RowClass="com.sfa.model.VO.ContactInteractionsVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.ContactInteractionsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="OpportunitiesView1"
+    ViewObjectName="com.sfa.model.VO.OpportunitiesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InteractionsTypeLuView1"
+    ViewObjectName="com.sfa.model.VO.InteractionsTypeLuView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InteractionsDirectionLuView1"
+    ViewObjectName="com.sfa.model.VO.InteractionsDirectionLuView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RelatedOpportunity"
+    ListVOName="OpportunitiesView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RelatedOpportunity"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OpportunityName"/>
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OpportunityName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="OpportunitiesViewCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Type"
+    ListVOName="InteractionsTypeLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Direction"
+    ListVOName="InteractionsDirectionLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Direction"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <EntityUsage
+    Name="ContactInteractions"
+    Entity="com.sfa.model.entity.ContactInteractions"/>
+  <EntityUsage
+    Name="InteractionTeam"
+    Entity="com.sfa.model.entity.InteractionTeam"
+    Association="com.sfa.model.association.InteractionTeamFk3Assoc"
+    AssociationEnd="com.sfa.model.association.InteractionTeamFk3Assoc.InteractionTeam"
+    SourceUsage="com.sfa.model.VO.ContactInteractionsVO.ContactInteractions"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.sfa.model.entity.ContactInteractions.InteractionId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.sfa.model.entity.InteractionTeam.InteractionId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Type"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Type"
+    EntityUsage="ContactInteractions"
+    AliasName="TYPE"
+    LOVName="LOV_Type">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InteractionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InteractionId"
+    EntityUsage="ContactInteractions"
+    AliasName="INTERACTION_ID"/>
+  <ViewAttribute
+    Name="Direction"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Direction"
+    EntityUsage="ContactInteractions"
+    AliasName="DIRECTION"
+    LOVName="LOV_Direction">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StartDatetime"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StartDatetime"
+    EntityUsage="ContactInteractions"
+    AliasName="START_DATETIME">
+    <TransientExpression><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EndDatetime"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EndDatetime"
+    EntityUsage="ContactInteractions"
+    AliasName="END_DATETIME"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="ContactInteractions"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="Resolution"
+    PrecisionRule="true"
+    EntityAttrName="Resolution"
+    EntityUsage="ContactInteractions"
+    AliasName="RESOLUTION"/>
+  <ViewAttribute
+    Name="OppurtunityId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OppurtunityId"
+    EntityUsage="ContactInteractions"
+    AliasName="OPPURTUNITY_ID"/>
+  <ViewAttribute
+    Name="ContactId"
+    PrecisionRule="true"
+    EntityAttrName="ContactId"
+    EntityUsage="InteractionTeam"
+    AliasName="CONTACT_ID"/>
+  <ViewAttribute
+    Name="InteractionTeamId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InteractionTeamId"
+    EntityUsage="InteractionTeam"
+    AliasName="INTERACTION_TEAM_ID"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="InteractionTeam"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="RelatedOpportunity"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_RelatedOpportunity"
+    IsNotNull="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.ContactInteractionsVO.RelatedOpportunity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="InteractionId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="CustomerContactsView"
+    ViewLink="com.sfa.model.viewlink.ContactInteractionsVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactInteractionTeamVO"
+    ViewLink="com.sfa.model.viewlink.ContactInteractionsTeamVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="CustomerAccountOverviewPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustomerAccountView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CustomerAccountView1Iterator"/>
+    <searchRegion Criteria="CustomerAccountViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerAccountView1Iterator" id="CustomerAccountViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CustomerAccountView1Iterator" id="CustomerAccountView1">
+      <nodeDefinition DefName="com.sfa.model.VO.CustomerAccountView" Name="CustomerAccountView10">
+        <AttrNames>
+          <Item Value="CustAccountId"/>
+          <Item Value="AccountName"/>
+          <Item Value="Address"/>
+          <Item Value="AccountUrl"/>
+          <Item Value="ParentAccountId"/>
+          <Item Value="ParentAccountName"/>
+          <Item Value="Ceo"/>
+          <Item Value="NoEmployees"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="NotesSeqId"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="ObjectVersionNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="CustomerAccountView1Iterator" id="setCurrentRowWithKey"
+            InstanceName="AppModuleDataControl.CustomerAccountView1" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{bindings.variables.currentRowWithKeyValue}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

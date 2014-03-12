@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="opportunity_task_editPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpportunitytaskView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitytaskView2Iterator"/>
+    <iterator id="TaskTeamView6Iterator" Binds="TaskTeamView6" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="UsersView1Iterator" Binds="UsersView1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="CustomerContactsView4Iterator" Binds="CustomerContactsView4" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitiesView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="TaskName">
+      <AttrNames>
+        <Item Value="TaskName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="DueDate">
+      <AttrNames>
+        <Item Value="DueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="PercentageCompletion">
+      <AttrNames>
+        <Item Value="PercentageCompletion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="Priority">
+      <AttrNames>
+        <Item Value="Priority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="TaskId">
+      <AttrNames>
+        <Item Value="TaskId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="OpportunitytaskView2Iterator" StaticList="false" Uses="LOV_FirstName" id="FirstName"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="AccountName">
+      <AttrNames>
+        <Item Value="AccountName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="OpportunityName">
+      <AttrNames>
+        <Item Value="OpportunityName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

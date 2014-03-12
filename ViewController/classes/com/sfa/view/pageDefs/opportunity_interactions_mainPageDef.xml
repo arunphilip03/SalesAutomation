@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="opportunity_interactions_mainPageDef" Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ContactInteractionsView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactInteractionsView2Iterator"/>
+    <searchRegion Criteria="ContactInteractionsViewSearch"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ContactInteractionsView2Iterator" id="ContactInteractionsViewSearchQuery"/>
+    <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitiesView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ContactInteractionsView2Iterator" id="ContactInteractionsView2">
+      <nodeDefinition DefName="com.sfa.model.VO.ContactInteractionsView" Name="ContactInteractionsView20">
+        <AttrNames>
+          <Item Value="OpportunityName"/>
+          <Item Value="Type"/>
+          <Item Value="Direction"/>
+          <Item Value="StartDatetime"/>
+          <Item Value="EndDatetime"/>
+          <Item Value="Description"/>
+          <Item Value="Resolution"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_AccountName" id="AccountName"/>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="OpportunityName">
+      <AttrNames>
+        <Item Value="OpportunityName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="ContactInteractionsView2Iterator" id="Delete"
+            InstanceName="AppModuleDataControl.ContactInteractionsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ContactInteractionsView2Iterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.ContactInteractionsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ContactInteractionsView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

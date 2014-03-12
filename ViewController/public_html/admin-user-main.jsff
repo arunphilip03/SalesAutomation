@@ -36,7 +36,7 @@
                                 </af:link>
                             </af:toolbar>
                             <af:toolbar id="t3">
-                                <af:button text="Manage  Roles" id="b1" actionListener="#{bindings.Create1.execute}"
+                                <af:button text="Assign  Roles" id="b1" actionListener="#{bindings.Create1.execute}"
                                            disabled="#{!bindings.Create1.enabled}" action="assign"/>
                             </af:toolbar>
                         </f:facet>

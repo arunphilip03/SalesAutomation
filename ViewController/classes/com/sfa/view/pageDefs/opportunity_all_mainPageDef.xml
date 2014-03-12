@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="opportunity_all_mainPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitiesView1Iterator"/>
+    <searchRegion Criteria="OpportunitiesViewSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="OpportunitiesView1Iterator" id="OpportunitiesViewSearchQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OpportunitiesView1Iterator" id="OpportunitiesView1">
+      <nodeDefinition DefName="com.sfa.model.VO.OpportunitiesView" Name="OpportunitiesView10">
+        <AttrNames>
+          <Item Value="OpportunityName"/>
+          <Item Value="AccountName"/>
+          <Item Value="ContactName"/>
+          <Item Value="WinProbability"/>
+          <Item Value="CloseDate"/>
+          <Item Value="SalesStage"/>
+          <Item Value="SalesMethod"/>
+          <Item Value="SalesChannel"/>
+          <Item Value="IsBudgeted"/>
+          <Item Value="BudgetAmount"/>
+          <Item Value="EstimatedDuration"/>
+          <Item Value="RiskLevel"/>
+          <Item Value="DecisionLevel"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OpportunitiesView1Iterator" id="Delete" InstanceName="AppModuleDataControl.OpportunitiesView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="OpportunitiesView1Iterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.OpportunitiesView1" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="OpportunitiesView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

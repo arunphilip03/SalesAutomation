@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="Opportunity_attachmentsPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpportunityAttachmentsView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunityAttachmentsView2Iterator"/>
+    <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitiesView1Iterator"/>
+    <searchRegion Criteria="OpportunityAttachmentsViewSearch"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="OpportunityAttachmentsView2Iterator" id="OpportunityAttachmentsViewSearchQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OpportunityAttachmentsView2Iterator" id="OpportunityAttachmentsView2">
+      <nodeDefinition DefName="com.sfa.model.VO.OpportunityAttachmentsView" Name="OpportunityAttachmentsView20">
+        <AttrNames>
+          <Item Value="DocumentName"/>
+          <Item Value="DocumentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="OpportunityName">
+      <AttrNames>
+        <Item Value="OpportunityName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityAttachmentsView2Iterator" id="DocumentName">
+      <AttrNames>
+        <Item Value="DocumentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityAttachmentsView2Iterator" id="DocumentType">
+      <AttrNames>
+        <Item Value="DocumentType"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="OpportunityAttachmentsView2Iterator" id="Delete"
+            InstanceName="AppModuleDataControl.OpportunityAttachmentsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunityAttachmentsView2Iterator" id="Create" RequiresUpdateModel="true"
+            Action="createRow"/>
+  </bindings>
+</pageDefinition>

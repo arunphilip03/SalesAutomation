@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="CustomerAppointmentsEditPageDef" Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AppointmentsView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="AppointmentsView2Iterator"/>
+    <iterator id="CustomerContactsView2Iterator" Binds="CustomerContactsView2" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="AppointmentInviteesVO3Iterator" Binds="AppointmentInviteesVO3" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="AllUsersVO1Iterator" Binds="AllUsersVO1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="CustomerContactsView1Iterator" Binds="CustomerContactsView1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="ContactsInAccountVO1Iterator" Binds="ContactsInAccountVO1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AppointmentsView2Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppointmentsView2Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppointmentsView2Iterator" id="StartDatetime">
+      <AttrNames>
+        <Item Value="StartDatetime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppointmentsView2Iterator" id="EndDatetime">
+      <AttrNames>
+        <Item Value="EndDatetime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppointmentsView2Iterator" id="Location">
+      <AttrNames>
+        <Item Value="Location"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="AppointmentsView2Iterator" StaticList="false" Uses="LOV_RelatedOppurtunity"
+                  id="RelatedOppurtunity1"/>
+    <attributeValues IterBinding="AppointmentInviteesVO3Iterator" id="AppointmentId">
+      <AttrNames>
+        <Item Value="AppointmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

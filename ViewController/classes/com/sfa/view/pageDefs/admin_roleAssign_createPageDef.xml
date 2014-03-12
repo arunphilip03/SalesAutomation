@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="admin_roleAssign_createPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RoleAssignmentView3" RangeSize="25" DataControl="AppModuleDataControl"
+              id="RoleAssignmentView3Iterator"/>
+    <iterator Binds="ValidRolesView1" RangeSize="25" DataControl="AppModuleDataControl" id="ValidRolesView1Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="RoleAssignmentView3Iterator" StaticList="false" Uses="LOV_UserId" id="UserId"/>
+    <attributeValues IterBinding="RoleAssignmentView3Iterator" id="EffecStartDate">
+      <AttrNames>
+        <Item Value="EffecStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RoleAssignmentView3Iterator" id="EffecEndDate">
+      <AttrNames>
+        <Item Value="EffecEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ValidRolesView1Iterator" ListOperMode="multiSelect" ListIter="ValidRolesView1Iterator"
+          id="ValidRolesView1" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="RoleId"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="RoleName"/>
+      </ListDisplayAttrNames>
+    </list>
+  </bindings>
+</pageDefinition>

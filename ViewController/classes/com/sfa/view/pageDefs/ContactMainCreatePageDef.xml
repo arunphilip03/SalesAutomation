@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="ContactMainCreatePageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustomerContactsView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CustomerContactsView1Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="CustomerContactsView1Iterator" StaticList="false" Uses="LOV_AccountName"
+                  id="AccountName"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="CustomerContactsView1Iterator" StaticList="false" Uses="LOV_Title" id="Title"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="Department">
+      <AttrNames>
+        <Item Value="Department"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="WorkPhone">
+      <AttrNames>
+        <Item Value="WorkPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="MobilePhone">
+      <AttrNames>
+        <Item Value="MobilePhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="CustomerContactsView1Iterator" StaticList="false" Uses="LOV_BuyInfluenceLevel"
+                  id="BuyInfluenceLevel"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <button IterBinding="CustomerContactsView1Iterator" id="IsPrimaryBoolean" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="IsPrimaryBoolean"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

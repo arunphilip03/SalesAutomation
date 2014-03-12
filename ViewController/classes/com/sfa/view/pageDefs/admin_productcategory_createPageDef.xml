@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="admin_productcategory_createPageDef" Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductCategoryView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ProductCategoryView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ProductCategoryView1Iterator" id="Categoryname">
+      <AttrNames>
+        <Item Value="Categoryname"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

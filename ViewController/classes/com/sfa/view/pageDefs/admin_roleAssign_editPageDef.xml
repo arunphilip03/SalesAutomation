@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="admin_roleAssign_editPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RoleAssignmentView3" RangeSize="25" DataControl="AppModuleDataControl"
+              id="RoleAssignmentView3Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="RoleAssignmentView3Iterator" StaticList="false" Uses="LOV_UserId" id="UserId"/>
+    <listOfValues IterBinding="RoleAssignmentView3Iterator" StaticList="false" Uses="LOV_RoleId_Assign" id="RoleId"/>
+    <attributeValues IterBinding="RoleAssignmentView3Iterator" id="EffecStartDate">
+      <AttrNames>
+        <Item Value="EffecStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RoleAssignmentView3Iterator" id="EffecEndDate">
+      <AttrNames>
+        <Item Value="EffecEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

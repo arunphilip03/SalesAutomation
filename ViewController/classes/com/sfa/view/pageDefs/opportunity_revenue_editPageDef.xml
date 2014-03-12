@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="opportunity_revenue_editPageDef" Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpportunityRevenueItemsView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunityRevenueItemsView2Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="OpportunityRevenueItemsView2Iterator" StaticList="false" Uses="LOV_ProductName"
+                  id="ProductName"/>
+    <attributeValues IterBinding="OpportunityRevenueItemsView2Iterator" id="Quantity">
+      <AttrNames>
+        <Item Value="Quantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityRevenueItemsView2Iterator" id="EstimatedPrice">
+      <AttrNames>
+        <Item Value="EstimatedPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityRevenueItemsView2Iterator" id="Revenue">
+      <AttrNames>
+        <Item Value="Revenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityRevenueItemsView2Iterator" id="WinProbability">
+      <AttrNames>
+        <Item Value="WinProbability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityRevenueItemsView2Iterator" id="BestCaseRevenue">
+      <AttrNames>
+        <Item Value="BestCaseRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityRevenueItemsView2Iterator" id="WorstCaseRevenue">
+      <AttrNames>
+        <Item Value="WorstCaseRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunityRevenueItemsView2Iterator" id="SalesForecastIncluded">
+      <AttrNames>
+        <Item Value="SalesForecastIncluded"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>
