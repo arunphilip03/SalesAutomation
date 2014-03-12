@@ -72,22 +72,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT Tasks.ASIGNEE_ID,  
-       Tasks.CUST_ACCOUNT_ID,  
-       Tasks.DESCRIPTION,  
-       Tasks.DUE_DATE,  
-       Tasks.OBJECT_VERSION_NUMBER,  
-       Tasks.OPPURTUNITY_ID,  
-       Tasks.PERCENTAGE_COMPLETION,  
-       Tasks.PRIORITY,  
-       Tasks.TASK_ID,  
-       Tasks.TASK_NAME, 
-       Users.FIRST_NAME,    
-       Customer.ACCOUNT_NAME,    
-       Oppo.OPPORTUNITY_NAME    
-FROM  TASKS Tasks LEFT OUTER JOIN USERS Users on Tasks.ASIGNEE_ID = Users.USER_ID    
-LEFT OUTER JOIN CUSTOMER_ACCOUNT Customer on Tasks.CUST_ACCOUNT_ID = Customer.CUST_ACCOUNT_ID    
-left outer join OPPORTUNITIES Oppo ON Tasks.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT Tasks.ASIGNEE_ID,   
+       Tasks.CUST_ACCOUNT_ID,   
+       Tasks.DESCRIPTION,   
+       Tasks.DUE_DATE,   
+       Tasks.OBJECT_VERSION_NUMBER,   
+       Tasks.OPPURTUNITY_ID,   
+       Tasks.PERCENTAGE_COMPLETION,   
+       Tasks.PRIORITY,   
+       Tasks.TASK_ID,   
+       Tasks.TASK_NAME,  
+       Users.FIRST_NAME,     
+       Customer.ACCOUNT_NAME,     
+       Oppo.OPPORTUNITY_NAME     
+FROM  TASKS Tasks LEFT OUTER JOIN USERS Users on Tasks.ASIGNEE_ID = Users.USER_ID     
+LEFT OUTER JOIN CUSTOMER_ACCOUNT Customer on Tasks.CUST_ACCOUNT_ID = Customer.CUST_ACCOUNT_ID     
+left outer join OPPORTUNITIES Oppo ON Tasks.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID 
+WHERE Tasks.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="Tasks"
     Entity="com.sfa.model.entity.Tasks"/>
@@ -103,7 +104,8 @@ left outer join OPPORTUNITIES Oppo ON Tasks.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID
     PrecisionRule="true"
     EntityAttrName="CustAccountId"
     EntityUsage="Tasks"
-    AliasName="CUST_ACCOUNT_ID"/>
+    AliasName="CUST_ACCOUNT_ID"
+    DefaultValue="2"/>
   <ViewAttribute
     Name="Description"
     PrecisionRule="true"

@@ -1,19 +1,21 @@
 package com.sfa.view.backing;
 
 
-
+import com.sfa.model.service.AppModuleImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Map;
 
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCDataControl;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.input.RichSelectManyShuttle;
 
@@ -25,6 +27,7 @@ import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
+import oracle.jbo.server.ViewObjectImpl;
 
 public class OppoTaskSC  {
     private RichSelectManyShuttle selectManyShuttleComponentU; 
@@ -108,6 +111,25 @@ public class OppoTaskSC  {
     }
     
     public void onCommit(ActionEvent actionEvent) {
+        
+        BindingContext bctx = BindingContext.getCurrent();
+        BindingContainer bindings = bctx.getCurrentBindingsEntry();
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+
+        DCDataControl dc = bctx.findDataControl("AppModuleDataControl");
+        AppModuleImpl aapM = (AppModuleImpl) dc.getDataProvider();
+        ViewObjectImpl impl = aapM.getOpportunitytaskView2();
+        
+        AttributeBinding attr = (AttributeBinding) bindings.getControlBinding("CustAccountId");
+        Number custAccountId = (Number) attr.getInputValue();
+        
+        Row r2 = impl.getCurrentRow();
+        r2.setAttribute("CustAccountId", custAccountId);
+            aapM.getDBTransaction().commit();
+            impl.executeQuery();
+        
+        
+        
         DCBindingContainer bc = (DCBindingContainer)getBindings();
         DCIteratorBinding iter = bc.findIteratorBinding("TaskTeamView6Iterator");
         //Removing all rows for the current EmpId from EmpRolesVO

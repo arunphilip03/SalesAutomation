@@ -62,23 +62,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT ContactInteractions.INTERACTION_ID,   
-       ContactInteractions.TYPE,   
-       ContactInteractions.DIRECTION,   
-       ContactInteractions.START_DATETIME,   
-       ContactInteractions.END_DATETIME,   
-       ContactInteractions.DESCRIPTION,   
-       ContactInteractions.RESOLUTION,   
-       ContactInteractions.OPPURTUNITY_ID,   
-       ContactInteractions.CREATION_DATE,   
-       ContactInteractions.LAST_UPDATE_DATE,   
-       ContactInteractions.CREATED_BY,   
-       ContactInteractions.LAST_UPDATED_BY,   
-       ContactInteractions.LAST_UPDATE_LOGIN,   
-       ContactInteractions.OBJECT_VERSION_NUMBER, 
-       Oppo.OPPORTUNITY_NAME 
-FROM  CONTACT_INTERACTIONS ContactInteractions LEFT OUTER JOIN OPPORTUNITIES Oppo 
-on ContactInteractions.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT ContactInteractions.INTERACTION_ID,    
+       ContactInteractions.TYPE,    
+       ContactInteractions.DIRECTION,    
+       ContactInteractions.START_DATETIME,    
+       ContactInteractions.END_DATETIME,    
+       ContactInteractions.DESCRIPTION,    
+       ContactInteractions.RESOLUTION,    
+       ContactInteractions.OPPURTUNITY_ID,    
+       ContactInteractions.CREATION_DATE,    
+       ContactInteractions.LAST_UPDATE_DATE,    
+       ContactInteractions.CREATED_BY,    
+       ContactInteractions.LAST_UPDATED_BY,    
+       ContactInteractions.LAST_UPDATE_LOGIN,    
+       ContactInteractions.OBJECT_VERSION_NUMBER,  
+       Oppo.OPPORTUNITY_NAME  
+FROM  CONTACT_INTERACTIONS ContactInteractions LEFT OUTER JOIN OPPORTUNITIES Oppo  
+on ContactInteractions.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID 
+WHERE ContactInteractions.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="ContactInteractions"
     Entity="com.sfa.model.entity.ContactInteractions"/>

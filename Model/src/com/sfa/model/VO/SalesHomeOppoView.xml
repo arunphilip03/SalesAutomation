@@ -1,327 +1,152 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
 <!---->
-<ViewObject
-  xmlns="http://xmlns.oracle.com/bc4j"
-  Name="SalesHomeOppoView"
-  Version="12.1.2.66.68"
-  InheritPersonalization="merge"
-  BindingStyle="OracleName"
-  CustomQuery="true"
-  PageIterMode="Full">
-  <DesignTime>
-    <Attr Name="_isExpertMode" Value="true"/>
-  </DesignTime>
-  <Properties>
-    <SchemaBasedProperties>
-      <LABEL
-        ResId="com.sfa.model.VO.SalesHomeOppoView_LABEL"/>
-    </SchemaBasedProperties>
-  </Properties>
-  <Variable
-    Name="UserName"
-    Kind="where"
-    Type="java.lang.String"
-    IsUpdateable="false">
+<ViewObject xmlns="http://xmlns.oracle.com/bc4j" Name="SalesHomeOppoView" Version="12.1.2.66.68"
+            InheritPersonalization="merge" BindingStyle="OracleName" CustomQuery="true" PageIterMode="Full">
+    <DesignTime>
+        <Attr Name="_isExpertMode" Value="true"/>
+    </DesignTime>
     <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
+        <SchemaBasedProperties>
+            <LABEL ResId="com.sfa.model.VO.SalesHomeOppoView_LABEL"/>
+        </SchemaBasedProperties>
     </Properties>
-  </Variable>
-  <ViewAccessor
-    Name="OpportunitySalestageLuView1"
-    ViewObjectName="com.sfa.model.VO.OpportunitySalestageLuView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="OpportunitySalesmethodLuView1"
-    ViewObjectName="com.sfa.model.VO.OpportunitySalesmethodLuView"
-    RowLevelBinds="true"/>
-  <ListBinding
-    Name="LOV_SalesStage"
-    ListVOName="OpportunitySalestageLuView1"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="SalesStage"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Salesstage"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Salesstage"/>
-    </AttrArray>
-    <DisplayCriteria
-      Hint="hide"/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_SalesMethod"
-    ListVOName="OpportunitySalesmethodLuView1"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="SalesMethod"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Salesmethod"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Salesmethod"/>
-    </AttrArray>
-    <DisplayCriteria
-      Hint="hide"/>
-  </ListBinding>
-  <SQLQuery><![CDATA[SELECT Opportunities.BEST_CASE_REVENUE,    
-       Opportunities.BUDGET_AMOUNT,    
-       Opportunities.CLOSE_DATE,    
-       Opportunities.CUST_ACCOUNT_ID,    
-       Opportunities.DECISION_LEVEL,    
-       Opportunities.ESTIMATED_DURATION,    
-       Opportunities.IS_BUDGETED,    
-       Opportunities.OBJECT_VERSION_NUMBER,    
-       Opportunities.OPPORTUNITY_NAME,    
-       Opportunities.OPPURTUNITY_ID,    
-       Opportunities.PRIMARY_CONTACT_ID,    
-       Opportunities.REVENUE_AMOUNT,    
-       Opportunities.REVENUE_CURRENCY,    
-       Opportunities.RISK_LEVEL,    
-       Opportunities.SALES_CHANNEL,    
-       Opportunities.SALES_METHOD,    
-       Opportunities.SALES_STAGE,    
-       Opportunities.WIN_PROBABILITY,    
-       Opportunities.WORST_CASE_REVENUE   
-FROM  OPPORTUNITIES Opportunities   
-where Opportunities.OPPURTUNITY_ID in (select Oppoteam.OPPORTUNITY_ID from OPPORTUNITY_TEAM Oppoteam  
-where Oppoteam.User_id = (select users.user_id from USERS users where users.USER_NAME = :UserName))]]></SQLQuery>
-  <EntityUsage
-    Name="Opportunities"
-    Entity="com.sfa.model.entity.Opportunities"/>
-  <ViewAttribute
-    Name="BestCaseRevenue"
-    PrecisionRule="true"
-    EntityAttrName="BestCaseRevenue"
-    EntityUsage="Opportunities"
-    AliasName="BEST_CASE_REVENUE"/>
-  <ViewAttribute
-    Name="BudgetAmount"
-    PrecisionRule="true"
-    EntityAttrName="BudgetAmount"
-    EntityUsage="Opportunities"
-    AliasName="BUDGET_AMOUNT"/>
-  <ViewAttribute
-    Name="CloseDate"
-    PrecisionRule="true"
-    EntityAttrName="CloseDate"
-    EntityUsage="Opportunities"
-    AliasName="CLOSE_DATE">
-    <Properties>
-      <SchemaBasedProperties>
-        <FMT_FORMATTER
-          ResId="com.sfa.model.VO.SalesHomeOppoView.CloseDate_FMT_FORMATTER"/>
-        <FMT_FORMAT
-          ResId="com.sfa.model.VO.SalesHomeOppoView.CloseDate_FMT_FORMAT"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="CustAccountId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CustAccountId"
-    EntityUsage="Opportunities"
-    AliasName="CUST_ACCOUNT_ID"/>
-  <ViewAttribute
-    Name="DecisionLevel"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="DecisionLevel"
-    EntityUsage="Opportunities"
-    AliasName="DECISION_LEVEL"/>
-  <ViewAttribute
-    Name="EstimatedDuration"
-    PrecisionRule="true"
-    EntityAttrName="EstimatedDuration"
-    EntityUsage="Opportunities"
-    AliasName="ESTIMATED_DURATION"/>
-  <ViewAttribute
-    Name="IsBudgeted"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="IsBudgeted"
-    EntityUsage="Opportunities"
-    AliasName="IS_BUDGETED"/>
-  <ViewAttribute
-    Name="ObjectVersionNumber"
-    PrecisionRule="true"
-    EntityAttrName="ObjectVersionNumber"
-    EntityUsage="Opportunities"
-    AliasName="OBJECT_VERSION_NUMBER"/>
-  <ViewAttribute
-    Name="OpportunityName"
-    IsUnique="true"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="OpportunityName"
-    EntityUsage="Opportunities"
-    AliasName="OPPORTUNITY_NAME">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="40"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="OppurtunityId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="OppurtunityId"
-    EntityUsage="Opportunities"
-    AliasName="OPPURTUNITY_ID"/>
-  <ViewAttribute
-    Name="PrimaryContactId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="PrimaryContactId"
-    EntityUsage="Opportunities"
-    AliasName="PRIMARY_CONTACT_ID"/>
-  <ViewAttribute
-    Name="RevenueAmount"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="RevenueAmount"
-    EntityUsage="Opportunities"
-    AliasName="REVENUE_AMOUNT"/>
-  <ViewAttribute
-    Name="RevenueCurrency"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="RevenueCurrency"
-    EntityUsage="Opportunities"
-    AliasName="REVENUE_CURRENCY"/>
-  <ViewAttribute
-    Name="RiskLevel"
-    PrecisionRule="true"
-    EntityAttrName="RiskLevel"
-    EntityUsage="Opportunities"
-    AliasName="RISK_LEVEL"/>
-  <ViewAttribute
-    Name="SalesChannel"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SalesChannel"
-    EntityUsage="Opportunities"
-    AliasName="SALES_CHANNEL"/>
-  <ViewAttribute
-    Name="SalesMethod"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SalesMethod"
-    EntityUsage="Opportunities"
-    AliasName="SALES_METHOD"
-    LOVName="LOV_SalesMethod">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SalesStage"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SalesStage"
-    EntityUsage="Opportunities"
-    AliasName="SALES_STAGE"
-    LOVName="LOV_SalesStage">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="WinProbability"
-    PrecisionRule="true"
-    EntityAttrName="WinProbability"
-    EntityUsage="Opportunities"
-    AliasName="WIN_PROBABILITY"/>
-  <ViewAttribute
-    Name="WorstCaseRevenue"
-    PrecisionRule="true"
-    EntityAttrName="WorstCaseRevenue"
-    EntityUsage="Opportunities"
-    AliasName="WORST_CASE_REVENUE"/>
-  <ViewCriteria
-    Name="SalesHomeOppoViewCriteria"
-    ViewObjectName="com.sfa.model.VO.SalesHomeOppoView"
-    Conjunction="AND">
-    <Properties>
-      <CustomProperties>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-        <Property
-          Name="autoExecute"
-          Value="true"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-        <Property
-          Name="displayName"
-          ResId="displayName"/>
-      </CustomProperties>
-    </Properties>
-    <ViewCriteriaRow
-      Name="SalesHomeOppoViewCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="CloseDate"
-        ViewAttribute="CloseDate"
-        Operator="="
-        Conjunction="AND"
-        GenerateIsNullClauseForBindVars="false"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="OpportunityName"
-        ViewAttribute="OpportunityName"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        GenerateIsNullClauseForBindVars="false"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SalesMethod"
-        ViewAttribute="SalesMethod"
-        Operator="="
-        Conjunction="AND"
-        GenerateIsNullClauseForBindVars="false"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SalesStage"
-        ViewAttribute="SalesStage"
-        Operator="="
-        Conjunction="AND"
-        GenerateIsNullClauseForBindVars="false"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.sfa.model.ModelBundle"/>
-  </ResourceBundle>
+    <Variable IsUpdateable="false" Name="UserName" Kind="where" Type="java.lang.String">
+        <Properties>
+            <SchemaBasedProperties>
+                <DISPLAYHINT Value="Hide"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </Variable>
+    <ViewAccessor Name="OpportunitySalestageLuView1" ViewObjectName="com.sfa.model.VO.OpportunitySalestageLuView"
+                  RowLevelBinds="true"/>
+    <ViewAccessor Name="OpportunitySalesmethodLuView1" ViewObjectName="com.sfa.model.VO.OpportunitySalesmethodLuView"
+                  RowLevelBinds="true"/>
+    <ListBinding Name="LOV_SalesStage" ListVOName="OpportunitySalestageLuView1" ListRangeSize="-1"
+                 ComboRowCountHint="10" NullValueFlag="none" MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="SalesStage"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Salesstage"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Salesstage"/>
+        </AttrArray>
+        <DisplayCriteria Hint="hide"/>
+    </ListBinding>
+    <ListBinding Name="LOV_SalesMethod" ListVOName="OpportunitySalesmethodLuView1" ListRangeSize="-1"
+                 ComboRowCountHint="10" NullValueFlag="none" MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="SalesMethod"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="Salesmethod"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="Salesmethod"/>
+        </AttrArray>
+        <DisplayCriteria Hint="hide"/>
+    </ListBinding>
+    <SQLQuery>SELECT Opportunities.BEST_CASE_REVENUE, Opportunities.BUDGET_AMOUNT, Opportunities.CLOSE_DATE,
+              Opportunities.CUST_ACCOUNT_ID, Opportunities.DECISION_LEVEL, Opportunities.ESTIMATED_DURATION,
+              Opportunities.IS_BUDGETED, Opportunities.OBJECT_VERSION_NUMBER, Opportunities.OPPORTUNITY_NAME,
+              Opportunities.OPPURTUNITY_ID, Opportunities.PRIMARY_CONTACT_ID, Opportunities.REVENUE_AMOUNT,
+              Opportunities.REVENUE_CURRENCY, Opportunities.RISK_LEVEL, Opportunities.SALES_CHANNEL,
+              Opportunities.SALES_METHOD, Opportunities.SALES_STAGE, Opportunities.WIN_PROBABILITY,
+              Opportunities.WORST_CASE_REVENUE FROM OPPORTUNITIES Opportunities where Opportunities.DELETE_FLAG = 'N'
+              and Opportunities.OPPURTUNITY_ID in (select Oppoteam.OPPORTUNITY_ID from OPPORTUNITY_TEAM Oppoteam where
+              Oppoteam.User_id = (select users.user_id from USERS users where users.USER_NAME = :UserName))</SQLQuery>
+    <EntityUsage Name="Opportunities" Entity="com.sfa.model.entity.Opportunities"/>
+    <ViewAttribute Name="BestCaseRevenue" PrecisionRule="true" EntityAttrName="BestCaseRevenue"
+                   EntityUsage="Opportunities" AliasName="BEST_CASE_REVENUE"/>
+    <ViewAttribute Name="BudgetAmount" PrecisionRule="true" EntityAttrName="BudgetAmount" EntityUsage="Opportunities"
+                   AliasName="BUDGET_AMOUNT"/>
+    <ViewAttribute Name="CloseDate" PrecisionRule="true" EntityAttrName="CloseDate" EntityUsage="Opportunities"
+                   AliasName="CLOSE_DATE">
+        <Properties>
+            <SchemaBasedProperties>
+                <FMT_FORMATTER ResId="com.sfa.model.VO.SalesHomeOppoView.CloseDate_FMT_FORMATTER"/>
+                <FMT_FORMAT ResId="com.sfa.model.VO.SalesHomeOppoView.CloseDate_FMT_FORMAT"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute Name="CustAccountId" IsNotNull="true" PrecisionRule="true" EntityAttrName="CustAccountId"
+                   EntityUsage="Opportunities" AliasName="CUST_ACCOUNT_ID"/>
+    <ViewAttribute Name="DecisionLevel" IsNotNull="true" PrecisionRule="true" EntityAttrName="DecisionLevel"
+                   EntityUsage="Opportunities" AliasName="DECISION_LEVEL"/>
+    <ViewAttribute Name="EstimatedDuration" PrecisionRule="true" EntityAttrName="EstimatedDuration"
+                   EntityUsage="Opportunities" AliasName="ESTIMATED_DURATION"/>
+    <ViewAttribute Name="IsBudgeted" IsNotNull="true" PrecisionRule="true" EntityAttrName="IsBudgeted"
+                   EntityUsage="Opportunities" AliasName="IS_BUDGETED"/>
+    <ViewAttribute Name="ObjectVersionNumber" PrecisionRule="true" EntityAttrName="ObjectVersionNumber"
+                   EntityUsage="Opportunities" AliasName="OBJECT_VERSION_NUMBER"/>
+    <ViewAttribute Name="OpportunityName" IsUnique="true" IsNotNull="true" PrecisionRule="true"
+                   EntityAttrName="OpportunityName" EntityUsage="Opportunities" AliasName="OPPORTUNITY_NAME">
+        <Properties>
+            <SchemaBasedProperties>
+                <DISPLAYWIDTH Value="40"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute Name="OppurtunityId" IsNotNull="true" PrecisionRule="true" EntityAttrName="OppurtunityId"
+                   EntityUsage="Opportunities" AliasName="OPPURTUNITY_ID"/>
+    <ViewAttribute Name="PrimaryContactId" IsNotNull="true" PrecisionRule="true" EntityAttrName="PrimaryContactId"
+                   EntityUsage="Opportunities" AliasName="PRIMARY_CONTACT_ID"/>
+    <ViewAttribute Name="RevenueAmount" IsNotNull="true" PrecisionRule="true" EntityAttrName="RevenueAmount"
+                   EntityUsage="Opportunities" AliasName="REVENUE_AMOUNT"/>
+    <ViewAttribute Name="RevenueCurrency" IsNotNull="true" PrecisionRule="true" EntityAttrName="RevenueCurrency"
+                   EntityUsage="Opportunities" AliasName="REVENUE_CURRENCY"/>
+    <ViewAttribute Name="RiskLevel" PrecisionRule="true" EntityAttrName="RiskLevel" EntityUsage="Opportunities"
+                   AliasName="RISK_LEVEL"/>
+    <ViewAttribute Name="SalesChannel" IsNotNull="true" PrecisionRule="true" EntityAttrName="SalesChannel"
+                   EntityUsage="Opportunities" AliasName="SALES_CHANNEL"/>
+    <ViewAttribute Name="SalesMethod" IsNotNull="true" LOVName="LOV_SalesMethod" PrecisionRule="true"
+                   EntityAttrName="SalesMethod" EntityUsage="Opportunities" AliasName="SALES_METHOD">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute Name="SalesStage" IsNotNull="true" LOVName="LOV_SalesStage" PrecisionRule="true"
+                   EntityAttrName="SalesStage" EntityUsage="Opportunities" AliasName="SALES_STAGE">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute Name="WinProbability" PrecisionRule="true" EntityAttrName="WinProbability"
+                   EntityUsage="Opportunities" AliasName="WIN_PROBABILITY"/>
+    <ViewAttribute Name="WorstCaseRevenue" PrecisionRule="true" EntityAttrName="WorstCaseRevenue"
+                   EntityUsage="Opportunities" AliasName="WORST_CASE_REVENUE"/>
+    <ViewCriteria Name="SalesHomeOppoViewCriteria" ViewObjectName="com.sfa.model.VO.SalesHomeOppoView"
+                  Conjunction="AND">
+        <Properties>
+            <CustomProperties>
+                <Property Name="displayOperators" Value="InAdvancedMode"/>
+                <Property Name="autoExecute" Value="true"/>
+                <Property Name="allowConjunctionOverride" Value="true"/>
+                <Property Name="showInList" Value="true"/>
+                <Property Name="mode" Value="Basic"/>
+                <Property Name="displayName" ResId="displayName"/>
+            </CustomProperties>
+        </Properties>
+        <ViewCriteriaRow Name="SalesHomeOppoViewCriteria_row_0" UpperColumns="1">
+            <ViewCriteriaItem Name="CloseDate" ViewAttribute="CloseDate" Operator="=" Conjunction="AND"
+                              GenerateIsNullClauseForBindVars="false" Required="Optional"/>
+            <ViewCriteriaItem Name="OpportunityName" ViewAttribute="OpportunityName" Operator="STARTSWITH"
+                              Conjunction="AND" GenerateIsNullClauseForBindVars="false" Required="Optional"/>
+            <ViewCriteriaItem Name="SalesMethod" ViewAttribute="SalesMethod" Operator="=" Conjunction="AND"
+                              GenerateIsNullClauseForBindVars="false" Required="Optional"/>
+            <ViewCriteriaItem Name="SalesStage" ViewAttribute="SalesStage" Operator="=" Conjunction="AND"
+                              GenerateIsNullClauseForBindVars="false" Required="Optional"/>
+        </ViewCriteriaRow>
+    </ViewCriteria>
+    <ResourceBundle>
+        <PropertiesBundle PropertiesFile="com.sfa.model.ModelBundle"/>
+    </ResourceBundle>
 </ViewObject>

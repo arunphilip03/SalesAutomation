@@ -23,7 +23,7 @@
                             <f:facet name="toolbar">
                                 <af:toolbar id="t2">
                                     <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                             actionListener="#{bindings.Create.execute}" action="create"/>
+                                             actionListener="#{bindings.CreateInsert1.execute}" action="create"/>
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                                         <af:dialog id="d1"
                                                    title="Are you sure you want to delete the Selected Opportunity?"
@@ -31,7 +31,9 @@
                                             <f:facet name="buttonBar"/>
                                         </af:dialog>
                                     </af:popup>
-                                    <af:link id="l2" icon="#{resource['images:delete_ena.png']}">
+                                    <af:link id="l2" icon="#{resource['images:delete_ena.png']}"
+                                             disabledIcon="#{resource['images:delete_dis.png']}"
+                                             disabled="#{bindings.OpportunitiesView1Iterator.estimatedRowCount eq 0}">
                                         <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
                                     </af:link>
                                 </af:toolbar>
@@ -48,33 +50,32 @@
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.OpportunityName.label}"
                                            id="c16">
-                                    <af:link id="cl1" partialSubmit="true"
-                                             action="OppDetails">
+                                    <af:link id="cl1" partialSubmit="true" action="OppDetails">
                                         <af:outputText value="#{row.OpportunityName}"
                                                        shortDesc="#{bindings.OpportunitiesView1.hints.OpportunityName.tooltip}"
                                                        id="ot16"/>
                                     </af:link>
-                                    
+                                   
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.AccountName.name}"
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.AccountName.label}" id="c17">
-                                           <af:link id="cl2" partialSubmit="true"
-                                             action="AccntDetails">
-                                    <af:outputText value="#{row.AccountName}"
-                                                   shortDesc="#{bindings.OpportunitiesView1.hints.AccountName.tooltip}"
-                                                   id="ot17"/>
-                                                   </af:link>
+                                    <af:link id="cl2" partialSubmit="true" action="AccntDetails">
+                                        <af:outputText value="#{row.AccountName}"
+                                                       shortDesc="#{bindings.OpportunitiesView1.hints.AccountName.tooltip}"
+                                                       id="ot17"/>
+                                    </af:link>
+                                    
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.ContactName.name}"
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.ContactName.label}" id="c3">
-                                           <af:link id="cl3" partialSubmit="true"
-                                             action="ContctDetails">
-                                              <af:outputText value="#{row.ContactName}"
-                                                   shortDesc="#{bindings.OpportunitiesView1.hints.ContactName.tooltip}"
-                                                   id="ot99"/>                                   
+                                    <af:link id="cl3" partialSubmit="true" action="ContctDetails">
+                                        <af:outputText value="#{row.ContactName}"
+                                                       shortDesc="#{bindings.OpportunitiesView1.hints.ContactName.tooltip}"
+                                                       id="ot99"/>
                                     </af:link>
+                                   
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.WinProbability.name}"
                                            sortable="true"
@@ -116,47 +117,6 @@
                                     <af:outputText value="#{row.SalesChannel}"
                                                    shortDesc="#{bindings.OpportunitiesView1.hints.SalesChannel.tooltip}"
                                                    id="ot6"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunitiesView1.hints.RevenueCurrency.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunitiesView1.hints.RevenueCurrency.label}"
-                                           id="c7">
-                                    <af:outputText value="#{row.RevenueCurrency}"
-                                                   shortDesc="#{bindings.OpportunitiesView1.hints.RevenueCurrency.tooltip}"
-                                                   id="ot7"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunitiesView1.hints.RevenueAmount.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunitiesView1.hints.RevenueAmount.label}"
-                                           id="c8">
-                                    <af:outputText value="#{row.RevenueAmount}"
-                                                   shortDesc="#{bindings.OpportunitiesView1.hints.RevenueAmount.tooltip}"
-                                                   id="ot8">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunitiesView1.hints.RevenueAmount.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunitiesView1.hints.BestCaseRevenue.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunitiesView1.hints.BestCaseRevenue.label}"
-                                           id="c9">
-                                    <af:outputText value="#{row.BestCaseRevenue}"
-                                                   shortDesc="#{bindings.OpportunitiesView1.hints.BestCaseRevenue.tooltip}"
-                                                   id="ot9">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunitiesView1.hints.BestCaseRevenue.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunitiesView1.hints.WorstCaseRevenue.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunitiesView1.hints.WorstCaseRevenue.label}"
-                                           id="c10">
-                                    <af:outputText value="#{row.WorstCaseRevenue}"
-                                                   shortDesc="#{bindings.OpportunitiesView1.hints.WorstCaseRevenue.tooltip}"
-                                                   id="ot10">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.OpportunitiesView1.hints.WorstCaseRevenue.format}"/>
-                                    </af:outputText>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.IsBudgeted.name}"
                                            sortable="true"

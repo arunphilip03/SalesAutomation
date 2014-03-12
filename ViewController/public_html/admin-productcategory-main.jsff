@@ -9,15 +9,13 @@
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
-                        <af:toolbar id="t3">
-                            <af:button text="Back" id="b1" action="back"/>
-                        </af:toolbar>
+                        <af:toolbar id="t3"/>
                     </f:facet>
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
                 <af:panelGroupLayout layout="vertical" id="pgl2">
-                    <af:panelHeader text="ProductCategory" id="ph2">
+                    <af:panelHeader text=" " id="ph2">
                         <af:query id="qryId1" headerText="Search" disclosed="true"
                                   value="#{bindings.ProductCategoryViewSearchQuery.queryDescriptor}"
                                   model="#{bindings.ProductCategoryViewSearchQuery.queryModel}"

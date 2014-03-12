@@ -42,6 +42,8 @@
                                              actionListener="#{backingBeanScope.launcher.launchUsers}"/>
                                     <af:link text="Manage Products" id="l6"
                                              actionListener="#{backingBeanScope.launcher.launchProducts}"/>
+                                    <af:link text="Manage Product Category" id="l7"
+                                             actionListener="#{backingBeanScope.launcher.launchProductCategory}"/>
                                 </af:panelList>
                             </af:panelGroupLayout>
                         </af:showDetailItem>

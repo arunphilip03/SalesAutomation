@@ -49,6 +49,10 @@
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
+    <ViewAccessor
+        Name="CurrencyLuView1"
+        ViewObjectName="com.sfa.model.VO.CurrencyLuView"
+        RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_DecisionLevel"
         ListVOName="OpportunityDecisionlevelLuView1"
@@ -190,17 +194,37 @@
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
-    <SQLQuery>SELECT Opportunities.OPPURTUNITY_ID, Opportunities.CUST_ACCOUNT_ID, Opportunities.WIN_PROBABILITY,
-              Opportunities.CLOSE_DATE, Opportunities.PRIMARY_CONTACT_ID, Opportunities.SALES_STAGE,
-              Opportunities.SALES_METHOD, Opportunities.SALES_CHANNEL, Opportunities.REVENUE_CURRENCY,
-              Opportunities.REVENUE_AMOUNT, Opportunities.BEST_CASE_REVENUE, Opportunities.WORST_CASE_REVENUE,
-              Opportunities.IS_BUDGETED, Opportunities.BUDGET_AMOUNT, Opportunities.ESTIMATED_DURATION,
-              Opportunities.RISK_LEVEL, Opportunities.DECISION_LEVEL, Opportunities.CREATION_DATE,
-              Opportunities.LAST_UPDATE_DATE, Opportunities.CREATED_BY, Opportunities.LAST_UPDATED_BY,
-              Opportunities.NOTES_SEQ_ID, Opportunities.LAST_UPDATE_LOGIN, Opportunities.OBJECT_VERSION_NUMBER,
-              Opportunities.OPPORTUNITY_NAME, Cust.ACCOUNT_NAME, Contact.CONTACT_NAME FROM OPPORTUNITIES Opportunities
-              left outer join CUSTOMER_ACCOUNT Cust on Opportunities.CUST_ACCOUNT_ID = Cust.CUST_ACCOUNT_ID JOIN
-              CUSTOMER_CONTACTS Contact on Opportunities.PRIMARY_CONTACT_ID = Contact.CONTACT_ID</SQLQuery>
+    <ListBinding
+        Name="LOV_RevenueCurrency"
+        ListVOName="CurrencyLuView1"
+        ListRangeSize="-1"
+        ComboRowCountHint="10"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="RevenueCurrency"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="CurrencyName"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="CurrencyName"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <SQLQuery><![CDATA[SELECT Opportunities.OPPURTUNITY_ID, Opportunities.CUST_ACCOUNT_ID, Opportunities.WIN_PROBABILITY, 
+              Opportunities.CLOSE_DATE, Opportunities.PRIMARY_CONTACT_ID, Opportunities.SALES_STAGE, 
+              Opportunities.SALES_METHOD, Opportunities.SALES_CHANNEL, Opportunities.REVENUE_CURRENCY, 
+              Opportunities.REVENUE_AMOUNT, Opportunities.BEST_CASE_REVENUE, Opportunities.WORST_CASE_REVENUE, 
+              Opportunities.IS_BUDGETED, Opportunities.BUDGET_AMOUNT, Opportunities.ESTIMATED_DURATION, 
+              Opportunities.RISK_LEVEL, Opportunities.DECISION_LEVEL, Opportunities.CREATION_DATE, 
+              Opportunities.LAST_UPDATE_DATE, Opportunities.CREATED_BY, Opportunities.LAST_UPDATED_BY, 
+              Opportunities.NOTES_SEQ_ID, Opportunities.LAST_UPDATE_LOGIN, Opportunities.OBJECT_VERSION_NUMBER, 
+              Opportunities.OPPORTUNITY_NAME, Cust.ACCOUNT_NAME, Contact.CONTACT_NAME FROM OPPORTUNITIES Opportunities 
+              left outer join CUSTOMER_ACCOUNT Cust on Opportunities.CUST_ACCOUNT_ID = Cust.CUST_ACCOUNT_ID JOIN 
+              CUSTOMER_CONTACTS Contact on Opportunities.PRIMARY_CONTACT_ID = Contact.CONTACT_ID 
+              WHERE Opportunities.DELETE_FLAG = 'N' AND Cust.DELETE_FLAG = 'N']]></SQLQuery>
     <EntityUsage
         Name="Opportunities"
         Entity="com.sfa.model.entity.Opportunities"/>
@@ -288,7 +312,15 @@
         PrecisionRule="true"
         EntityAttrName="RevenueCurrency"
         EntityUsage="Opportunities"
-        AliasName="REVENUE_CURRENCY"/>
+        AliasName="REVENUE_CURRENCY"
+        LOVName="LOV_RevenueCurrency">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="RevenueAmount"
         IsNotNull="true"
@@ -501,7 +533,6 @@
                 ViewAttribute="OpportunityName"
                 Operator="STARTSWITH"
                 Conjunction="AND"
-                Value=""
                 GenerateIsNullClauseForBindVars="false"
                 Required="Optional"/>
         </ViewCriteriaRow>

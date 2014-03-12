@@ -11,7 +11,7 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b4" actionListener="#{bindings.Commit.execute}"/>
-                            <af:button actionListener="#{bindings.Commit.execute}" text="Save &amp; Close" id="b2" action="back"/>
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Save and Close" id="b2" action="back"/>
                             <af:button text="Cancel" id="b1" actionListener="#{bindings.Rollback.execute}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
@@ -26,7 +26,7 @@
                                   required="#{bindings.RoleName.hints.mandatory}"
                                   columns="#{bindings.RoleName.hints.displayWidth}"
                                   maximumLength="#{bindings.RoleName.hints.precision}"
-                                  shortDesc="#{bindings.RoleName.hints.tooltip}" id="it1" disabled="true">
+                                  shortDesc="#{bindings.RoleName.hints.tooltip}" id="it1" disabled="false">
                         <f:validator binding="#{bindings.RoleName.validator}"/>
                     </af:inputText>
                     <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"

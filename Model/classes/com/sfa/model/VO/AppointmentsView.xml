@@ -41,21 +41,22 @@
       Name="OpportunitiesViewCriteria"
       Hint="showAndExecute"/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,  
-       Appointments.NAME,  
-       Appointments.DESCRIPTION,  
-       Appointments.START_DATETIME,  
-       Appointments.END_DATETIME,  
-       Appointments.LOCATION,  
-       Appointments.CUST_ACCOUNT_ID,  
-       Appointments.OPPURTUNITY_ID,  
-       Appointments.CREATION_DATE,  
-       Appointments.LAST_UPDATE_DATE,  
-       Appointments.CREATED_BY,  
-       Appointments.LAST_UPDATED_BY,  
-       Appointments.LAST_UPDATE_LOGIN,  
-       Appointments.OBJECT_VERSION_NUMBER 
-FROM  APPOINTMENTS Appointments]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,   
+       Appointments.NAME,   
+       Appointments.DESCRIPTION,   
+       Appointments.START_DATETIME,   
+       Appointments.END_DATETIME,   
+       Appointments.LOCATION,   
+       Appointments.CUST_ACCOUNT_ID,   
+       Appointments.OPPURTUNITY_ID,   
+       Appointments.CREATION_DATE,   
+       Appointments.LAST_UPDATE_DATE,   
+       Appointments.CREATED_BY,   
+       Appointments.LAST_UPDATED_BY,   
+       Appointments.LAST_UPDATE_LOGIN,   
+       Appointments.OBJECT_VERSION_NUMBER  
+FROM  APPOINTMENTS Appointments 
+WHERE Appointments.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="Appointments"
     Entity="com.sfa.model.entity.Appointments"/>

@@ -12,9 +12,9 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b1" actionListener="#{OppoAppnmntSC.onCommit}"/>
-                            <af:button text="Save &amp; Close" id="b2"
+                            <af:button text="Save and Close" id="b2"
                                        action="back" actionListener="#{OppoAppnmntSC.onCommit}"/>
-                            <af:button text="Close" id="b3" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b3" actionListener="#{bindings.Rollback.execute}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>
@@ -23,9 +23,20 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
+                <af:panelFormLayout id="pfl2">
+                    <af:inputText value="#{bindings.CustAccountId.inputValue}"
+                                  label="#{bindings.CustAccountId.hints.label}"
+                                  required="#{bindings.CustAccountId.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.CustAccountId.hints.displayWidth}"
+                                  maximumLength="#{bindings.CustAccountId.hints.precision}"
+                                  shortDesc="#{bindings.CustAccountId.hints.tooltip}" id="it3" visible="false">
+                        <f:validator binding="#{bindings.CustAccountId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CustAccountId.format}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="103">
                     <f:facet name="first">
-                        <af:panelFormLayout id="pfl1" rows="4">
+                        <af:panelFormLayout id="pfl1" rows="3">
                             <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
                                           required="#{bindings.Name.hints.mandatory}"
                                           columns="#{bindings.Name.hints.displayWidth}"
@@ -42,16 +53,6 @@
                                 <f:validator binding="#{bindings.OppurtunityId.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
                             </af:inputText>
-                            <af:inputComboboxListOfValues id="accountNameId"
-                                                          popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
-                                                          value="#{bindings.AccountName.inputValue}"
-                                                          label="#{bindings.AccountName.hints.label}"
-                                                          model="#{bindings.AccountName.listOfValuesModel}"
-                                                          required="#{bindings.AccountName.hints.mandatory}"
-                                                          columns="#{bindings.AccountName.hints.displayWidth}"
-                                                          shortDesc="#{bindings.AccountName.hints.tooltip}">
-                                <f:validator binding="#{bindings.AccountName.validator}"/>
-                            </af:inputComboboxListOfValues>
                             <af:inputText value="#{bindings.Description.inputValue}"
                                           label="#{bindings.Description.hints.label}"
                                           required="#{bindings.Description.hints.mandatory}"
@@ -60,6 +61,14 @@
                                           shortDesc="#{bindings.Description.hints.tooltip}" id="it4">
                                 <f:validator binding="#{bindings.Description.validator}"/>
                             </af:inputText>
+                            <af:inputDate value="#{bindings.StartDatetime.inputValue}"
+                                          label="#{bindings.StartDatetime.hints.label}"
+                                          required="#{bindings.StartDatetime.hints.mandatory}"
+                                          columns="#{bindings.StartDatetime.hints.displayWidth}"
+                                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id2">
+                                <f:validator binding="#{bindings.StartDatetime.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
+                            </af:inputDate>
                             <af:inputDate value="#{bindings.EndDatetime.inputValue}"
                                           label="#{bindings.EndDatetime.hints.label}"
                                           required="#{bindings.EndDatetime.hints.mandatory}"
@@ -76,14 +85,6 @@
                                           shortDesc="#{bindings.Location.hints.tooltip}" id="it5">
                                 <f:validator binding="#{bindings.Location.validator}"/>
                             </af:inputText>
-                            <af:inputDate value="#{bindings.StartDatetime.inputValue}"
-                                          label="#{bindings.StartDatetime.hints.label}"
-                                          required="#{bindings.StartDatetime.hints.mandatory}"
-                                          columns="#{bindings.StartDatetime.hints.displayWidth}"
-                                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id2">
-                                <f:validator binding="#{bindings.StartDatetime.validator}"/>
-                                <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
-                            </af:inputDate>
                             <af:inputText value="#{bindings.AppointmentId.inputValue}"
                                           label="#{bindings.AppointmentId.hints.label}"
                                           required="#{bindings.AppointmentId.hints.mandatory}"

@@ -101,7 +101,11 @@
         ViewObjectName="com.sfa.model.VO.SalesRepOppoCreatedView"/>
     <ViewUsage
         Name="ContactInteractionTeamVO1"
-        ViewObjectName="com.sfa.model.VO.ContactInteractionTeamVO"/><ViewLinkUsage Name="AppointmentInviteesFk1Link1"
+        ViewObjectName="com.sfa.model.VO.ContactInteractionTeamVO"/>
+    <ViewUsage
+        Name="CurrencyLuView1"
+        ViewObjectName="com.sfa.model.VO.CurrencyLuView"/>
+    <ViewLinkUsage Name="AppointmentInviteesFk1Link1"
                    ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
                    SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentsView1"
                    DstViewUsageName="com.sfa.model.service.AppModule.AppointmentInviteesView2" Reversed="false"/>

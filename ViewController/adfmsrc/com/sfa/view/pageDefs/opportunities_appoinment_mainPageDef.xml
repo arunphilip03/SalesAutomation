@@ -32,11 +32,14 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="OpportunityAppointmentView2Iterator" id="Create" RequiresUpdateModel="true"
-            Action="createRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action IterBinding="OpportunityAppointmentView2Iterator" id="Delete"
             InstanceName="AppModuleDataControl.OpportunityAppointmentView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunityAppointmentView2Iterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.OpportunityAppointmentView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="OpportunityAppointmentView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

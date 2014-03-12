@@ -56,8 +56,10 @@
                             <f:facet name="toolbar">
                                 <af:toolbar id="t3">
                                     <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                             actionListener="#{bindings.Create.execute}" action="create"/>
-                                    <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"/>
+                                             actionListener="#{bindings.CreateInsert1.execute}" action="create"/>
+                                    <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"
+                                             disabledIcon="#{resource['images:update_dis.png']}"
+                                             disabled="#{bindings.OpportunityAppointmentView2Iterator.estimatedRowCount eq 0}"/>
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
                                         <af:dialog id="d1"
                                                    title="Are you sure you want to delete the Selected Appointment?"
@@ -65,7 +67,9 @@
                                             <f:facet name="buttonBar"/>
                                         </af:dialog>
                                     </af:popup>
-                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}">
+                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                             disabledIcon="#{resource['images:delete_dis.png']}"
+                                             disabled="#{bindings.OpportunityAppointmentView2Iterator.estimatedRowCount eq 0}">
                                         <af:showPopupBehavior popupId="deletep" triggerType="click" align="overlap"/>
                                     </af:link>
                                 </af:toolbar>

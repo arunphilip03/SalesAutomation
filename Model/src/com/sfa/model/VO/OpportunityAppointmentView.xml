@@ -45,22 +45,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,  
-       Appointments.OBJECT_VERSION_NUMBER,  
-       Appointments.CUST_ACCOUNT_ID,  
-       Appointments.DESCRIPTION,  
-       Appointments.END_DATETIME,  
-       Appointments.LOCATION,  
-       Appointments.NAME,  
-       Appointments.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1,  
-       Appointments.OPPURTUNITY_ID,  
-       Appointments.START_DATETIME, 
-       Oppo.OPPORTUNITY_NAME, 
-       Cust.ACCOUNT_NAME 
-FROM  APPOINTMENTS Appointments LEFT OUTER JOIN OPPORTUNITIES Oppo  
-on Appointments.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID  
-left outer join CUSTOMER_ACCOUNT Cust  
-on  Appointments.CUST_ACCOUNT_ID =  Cust.CUST_ACCOUNT_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,   
+       Appointments.OBJECT_VERSION_NUMBER,   
+       Appointments.CUST_ACCOUNT_ID,   
+       Appointments.DESCRIPTION,   
+       Appointments.END_DATETIME,   
+       Appointments.LOCATION,   
+       Appointments.NAME,   
+       Appointments.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1,   
+       Appointments.OPPURTUNITY_ID,   
+       Appointments.START_DATETIME,  
+       Oppo.OPPORTUNITY_NAME,  
+       Cust.ACCOUNT_NAME  
+FROM  APPOINTMENTS Appointments LEFT OUTER JOIN OPPORTUNITIES Oppo   
+on Appointments.OPPURTUNITY_ID = Oppo.OPPURTUNITY_ID   
+left outer join CUSTOMER_ACCOUNT Cust   
+on  Appointments.CUST_ACCOUNT_ID =  Cust.CUST_ACCOUNT_ID 
+WHERE  Appointments.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="Appointments"
     Entity="com.sfa.model.entity.Appointments"/>
@@ -83,7 +84,8 @@ on  Appointments.CUST_ACCOUNT_ID =  Cust.CUST_ACCOUNT_ID]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="CustAccountId"
     EntityUsage="Appointments"
-    AliasName="CUST_ACCOUNT_ID"/>
+    AliasName="CUST_ACCOUNT_ID"
+    DefaultValue="2"/>
   <ViewAttribute
     Name="Description"
     PrecisionRule="true"

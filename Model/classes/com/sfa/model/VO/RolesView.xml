@@ -20,7 +20,9 @@
   FromList="ROLES Roles"
   BindingStyle="OracleName"
   CustomQuery="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  Where="Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE &lt;= SYSDATE and  
+Roles.DELETE_FLAG = 'N'">
   <EntityUsage
     Name="Roles"
     Entity="com.sfa.model.entity.Roles"/>

@@ -16,12 +16,13 @@
        OpportunityAttachments.DESCRIPTION, 
        OpportunityAttachments.LAST_UPDATE_LOGIN, 
        OpportunityAttachments.OBJECT_VERSION_NUMBER, 
-       OpportunityAttachments.DOCUMENT_NAME, 
-       OpportunityAttachments.DOCUMENT_TYPE"
+       OpportunityAttachments.DOCUMENT_TYPE, 
+       OpportunityAttachments.DOCUMENT_NAME"
   FromList="OPPORTUNITY_ATTACHMENTS OpportunityAttachments"
   BindingStyle="OracleName"
   CustomQuery="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  Where="OpportunityAttachments.DELETE_FLAG = 'N'">
   <EntityUsage
     Name="OpportunityAttachments"
     Entity="com.sfa.model.entity.OpportunityAttachments"/>
@@ -98,18 +99,17 @@
     EntityUsage="OpportunityAttachments"
     AliasName="OBJECT_VERSION_NUMBER"/>
   <ViewAttribute
-    Name="DocumentName"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="DocumentName"
-    EntityUsage="OpportunityAttachments"
-    AliasName="DOCUMENT_NAME"/>
-  <ViewAttribute
     Name="DocumentType"
     PrecisionRule="true"
     EntityAttrName="DocumentType"
     EntityUsage="OpportunityAttachments"
     AliasName="DOCUMENT_TYPE"/>
+  <ViewAttribute
+    Name="DocumentName"
+    PrecisionRule="true"
+    EntityAttrName="DocumentName"
+    EntityUsage="OpportunityAttachments"
+    AliasName="DOCUMENT_NAME"/>
   <ViewCriteria
     Name="OpportunityAttachmentsViewSearch"
     ViewObjectName="com.sfa.model.VO.OpportunityAttachmentsView"
@@ -137,22 +137,13 @@
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="OpportunityAttachmentsViewCriteria_row_0"
+      Name="OpportunityAttachmentsViewSearch_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
         Name="DocumentName"
         ViewAttribute="DocumentName"
         Operator="STARTSWITH"
         Conjunction="AND"
-        Value=""
-        GenerateIsNullClauseForBindVars="false"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="DocumentType"
-        ViewAttribute="DocumentType"
-        Operator="="
-        Conjunction="AND"
-        Value=""
         GenerateIsNullClauseForBindVars="false"
         Required="Optional"/>
     </ViewCriteriaRow>

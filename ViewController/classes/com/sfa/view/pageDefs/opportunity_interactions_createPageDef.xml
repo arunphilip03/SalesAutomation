@@ -13,7 +13,6 @@
               RangeSize="25"/>
   </executables>
   <bindings>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="ContactInteractionsView2Iterator" id="OppurtunityId">
       <AttrNames>
         <Item Value="OppurtunityId"/>

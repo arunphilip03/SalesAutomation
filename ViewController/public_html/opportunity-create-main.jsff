@@ -11,9 +11,9 @@
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
-                            <af:button text="save" id="b1" actionListener="#{OppoTeamSC.onCommit}"/>
-                            <af:button text="Save &amp; Close" id="b2"
-                                       action="save" actionListener="#{OppoTeamSC.onCommit}"/>
+                            <af:button text="save" id="b1" actionListener="#{OppoTeamSC.onPrimaryCommit}"/>
+                            <af:button text="Save and Close" id="b2"
+                                       action="save" actionListener="#{OppoTeamSC.onPrimaryCommit}"/>
                             <af:button text="Cancel" id="b3" actionListener="#{bindings.Rollback.execute}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
@@ -103,14 +103,16 @@
                                                           shortDesc="#{bindings.SalesChannel.hints.tooltip}">
                                 <f:validator binding="#{bindings.SalesChannel.validator}"/>
                             </af:inputComboboxListOfValues>
-                            <af:inputText value="#{bindings.RevenueCurrency.inputValue}"
-                                          label="#{bindings.RevenueCurrency.hints.label}"
-                                          required="#{bindings.RevenueCurrency.hints.mandatory}"
-                                          columns="#{bindings.RevenueCurrency.hints.displayWidth}"
-                                          maximumLength="#{bindings.RevenueCurrency.hints.precision}"
-                                          shortDesc="#{bindings.RevenueCurrency.hints.tooltip}" id="it3">
-                                <f:validator binding="#{bindings.RevenueCurrency.validator}"/>
-                            </af:inputText>
+                            <af:inputComboboxListOfValues id="revenueCurrency1Id"
+                                                          popupTitle="Search and Select: #{bindings.RevenueCurrency1.hints.label}"
+                                                          value="#{bindings.RevenueCurrency1.inputValue}"
+                                                          label="#{bindings.RevenueCurrency1.hints.label}"
+                                                          model="#{bindings.RevenueCurrency1.listOfValuesModel}"
+                                                          required="#{bindings.RevenueCurrency1.hints.mandatory}"
+                                                          columns="#{bindings.RevenueCurrency1.hints.displayWidth}"
+                                                          shortDesc="#{bindings.RevenueCurrency1.hints.tooltip}">
+                                <f:validator binding="#{bindings.RevenueCurrency1.validator}"/>
+                            </af:inputComboboxListOfValues>
                             <af:inputText value="#{bindings.RevenueAmount.inputValue}"
                                           label="#{bindings.RevenueAmount.hints.label}"
                                           required="#{bindings.RevenueAmount.hints.mandatory}"
@@ -194,31 +196,7 @@
                             </af:inputText>
                         </af:panelFormLayout>
                     </f:facet>
-                    <f:facet name="second">
-                        <af:panelTabbed id="pt1">
-                            <af:showDetailItem text="Opportunity Team" id="sdi1">
-                                <af:panelSplitter id="ps2" splitterPosition="573">
-                                    <f:facet name="first">
-                                        <af:selectManyShuttle label="Users" value="#{OppoTeamSC.selectedUsers}"
-                                                              valueChangeListener="#{OppoTeamSC.onUserChange}" id="sms1"
-                                                              autoSubmit="true"
-                                                              binding="#{OppoTeamSC.selectManyShuttleComponentU}">
-                                            <f:selectItems value="#{OppoTeamSC.allUsers}" id="si1"/>
-                                        </af:selectManyShuttle>
-                                    </f:facet>
-                                    <f:facet name="second">
-                                        <af:selectManyShuttle label="Contacts" value="#{OppoTeamSC.selectedContacts}"
-                                                              valueChangeListener="#{OppoTeamSC.onContactChange}"
-                                                              id="sms2" autoSubmit="true"
-                                                              binding="#{OppoTeamSC.selectManyShuttleComponentC}"
-                                                              visible="true">
-                                            <f:selectItems value="#{OppoTeamSC.allContacts}" id="si2"/>
-                                        </af:selectManyShuttle>
-                                    </f:facet>
-                                </af:panelSplitter>
-                            </af:showDetailItem>
-                        </af:panelTabbed>
-                    </f:facet>
+                    <f:facet name="second"/>
                 </af:panelSplitter>
             </af:gridCell>
         </af:gridRow>

@@ -30,7 +30,7 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
-  Where="Opportunities.CREATED_BY = :UserName">
+  Where="Opportunities.CREATED_BY = :UserName AND Opportunities.DELETE_FLAG = 'N'">
   <Properties>
     <SchemaBasedProperties>
       <LABEL

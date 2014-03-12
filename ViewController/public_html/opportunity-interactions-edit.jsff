@@ -11,9 +11,9 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b3" actionListener="#{OppoInteractionsSC.onCommit}"/>
-                            <af:button text="Save &amp; Close" id="b1"
+                            <af:button text="Save and Close" id="b1"
                                        action="back" actionListener="#{OppoInteractionsSC.onCommit}"/>
-                            <af:button text="Close" id="b2" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b2"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>

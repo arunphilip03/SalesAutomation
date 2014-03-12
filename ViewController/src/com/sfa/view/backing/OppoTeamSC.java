@@ -263,5 +263,22 @@ public class OppoTeamSC  {
         
         return allUsers;
     }
+    
+    public void onPrimaryCommit(ActionEvent actionEvent){
+        DCBindingContainer bc = (DCBindingContainer)getBindings();
+        DCIteratorBinding iter = bc.findIteratorBinding("OpportunityTeamView2Iterator");  
+       
+        AttributeBinding attr = (AttributeBinding)bc.findCtrlBinding("PrimaryContactId");
+        Number contctId = (Number)attr.getInputValue();
+        
+        Row row = iter.getRowSetIterator().createRow();
+        row.setAttribute("OpportunityId", getCurrentOpportunityId());
+        row.setAttribute("ContactId",contctId);
+        iter.getRowSetIterator().insertRow(row);
+        OperationBinding op = bc.getOperationBinding("Commit");
+        if (op != null) {
+            op.execute();
+        }
+    }
 }
 

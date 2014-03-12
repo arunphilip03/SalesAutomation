@@ -20,7 +20,20 @@
                                 <af:link id="l1" icon="#{resource['images:new_ena.png']}"
                                          actionListener="#{bindings.Create.execute}"
                                          disabled="#{!bindings.Create.enabled}" action="add"/>
-                                <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"/>
+                                <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"
+                                         disabledIcon="#{resource['images:update_dis.png']}"
+                                         disabled="#{bindings.RolesView1Iterator.estimatedRowCount eq 0}"/>
+                                <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                    <af:dialog id="d1" title="Are you sure you want to delete the selected Role?"
+                                               dialogListener="#{ConfirmBean.dialogListener}">
+                                        <f:facet name="buttonBar"/>
+                                    </af:dialog>
+                                </af:popup>
+                                <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                         disabled="#{bindings.RolesView1Iterator.estimatedRowCount eq 0}"
+                                         disabledIcon="#{resource['images:delete_dis.png']}">
+                                    <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
+                                </af:link>
                             </af:toolbar>
                         </f:facet>
                         <af:table value="#{bindings.RolesView1.collectionModel}" var="row"

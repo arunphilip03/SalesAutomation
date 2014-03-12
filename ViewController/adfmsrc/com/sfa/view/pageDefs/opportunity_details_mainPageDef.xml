@@ -48,7 +48,6 @@
       </nodeDefinition>
     </tree>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <action IterBinding="OpportunityRevenueItemsView2Iterator" id="Create" RequiresUpdateModel="true"
             Action="createRow"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_AccountName" id="AccountName"/>
@@ -67,11 +66,6 @@
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_SalesMethod" id="SalesMethod"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_SalesChannel"
                   id="SalesChannel"/>
-    <attributeValues IterBinding="OpportunitiesView1Iterator" id="RevenueCurrency">
-      <AttrNames>
-        <Item Value="RevenueCurrency"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="RevenueAmount">
       <AttrNames>
         <Item Value="RevenueAmount"/>
@@ -107,5 +101,7 @@
     <action IterBinding="OpportunityRevenueItemsView2Iterator" id="Delete"
             InstanceName="AppModuleDataControl.OpportunityRevenueItemsView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_RevenueCurrency"
+                  id="RevenueCurrency1"/>
   </bindings>
 </pageDefinition>

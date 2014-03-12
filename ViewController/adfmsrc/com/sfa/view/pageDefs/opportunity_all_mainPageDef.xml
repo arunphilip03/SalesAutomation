@@ -21,10 +21,6 @@
           <Item Value="SalesStage"/>
           <Item Value="SalesMethod"/>
           <Item Value="SalesChannel"/>
-          <Item Value="RevenueCurrency"/>
-          <Item Value="RevenueAmount"/>
-          <Item Value="BestCaseRevenue"/>
-          <Item Value="WorstCaseRevenue"/>
           <Item Value="IsBudgeted"/>
           <Item Value="BudgetAmount"/>
           <Item Value="EstimatedDuration"/>
@@ -33,9 +29,13 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="OpportunitiesView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action IterBinding="OpportunitiesView1Iterator" id="Delete" InstanceName="AppModuleDataControl.OpportunitiesView1"
             DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="OpportunitiesView1Iterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.OpportunitiesView1" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="OpportunitiesView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

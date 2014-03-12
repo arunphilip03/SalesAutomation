@@ -28,7 +28,6 @@
     </tree>
     <action IterBinding="OpportunitytaskView2Iterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <action IterBinding="OpportunitytaskView2Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_AccountName" id="AccountName"/>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="OpportunityName">
       <AttrNames>
@@ -39,5 +38,10 @@
     <action IterBinding="OpportunitytaskView2Iterator" id="Delete1"
             InstanceName="AppModuleDataControl.OpportunitytaskView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunitytaskView2Iterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.OpportunitytaskView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="OpportunitytaskView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

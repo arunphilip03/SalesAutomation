@@ -18,7 +18,9 @@
        Roles.ROLE_ID, 
        Roles.ROLE_NAME"
   FromList="ROLES Roles"
-  Where="Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE &lt;= SYSDATE and Roles.ROLE_ID not in 
+  Where="Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE &lt;= SYSDATE and 
+Roles.DELETE_FLAG = 'N' 
+AND Roles.ROLE_ID not in  
 (select ra.ROLE_ID from ROLE_ASSIGNMENT ra where ra.USER_ID = :UserId)"
   BindingStyle="OracleName"
   CustomQuery="false"

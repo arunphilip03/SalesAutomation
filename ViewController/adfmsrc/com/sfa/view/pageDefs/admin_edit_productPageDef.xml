@@ -31,6 +31,5 @@
     <listOfValues IterBinding="ProductCatalogView1Iterator" StaticList="false" Uses="LOV_ProductCategory"
                   id="ProductCategory"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
   </bindings>
 </pageDefinition>

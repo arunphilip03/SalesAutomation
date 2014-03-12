@@ -26,7 +26,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="ContactInteractionsView2Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_AccountName" id="AccountName"/>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="OpportunityName">
       <AttrNames>
@@ -37,5 +36,10 @@
     <action IterBinding="ContactInteractionsView2Iterator" id="Delete"
             InstanceName="AppModuleDataControl.ContactInteractionsView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ContactInteractionsView2Iterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.ContactInteractionsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ContactInteractionsView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

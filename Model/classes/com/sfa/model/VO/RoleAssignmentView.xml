@@ -58,21 +58,22 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT RoleAssignment.USER_ROLE_ID,    
-       RoleAssignment.USER_ID,    
-       RoleAssignment.ROLE_ID,    
-       RoleAssignment.EFFEC_START_DATE,    
-       RoleAssignment.EFFEC_END_DATE,    
-       RoleAssignment.CREATION_DATE,    
-       RoleAssignment.LAST_UPDATE_DATE,    
-       RoleAssignment.CREATED_BY,    
-       RoleAssignment.LAST_UPDATED_BY,    
-       RoleAssignment.LAST_UPDATE_LOGIN,    
-       RoleAssignment.OBJECT_VERSION_NUMBER,  
-       Roles1.ROLE_NAME,  
-       Users1.FIRST_NAME  
-FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID = RoleAssignment.ROLE_ID INNER JOIN USERS Users1  
- on Users1.USER_ID = RoleAssignment.USER_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT RoleAssignment.USER_ROLE_ID,      
+       RoleAssignment.USER_ID,      
+       RoleAssignment.ROLE_ID,      
+       RoleAssignment.EFFEC_START_DATE,      
+       RoleAssignment.EFFEC_END_DATE,      
+       RoleAssignment.CREATION_DATE,      
+       RoleAssignment.LAST_UPDATE_DATE,      
+       RoleAssignment.CREATED_BY,      
+       RoleAssignment.LAST_UPDATED_BY,      
+       RoleAssignment.LAST_UPDATE_LOGIN,      
+       RoleAssignment.OBJECT_VERSION_NUMBER,    
+       Roles1.ROLE_NAME,    
+       Users1.FIRST_NAME    
+FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID = RoleAssignment.ROLE_ID INNER JOIN USERS Users1    
+ on Users1.USER_ID = RoleAssignment.USER_ID  
+ WHERE RoleAssignment.DELETE_FLAG = 'N' AND Roles1.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="RoleAssignment"
     Entity="com.sfa.model.entity.RoleAssignment"/>
@@ -109,7 +110,8 @@ FROM  ROLE_ASSIGNMENT RoleAssignment INNER JOIN ROLES Roles1 on Roles1.ROLE_ID =
     EntityAttrName="RoleId"
     EntityUsage="RoleAssignment"
     AliasName="ROLE_ID"
-    LOVName="LOV_RoleId_Assign">
+    LOVName="LOV_RoleId_Assign"
+    DefaultValue="1">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

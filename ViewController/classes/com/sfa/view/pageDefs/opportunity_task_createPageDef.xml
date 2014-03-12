@@ -10,9 +10,10 @@
     <iterator id="CustomerContactsView4Iterator" Binds="CustomerContactsView4" DataControl="AppModuleDataControl"
               RangeSize="25"/>
     <iterator id="UsersView1Iterator" Binds="UsersView1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunitiesView1Iterator"/>
   </executables>
   <bindings>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="OpportunitytaskView2Iterator" id="Description">
       <AttrNames>
         <Item Value="Description"/>
@@ -46,7 +47,10 @@
     <list IterBinding="OpportunitytaskView2Iterator" StaticList="false" Uses="LOV_FirstName" id="FirstName"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <listOfValues IterBinding="OpportunitytaskView2Iterator" StaticList="false" Uses="LOV_AccountName"
-                  id="AccountName1"/>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

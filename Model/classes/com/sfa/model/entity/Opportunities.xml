@@ -385,8 +385,23 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.Opportunities.OpportunityName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="60"/>
       </SchemaBasedProperties>
     </Properties>
+  </Attribute>
+  <Attribute
+    Name="DeleteFlag"
+    Precision="1"
+    ColumnName="DELETE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPORTUNITIES"
+    HistoryColumn="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
   </Attribute>
   <AccessorAttribute
     Name="Appointments"
