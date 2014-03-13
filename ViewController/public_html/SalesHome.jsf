@@ -60,7 +60,7 @@
                 <f:facet name="status"/>
                 <f:facet name="globalToolbar">
                     <af:toolbar id="t1">
-                        <af:link text="Home" id="l7" inlineStyle="font-size:small;"
+                        <af:link text="Home" id="l10" inlineStyle="font-size:small;"
                                  actionListener="#{backingBeanScope.launcher.launchSalesHome}"
                                  rendered="#{securityContext.userInRole['Sales Manager, Sales Representative']}"/>
                     </af:toolbar>

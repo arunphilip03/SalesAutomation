@@ -11,10 +11,11 @@
             <LABEL ResId="com.sfa.model.VO.SalesHomeOppoView_LABEL"/>
         </SchemaBasedProperties>
     </Properties>
-    <Variable IsUpdateable="false" Name="UserName" Kind="where" Type="java.lang.String">
+    <Variable Name="UserName" Kind="where" Type="java.lang.String">
         <Properties>
             <SchemaBasedProperties>
-                <DISPLAYHINT Value="Hide"/>
+                <DISPLAYHINT
+                    Value="Hide"/>
             </SchemaBasedProperties>
         </Properties>
     </Variable>
@@ -50,15 +51,16 @@
         </AttrArray>
         <DisplayCriteria Hint="hide"/>
     </ListBinding>
-    <SQLQuery>SELECT Opportunities.BEST_CASE_REVENUE, Opportunities.BUDGET_AMOUNT, Opportunities.CLOSE_DATE,
-              Opportunities.CUST_ACCOUNT_ID, Opportunities.DECISION_LEVEL, Opportunities.ESTIMATED_DURATION,
-              Opportunities.IS_BUDGETED, Opportunities.OBJECT_VERSION_NUMBER, Opportunities.OPPORTUNITY_NAME,
-              Opportunities.OPPURTUNITY_ID, Opportunities.PRIMARY_CONTACT_ID, Opportunities.REVENUE_AMOUNT,
-              Opportunities.REVENUE_CURRENCY, Opportunities.RISK_LEVEL, Opportunities.SALES_CHANNEL,
-              Opportunities.SALES_METHOD, Opportunities.SALES_STAGE, Opportunities.WIN_PROBABILITY,
-              Opportunities.WORST_CASE_REVENUE FROM OPPORTUNITIES Opportunities where Opportunities.DELETE_FLAG = 'N'
-              and Opportunities.OPPURTUNITY_ID in (select Oppoteam.OPPORTUNITY_ID from OPPORTUNITY_TEAM Oppoteam where
-              Oppoteam.User_id = (select users.user_id from USERS users where users.USER_NAME = :UserName))</SQLQuery>
+    <SQLQuery><![CDATA[SELECT Opportunities.BEST_CASE_REVENUE, Opportunities.BUDGET_AMOUNT, Opportunities.CLOSE_DATE,   
+              Opportunities.CUST_ACCOUNT_ID, Opportunities.DECISION_LEVEL, Opportunities.ESTIMATED_DURATION,   
+              Opportunities.IS_BUDGETED, Opportunities.OBJECT_VERSION_NUMBER, Opportunities.OPPORTUNITY_NAME,   
+              Opportunities.OPPURTUNITY_ID, Opportunities.PRIMARY_CONTACT_ID, Opportunities.REVENUE_AMOUNT,   
+              Opportunities.REVENUE_CURRENCY, Opportunities.RISK_LEVEL, Opportunities.SALES_CHANNEL,   
+              Opportunities.SALES_METHOD, Opportunities.SALES_STAGE, Opportunities.WIN_PROBABILITY,   
+              Opportunities.WORST_CASE_REVENUE FROM OPPORTUNITIES Opportunities 
+              where Opportunities.DELETE_FLAG = 'N'   
+              and Opportunities.OPPURTUNITY_ID in (select Oppoteam.OPPORTUNITY_ID from OPPORTUNITY_TEAM Oppoteam where   
+              Oppoteam.User_id = (select users.user_id from USERS users where users.USER_NAME = :UserName))]]></SQLQuery>
     <EntityUsage Name="Opportunities" Entity="com.sfa.model.entity.Opportunities"/>
     <ViewAttribute Name="BestCaseRevenue" PrecisionRule="true" EntityAttrName="BestCaseRevenue"
                    EntityUsage="Opportunities" AliasName="BEST_CASE_REVENUE"/>

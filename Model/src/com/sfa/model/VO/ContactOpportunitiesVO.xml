@@ -18,55 +18,58 @@
         ResId="com.sfa.model.VO.ContactOpportunitiesVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT Opportunities.OPPORTUNITY_NAME,         
-       Opportunities.OPPURTUNITY_ID,         
-       Opportunities.OBJECT_VERSION_NUMBER,         
-       Opportunities.ESTIMATED_DURATION,         
-       Opportunities.CUST_ACCOUNT_ID,         
-       Opportunities.BEST_CASE_REVENUE,         
-       Opportunities.BUDGET_AMOUNT,         
-       Opportunities.CLOSE_DATE,         
-       Opportunities.DECISION_LEVEL,         
-       Opportunities.IS_BUDGETED,         
-       Opportunities.PRIMARY_CONTACT_ID,         
-       Opportunities.REVENUE_AMOUNT,         
-       Opportunities.REVENUE_CURRENCY,         
-       Opportunities.RISK_LEVEL,         
-       Opportunities.SALES_CHANNEL,         
-       Opportunities.SALES_METHOD,         
-       Opportunities.SALES_STAGE,         
-       Opportunities.WIN_PROBABILITY,         
-       Opportunities.WORST_CASE_REVENUE,         
-       OpportunityTeam.CONTACT_ID 
-       --OpportunityTeam.OPPORTUNITY_TEAM_ID   
-      FROM  OPPORTUNITIES Opportunities, OPPORTUNITY_TEAM OpportunityTeam, CUSTOMER_CONTACTS Contacts     
-WHERE Opportunities.OPPURTUNITY_ID = OpportunityTeam.OPPORTUNITY_ID and Contacts.CONTACT_ID =  OpportunityTeam.CONTACT_ID    
+  <SQLQuery><![CDATA[SELECT Opportunities.OPPORTUNITY_NAME,          
+       Opportunities.OPPURTUNITY_ID,          
+       Opportunities.OBJECT_VERSION_NUMBER,          
+       Opportunities.ESTIMATED_DURATION,          
+       Opportunities.CUST_ACCOUNT_ID,          
+       Opportunities.BEST_CASE_REVENUE,          
+       Opportunities.BUDGET_AMOUNT,          
+       Opportunities.CLOSE_DATE,          
+       Opportunities.DECISION_LEVEL,          
+       Opportunities.IS_BUDGETED,          
+       Opportunities.PRIMARY_CONTACT_ID,          
+       Opportunities.REVENUE_AMOUNT,          
+       Opportunities.REVENUE_CURRENCY,          
+       Opportunities.RISK_LEVEL,          
+       Opportunities.SALES_CHANNEL,          
+       Opportunities.SALES_METHOD,          
+       Opportunities.SALES_STAGE,          
+       Opportunities.WIN_PROBABILITY,          
+       Opportunities.WORST_CASE_REVENUE,          
+       OpportunityTeam.CONTACT_ID  
+       --OpportunityTeam.OPPORTUNITY_TEAM_ID    
+      FROM  OPPORTUNITIES Opportunities, OPPORTUNITY_TEAM OpportunityTeam, CUSTOMER_CONTACTS Contacts      
+WHERE Opportunities.OPPURTUNITY_ID = OpportunityTeam.OPPORTUNITY_ID and Contacts.CONTACT_ID =  OpportunityTeam.CONTACT_ID 
+AND Opportunities.DELETE_FLAG = 'N' 
  
-       
-UNION       
-       
-SELECT Opportunities.OPPORTUNITY_NAME,         
-       Opportunities.OPPURTUNITY_ID,         
-       Opportunities.OBJECT_VERSION_NUMBER,         
-       Opportunities.ESTIMATED_DURATION,         
-       Opportunities.CUST_ACCOUNT_ID,         
-       Opportunities.BEST_CASE_REVENUE,         
-       Opportunities.BUDGET_AMOUNT,         
-       Opportunities.CLOSE_DATE,         
-       Opportunities.DECISION_LEVEL,         
-       Opportunities.IS_BUDGETED,         
-       Opportunities.PRIMARY_CONTACT_ID,         
-       Opportunities.REVENUE_AMOUNT,         
-       Opportunities.REVENUE_CURRENCY,         
-       Opportunities.RISK_LEVEL,         
-       Opportunities.SALES_CHANNEL,         
-       Opportunities.SALES_METHOD,         
-       Opportunities.SALES_STAGE,         
-       Opportunities.WIN_PROBABILITY,         
-       Opportunities.WORST_CASE_REVENUE,         
-       Opportunities.PRIMARY_CONTACT_ID AS CONTACT_ID  
-       --NULL AS OPPORTUNITY_TEAM_ID 
-      FROM  OPPORTUNITIES Opportunities]]></SQLQuery>
+  
+        
+UNION        
+        
+SELECT Opportunities.OPPORTUNITY_NAME,          
+       Opportunities.OPPURTUNITY_ID,          
+       Opportunities.OBJECT_VERSION_NUMBER,          
+       Opportunities.ESTIMATED_DURATION,          
+       Opportunities.CUST_ACCOUNT_ID,          
+       Opportunities.BEST_CASE_REVENUE,          
+       Opportunities.BUDGET_AMOUNT,          
+       Opportunities.CLOSE_DATE,          
+       Opportunities.DECISION_LEVEL,          
+       Opportunities.IS_BUDGETED,          
+       Opportunities.PRIMARY_CONTACT_ID,          
+       Opportunities.REVENUE_AMOUNT,          
+       Opportunities.REVENUE_CURRENCY,          
+       Opportunities.RISK_LEVEL,          
+       Opportunities.SALES_CHANNEL,          
+       Opportunities.SALES_METHOD,          
+       Opportunities.SALES_STAGE,          
+       Opportunities.WIN_PROBABILITY,          
+       Opportunities.WORST_CASE_REVENUE,          
+       Opportunities.PRIMARY_CONTACT_ID AS CONTACT_ID   
+       --NULL AS OPPORTUNITY_TEAM_ID  
+      FROM  OPPORTUNITIES Opportunities 
+      WHERE Opportunities.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="Opportunities"
     Entity="com.sfa.model.entity.Opportunities"/>

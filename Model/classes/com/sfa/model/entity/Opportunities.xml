@@ -55,6 +55,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.Opportunities.CloseDate_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.Opportunities.CloseDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sfa.model.entity.Opportunities.CloseDate_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

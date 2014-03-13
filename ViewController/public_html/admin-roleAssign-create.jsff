@@ -8,10 +8,17 @@
                 <af:panelHeader text="Select Roles" id="ph1" inlineStyle="height:43px;">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
-                    <f:facet name="toolbar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Assign" id="b3" action="back"
+                                       actionListener="#{AssignRoles.assignSelectedRoles}"/>
+                            <af:button text="Cancel" id="b2" action="back" immediate="true"/>
+                        </af:toolbar>
+                    </f:facet>
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
+                <af:spacer width="10" height="10" id="s2"/>
                 <af:selectManyCheckbox value="#{bindings.ValidRolesView1.inputValue}" id="smc1">
                     <f:selectItems value="#{bindings.ValidRolesView1.items}" id="si1"/>
                     <f:validator binding="#{bindings.ValidRolesView1.validator}"/>
@@ -45,15 +52,7 @@
                         <f:validator binding="#{bindings.EffecEndDate.validator}"/>
                         <af:convertDateTime pattern="#{bindings.EffecEndDate.format}"/>
                     </af:inputDate>
-                    <af:spacer width="10" height="10" id="s2"/>
                 </af:panelFormLayout>
-                <af:button text="Assign" id="b3" action="back" actionListener="#{AssignRoles.assignSelectedRoles}"/>
-                <af:spacer width="30" height="10" id="s3"/>
-                <af:button text="cancel" id="b2" action="back" immediate="true"/>
-                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="104">
-                    <f:facet name="first"/>
-                    <f:facet name="second"/>
-                </af:panelSplitter>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

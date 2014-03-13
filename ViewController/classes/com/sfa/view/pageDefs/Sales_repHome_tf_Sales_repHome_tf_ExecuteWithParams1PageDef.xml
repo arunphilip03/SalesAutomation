@@ -5,7 +5,7 @@
   <parameters/>
   <executables>
     <iterator Binds="SalesHomeOppoView1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="SalesHomeOppoView1Iterator" Refresh="never"/>
+              id="SalesHomeOppoView1Iterator"/>
   </executables>
   <bindings>
     <action IterBinding="SalesHomeOppoView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"

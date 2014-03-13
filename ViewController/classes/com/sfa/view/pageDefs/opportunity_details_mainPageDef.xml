@@ -27,6 +27,9 @@
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <iterator Binds="OpportunityNotes2" RangeSize="10" DataControl="AppModuleDataControl"
               id="OpportunityNotes2Iterator"/>
+    <taskFlow id="opportunitiesappointmenttf1"
+              taskFlowId="/WEB-INF/opportunities-appointment-tf.xml#opportunities-appointment-tf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="WinProbability">
