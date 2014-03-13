@@ -155,12 +155,42 @@ public class InviteeBean {
      * @return
      */
     public List attributeListForIteratorContacts() {
+        
+        String appType = null;
+        AdfFacesContext fctx = AdfFacesContext.getCurrentInstance();
+        Map<String, Object> pfs = fctx.getPageFlowScope();
+        if (pfs != null) {
+
+            appType = (String) pfs.get("appType");
+            System.out.println("Type:: " + appType);
+        }
+        
+        
+        
+        
+        
         DCBindingContainer bc = (DCBindingContainer) getBindings();
         DCIteratorBinding iter = bc.findIteratorBinding("AppointmentInviteesVO3Iterator");
         List attributeList = new ArrayList();
         for (Row row : iter.getAllRowsInRange()) {
             attributeList.add(row.getAttribute("ContactId"));
         }
+        if (appType.equals("contact")) {
+            
+            String source_contact = getSourceContactId();
+            
+            BigDecimal contactID = new BigDecimal(source_contact);
+            
+            //System.out.println("Big: "+contactID.toString());
+                    if(!attributeList.contains(contactID))
+                    {
+                        //System.out.println("Adding");
+                        attributeList.add(contactID);
+                    }
+                    
+        }
+        
+        
         return attributeList;
     }
 
@@ -172,6 +202,18 @@ public class InviteeBean {
             attributeList.add(row.getAttribute("UserId"));
         }
         return attributeList;
+    }
+    
+    
+    public String getSourceContactId() {
+        
+        String contactId_no = null;
+        DCBindingContainer bc = (DCBindingContainer) getBindings();
+        AttributeBinding contactId = (AttributeBinding) bc.getControlBinding("ContactId");
+        contactId_no = contactId.toString();
+        System.out.println("Current contact id= " + contactId_no.toString());
+        
+        return contactId_no;
     }
 
     public List<SelectItem> selectItemsForIteratorContacts() {
@@ -199,6 +241,8 @@ public class InviteeBean {
             }
 
         } else if (appType.equals("contact")) {
+            
+            getSourceContactId();
 
             AttributeBinding accountId = (AttributeBinding) bc.getControlBinding("CustAccountId");
             System.out.println("Account id= " + accountId.toString());

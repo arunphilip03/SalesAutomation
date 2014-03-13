@@ -21,6 +21,7 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
+                <af:spacer width="10" height="10" id="s1"/>
                 <af:panelFormLayout id="pfl1" rows="2">
                     <af:inputComboboxListOfValues id="userIdId"
                                                   popupTitle="Search and Select: #{bindings.UserId.hints.label}"

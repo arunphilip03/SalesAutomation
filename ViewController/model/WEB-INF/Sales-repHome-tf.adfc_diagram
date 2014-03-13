@@ -17,9 +17,9 @@
       <property
          name="y">427.23535</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">744.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <MethodCall
       id="MethodCall17">
@@ -57,7 +57,7 @@
       <property
          name="fromOutcome">ExecuteWithParams</property>
       <property
-         name="sdm:polyPoints">R50,353.1866,321.293,442.8534,430.0977,L50</property>
+         name="sdm:polyPoints">R50,353.1866,321.29297,442.8534,430.09766,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -67,6 +67,6 @@
       <property
          name="fromOutcome">ExecuteWithParams</property>
       <property
-         name="sdm:polyPoints">R50,526.5235,430.0977,702.165,426.8848,L50</property>
+         name="sdm:polyPoints">R50,526.5235,430.09766,702.165,426.88477,L50</property>
    </ControlFlowCase>
 </SDM>

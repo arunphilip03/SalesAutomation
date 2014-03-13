@@ -67,9 +67,9 @@
       <property
          name="y">199.39648</property>
       <property
-         name="x">1059.499</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">1059.499</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn6">
@@ -101,9 +101,9 @@
       <property
          name="y">307.24902</property>
       <property
-         name="x">526.2129</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">526.2129</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -113,7 +113,7 @@
       <property
          name="fromOutcome">cancelCreate</property>
       <property
-         name="sdm:polyPoints">R50,138.60435,445.4961,483.95865,317.39844,L62</property>
+         name="sdm:polyPoints">R50,139.5743,445.49612,482.9859,319.58392,L65</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -123,7 +123,7 @@
       <property
          name="fromOutcome">saveCreate</property>
       <property
-         name="sdm:polyPoints">R58,139.85226,452.4961,485.2129,324.39844,L70</property>
+         name="sdm:polyPoints">R60,141.06363,453.95312,484.48434,328.04095,L74</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -153,7 +153,7 @@
       <property
          name="fromOutcome">createAppointment</property>
       <property
-         name="sdm:polyPoints">L38,484.13867,296.39844,139.15834,187.79492,R50</property>
+         name="sdm:polyPoints">L35,483.20526,294.21292,140.0897,187.79494,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -163,7 +163,7 @@
       <property
          name="fromOutcome">createTask</property>
       <property
-         name="sdm:polyPoints">L54,482.70862,310.39844,137.35645,438.4961,R42</property>
+         name="sdm:polyPoints">L55,481.49356,311.12692,138.08495,437.03912,R40</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -208,9 +208,9 @@
       <property
          name="y">356.18945</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">1066.5</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <MethodCall
       id="MethodCall18">
@@ -233,7 +233,7 @@
       <property
          name="fromOutcome">editTask</property>
       <property
-         name="sdm:polyPoints">R70,567.2129,324.39844,741.0371,409.89062,L50</property>
+         name="sdm:polyPoints">R74,567.9414,328.04095,740.3086,409.89062,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

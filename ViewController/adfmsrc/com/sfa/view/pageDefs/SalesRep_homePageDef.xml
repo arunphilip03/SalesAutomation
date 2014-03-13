@@ -10,6 +10,8 @@
               id="SalesHomeOppoView1Iterator"/>
     <searchRegion Criteria="SalesHomeOppoViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SalesHomeOppoView1Iterator" id="SalesHomeOppoViewCriteriaQuery"/>
+    <taskFlow id="adminhometaskflow1" taskFlowId="/WEB-INF/admin-home-taskflow.xml#admin-home-taskflow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <tree IterBinding="SalesRepOppoCreatedView1Iterator" id="SalesRepOppoCreatedView1">
@@ -46,10 +48,9 @@
           <Item Value="DecisionLevel"/>
           <Item Value="EstimatedDuration"/>
           <Item Value="IsBudgeted"/>
-          <Item Value="RevenueAmount"/>
           <Item Value="RevenueCurrency"/>
+          <Item Value="RevenueAmount"/>
           <Item Value="RiskLevel"/>
-          <Item Value="WinProbability"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

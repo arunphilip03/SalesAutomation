@@ -1108,5 +1108,101 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getCurrencyLuView1() {
         return (ViewObjectImpl) findViewObject("CurrencyLuView1");
     }
+
+    /**
+     * Container's getter for ActiveUsersVO1.
+     * @return ActiveUsersVO1
+     */
+    public ViewObjectImpl getActiveUsersVO1() {
+        return (ViewObjectImpl) findViewObject("ActiveUsersVO1");
+    }
+
+    /**
+     * Container's getter for InactiveUsersVO1.
+     * @return InactiveUsersVO1
+     */
+    public ViewObjectImpl getInactiveUsersVO1() {
+        return (ViewObjectImpl) findViewObject("InactiveUsersVO1");
+    }
+
+    /**
+     * Container's getter for ActiveRoles1.
+     * @return ActiveRoles1
+     */
+    public ViewObjectImpl getActiveRoles1() {
+        return (ViewObjectImpl) findViewObject("ActiveRoles1");
+    }
+
+    /**
+     * Container's getter for InactiveRoles1.
+     * @return InactiveRoles1
+     */
+    public ViewObjectImpl getInactiveRoles1() {
+        return (ViewObjectImpl) findViewObject("InactiveRoles1");
+    }
+
+    /**
+     * Container's getter for ContactAppointmentsVO2.
+     * @return ContactAppointmentsVO2
+     */
+    public ViewObjectImpl getContactAppointmentsVO2() {
+        return (ViewObjectImpl) findViewObject("ContactAppointmentsVO2");
+    }
+
+    /**
+     * Container's getter for ContactToAppointmentVL1.
+     * @return ContactToAppointmentVL1
+     */
+    public ViewLinkImpl getContactToAppointmentVL1() {
+        return (ViewLinkImpl) findViewLink("ContactToAppointmentVL1");
+    }
+
+    /**
+     * Container's getter for ContactTasksVO2.
+     * @return ContactTasksVO2
+     */
+    public ViewObjectImpl getContactTasksVO2() {
+        return (ViewObjectImpl) findViewObject("ContactTasksVO2");
+    }
+
+    /**
+     * Container's getter for ContactToTaskVL1.
+     * @return ContactToTaskVL1
+     */
+    public ViewLinkImpl getContactToTaskVL1() {
+        return (ViewLinkImpl) findViewLink("ContactToTaskVL1");
+    }
+
+    /**
+     * Container's getter for ContactInteractionsVO2.
+     * @return ContactInteractionsVO2
+     */
+    public ViewObjectImpl getContactInteractionsVO2() {
+        return (ViewObjectImpl) findViewObject("ContactInteractionsVO2");
+    }
+
+    /**
+     * Container's getter for ContactToInteractionsVL1.
+     * @return ContactToInteractionsVL1
+     */
+    public ViewLinkImpl getContactToInteractionsVL1() {
+        return (ViewLinkImpl) findViewLink("ContactToInteractionsVL1");
+    }
+
+    /**
+     * Container's getter for ContactOpportunitiesVO2.
+     * @return ContactOpportunitiesVO2
+     */
+    public ViewObjectImpl getContactOpportunitiesVO2() {
+        return (ViewObjectImpl) findViewObject("ContactOpportunitiesVO2");
+    }
+
+    /**
+     * Container's getter for ContactToOpportunityVL1.
+     * @return ContactToOpportunityVL1
+     */
+    public ViewLinkImpl getContactToOpportunityVL1() {
+        return (ViewLinkImpl) findViewLink("ContactToOpportunityVL1");
+    }
 }
 

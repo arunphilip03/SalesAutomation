@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="INTERACTION_TEAM"
   AliasName="InteractionTeam"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="InteractionTeamId"
     IsNotNull="true"

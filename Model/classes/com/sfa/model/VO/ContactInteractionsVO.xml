@@ -260,6 +260,12 @@
     ViewLink="com.sfa.model.viewlink.ContactInteractionsTeamVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactVO"
+    ViewLink="com.sfa.model.viewlink.ContactToInteractionsVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sfa.model.ModelBundle"/>

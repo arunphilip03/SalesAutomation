@@ -46,34 +46,49 @@
                                       selectionListener="#{bindings.OpportunitiesView1.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.OpportunitiesView1.rangeSize}" id="t1"
                                       styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l1 ::l2">
+                                <af:column headerText="#{bindings.OpportunitiesView1.hints.PrimaryContactId.label}"
+                                           id="c8" rendered="false">
+                                    <af:outputText value="#{row.PrimaryContactId}"
+                                                   shortDesc="#{bindings.OpportunitiesView1.hints.PrimaryContactId.tooltip}"
+                                                   id="ot7">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.OpportunitiesView1.hints.PrimaryContactId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.OpportunitiesView1.hints.CustAccountId.label}"
+                                           id="c7" rendered="false">
+                                    <af:outputText value="#{row.CustAccountId}"
+                                                   shortDesc="#{bindings.OpportunitiesView1.hints.CustAccountId.tooltip}"
+                                                   id="ot3">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.OpportunitiesView1.hints.CustAccountId.format}"/>
+                                    </af:outputText>
+                                </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.OpportunityName.name}"
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.OpportunityName.label}"
                                            id="c16">
-                                    <af:link id="cl1" partialSubmit="true" action="OppDetails">
-                                        <af:outputText value="#{row.OpportunityName}"
-                                                       shortDesc="#{bindings.OpportunitiesView1.hints.OpportunityName.tooltip}"
-                                                       id="ot16"/>
-                                    </af:link>
+                                    <af:link id="cl1" partialSubmit="true" action="OppDetails"
+                                             text="#{row.OpportunityName}"/>
                                    
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.AccountName.name}"
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.AccountName.label}" id="c17">
-                                    <af:link id="cl2" partialSubmit="true" action="AccntDetails">
-                                        <af:outputText value="#{row.AccountName}"
-                                                       shortDesc="#{bindings.OpportunitiesView1.hints.AccountName.tooltip}"
-                                                       id="ot17"/>
+                                    <af:link id="cl2" partialSubmit="true" action="getAccountDetail"
+                                             text="#{row.AccountName}">
+                                        <af:setPropertyListener from="#{row.CustAccountId}"
+                                                                to="#{pageFlowScope.selectedAccount}" type="action"/>
                                     </af:link>
                                     
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.ContactName.name}"
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.ContactName.label}" id="c3">
-                                    <af:link id="cl3" partialSubmit="true" action="ContctDetails">
-                                        <af:outputText value="#{row.ContactName}"
-                                                       shortDesc="#{bindings.OpportunitiesView1.hints.ContactName.tooltip}"
-                                                       id="ot99"/>
+                                    <af:link id="cl3" partialSubmit="true" action="getContactDetail"
+                                             text="#{row.ContactName}">
+                                        <af:setPropertyListener from="#{row.PrimaryContactId}"
+                                                                to="#{pageFlowScope.selectedContact}" type="action"/>
                                     </af:link>
                                    
                                 </af:column>

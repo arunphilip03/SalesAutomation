@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelHeader text="Create Appointments" id="ph1">
+    <af:panelHeader text="#{'Create Appointment'} #{pageFlowScope.appType eq 'contact'?  'for Contact' : 'for Customer'}" id="ph1">
         <f:facet name="context"/>
         <f:facet name="menuBar"/>
         <f:facet name="toolbar">

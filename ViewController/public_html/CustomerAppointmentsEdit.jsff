@@ -47,6 +47,13 @@
                     <f:validator binding="#{bindings.EndDatetime.validator}"/>
                     <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
                 </af:inputDate>
+                <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"
+                          required="#{bindings.Location.hints.mandatory}"
+                          columns="#{bindings.Location.hints.displayWidth}"
+                          maximumLength="#{bindings.Location.hints.precision}"
+                          shortDesc="#{bindings.Location.hints.tooltip}" id="it3">
+                <f:validator binding="#{bindings.Location.validator}"/>
+            </af:inputText>
                 <af:inputListOfValues id="relatedOppurtunity1Id"
                                       popupTitle="Search and Select: #{bindings.RelatedOppurtunity1.hints.label}"
                                       value="#{bindings.RelatedOppurtunity1.inputValue}"
@@ -57,14 +64,6 @@
                                       shortDesc="#{bindings.RelatedOppurtunity1.hints.tooltip}">
                     <f:validator binding="#{bindings.RelatedOppurtunity1.validator}"/>
                 </af:inputListOfValues>
-                <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"
-                              required="#{bindings.Location.hints.mandatory}"
-                              columns="#{bindings.Location.hints.displayWidth}"
-                              maximumLength="#{bindings.Location.hints.precision}"
-                              shortDesc="#{bindings.Location.hints.tooltip}" id="it3">
-                    <f:validator binding="#{bindings.Location.validator}"/>
-                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Location.format}"/>
-                </af:inputText>
             </af:panelFormLayout>
             <af:spacer width="10" height="10" id="s2"/>
             <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1" styleClass="AFStretchWidth">

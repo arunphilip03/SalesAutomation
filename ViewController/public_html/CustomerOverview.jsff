@@ -36,7 +36,8 @@
                 <af:spacer width="4" height="10" id="s2"/>
                 <af:link id="l4" icon="#{resource['images:delete_ena.png']}"
                          actionListener="#{bindings.Delete.execute}"
-                         rendered="#{securityContext.userInRole['Sales Manager']}">
+                         rendered="#{securityContext.userInRole['Sales Manager']}"
+                         returnListener="#{RefreshViewBean.customerDialogReturnListener}">
                   <af:showPopupBehavior popupId="::confirm" triggerType="action" align="endAfter" alignId="l4"/>
                 </af:link>
               </af:toolbar>
@@ -48,7 +49,7 @@
                       selectedRowKeys="#{bindings.CustomerAccountView1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.CustomerAccountView1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.CustomerAccountView1.rangeSize}" id="t1"
-                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="l2 ::l4">
+                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l4 l2 :::d2">
               <af:column sortProperty="#{bindings.CustomerAccountView1.hints.AccountName.name}" sortable="true"
                          headerText="#{bindings.CustomerAccountView1.hints.AccountName.label}" id="c1" width="136">
                 <af:link actionListener="#{bindings.setCurrentRowWithKey.execute}" text="#{row.AccountName}"
@@ -89,7 +90,8 @@
         </f:facet>
       </af:panelSplitter>
       <af:popup childCreation="deferred" autoCancel="disabled" id="confirm" contentDelivery="lazyUncached">
-        <af:dialog id="d2" title="Confirm Delete" dialogListener="#{ConfirmBean.dialogListener}">
+        <af:dialog id="d2" title="Confirm Delete" dialogListener="#{ConfirmBean.dialogListener}"
+                   titleIconSource="#{resource['images:warning.png']}">
           <f:facet name="buttonBar"/>
           <af:activeOutputText value="#{'Are you sure you want to delete selected Customer? '} #{GeneralInfoBean.currentAccountName}" id="aot1"/>
         </af:dialog>

@@ -17,9 +17,9 @@
       <property
          name="y">-148.85645</property>
       <property
-         name="x">77.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">77.0</property>
    </View>
    <View
       id="View3">
@@ -34,9 +34,9 @@
       <property
          name="y">-150.50586</property>
       <property
-         name="x">457.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">457.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -71,9 +71,9 @@
       <property
          name="y">106.04004</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">296.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -83,7 +83,7 @@
       <property
          name="fromOutcome">create</property>
       <property
-         name="sdm:polyPoints">B44,73.5,-91.50701,289.0,51.689453,T39</property>
+         name="sdm:polyPoints">B50,77.0,-91.54117,289.0,51.689453,T39</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -103,7 +103,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">T50,296.0,47.962894,80.5,-95.20703,B56</property>
+         name="sdm:polyPoints">T50,296.0,47.997246,84.0,-95.20703,B61</property>
    </ControlFlowCase>
    <View
       id="View11">
@@ -118,9 +118,9 @@
       <property
          name="y">93.390625</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">765.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View12">
@@ -135,9 +135,9 @@
       <property
          name="y">95.390625</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">556.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -300,9 +300,9 @@
       <property
          name="y">-489.8047</property>
       <property
-         name="x">458.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">458.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -351,4 +351,104 @@
       <property
          name="x">254.23828</property>
    </TaskFlowCall>
+   <TaskFlowCall
+      id="TaskFlowCall31">
+      <property
+         name="taskFlowId">customer-detail-taskflow</property>
+      <property
+         name="activityId">customer-detail-taskflow</property>
+      <property
+         name="documentReference">/WEB-INF/customer-detail-taskflow.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>customer-detail-taskflow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">97.34473</property>
+      <property
+         name="x">-217.3125</property>
+   </TaskFlowCall>
+   <MethodCall
+      id="MethodCall32">
+      <property
+         name="activityId">SetCurrentRowWithKeyValue</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-58.25293</property>
+      <property
+         name="x">-163.2998</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase33"
+      from="View2"
+      to="MethodCall32">
+      <property
+         name="fromOutcome">getAccountDetail</property>
+      <property
+         name="sdm:polyPoints">L50,36.0,-149.20703,-122.299805,-58.603516,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase34"
+      from="MethodCall32"
+      to="TaskFlowCall31">
+      <property
+         name="fromOutcome">setCurrentRowWithKeyValue</property>
+      <property
+         name="sdm:polyPoints">B50,-163.2998,-4.6035156,-217.3125,42.99414,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall44">
+      <property
+         name="activityId">SetCurrentRowWithKeyValue2</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue2&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">33.74707</property>
+      <property
+         name="x">12.037109</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase45"
+      from="View2"
+      to="MethodCall44">
+      <property
+         name="fromOutcome">getContactDetail</property>
+      <property
+         name="sdm:polyPoints">B39,70.0,-95.20703,12.037109,-20.603516,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View46">
+      <property
+         name="activityId">ContactDetailPage</property>
+      <property
+         name="page">/ContactDetailPage.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ContactDetailPage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">204.09766</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">-3.9697266</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase47"
+      from="MethodCall44"
+      to="View46">
+      <property
+         name="fromOutcome">setCurrentRowWithKeyValue</property>
+      <property
+         name="sdm:polyPoints">B50,12.037109,87.396484,-3.9697266,149.74707,T50</property>
+   </ControlFlowCase>
 </SDM>

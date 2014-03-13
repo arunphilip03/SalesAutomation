@@ -13,10 +13,7 @@
         <document>/WEB-INF/contact-detail-taskflow.xml</document>
         <id>contact-detail-taskflow</id>
       </task-flow-reference>
-      <input-parameter id="__10">
-        <name>selectedContactId</name>
-        <value>''</value>
-      </input-parameter>
+      
     </task-flow-call>
     <task-flow-call id="add-edit-toplevel-contact">
       <task-flow-reference>

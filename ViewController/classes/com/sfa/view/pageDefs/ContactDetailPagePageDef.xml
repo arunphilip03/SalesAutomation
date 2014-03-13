@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="ContactDetailPagePageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ContactVO1" RangeSize="25" DataControl="AppModuleDataControl" id="ContactVO1Iterator"/>
+    <iterator Binds="ContactAppointmentsVO2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactAppointmentsVO2Iterator"/>
+    <iterator Binds="ContactTasksVO2" RangeSize="25" DataControl="AppModuleDataControl" id="ContactTasksVO2Iterator"/>
+    <iterator Binds="ContactInteractionsVO2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactInteractionsVO2Iterator"/>
+    <iterator Binds="ContactOpportunitiesVO2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactOpportunitiesVO2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ContactVO1Iterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="AccountName">
+      <AttrNames>
+        <Item Value="AccountName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="Department">
+      <AttrNames>
+        <Item Value="Department"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="WorkPhone">
+      <AttrNames>
+        <Item Value="WorkPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="MobilePhone">
+      <AttrNames>
+        <Item Value="MobilePhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="BuyInfluenceLevel">
+      <AttrNames>
+        <Item Value="BuyInfluenceLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactVO1Iterator" id="IsPrimary">
+      <AttrNames>
+        <Item Value="IsPrimary"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ContactAppointmentsVO2Iterator" id="ContactAppointmentsVO2">
+      <nodeDefinition DefName="com.sfa.model.VO.ContactAppointmentsVO" Name="ContactAppointmentsVO20">
+        <AttrNames>
+          <Item Value="Name"/>
+          <Item Value="StartDatetime"/>
+          <Item Value="EndDatetime"/>
+          <Item Value="Location"/>
+          <Item Value="Description"/>
+          <Item Value="RelatedOpportunity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ContactTasksVO2Iterator" id="ContactTasksVO2">
+      <nodeDefinition DefName="com.sfa.model.VO.ContactTasksVO" Name="ContactTasksVO20">
+        <AttrNames>
+          <Item Value="TaskName"/>
+          <Item Value="Priority"/>
+          <Item Value="PercentageCompletion"/>
+          <Item Value="DueDate"/>
+          <Item Value="Description"/>
+          <Item Value="RelatedOpportunity"/>
+          <Item Value="Assignee"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ContactInteractionsVO2Iterator" id="ContactInteractionsVO2">
+      <nodeDefinition DefName="com.sfa.model.VO.ContactInteractionsVO" Name="ContactInteractionsVO20">
+        <AttrNames>
+          <Item Value="Type"/>
+          <Item Value="Direction"/>
+          <Item Value="StartDatetime"/>
+          <Item Value="EndDatetime"/>
+          <Item Value="Description"/>
+          <Item Value="Resolution"/>
+          <Item Value="RelatedOpportunity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ContactOpportunitiesVO2Iterator" id="ContactOpportunitiesVO2">
+      <nodeDefinition DefName="com.sfa.model.VO.ContactOpportunitiesVO" Name="ContactOpportunitiesVO20">
+        <AttrNames>
+          <Item Value="OpportunityName"/>
+          <Item Value="EstimatedDuration"/>
+          <Item Value="BudgetAmount"/>
+          <Item Value="CloseDate"/>
+          <Item Value="DecisionLevel"/>
+          <Item Value="IsBudgeted"/>
+          <Item Value="RevenueCurrency"/>
+          <Item Value="RevenueAmount"/>
+          <Item Value="RiskLevel"/>
+          <Item Value="SalesChannel"/>
+          <Item Value="SalesMethod"/>
+          <Item Value="SalesStage"/>
+          <Item Value="WinProbability"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

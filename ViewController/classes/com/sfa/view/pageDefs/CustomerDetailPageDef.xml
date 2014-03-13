@@ -4,11 +4,11 @@
   <parameters/>
   <executables>
     <iterator Binds="CustomerAccountView1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="CustomerAccountView1Iterator" ChangeEventPolicy="ppr" Refresh="always"/>
+              id="CustomerAccountView1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="CustomerContactsView2" RangeSize="25" DataControl="AppModuleDataControl"
-              id="CustomerContactsView2Iterator" ChangeEventPolicy="ppr" Refresh="always"/>
+              id="CustomerContactsView2Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="AppointmentsView2" RangeSize="25" DataControl="AppModuleDataControl"
-              id="AppointmentsView2Iterator" ChangeEventPolicy="ppr" Refresh="always"/>
+              id="AppointmentsView2Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="TasksView3" RangeSize="25" DataControl="AppModuleDataControl" id="TasksView3Iterator"
               ChangeEventPolicy="ppr"/>
     <iterator Binds="NotesVO1" RangeSize="25" DataControl="AppModuleDataControl" id="NotesVO1Iterator"

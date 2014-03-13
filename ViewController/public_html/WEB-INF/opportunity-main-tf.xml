@@ -50,6 +50,27 @@
         <id>Opportunity-attachments-tf</id>
       </task-flow-reference>
     </task-flow-call>
+    <task-flow-call id="customer-detail-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/customer-detail-taskflow.xml</document>
+        <id>customer-detail-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SetCurrentRowWithKeyValue2">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ContactDetailPage">
+      <page>/ContactDetailPage.jsff</page>
+    </view>
     <control-flow-rule id="__3">
       <from-activity-id>opportunity-all-main</from-activity-id>
       <control-flow-case id="__4">
@@ -59,6 +80,14 @@
       <control-flow-case id="__5">
         <from-outcome>create</from-outcome>
         <to-activity-id>opportunity-create-main</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome>getAccountDetail</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome>getContactDetail</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue2</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__1">
@@ -130,6 +159,20 @@
       <control-flow-case id="__21">
         <from-outcome>back</from-outcome>
         <to-activity-id>opportunity-details-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__24">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>customer-detail-taskflow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id>SetCurrentRowWithKeyValue2</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>ContactDetailPage</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

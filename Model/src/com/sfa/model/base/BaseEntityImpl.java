@@ -35,6 +35,12 @@ public class BaseEntityImpl extends EntityImpl {
         @Override
         protected void doDML(int operation, TransactionEvent transactionEvent) {
             int deleteCol = getSoftDeleteColumn();
+            
+            if(EntityImpl.DML_UPDATE == operation && deleteCol != -1) {
+                System.out.println("updating...");
+                setAttribute(deleteCol, "N");
+            }
+            
             if (EntityImpl.DML_DELETE == operation && deleteCol != -1) {
                 System.out.println("deleting...");
                 operation = DML_UPDATE;
@@ -43,10 +49,7 @@ public class BaseEntityImpl extends EntityImpl {
                 System.out.println("inserting...");
                 setAttribute(deleteCol, "N");
             }
-            if(EntityImpl.DML_UPDATE == operation && deleteCol != -1) {
-                System.out.println("updating...");
-                setAttribute(deleteCol, "N");
-            }
+            
             super.doDML(operation, transactionEvent);
 
         }

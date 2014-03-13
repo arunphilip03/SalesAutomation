@@ -1,5 +1,7 @@
 package com.sfa.model.VO;
 
+import com.sfa.model.base.BaseEntityImpl;
+
 import java.math.BigDecimal;
 
 import java.sql.Timestamp;
@@ -39,6 +41,7 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
         RelatedOpportunity,
         CustomerContactsView,
         ContactInteractionTeamVO,
+        ContactVO,
         OpportunitiesView1,
         InteractionsTypeLuView1,
         InteractionsDirectionLuView1;
@@ -66,6 +69,7 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int TYPE = AttributesEnum.Type.index();
     public static final int INTERACTIONID = AttributesEnum.InteractionId.index();
     public static final int DIRECTION = AttributesEnum.Direction.index();
@@ -80,6 +84,7 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
     public static final int RELATEDOPPORTUNITY = AttributesEnum.RelatedOpportunity.index();
     public static final int CUSTOMERCONTACTSVIEW = AttributesEnum.CustomerContactsView.index();
     public static final int CONTACTINTERACTIONTEAMVO = AttributesEnum.ContactInteractionTeamVO.index();
+    public static final int CONTACTVO = AttributesEnum.ContactVO.index();
     public static final int OPPORTUNITIESVIEW1 = AttributesEnum.OpportunitiesView1.index();
     public static final int INTERACTIONSTYPELUVIEW1 = AttributesEnum.InteractionsTypeLuView1.index();
     public static final int INTERACTIONSDIRECTIONLUVIEW1 = AttributesEnum.InteractionsDirectionLuView1.index();
@@ -94,16 +99,16 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
      * Gets ContactInteractions entity object.
      * @return the ContactInteractions
      */
-    public EntityImpl getContactInteractions() {
-        return (EntityImpl) getEntity(ENTITY_CONTACTINTERACTIONS);
+    public BaseEntityImpl getContactInteractions() {
+        return (BaseEntityImpl) getEntity(ENTITY_CONTACTINTERACTIONS);
     }
 
     /**
      * Gets InteractionTeam entity object.
      * @return the InteractionTeam
      */
-    public EntityImpl getInteractionTeam() {
-        return (EntityImpl) getEntity(ENTITY_INTERACTIONTEAM);
+    public BaseEntityImpl getInteractionTeam() {
+        return (BaseEntityImpl) getEntity(ENTITY_INTERACTIONTEAM);
     }
 
     /**
@@ -334,6 +339,20 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
      */
     public RowIterator getContactInteractionTeamVO() {
         return (RowIterator) getAttributeInternal(CONTACTINTERACTIONTEAMVO);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link ContactVO.
+     */
+    public Row getContactVO() {
+        return (Row) getAttributeInternal(CONTACTVO);
+    }
+
+    /**
+     * Sets the master-detail link ContactVO between this object and <code>value</code>.
+     */
+    public void setContactVO(Row value) {
+        setAttributeInternal(CONTACTVO, value);
     }
 
     /**

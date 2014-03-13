@@ -22,8 +22,7 @@
         Type="oracle.jbo.domain.Number"/>
     <ViewAccessor
         Name="ContactBuyingroleLuView1"
-        RowLevelBinds="true"
-        ViewObjectName="ContactBuyingroleLuView1"/>
+        RowLevelBinds="true"/>
     <ViewAccessor
         Name="ContactBuyingroleLuView2"
         ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
@@ -129,29 +128,29 @@
         <DisplayCriteria
             Hint="hide"/>
     </ListBinding>
-    <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,    
-       CustomerContacts.CONTACT_ID,    
-       CustomerContacts.CUST_ACCOUNT_ID,    
-       CustomerContacts.TITLE,    
-       CustomerContacts.DEPARTMENT,    
-       CustomerContacts.ADDRESS,    
-       CustomerContacts.WORK_PHONE,    
-       CustomerContacts.MOBILE_PHONE,    
-       CustomerContacts.EMAIL,    
-       CustomerContacts.BUY_INFLUENCE_LEVEL,    
-       CustomerContacts.IS_PRIMARY,    
-       CustomerContacts.CREATION_DATE,    
-       CustomerContacts.LAST_UPDATE_DATE,    
-       CustomerContacts.CREATED_BY,    
-       CustomerContacts.LAST_UPDATED_BY,    
-       CustomerContacts.NOTES_SEQ_ID,    
-       CustomerContacts.LAST_UPDATE_LOGIN,    
-       CustomerContacts.OBJECT_VERSION_NUMBER,    
-       CustomerAccount.ACCOUNT_NAME,    
-       CustomerAccount.CUST_ACCOUNT_ID AS CUST_ACCOUNT_ID1,    
-       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1   
-FROM  CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount   
-WHERE CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID  
+    <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,       
+       CustomerContacts.CONTACT_ID,       
+       CustomerContacts.CUST_ACCOUNT_ID,       
+       CustomerContacts.TITLE,       
+       CustomerContacts.DEPARTMENT,       
+       CustomerContacts.ADDRESS,       
+       CustomerContacts.WORK_PHONE,       
+       CustomerContacts.MOBILE_PHONE,       
+       CustomerContacts.EMAIL,       
+       CustomerContacts.BUY_INFLUENCE_LEVEL,       
+       CustomerContacts.IS_PRIMARY,       
+       CustomerContacts.CREATION_DATE,       
+       CustomerContacts.LAST_UPDATE_DATE,       
+       CustomerContacts.CREATED_BY,       
+       CustomerContacts.LAST_UPDATED_BY,       
+       CustomerContacts.NOTES_SEQ_ID,       
+       CustomerContacts.LAST_UPDATE_LOGIN,       
+       CustomerContacts.OBJECT_VERSION_NUMBER,       
+       CustomerAccount.ACCOUNT_NAME,       
+       CustomerAccount.CUST_ACCOUNT_ID AS CUST_ACCOUNT_ID1, 
+       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1      
+FROM  CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount      
+WHERE CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID     
 AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]></SQLQuery>
     <EntityUsage
         Name="CustomerContacts"

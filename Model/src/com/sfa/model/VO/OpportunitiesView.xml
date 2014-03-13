@@ -247,7 +247,14 @@
         PrecisionRule="true"
         EntityAttrName="WinProbability"
         EntityUsage="Opportunities"
-        AliasName="WIN_PROBABILITY"/>
+        AliasName="WIN_PROBABILITY">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.sfa.model.VO.OpportunitiesView.WinProbability_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="CloseDate"
         PrecisionRule="true"
@@ -529,9 +536,30 @@
             Name="OpportunitiesViewCriteria_row_0"
             UpperColumns="1">
             <ViewCriteriaItem
+                Name="SalesStage"
+                ViewAttribute="SalesStage"
+                Operator="="
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="SalesMethod"
+                ViewAttribute="SalesMethod"
+                Operator="="
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+            <ViewCriteriaItem
                 Name="OpportunityName"
                 ViewAttribute="OpportunityName"
                 Operator="STARTSWITH"
+                Conjunction="AND"
+                GenerateIsNullClauseForBindVars="false"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="OpportunitiesViewCriteria_OpportunitiesViewCriteria_row_0_AccountName"
+                ViewAttribute="AccountName"
+                Operator="="
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
                 Required="Optional"/>
@@ -567,30 +595,16 @@
             Name="OpportunitiesViewCriteria_row_0"
             UpperColumns="1">
             <ViewCriteriaItem
-                Name="WinProbability"
-                ViewAttribute="WinProbability"
+                Name="SalesStage"
+                ViewAttribute="SalesStage"
                 Operator="="
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
                 Required="Optional"/>
             <ViewCriteriaItem
-                Name="RevenueCurrency"
-                ViewAttribute="RevenueCurrency"
+                Name="SalesMethod"
+                ViewAttribute="SalesMethod"
                 Operator="="
-                Conjunction="AND"
-                GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
-            <ViewCriteriaItem
-                Name="RevenueAmount"
-                ViewAttribute="RevenueAmount"
-                Operator="="
-                Conjunction="AND"
-                GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
-            <ViewCriteriaItem
-                Name="RiskLevel"
-                ViewAttribute="RiskLevel"
-                Operator="STARTSWITH"
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
                 Required="Optional"/>
@@ -604,7 +618,7 @@
             <ViewCriteriaItem
                 Name="OpportunitiesViewCriteria_OpportunitiesViewCriteria_row_0_AccountName"
                 ViewAttribute="AccountName"
-                Operator="STARTSWITH"
+                Operator="="
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
                 Required="Optional"/>

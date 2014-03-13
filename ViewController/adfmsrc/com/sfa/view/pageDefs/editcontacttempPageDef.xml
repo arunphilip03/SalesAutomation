@@ -41,7 +41,6 @@
     <listOfValues IterBinding="CustomerContactsView2Iterator" StaticList="false" Uses="LOV_BuyInfluenceLevel"
                   id="BuyInfluenceLevel"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
     <listOfValues IterBinding="CustomerContactsView2Iterator" StaticList="false" Uses="LOV_Title" id="Title1"/>
     <button IterBinding="CustomerContactsView2Iterator" id="IsPrimaryBoolean" DTSupportsMRU="false" StaticList="true">
       <AttrNames>
@@ -52,5 +51,6 @@
         <Item Value="false"/>
       </ValueList>
     </button>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>
