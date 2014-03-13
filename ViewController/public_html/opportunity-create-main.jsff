@@ -140,14 +140,16 @@
                                 <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.WorstCaseRevenue.format}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.IsBudgeted.inputValue}"
-                                          label="#{bindings.IsBudgeted.hints.label}"
-                                          required="#{bindings.IsBudgeted.hints.mandatory}"
-                                          columns="#{bindings.IsBudgeted.hints.displayWidth}"
-                                          maximumLength="#{bindings.IsBudgeted.hints.precision}"
-                                          shortDesc="#{bindings.IsBudgeted.hints.tooltip}" id="it7">
-                                <f:validator binding="#{bindings.IsBudgeted.validator}"/>
-                            </af:inputText>
+                            <af:inputComboboxListOfValues id="isBudgeted1Id"
+                                                          popupTitle="Search and Select: #{bindings.IsBudgeted1.hints.label}"
+                                                          value="#{bindings.IsBudgeted1.inputValue}"
+                                                          label="#{bindings.IsBudgeted1.hints.label}"
+                                                          model="#{bindings.IsBudgeted1.listOfValuesModel}"
+                                                          required="#{bindings.IsBudgeted1.hints.mandatory}"
+                                                          columns="#{bindings.IsBudgeted1.hints.displayWidth}"
+                                                          shortDesc="#{bindings.IsBudgeted1.hints.tooltip}">
+                                <f:validator binding="#{bindings.IsBudgeted1.validator}"/>
+                            </af:inputComboboxListOfValues>
                             <af:inputText value="#{bindings.BudgetAmount.inputValue}"
                                           label="#{bindings.BudgetAmount.hints.label}"
                                           required="#{bindings.BudgetAmount.hints.mandatory}"

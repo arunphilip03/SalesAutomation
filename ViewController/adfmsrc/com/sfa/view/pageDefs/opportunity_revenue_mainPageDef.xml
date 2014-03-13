@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="opportunity_revenue_mainPageDef" Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpportunityRevenueItemsView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunityRevenueItemsView2Iterator" ChangeEventPolicy="none"/>
+    <searchRegion Criteria="OpportunityRevenueItemsViewSearch"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="OpportunityRevenueItemsView2Iterator" id="OpportunityRevenueItemsViewSearchQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OpportunityRevenueItemsView2Iterator" id="OpportunityRevenueItemsView2">
+      <nodeDefinition DefName="com.sfa.model.VO.OpportunityRevenueItemsView" Name="OpportunityRevenueItemsView20">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="Quantity"/>
+          <Item Value="EstimatedPrice"/>
+          <Item Value="Revenue"/>
+          <Item Value="WinProbability"/>
+          <Item Value="BestCaseRevenue"/>
+          <Item Value="WorstCaseRevenue"/>
+          <Item Value="SalesForecastIncluded"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="OpportunityRevenueItemsView2Iterator" id="Delete"
+            InstanceName="AppModuleDataControl.OpportunityRevenueItemsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunityRevenueItemsView2Iterator" id="CreateInsert"
+            InstanceName="AppModuleDataControl.OpportunityRevenueItemsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="OpportunityRevenueItemsView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

@@ -20,6 +20,10 @@
     Name="OpportunitiesView1"
     ViewObjectName="com.sfa.model.VO.OpportunitiesView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="IsBudgetedView1"
+    ViewObjectName="com.sfa.model.VO.IsBudgetedView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ProductName"
     ListVOName="ProductCatalogView1"
@@ -63,6 +67,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="OpportunityName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SalesForecastIncluded"
+    ListVOName="IsBudgetedView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SalesForecastIncluded"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IsBudgeted"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="IsBudgeted"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -150,7 +173,15 @@ WHERE OpportunityRevenueItems.DELETE_FLAG = 'N']]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="SalesForecastIncluded"
     EntityUsage="OpportunityRevenueItems"
-    AliasName="SALES_FORECAST_INCLUDED"/>
+    AliasName="SALES_FORECAST_INCLUDED"
+    LOVName="LOV_SalesForecastIncluded">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreationDate"
     IsNotNull="true"
@@ -247,6 +278,65 @@ WHERE OpportunityRevenueItems.DELETE_FLAG = 'N']]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="OpportunityRevenueItemsViewSearch"
+    ViewObjectName="com.sfa.model.VO.OpportunityRevenueItemsView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="displayName"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="OpportunityRevenueItemsViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Quantity"
+        ViewAttribute="Quantity"
+        Operator="="
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Revenue"
+        ViewAttribute="Revenue"
+        Operator="="
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductName"
+        ViewAttribute="ProductName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OpportunityName"
+        ViewAttribute="OpportunityName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sfa.model.ModelBundle"/>

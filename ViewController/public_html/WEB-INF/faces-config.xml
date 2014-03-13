@@ -48,4 +48,9 @@
     <managed-bean-class>com.sfa.view.backing.OppoAttachmentBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean>
+    <managed-bean-name>DisableParentRefresh</managed-bean-name>
+    <managed-bean-class>com.sfa.view.backing.DisableParentRefresh</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </faces-config>

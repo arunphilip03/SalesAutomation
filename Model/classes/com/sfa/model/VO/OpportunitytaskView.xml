@@ -26,6 +26,10 @@
     Name="CustomerAccountView1"
     ViewObjectName="com.sfa.model.VO.CustomerAccountView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OpportunityRisklevelLuView1"
+    ViewObjectName="com.sfa.model.VO.OpportunityRisklevelLuView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_FirstName"
     ListVOName="UsersView1"
@@ -69,6 +73,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="AccountName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Priority"
+    ListVOName="OpportunityRisklevelLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Priority"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Risklevel"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Risklevel"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -151,7 +174,15 @@ WHERE Tasks.DELETE_FLAG = 'N']]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="Priority"
     EntityUsage="Tasks"
-    AliasName="PRIORITY"/>
+    AliasName="PRIORITY"
+    LOVName="LOV_Priority">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TaskId"
     IsNotNull="true"

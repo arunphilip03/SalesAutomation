@@ -3,20 +3,8 @@
                 xmlns:f="http://java.sun.com/jsf/core">
     <af:panelGridLayout id="pgl1">
         <af:gridRow height="100%" id="gr1">
-            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1" styleClass="AFStretchWidth">
                 <!-- Content -->
-                <af:panelHeader text="Appointments for Opportunity #{bindings.OpportunityName}" id="ph1" inlineStyle="height:45px;"
-                                styleClass="AFStretchWidth">
-                    <f:facet name="context"/>
-                    <f:facet name="menuBar"/>
-                    <f:facet name="toolbar">
-                        <af:toolbar id="t2">
-                            <af:button text="Close" id="b1" action="exit" immediate="true"/>
-                        </af:toolbar>
-                    </f:facet>
-                    <f:facet name="legend"/>
-                    <f:facet name="info"/>
-                </af:panelHeader>
                 <af:panelFormLayout id="pfl1" rows="1">
                     <af:inputText value="#{bindings.OpportunityName.inputValue}"
                                   label="#{bindings.OpportunityName.hints.label}"
@@ -38,118 +26,82 @@
                         <f:validator binding="#{bindings.AccountName.validator}"/>
                     </af:inputComboboxListOfValues>
                 </af:panelFormLayout>
-                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="270">
-                    <f:facet name="first">
-                        <af:panelGroupLayout layout="vertical" id="pgl2">
-                            <af:panelHeader text=" " id="ph2">
-                                <af:query id="qryId1" headerText="Search" disclosed="true"
-                                          value="#{bindings.OpportunityAppointmentViewSearchQuery.queryDescriptor}"
-                                          model="#{bindings.OpportunityAppointmentViewSearchQuery.queryModel}"
-                                          queryListener="#{bindings.OpportunityAppointmentViewSearchQuery.processQuery}"
-                                          queryOperationListener="#{bindings.OpportunityAppointmentViewSearchQuery.processQueryOperation}"/>
-                            </af:panelHeader>
-                        </af:panelGroupLayout>
+                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t3">
+                            <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                     actionListener="#{bindings.CreateInsert1.execute}" action="create"/>
+                            <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"
+                                     disabledIcon="#{resource['images:update_dis.png']}"
+                                     disabled="#{bindings.OpportunityAppointmentView2Iterator.estimatedRowCount eq 0}"
+                                     visible="false"/>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
+                                <af:dialog id="d1" title="Are you sure you want to delete the Selected Appointment?"
+                                           dialogListener="#{ConfirmBean.dialogListener}">
+                                    <f:facet name="buttonBar"/>
+                                </af:dialog>
+                            </af:popup>
+                            <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                     disabledIcon="#{resource['images:delete_dis.png']}"
+                                     disabled="#{bindings.OpportunityAppointmentView2Iterator.estimatedRowCount eq 0}"
+                                     visible="false">
+                                <af:showPopupBehavior popupId="deletep" triggerType="click" align="overlap"/>
+                            </af:link>
+                        </af:toolbar>
                     </f:facet>
-                    <f:facet name="second">
-                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                            <f:facet name="menus"/>
-                            <f:facet name="toolbar">
-                                <af:toolbar id="t3">
-                                    <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                             actionListener="#{bindings.CreateInsert1.execute}" action="create"/>
-                                    <af:link id="l2" action="edit" icon="#{resource['images:update_ena.png']}"
-                                             disabledIcon="#{resource['images:update_dis.png']}"
-                                             disabled="#{bindings.OpportunityAppointmentView2Iterator.estimatedRowCount eq 0}"/>
-                                    <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
-                                        <af:dialog id="d1"
-                                                   title="Are you sure you want to delete the Selected Appointment?"
-                                                   dialogListener="#{ConfirmBean.dialogListener}">
-                                            <f:facet name="buttonBar"/>
-                                        </af:dialog>
-                                    </af:popup>
-                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                             disabledIcon="#{resource['images:delete_dis.png']}"
-                                             disabled="#{bindings.OpportunityAppointmentView2Iterator.estimatedRowCount eq 0}">
-                                        <af:showPopupBehavior popupId="deletep" triggerType="click" align="overlap"/>
-                                    </af:link>
-                                </af:toolbar>
-                            </f:facet>
-                            <af:table value="#{bindings.OpportunityAppointmentView2.collectionModel}" var="row"
-                                      rows="#{bindings.OpportunityAppointmentView2.rangeSize}"
-                                      emptyText="#{bindings.OpportunityAppointmentView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
-                                      selectedRowKeys="#{bindings.OpportunityAppointmentView2.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.OpportunityAppointmentView2.collectionModel.makeCurrent}"
-                                      rowSelection="single"
-                                      fetchSize="#{bindings.OpportunityAppointmentView2.rangeSize}" id="t1"
-                                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l1 ::l3">
-                                <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Name.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunityAppointmentView2.hints.Name.label}" id="c1"
-                                           width="163">
-                                    <af:link id="cl1" partialSubmit="true" action="edit">
-                                        <af:outputText value="#{row.Name}"
-                                                       shortDesc="#{bindings.OpportunityAppointmentView2.hints.Name.tooltip}"
-                                                       id="ot1"/>
-                                    </af:link>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.OpportunityName.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunityAppointmentView2.hints.OpportunityName.label}"
-                                           id="c2" width="149">
-                                    <af:outputText value="#{row.OpportunityName}"
-                                                   shortDesc="#{bindings.OpportunityAppointmentView2.hints.OpportunityName.tooltip}"
-                                                   id="ot2"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.AccountName.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunityAppointmentView2.hints.AccountName.label}"
-                                           id="c3" width="161">
-                                    <af:outputText value="#{row.AccountName}"
-                                                   shortDesc="#{bindings.OpportunityAppointmentView2.hints.AccountName.tooltip}"
-                                                   id="ot3"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Description.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunityAppointmentView2.hints.Description.label}"
-                                           id="c4" width="194">
-                                    <af:outputText value="#{row.Description}"
-                                                   shortDesc="#{bindings.OpportunityAppointmentView2.hints.Description.tooltip}"
-                                                   id="ot4"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.label}"
-                                           id="c5" width="159">
-                                    <af:outputText value="#{row.EndDatetime}"
-                                                   shortDesc="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.tooltip}"
-                                                   id="ot5">
-                                        <af:convertDateTime pattern="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Location.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunityAppointmentView2.hints.Location.label}"
-                                           id="c6" width="178">
-                                    <af:outputText value="#{row.Location}"
-                                                   shortDesc="#{bindings.OpportunityAppointmentView2.hints.Location.tooltip}"
-                                                   id="ot6"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.label}"
-                                           id="c7" width="-304">
-                                    <af:outputText value="#{row.StartDatetime}"
-                                                   shortDesc="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.tooltip}"
-                                                   id="ot7">
-                                        <af:convertDateTime pattern="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                            </af:table>
-                            <f:facet name="statusbar"/>
-                        </af:panelCollection>
-                    </f:facet>
-                </af:panelSplitter>
+                    <af:table value="#{bindings.OpportunityAppointmentView2.collectionModel}" var="row"
+                              rows="#{bindings.OpportunityAppointmentView2.rangeSize}"
+                              emptyText="#{bindings.OpportunityAppointmentView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.OpportunityAppointmentView2.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.OpportunityAppointmentView2.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.OpportunityAppointmentView2.rangeSize}"
+                              id="t1" styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l1 ::l3">
+                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Name.name}"
+                                   sortable="true" headerText="#{bindings.OpportunityAppointmentView2.hints.Name.label}"
+                                   id="c2" width="208">
+                                   <af:link id="link1" partialSubmit="true" action="edit" text="#{row.Name}"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Description.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.OpportunityAppointmentView2.hints.Description.label}" id="c4"
+                                   width="301">
+                            <af:outputText value="#{row.Description}"
+                                           shortDesc="#{bindings.OpportunityAppointmentView2.hints.Description.tooltip}"
+                                           id="ot4"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.label}"
+                                   id="c6" width="213">
+                            <af:outputText value="#{row.StartDatetime}"
+                                           shortDesc="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.tooltip}"
+                                           id="ot1">
+                                <af:convertDateTime pattern="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.label}" id="c5"
+                                   width="188">
+                            <af:outputText value="#{row.EndDatetime}"
+                                           shortDesc="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.tooltip}"
+                                           id="ot5">
+                                <af:convertDateTime pattern="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Location.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.OpportunityAppointmentView2.hints.Location.label}" id="c1"
+                                   width="-401">
+                            <af:outputText value="#{row.Location}"
+                                           shortDesc="#{bindings.OpportunityAppointmentView2.hints.Location.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                    </af:table>
+                    <f:facet name="statusbar"/>
+                </af:panelCollection>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

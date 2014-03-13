@@ -6,8 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="OpportunitytaskView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="OpportunitytaskView2Iterator"/>
-    <searchRegion Criteria="OpportunitytaskViewSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="OpportunitytaskView2Iterator" id="OpportunitytaskViewSearchQuery"/>
     <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="OpportunitiesView1Iterator"/>
   </executables>

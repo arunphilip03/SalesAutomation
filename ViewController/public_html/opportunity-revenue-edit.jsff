@@ -85,14 +85,16 @@
                         <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.WorstCaseRevenue.format}"/>
                     </af:inputText>
-                    <af:inputText value="#{bindings.SalesForecastIncluded.inputValue}"
-                                  label="#{bindings.SalesForecastIncluded.hints.label}"
-                                  required="#{bindings.SalesForecastIncluded.hints.mandatory}"
-                                  columns="#{bindings.SalesForecastIncluded.hints.displayWidth}"
-                                  maximumLength="#{bindings.SalesForecastIncluded.hints.precision}"
-                                  shortDesc="#{bindings.SalesForecastIncluded.hints.tooltip}" id="it7">
-                        <f:validator binding="#{bindings.SalesForecastIncluded.validator}"/>
-                    </af:inputText>
+                    <af:inputComboboxListOfValues id="salesForecastIncluded1Id"
+                                                  popupTitle="Search and Select: #{bindings.SalesForecastIncluded1.hints.label}"
+                                                  value="#{bindings.SalesForecastIncluded1.inputValue}"
+                                                  label="#{bindings.SalesForecastIncluded1.hints.label}"
+                                                  model="#{bindings.SalesForecastIncluded1.listOfValuesModel}"
+                                                  required="#{bindings.SalesForecastIncluded1.hints.mandatory}"
+                                                  columns="#{bindings.SalesForecastIncluded1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.SalesForecastIncluded1.hints.tooltip}">
+                        <f:validator binding="#{bindings.SalesForecastIncluded1.validator}"/>
+                    </af:inputComboboxListOfValues>
                 </af:panelFormLayout>
             </af:gridCell>
         </af:gridRow>

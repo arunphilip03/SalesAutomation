@@ -46,7 +46,12 @@
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <attributeValues IterBinding="OpportunitiesView1Iterator" id="CustAccountId">
+    <attributeValues IterBinding="OpportunityAppointmentView2Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpportunitiesView1Iterator" id="CustAccountId1">
       <AttrNames>
         <Item Value="CustAccountId"/>
       </AttrNames>

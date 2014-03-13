@@ -35,9 +35,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="OpportunityNotes2Iterator" id="Create1" RequiresUpdateModel="true" Action="createRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action IterBinding="OpportunityNotes2Iterator" id="Delete" InstanceName="AppModuleDataControl.OpportunityNotes2"
             DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunityNotes2Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

@@ -44,11 +44,6 @@
         <Item Value="WorstCaseRevenue"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OpportunitiesView1Iterator" id="IsBudgeted">
-      <AttrNames>
-        <Item Value="IsBudgeted"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="BudgetAmount">
       <AttrNames>
         <Item Value="BudgetAmount"/>
@@ -81,5 +76,6 @@
       </AttrNames>
     </attributeValues>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_IsBudgeted" id="IsBudgeted1"/>
   </bindings>
 </pageDefinition>

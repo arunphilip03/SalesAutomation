@@ -1110,12 +1110,20 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
 
     /**
+     * Container's getter for IsBudgetedView1.
+     * @return IsBudgetedView1
+     */
+    public ViewObjectImpl getIsBudgetedView1() {
+        return (ViewObjectImpl) findViewObject("IsBudgetedView1");
+
+    /**
      * Container's getter for ActiveUsersVO1.
      * @return ActiveUsersVO1
      */
     public ViewObjectImpl getActiveUsersVO1() {
         return (ViewObjectImpl) findViewObject("ActiveUsersVO1");
-    }
+}
+}
 
     /**
      * Container's getter for InactiveUsersVO1.

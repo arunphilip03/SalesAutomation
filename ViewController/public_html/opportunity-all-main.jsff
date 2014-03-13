@@ -55,8 +55,8 @@
                                                           pattern="#{bindings.OpportunitiesView1.hints.PrimaryContactId.format}"/>
                                     </af:outputText>
                                 </af:column>
-                                <af:column headerText="#{bindings.OpportunitiesView1.hints.CustAccountId.label}"
-                                           id="c7" rendered="false">
+                                <af:column headerText="#{bindings.OpportunitiesView1.hints.CustAccountId.label}" id="c7"
+                                           rendered="false">
                                     <af:outputText value="#{row.CustAccountId}"
                                                    shortDesc="#{bindings.OpportunitiesView1.hints.CustAccountId.tooltip}"
                                                    id="ot3">
@@ -70,7 +70,6 @@
                                            id="c16">
                                     <af:link id="cl1" partialSubmit="true" action="OppDetails"
                                              text="#{row.OpportunityName}"/>
-                                   
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.AccountName.name}"
                                            sortable="true"
@@ -80,7 +79,6 @@
                                         <af:setPropertyListener from="#{row.CustAccountId}"
                                                                 to="#{pageFlowScope.selectedAccount}" type="action"/>
                                     </af:link>
-                                    
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.ContactName.name}"
                                            sortable="true"
@@ -90,7 +88,6 @@
                                         <af:setPropertyListener from="#{row.PrimaryContactId}"
                                                                 to="#{pageFlowScope.selectedContact}" type="action"/>
                                     </af:link>
-                                   
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.WinProbability.name}"
                                            sortable="true"

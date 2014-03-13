@@ -265,11 +265,13 @@ public class OppoTeamSC  {
     }
     
     public void onPrimaryCommit(ActionEvent actionEvent){
+        System.out.println("inside onPrimaryCommit");
         DCBindingContainer bc = (DCBindingContainer)getBindings();
         DCIteratorBinding iter = bc.findIteratorBinding("OpportunityTeamView2Iterator");  
        
         AttributeBinding attr = (AttributeBinding)bc.findCtrlBinding("PrimaryContactId");
         Number contctId = (Number)attr.getInputValue();
+        System.out.println(contctId);
         
         Row row = iter.getRowSetIterator().createRow();
         row.setAttribute("OpportunityId", getCurrentOpportunityId());

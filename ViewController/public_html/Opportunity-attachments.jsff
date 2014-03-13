@@ -5,18 +5,6 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelHeader text="Available Attachments for #{bindings.OpportunityName}" id="ph1" inlineStyle="height:47px;"
-                                styleClass="AFStretchWidth">
-                    <f:facet name="context"/>
-                    <f:facet name="menuBar"/>
-                    <f:facet name="toolbar">
-                        <af:toolbar id="t3">
-                            <af:button text="Close" id="b1" action="exit"/>
-                        </af:toolbar>
-                    </f:facet>
-                    <f:facet name="legend"/>
-                    <f:facet name="info"/>
-                </af:panelHeader>
                 <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
                     <af:inputText value="#{bindings.OpportunityName.inputValue}"
                                   label="#{bindings.OpportunityName.hints.label}"
@@ -27,9 +15,9 @@
                         <f:validator binding="#{bindings.OpportunityName.validator}"/>
                     </af:inputText>
                 </af:panelFormLayout>
-                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="349" styleClass="AFStretchWidth">
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="283" styleClass="AFStretchWidth">
                     <f:facet name="first">
-                        <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="177"
+                        <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="131"
                                           styleClass="AFStretchWidth">
                             <f:facet name="first">
                                 <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">

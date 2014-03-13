@@ -5,7 +5,7 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelHeader text="Edit Appointment" id="ph1" inlineStyle="height:47px;">
+                <af:panelHeader text="Appointment Details" id="ph1" inlineStyle="height:47px;">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
@@ -35,27 +35,37 @@
                 </af:panelFormLayout>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="83">
                     <f:facet name="first">
-                        <af:panelFormLayout id="pfl1" rows="3">
+                        <af:panelFormLayout id="pfl1" rows="4">
                             <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
                                           required="#{bindings.Name.hints.mandatory}"
                                           columns="#{bindings.Name.hints.displayWidth}"
                                           maximumLength="#{bindings.Name.hints.precision}"
-                                          shortDesc="#{bindings.Name.hints.tooltip}" id="it1">
+                                          shortDesc="#{bindings.Name.hints.tooltip}" id="it1" readOnly="true">
                                 <f:validator binding="#{bindings.Name.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.AppointmentId.inputValue}"
+                                          label="#{bindings.AppointmentId.hints.label}"
+                                          required="#{bindings.AppointmentId.hints.mandatory}"
+                                          columns="#{bindings.AppointmentId.hints.displayWidth}"
+                                          maximumLength="#{bindings.AppointmentId.hints.precision}"
+                                          shortDesc="#{bindings.AppointmentId.hints.tooltip}" id="it4" visible="false"
+                                          readOnly="true">
+                                <f:validator binding="#{bindings.AppointmentId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.AppointmentId.format}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.Description.inputValue}"
                                           label="#{bindings.Description.hints.label}"
                                           required="#{bindings.Description.hints.mandatory}"
                                           columns="#{bindings.Description.hints.displayWidth}"
                                           maximumLength="#{bindings.Description.hints.precision}"
-                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it2" readOnly="true">
                                 <f:validator binding="#{bindings.Description.validator}"/>
                             </af:inputText>
                             <af:inputDate value="#{bindings.StartDatetime.inputValue}"
                                           label="#{bindings.StartDatetime.hints.label}"
                                           required="#{bindings.StartDatetime.hints.mandatory}"
                                           columns="#{bindings.StartDatetime.hints.displayWidth}"
-                                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1">
+                                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1" readOnly="true">
                                 <f:validator binding="#{bindings.StartDatetime.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
                             </af:inputDate>
@@ -63,7 +73,7 @@
                                           label="#{bindings.EndDatetime.hints.label}"
                                           required="#{bindings.EndDatetime.hints.mandatory}"
                                           columns="#{bindings.EndDatetime.hints.displayWidth}"
-                                          shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2">
+                                          shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2" readOnly="true">
                                 <f:validator binding="#{bindings.EndDatetime.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
                             </af:inputDate>
@@ -72,7 +82,7 @@
                                           required="#{bindings.Location.hints.mandatory}"
                                           columns="#{bindings.Location.hints.displayWidth}"
                                           maximumLength="#{bindings.Location.hints.precision}"
-                                          shortDesc="#{bindings.Location.hints.tooltip}" id="it3">
+                                          shortDesc="#{bindings.Location.hints.tooltip}" id="it3" readOnly="true">
                                 <f:validator binding="#{bindings.Location.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.AppointmentId.inputValue}"
@@ -80,7 +90,8 @@
                                           required="#{bindings.AppointmentId.hints.mandatory}"
                                           columns="#{bindings.AppointmentId.hints.displayWidth}"
                                           maximumLength="#{bindings.AppointmentId.hints.precision}"
-                                          shortDesc="#{bindings.AppointmentId.hints.tooltip}" id="it4" visible="false">
+                                          shortDesc="#{bindings.AppointmentId.hints.tooltip}" id="it4" visible="false"
+                                          readOnly="true">
                                 <f:validator binding="#{bindings.AppointmentId.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.AppointmentId.format}"/>
                             </af:inputText>
