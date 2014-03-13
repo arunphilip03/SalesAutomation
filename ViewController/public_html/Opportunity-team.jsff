@@ -5,16 +5,16 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelHeader text="Opportunity Team" id="ph1" inlineStyle="height:36px;" styleClass="AFStretchWidth">
+                <af:panelHeader text=" " id="ph1" inlineStyle="height:36px;" styleClass="AFStretchWidth">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b3" actionListener="#{OppoTeamSC.onCommit}"/>
                             <af:button text="Save and Close" id="b1" action="back"
-                                       actionListener="#{OppoTeamSC.onCommit}"/>
+                                       actionListener="#{OppoTeamSC.onCommit}" visible="false"/>
                             <af:button text="Cancel" id="b2"
-                                       immediate="true" action="back">
+                                       immediate="true" action="back" visible="false">
                                 <af:resetActionListener/>
                             </af:button>
                         </af:toolbar>

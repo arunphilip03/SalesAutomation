@@ -105,6 +105,9 @@
     <ViewUsage
         Name="CurrencyLuView1"
         ViewObjectName="com.sfa.model.VO.CurrencyLuView"/>
+    <ViewUsage
+        Name="IsBudgetedView1"
+        ViewObjectName="com.sfa.model.VO.IsBudgetedView"/>
     <ViewLinkUsage Name="AppointmentInviteesFk1Link1"
                    ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
                    SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentsView1"

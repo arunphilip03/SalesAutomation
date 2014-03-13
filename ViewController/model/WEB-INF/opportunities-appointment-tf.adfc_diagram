@@ -17,9 +17,9 @@
       <property
          name="y">134.89648</property>
       <property
-         name="x">181.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">181.0</property>
    </View>
    <View
       id="View3">
@@ -32,11 +32,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">79.896484</property>
-      <property
-         name="x">472.0</property>
+         name="y">81.19531</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">546.0</property>
    </View>
    <View
       id="View4">
@@ -51,9 +51,9 @@
       <property
          name="y">284.1953</property>
       <property
-         name="x">482.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">482.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -73,7 +73,7 @@
       <property
          name="fromOutcome">create</property>
       <property
-         name="sdm:polyPoints">R46,222.7935,131.0459,431.0,83.0459,L54</property>
+         name="sdm:polyPoints">R46,222.5737,131.0459,505.0,84.34473,L54</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn7">
@@ -123,9 +123,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">140.14941</property>
+         name="y">174.44824</property>
       <property
-         name="x">739.9248</property>
+         name="x">751.9248</property>
    </TaskFlowCall>
    <ControlFlowCase
       islink="true"
@@ -135,6 +135,6 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L50,431.0,79.5459,222.0,124.0459,R38</property>
+         name="sdm:polyPoints">L46,504.42572,77.34473,222.0,124.0459,R38</property>
    </ControlFlowCase>
 </SDM>

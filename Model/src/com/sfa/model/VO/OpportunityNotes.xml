@@ -29,7 +29,14 @@
   <Variable
     Name="p2"
     Kind="where"
-    Type="oracle.jbo.domain.Number"/>
+    Type="oracle.jbo.domain.Number">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <EntityUsage
     Name="Notes"
     Entity="com.sfa.model.entity.Notes"/>

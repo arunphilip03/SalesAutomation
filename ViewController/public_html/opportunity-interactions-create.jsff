@@ -22,7 +22,7 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="125">
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="102">
                     <f:facet name="first">
                         <af:panelFormLayout id="pfl1" rows="4">
                             <af:inputText value="#{bindings.OppurtunityId.inputValue}"

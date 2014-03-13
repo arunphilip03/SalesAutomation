@@ -6,9 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="ContactInteractionsView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="ContactInteractionsView2Iterator"/>
-    <searchRegion Criteria="ContactInteractionsViewSearch"
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="ContactInteractionsView2Iterator" id="ContactInteractionsViewSearchQuery"/>
     <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="OpportunitiesView1Iterator"/>
   </executables>
@@ -36,10 +33,7 @@
     <action IterBinding="ContactInteractionsView2Iterator" id="Delete"
             InstanceName="AppModuleDataControl.ContactInteractionsView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action IterBinding="ContactInteractionsView2Iterator" id="CreateInsert"
-            InstanceName="AppModuleDataControl.ContactInteractionsView2" DataControl="AppModuleDataControl"
-            RequiresUpdateModel="true" Action="createInsertRow"/>
-    <action IterBinding="ContactInteractionsView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+    <action IterBinding="ContactInteractionsView2Iterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

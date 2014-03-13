@@ -5,10 +5,27 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="OpportunitiesView1Iterator"/>
+              id="OpportunitiesView1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="OpportunityRevenueItemsView2" RangeSize="25" DataControl="AppModuleDataControl"
-              id="OpportunityRevenueItemsView2Iterator"/>
-    <iterator Binds="OpportunityNotes2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="OpportunityRevenueItemsView2Iterator" ChangeEventPolicy="none"/>
+    <taskFlow id="Opportunityteamtf1" taskFlowId="/WEB-INF/Opportunity-team-tf.xml#Opportunity-team-tf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="opportunityrevenuetf1" taskFlowId="/WEB-INF/opportunity-revenue-tf.xml#opportunity-revenue-tf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="opportunitiesappointmenttf1"
+              taskFlowId="/WEB-INF/opportunities-appointment-tf.xml#opportunities-appointment-tf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="opportunityinteractionstf1"
+              taskFlowId="/WEB-INF/opportunity-interactions-tf.xml#opportunity-interactions-tf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="opportunitytaskmaintf1" taskFlowId="/WEB-INF/opportunity-task-main-tf.xml#opportunity-task-main-tf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Opportunity_notes_tf1" taskFlowId="/WEB-INF/Opportunity_notes_tf.xml#Opportunity_notes_tf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Opportunityattachmentstf1"
+              taskFlowId="/WEB-INF/Opportunity-attachments-tf.xml#Opportunity-attachments-tf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="OpportunityNotes2" RangeSize="10" DataControl="AppModuleDataControl"
               id="OpportunityNotes2Iterator"/>
   </executables>
   <bindings>
@@ -32,24 +49,6 @@
         <Item Value="OpportunityName"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="OpportunityRevenueItemsView2Iterator" id="OpportunityRevenueItemsView2">
-      <nodeDefinition DefName="com.sfa.model.VO.OpportunityRevenueItemsView" Name="OpportunityRevenueItemsView20">
-        <AttrNames>
-          <Item Value="ProductName"/>
-          <Item Value="OpportunityName"/>
-          <Item Value="Quantity"/>
-          <Item Value="EstimatedPrice"/>
-          <Item Value="Revenue"/>
-          <Item Value="WinProbability"/>
-          <Item Value="BestCaseRevenue"/>
-          <Item Value="WorstCaseRevenue"/>
-          <Item Value="SalesForecastIncluded"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-    <action IterBinding="OpportunityRevenueItemsView2Iterator" id="Create" RequiresUpdateModel="true"
-            Action="createRow"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_AccountName" id="AccountName"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_ContactName" id="ContactName"/>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="CloseDate">
@@ -71,11 +70,6 @@
         <Item Value="RevenueAmount"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OpportunitiesView1Iterator" id="IsBudgeted">
-      <AttrNames>
-        <Item Value="IsBudgeted"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="BudgetAmount">
       <AttrNames>
         <Item Value="BudgetAmount"/>
@@ -94,14 +88,18 @@
         <Item Value="NotesSeqId"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="OpportunityNotes2Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
-            Action="executeWithParams">
-      <NamedData NDName="p2" NDValue="#{bindings.NotesSeqId}" NDType="oracle.jbo.domain.Number"/>
-    </action>
     <action IterBinding="OpportunityRevenueItemsView2Iterator" id="Delete"
             InstanceName="AppModuleDataControl.OpportunityRevenueItemsView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_RevenueCurrency"
                   id="RevenueCurrency1"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="OpportunityNotes2Iterator" id="ExecuteWithParams"
+            InstanceName="AppModuleDataControl.OpportunityNotes2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="p2" NDValue="#{bindings.NotesSeqId}" NDType="oracle.jbo.domain.Number"/>
+    </action>
+    <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_IsBudgeted" id="IsBudgeted1"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
   </bindings>
 </pageDefinition>

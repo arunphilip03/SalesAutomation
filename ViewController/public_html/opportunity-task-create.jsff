@@ -5,7 +5,7 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelHeader text="Create Task for Opportunity" id="ph1" inlineStyle="height:35px;"
+                <af:panelHeader text="Create Task" id="ph1" inlineStyle="height:35px;"
                                 styleClass="AFStretchWidth">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
@@ -34,7 +34,7 @@
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.CustAccountId.format}"/>
                     </af:inputText>
                 </af:panelFormLayout>
-                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="112">
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="94">
                     <f:facet name="first">
                         <af:panelFormLayout id="pfl1" rows="4">
                             <af:inputText value="#{bindings.TaskName.inputValue}"
@@ -77,14 +77,16 @@
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.PercentageCompletion.format}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.Priority.inputValue}"
-                                          label="#{bindings.Priority.hints.label}"
-                                          required="#{bindings.Priority.hints.mandatory}"
-                                          columns="#{bindings.Priority.hints.displayWidth}"
-                                          maximumLength="#{bindings.Priority.hints.precision}"
-                                          shortDesc="#{bindings.Priority.hints.tooltip}" id="it3">
-                                <f:validator binding="#{bindings.Priority.validator}"/>
-                            </af:inputText>
+                            <af:inputComboboxListOfValues id="priority1Id"
+                                                          popupTitle="Search and Select: #{bindings.Priority1.hints.label}"
+                                                          value="#{bindings.Priority1.inputValue}"
+                                                          label="#{bindings.Priority1.hints.label}"
+                                                          model="#{bindings.Priority1.listOfValuesModel}"
+                                                          required="#{bindings.Priority1.hints.mandatory}"
+                                                          columns="#{bindings.Priority1.hints.displayWidth}"
+                                                          shortDesc="#{bindings.Priority1.hints.tooltip}">
+                                <f:validator binding="#{bindings.Priority1.validator}"/>
+                            </af:inputComboboxListOfValues>
                             <af:inputText value="#{bindings.TaskId.inputValue}" label="#{bindings.TaskId.hints.label}"
                                           required="#{bindings.TaskId.hints.mandatory}"
                                           columns="#{bindings.TaskId.hints.displayWidth}"

@@ -8,9 +8,6 @@
               id="OpportunitiesView1Iterator"/>
     <iterator Binds="OpportunityAppointmentView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="OpportunityAppointmentView2Iterator"/>
-    <searchRegion Criteria="OpportunityAppointmentViewSearch"
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="OpportunityAppointmentView2Iterator" id="OpportunityAppointmentViewSearchQuery"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_AccountName" id="AccountName"/>
@@ -23,12 +20,10 @@
       <nodeDefinition DefName="com.sfa.model.VO.OpportunityAppointmentView" Name="OpportunityAppointmentView20">
         <AttrNames>
           <Item Value="Name"/>
-          <Item Value="OpportunityName"/>
-          <Item Value="AccountName"/>
           <Item Value="Description"/>
+          <Item Value="StartDatetime"/>
           <Item Value="EndDatetime"/>
           <Item Value="Location"/>
-          <Item Value="StartDatetime"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -17,9 +17,9 @@
       <property
          name="y">-148.85645</property>
       <property
-         name="x">77.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">77.0</property>
    </View>
    <View
       id="View3">
@@ -34,9 +34,9 @@
       <property
          name="y">-150.50586</property>
       <property
-         name="x">457.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">457.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -71,9 +71,9 @@
       <property
          name="y">106.04004</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">296.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -93,7 +93,7 @@
       <property
          name="fromOutcome">save</property>
       <property
-         name="sdm:polyPoints">T61,303.0,51.689453,443.0,-96.856445,B27</property>
+         name="sdm:polyPoints">T61,303.0,51.689453,457.0,-96.856445,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -104,80 +104,6 @@
          name="fromOutcome">back</property>
       <property
          name="sdm:polyPoints">T50,296.0,47.962894,80.5,-95.20703,B56</property>
-   </ControlFlowCase>
-   <View
-      id="View11">
-      <property
-         name="activityId">opportunity-revenue-create</property>
-      <property
-         name="page">/opportunity-revenue-create.jsff</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>opportunity-revenue-create&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">93.390625</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">765.0</property>
-   </View>
-   <View
-      id="View12">
-      <property
-         name="activityId">opportunity-revenue-edit</property>
-      <property
-         name="page">/opportunity-revenue-edit.jsff</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>opportunity-revenue-edit&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">95.390625</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">556.0</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase13"
-      from="View3"
-      to="View11">
-      <property
-         name="fromOutcome">revenueCreate</property>
-      <property
-         name="sdm:polyPoints">B73,471.0,-96.856445,724.0,89.54004,L46</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase14"
-      from="View3"
-      to="View12">
-      <property
-         name="fromOutcome">revenueEdit</property>
-      <property
-         name="sdm:polyPoints">B50,457.0,-90.41207,559.5,38.616543,T56</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase15"
-      from="View12"
-      to="View3">
-      <property
-         name="fromOutcome">revEBack</property>
-      <property
-         name="sdm:polyPoints">T44,552.5,41.04004,450.0,-88.09543,B39</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase16"
-      from="View11"
-      to="View3">
-      <property
-         name="fromOutcome">revCBack</property>
-      <property
-         name="sdm:polyPoints">L54,721.708,96.54004,464.0,-93.32906,B61</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall17">
@@ -300,9 +226,9 @@
       <property
          name="y">-489.8047</property>
       <property
-         name="x">458.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">458.0</property>
    </View>
    <ControlFlowCase
       islink="true"

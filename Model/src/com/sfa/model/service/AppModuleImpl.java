@@ -1108,5 +1108,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getCurrencyLuView1() {
         return (ViewObjectImpl) findViewObject("CurrencyLuView1");
     }
+
+    /**
+     * Container's getter for IsBudgetedView1.
+     * @return IsBudgetedView1
+     */
+    public ViewObjectImpl getIsBudgetedView1() {
+        return (ViewObjectImpl) findViewObject("IsBudgetedView1");
+    }
 }
 

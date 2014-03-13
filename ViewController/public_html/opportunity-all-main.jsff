@@ -50,31 +50,22 @@
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.OpportunityName.label}"
                                            id="c16">
-                                    <af:link id="cl1" partialSubmit="true" action="OppDetails">
-                                        <af:outputText value="#{row.OpportunityName}"
-                                                       shortDesc="#{bindings.OpportunitiesView1.hints.OpportunityName.tooltip}"
-                                                       id="ot16"/>
-                                    </af:link>
+                                    <af:link id="cl1" partialSubmit="true" action="OppDetails"
+                                             text="#{row.OpportunityName}"/>
                                    
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.AccountName.name}"
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.AccountName.label}" id="c17">
-                                    <af:link id="cl2" partialSubmit="true" action="AccntDetails">
-                                        <af:outputText value="#{row.AccountName}"
-                                                       shortDesc="#{bindings.OpportunitiesView1.hints.AccountName.tooltip}"
-                                                       id="ot17"/>
-                                    </af:link>
+                                    <af:link id="cl2" partialSubmit="true" action="AccntDetails"
+                                             text="#{row.AccountName}"/>
                                     
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.ContactName.name}"
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.ContactName.label}" id="c3">
-                                    <af:link id="cl3" partialSubmit="true" action="ContctDetails">
-                                        <af:outputText value="#{row.ContactName}"
-                                                       shortDesc="#{bindings.OpportunitiesView1.hints.ContactName.tooltip}"
-                                                       id="ot99"/>
-                                    </af:link>
+                                    <af:link id="cl3" partialSubmit="true" action="ContctDetails"
+                                             text="#{row.ContactName}"/>
                                    
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.WinProbability.name}"

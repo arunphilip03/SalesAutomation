@@ -53,6 +53,10 @@
         Name="CurrencyLuView1"
         ViewObjectName="com.sfa.model.VO.CurrencyLuView"
         RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="IsBudgetedView1"
+        ViewObjectName="com.sfa.model.VO.IsBudgetedView"
+        RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_DecisionLevel"
         ListVOName="OpportunityDecisionlevelLuView1"
@@ -213,6 +217,25 @@
         </AttrArray>
         <DisplayCriteria/>
     </ListBinding>
+    <ListBinding
+        Name="LOV_IsBudgeted"
+        ListVOName="IsBudgetedView1"
+        ListRangeSize="-1"
+        ComboRowCountHint="10"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="IsBudgeted"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="IsBudgeted"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="IsBudgeted"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
     <SQLQuery><![CDATA[SELECT Opportunities.OPPURTUNITY_ID, Opportunities.CUST_ACCOUNT_ID, Opportunities.WIN_PROBABILITY, 
               Opportunities.CLOSE_DATE, Opportunities.PRIMARY_CONTACT_ID, Opportunities.SALES_STAGE, 
               Opportunities.SALES_METHOD, Opportunities.SALES_CHANNEL, Opportunities.REVENUE_CURRENCY, 
@@ -346,7 +369,15 @@
         PrecisionRule="true"
         EntityAttrName="IsBudgeted"
         EntityUsage="Opportunities"
-        AliasName="IS_BUDGETED"/>
+        AliasName="IS_BUDGETED"
+        LOVName="LOV_IsBudgeted">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
     <ViewAttribute
         Name="BudgetAmount"
         PrecisionRule="true"

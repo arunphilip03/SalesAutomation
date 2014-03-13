@@ -5,13 +5,15 @@
     <transaction>
       <requires-transaction/>
     </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
     <view id="opportunities-appoinment-create">
       <page>/opportunities-appoinment-create.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome>
         <name>taskFlowReturn1</name>
-        <rollback/>
       </outcome>
     </task-flow-return>
     <control-flow-rule id="__1">

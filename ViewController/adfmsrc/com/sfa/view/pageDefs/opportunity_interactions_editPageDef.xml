@@ -13,11 +13,6 @@
               RangeSize="25"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="ContactInteractionsView2Iterator" id="OpportunityName">
-      <AttrNames>
-        <Item Value="OpportunityName"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="ContactInteractionsView2Iterator" StaticList="false" Uses="LOV_Type" id="Type"/>
     <listOfValues IterBinding="ContactInteractionsView2Iterator" StaticList="false" Uses="LOV_Direction"
                   id="Direction"/>

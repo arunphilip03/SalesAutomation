@@ -29,11 +29,6 @@
         <Item Value="PercentageCompletion"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OpportunitytaskView2Iterator" id="Priority">
-      <AttrNames>
-        <Item Value="Priority"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OpportunitytaskView2Iterator" id="TaskId">
       <AttrNames>
         <Item Value="TaskId"/>
@@ -52,5 +47,7 @@
         <Item Value="CustAccountId"/>
       </AttrNames>
     </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <listOfValues IterBinding="OpportunitytaskView2Iterator" StaticList="false" Uses="LOV_Priority" id="Priority1"/>
   </bindings>
 </pageDefinition>

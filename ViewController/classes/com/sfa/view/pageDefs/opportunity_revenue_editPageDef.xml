@@ -40,11 +40,8 @@
         <Item Value="WorstCaseRevenue"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OpportunityRevenueItemsView2Iterator" id="SalesForecastIncluded">
-      <AttrNames>
-        <Item Value="SalesForecastIncluded"/>
-      </AttrNames>
-    </attributeValues>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <listOfValues IterBinding="OpportunityRevenueItemsView2Iterator" StaticList="false" Uses="LOV_SalesForecastIncluded"
+                  id="SalesForecastIncluded1"/>
   </bindings>
 </pageDefinition>

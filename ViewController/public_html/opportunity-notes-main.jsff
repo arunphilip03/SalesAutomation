@@ -5,20 +5,9 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelHeader text="Notes for Opportunity : #{pageFlowScope.opportunityName}" id="ph1" inlineStyle="height:49px;">
-                    <f:facet name="context"/>
-                    <f:facet name="menuBar"/>
-                    <f:facet name="toolbar">
-                        <af:toolbar id="t1">
-                            <af:button text="Close" id="b1" action="exit"/>
-                        </af:toolbar>
-                    </f:facet>
-                    <f:facet name="legend"/>
-                    <f:facet name="info"/>
-                </af:panelHeader>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="84">
                     <f:facet name="first">
-                        <af:panelFormLayout id="pfl1" rows="2" styleClass="AFStretchWidth">
+                        <af:panelFormLayout id="pfl1" rows="2" styleClass="AFStretchWidth" visible="false">
                             <af:inputText value="#{bindings.OpportunityName.inputValue}"
                                           label="#{bindings.OpportunityName.hints.label}"
                                           required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
@@ -74,7 +63,7 @@
                             <f:facet name="toolbar">
                                 <af:toolbar id="t3">
                                     <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                             actionListener="#{bindings.Create1.execute}" action="create"/>
+                                             actionListener="#{bindings.CreateInsert.execute}" action="create"/>
                                     <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"
                                              disabledIcon="#{resource['images:update_dis.png']}"
                                              disabled="#{bindings.OpportunityNotes2Iterator.estimatedRowCount eq 0}"/>
