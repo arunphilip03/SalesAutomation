@@ -65,6 +65,18 @@
     <view id="AppointmentDetail">
       <page>/AppointmentDetail.jsff</page>
     </view>
+    <task-flow-call id="contact-detail-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/contact-detail-taskflow.xml</document>
+        <id>contact-detail-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>customer-detail</from-activity-id>
       <control-flow-case id="__3">
@@ -91,12 +103,23 @@
         <from-outcome>appointmentDetail</from-outcome>
         <to-activity-id>AppointmentDetail</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>getContactDetail</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__9">
       <from-activity-id>AppointmentDetail</from-activity-id>
       <control-flow-case id="__10">
         <from-outcome>back</from-outcome>
         <to-activity-id>customer-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>contact-detail-taskflow</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

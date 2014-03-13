@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="AdminHomePageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ActiveUsersVO1" RangeSize="25" DataControl="AppModuleDataControl" id="ActiveUsersVO1Iterator"/>
+    <iterator Binds="InactiveUsersVO1" RangeSize="25" DataControl="AppModuleDataControl" id="InactiveUsersVO1Iterator"/>
+    <iterator Binds="ActiveRoles1" RangeSize="25" DataControl="AppModuleDataControl" id="ActiveRoles1Iterator"/>
+    <iterator Binds="InactiveRoles1" RangeSize="25" DataControl="AppModuleDataControl" id="InactiveRoles1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ActiveUsersVO1Iterator" id="ActiveUsersVO1">
+      <nodeDefinition DefName="com.sfa.model.VO.ActiveUsersVO" Name="ActiveUsersVO10">
+        <AttrNames>
+          <Item Value="UserName"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="EffecStartDate"/>
+          <Item Value="EffecEndDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InactiveUsersVO1Iterator" id="InactiveUsersVO1">
+      <nodeDefinition DefName="com.sfa.model.VO.InactiveUsersVO" Name="InactiveUsersVO10">
+        <AttrNames>
+          <Item Value="UserName"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="EffecStartDate"/>
+          <Item Value="EffecEndDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ActiveRoles1Iterator" id="ActiveRoles1">
+      <nodeDefinition DefName="com.sfa.model.VO.ActiveRoles" Name="ActiveRoles10">
+        <AttrNames>
+          <Item Value="RoleName"/>
+          <Item Value="EffecStartDate"/>
+          <Item Value="EffecEndDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InactiveRoles1Iterator" id="InactiveRoles1">
+      <nodeDefinition DefName="com.sfa.model.VO.InactiveRoles" Name="InactiveRoles10">
+        <AttrNames>
+          <Item Value="RoleName"/>
+          <Item Value="EffecStartDate"/>
+          <Item Value="EffecEndDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

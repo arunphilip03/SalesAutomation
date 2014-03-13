@@ -57,5 +57,10 @@
       </AttrNames>
     </attributeValues>
     <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="ContactId">
+      <AttrNames>
+        <Item Value="ContactId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

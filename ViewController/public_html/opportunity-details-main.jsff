@@ -49,7 +49,7 @@
                                 </af:panelHeader>
                             </f:facet>
                             <f:facet name="second">
-                                <af:panelFormLayout id="pfl1" rows="5">
+                                <af:panelFormLayout id="pfl1" rows="5" fieldWidth="300px" labelWidth="75px">
                                     <af:inputText value="#{bindings.OpportunityName.inputValue}"
                                                   label="#{bindings.OpportunityName.hints.label}"
                                                   required="#{bindings.OpportunityName.hints.mandatory}"

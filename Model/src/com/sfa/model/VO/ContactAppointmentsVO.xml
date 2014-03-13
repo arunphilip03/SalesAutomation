@@ -175,6 +175,12 @@ AND Appointments.APPOINTMENT_ID = AppointmentInvitees.APPOINTMENT_ID]]></SQLQuer
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactVO"
+    ViewLink="com.sfa.model.viewlink.ContactToAppointmentVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sfa.model.ModelBundle"/>

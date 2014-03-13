@@ -32,5 +32,9 @@
             Action="setCurrentRowWithKey">
       <NamedData NDName="rowKey" NDValue="#{row.ContactId}" NDType="java.lang.String"/>
     </action>
+    <action IterBinding="CustomerContactsView1Iterator" id="Delete"
+            InstanceName="AppModuleDataControl.CustomerContactsView1" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

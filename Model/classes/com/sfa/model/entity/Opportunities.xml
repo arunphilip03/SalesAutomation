@@ -10,7 +10,8 @@
   DBObjectName="OPPORTUNITIES"
   AliasName="Opportunities"
   BindingStyle="OracleName"
-  RowClass="com.sfa.model.base.BaseEntityImpl">
+  RowClass="com.sfa.model.base.BaseEntityImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="OppurtunityId"
     IsNotNull="true"
@@ -43,6 +44,14 @@
           ResId="com.sfa.model.entity.Opportunities.WinProbability_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:RangeValidationBean
+      Name="WinProbabilityRule0"
+      ResId="com.sfa.model.entity.Opportunities.WinProbability_Rule_0"
+      OnAttribute="WinProbability"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0"
+      MaxValue="100"/>
   </Attribute>
   <Attribute
     Name="CloseDate"

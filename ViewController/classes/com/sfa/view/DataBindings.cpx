@@ -137,6 +137,15 @@
               usageId="com_sfa_view_adminUser_roleAssign_create_adminUser_roleAssign_create_ExecuteWithParamsPageDef"/>
         <page path="/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf@ExecuteWithParams1"
               usageId="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"/>
+        <page path="/AdminHome.jsff" usageId="com_sfa_view_AdminHomePageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@SetCurrentRowWithKeyValue"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/ContactDetailPage.jsff" usageId="com_sfa_view_ContactDetailPagePageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@SetCurrentRowWithKeyValue2"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValue2PageDef"/>
+        <page path="/ContactAppointmentsTab.jsff" usageId="com_sfa_view_ContactAppointmentsTabPageDef"/>
+        <page path="/WEB-INF/customer-detail-taskflow.xml#customer-detail-taskflow@SetCurrentRowWithKeyValue"
+              usageId="com_sfa_view_customer_detail_taskflow_customer_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
@@ -316,6 +325,16 @@
               path="com.sfa.view.pageDefs.adminUser_roleAssign_create_adminUser_roleAssign_create_ExecuteWithParamsPageDef"/>
         <page id="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"
               path="com.sfa.view.pageDefs.Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"/>
+        <page id="com_sfa_view_AdminHomePageDef" path="com.sfa.view.pageDefs.AdminHomePageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="com_sfa_view_ContactDetailPagePageDef" path="com.sfa.view.pageDefs.ContactDetailPagePageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValue2PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValue2PageDef"/>
+        <page id="com_sfa_view_ContactAppointmentsTabPageDef"
+              path="com.sfa.view.pageDefs.ContactAppointmentsTabPageDef"/>
+        <page id="com_sfa_view_customer_detail_taskflow_customer_detail_taskflow_SetCurrentRowWithKeyValuePageDef"
+              path="com.sfa.view.pageDefs.customer_detail_taskflow_customer_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

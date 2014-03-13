@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="customer_detail_taskflow_customer_detail_taskflow_SetCurrentRowWithKeyValuePageDef"
+                Package="com.sfa.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CustomerContactsView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CustomerContactsView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CustomerContactsView1Iterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.selectedContact}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

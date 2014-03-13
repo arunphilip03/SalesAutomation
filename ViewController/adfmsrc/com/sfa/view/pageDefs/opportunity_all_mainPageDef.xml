@@ -26,6 +26,8 @@
           <Item Value="EstimatedDuration"/>
           <Item Value="RiskLevel"/>
           <Item Value="DecisionLevel"/>
+          <Item Value="CustAccountId"/>
+          <Item Value="PrimaryContactId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

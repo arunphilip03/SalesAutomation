@@ -60,6 +60,7 @@
                 <f:facet name="status"/>
                 <f:facet name="globalToolbar">
                     <af:toolbar id="t1">
+                        <af:spacer width="10" height="10" id="s3"/>
                         <af:link text="Home" id="l10" inlineStyle="font-size:small;"
                                  actionListener="#{backingBeanScope.launcher.launchSalesHome}"
                                  rendered="#{securityContext.userInRole['Sales Manager, Sales Representative']}"/>
@@ -81,7 +82,7 @@
                 <f:facet name="globalTabs"/>
                 <f:facet name="welcome">
                     <af:region value="#{bindings.SalesrepHometf1.regionModel}" id="r1"
-                               rendered="#{securityContext.userInRole['Sales Manager, Sales Representative']}"/>
+                               rendered="#{securityContext.userInRole['Sales Manager,Sales Representative,Administrator']}"/>
                 </f:facet>
                 <f:facet name="innerToolbar"/>
                 <f:attribute name="brandingTitle" value="Sales Force Automation"/>

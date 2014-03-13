@@ -55,7 +55,7 @@
       Name="AccountNameRule0"
       ResId="com.sfa.model.entity.CustomerAccount.AccountName_Rule_1"
       OnAttribute="AccountName"
-      Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+      Pattern=".*[,/'#~@}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
       Inverse="true"/>
   </Attribute>
   <Attribute

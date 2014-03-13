@@ -32,7 +32,8 @@
                                 </af:link>
                                 <af:spacer width="4" height="10" id="s2"/>
                                 <af:link id="l4" icon="#{resource['images:delete_ena.png']}">
-                                   
+                                    <af:showPopupBehavior popupId="::p1" triggerType="action" align="endAfter"
+                                                          alignId="l4"/>
                                 </af:link>
                             </af:toolbar>
                         </f:facet>
@@ -44,7 +45,8 @@
                                   selectedRowKeys="#{bindings.CustomerContactsView1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.CustomerContactsView1.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.CustomerContactsView1.rangeSize}"
-                                  id="resId1" styleClass="AFStretchWidth" columnStretching="last" partialTriggers="l2">
+                                  id="resId1" styleClass="AFStretchWidth" columnStretching="last"
+                                  partialTriggers="l2 :::d1 :::p1">
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.ContactName.label}"
                                        id="resId1c1" width="131"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.ContactName.name}"
@@ -138,6 +140,13 @@
                     </af:panelCollection>
                 </f:facet>
             </af:panelSplitter>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                <af:dialog id="d1" title="Confirm Delete" dialogListener="#{ConfirmBean.dialogListener}"
+                           titleIconSource="#{resource['images:warning.png']}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="#{'Are you sure you want to delete selected Contact? '} #{GeneralInfoBean.currentContactNameMain}" id="ot1"/>
+                </af:dialog>
+            </af:popup>
         </af:panelGroupLayout>
     </af:panelGroupLayout>
 </ui:composition>

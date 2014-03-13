@@ -2,11 +2,15 @@ package com.sfa.view;
 
 import java.math.BigDecimal;
 
+import javax.faces.event.ActionEvent;
+
+import oracle.adf.controller.struts.actions.DataActionContext;
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.jbo.Row;
+import oracle.jbo.ViewObject;
 
 public class GetAppointmentId {
     private String currentTaskId;
@@ -29,6 +33,23 @@ public class GetAppointmentId {
         System.out.println("selected account = "+ accountName);
         
         return accountName;
+        
+    }
+    
+    
+    
+        
+    public String getCurrentContactNameMain() {
+        
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iterator = bc.findIteratorBinding("CustomerContactsView1Iterator");
+        Row row = iterator.getCurrentRow();
+        
+        String contactName = (String)row.getAttribute("ContactName");
+    
+        System.out.println("selected contact = "+ contactName);
+        
+        return contactName;
         
     }
     
@@ -134,5 +155,36 @@ public class GetAppointmentId {
         
         
         //return currentInteractionId;
+    }
+
+//    public void onRollback(DataActionContext actionContext) {
+//        
+//        System.out.println("Inside on rollback");
+//
+//      DCBindingContainer bc = actionContext.getBindingContainer();
+//
+//      ViewObject vo = bc.findIteratorBinding("CustomerContactsView2Iterator").getViewObject();
+//
+//      Row row = vo.getCurrentRow();
+//
+//      row.refresh(row.REFRESH_UNDO_CHANGES);
+//
+//      //actionContext.setActionForward("cancel");       
+//
+//    }
+    public void onRollBack(ActionEvent actionEvent) {
+        
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+
+        DCIteratorBinding iterator = bc.findIteratorBinding("CustomerContactsView2Iterator");
+        
+        ViewObject vo = iterator.getViewObject();
+
+        Row row = vo.getCurrentRow();
+        
+        row.refresh(row.REFRESH_UNDO_CHANGES);
+        
+     
+        
     }
 }

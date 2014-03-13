@@ -65,9 +65,10 @@
                                                                   from="#{bindings.CustomerAccountView1Iterator.currentRowKeyString}"/>
                                         </af:link>
                                         <af:spacer width="4" height="10" id="s2"/>
-                                        <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                        <af:link id="l3"
                                                  disabled="#{bindings.CustomerContactsView2.estimatedRowCount eq 0}"
-                                                 disabledIcon="#{resource['images:delete_dis.png']}">
+                                                 disabledIcon="#{resource['images:delete_dis.png']}"
+                                                 icon="#{resource['images:delete_ena.png']}">
                                             <af:showPopupBehavior popupId="::p1" triggerType="action" align="endAfter"
                                                                   alignId="l3"/>
                                         </af:link>
@@ -82,7 +83,7 @@
                                           selectedRowKeys="#{bindings.CustomerContactsView2.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.CustomerContactsView2.collectionModel.makeCurrent}"
                                           rowSelection="single" id="t1" styleClass="AFStretchWidth"
-                                          columnStretching="last">
+                                          columnStretching="last" partialTriggers="::l3 :::d1 :::p1">
                                     <af:column headerText="#{bindings.CustomerContactsView2.hints.ContactName.label}"
                                                sortable="true" id="c18"
                                                sortProperty="#{bindings.CustomerContactsView2.hints.ContactName.name}"
@@ -364,7 +365,8 @@
                 </f:facet>
             </af:panelSplitter>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
-                <af:dialog id="d1" title="Confrim Delete" dialogListener="#{ConfirmBean.dialogListener}">
+                <af:dialog id="d1" title="Confirm Delete" dialogListener="#{ConfirmBean.dialogListener}"
+                           titleIconSource="#{resource['images:warning.png']}">
                     <f:facet name="buttonBar"/>
                     <af:activeOutputText value="#{'Are you sure you want to delete selected Contact? '} #{GeneralInfoBean.currentContactName}" id="aot1"/>
                 </af:dialog>

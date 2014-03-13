@@ -45,7 +45,7 @@
       Name="NameRule0"
       ResId="com.sfa.model.entity.Appointments.Name_Rule_0"
       OnAttribute="Name"
-      Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+      Pattern=".*[,/'#~@}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
       Inverse="true"/>
   </Attribute>
   <Attribute
