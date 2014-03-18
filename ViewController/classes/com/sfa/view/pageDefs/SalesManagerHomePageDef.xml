@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="SalesManagerHomePageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="QuarterlyRevenue1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="QuarterlyRevenue1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="QuarterlyRevenue1Iterator" id="QuarterlyRevenue1">
+      <nodeDefinition DefName="com.sfa.model.VO.QuarterlyRevenue" Name="QuarterlyRevenue10">
+        <AttrNames>
+          <Item Value="UserName"/>
+          <Item Value="Q1Rev"/>
+          <Item Value="Q2Rev"/>
+          <Item Value="Q3Rev"/>
+          <Item Value="Q4Rev"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <graph IterBinding="QuarterlyRevenue1Iterator" id="QuarterlyRevenue11" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Q1Rev" label="${QuarterBean.last1Quarter}"/>
+            <item value="Q2Rev" label="${QuarterBean.last2Quarter}"/>
+            <item value="Q3Rev" label="${QuarterBean.last3Quarter}"/>
+            <item value="Q4Rev" label="${QuarterBean.last4Quarter}"/>
+          </data>
+        </series>
+        <groups>
+          <item value="UserName"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+  </bindings>
+</pageDefinition>

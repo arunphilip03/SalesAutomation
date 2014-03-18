@@ -1,15 +1,79 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelDashboard id="pd1">
-    <af:panelBox text="Revenue generated" id="pb1" type="stretch" inlineStyle="width:801px;">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:panelDashboard id="pd1" columns="2" rowHeight="350px">
+    <af:panelBox text="Revenue generated in last 4 quarters" id="pb1" type="default" inlineStyle="width:801px;"
+                 styleClass="AFStretchWidth">
       <f:facet name="toolbar"/>
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <af:table value="#{bindings.QuarterlyRevenue1.collectionModel}" var="row"
+                  rows="#{bindings.QuarterlyRevenue1.rangeSize}"
+                  emptyText="#{bindings.QuarterlyRevenue1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.QuarterlyRevenue1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.QuarterlyRevenue1.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.QuarterlyRevenue1.rangeSize}" id="t1" styleClass="AFStretchWidth"
+                  columnStretching="last">
+          <af:column sortProperty="#{bindings.QuarterlyRevenue1.hints.UserName.name}" sortable="true"
+                     headerText="#{bindings.QuarterlyRevenue1.hints.UserName.label}" id="c1">
+            <af:outputText value="#{row.UserName}" shortDesc="#{bindings.QuarterlyRevenue1.hints.UserName.tooltip}"
+                           id="ot1"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.QuarterlyRevenue1.hints.Q1Rev.name}" sortable="true"
+                     headerText="#{QuarterBean.last1Quarter}" id="c2">
+            <af:outputText value="#{row.Q1Rev}" shortDesc="#{bindings.QuarterlyRevenue1.hints.Q1Rev.tooltip}" id="ot2">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.QuarterlyRevenue1.hints.Q1Rev.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.QuarterlyRevenue1.hints.Q2Rev.name}" sortable="true"
+                     headerText="#{QuarterBean.last2Quarter}" id="c3">
+            <af:outputText value="#{row.Q2Rev}" shortDesc="#{bindings.QuarterlyRevenue1.hints.Q2Rev.tooltip}" id="ot3">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.QuarterlyRevenue1.hints.Q2Rev.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.QuarterlyRevenue1.hints.Q3Rev.name}" sortable="true"
+                     headerText="#{QuarterBean.last3Quarter}" id="c4">
+            <af:outputText value="#{row.Q3Rev}" shortDesc="#{bindings.QuarterlyRevenue1.hints.Q3Rev.tooltip}" id="ot4">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.QuarterlyRevenue1.hints.Q3Rev.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.QuarterlyRevenue1.hints.Q4Rev.name}" sortable="true"
+                     headerText="#{QuarterBean.last4Quarter}" id="c5">
+            <af:outputText value="#{row.Q4Rev}" shortDesc="#{bindings.QuarterlyRevenue1.hints.Q4Rev.tooltip}" id="ot5">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.QuarterlyRevenue1.hints.Q4Rev.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:table>
+        <f:facet name="statusbar"/>
+      </af:panelCollection>
     </af:panelBox>
-    <af:panelBox text="Potential revenue" id="pb2">
+    <af:panelBox id="pb2">
       <f:facet name="toolbar"/>
-    </af:panelBox>
-    <af:panelBox text="PanelBox1" id="pb3">
-      <f:facet name="toolbar"/>
+      <dvt:barGraph id="graph1" value="#{bindings.QuarterlyRevenue11.graphModel}" subType="BAR_VERT_CLUST" shortDesc="Revenue">
+        <dvt:background>
+          <dvt:specialEffects/>
+        </dvt:background>
+        <dvt:graphPlotArea/>
+        <dvt:seriesSet>
+          <dvt:series/>
+        </dvt:seriesSet>
+        <dvt:o1Axis/>
+        <dvt:y1Axis/>
+        <dvt:legendArea automaticPlacement="AP_NEVER"/>
+        <dvt:attributeFormat name="Q1Rev" id="af1">
+          <af:convertNumber pattern="#{bindings.QuarterlyRevenue11.hints.Q1Rev.format}" groupingUsed="false"/>
+        </dvt:attributeFormat>
+        <dvt:attributeFormat name="Q2Rev" id="af2">
+          <af:convertNumber pattern="#{bindings.QuarterlyRevenue11.hints.Q2Rev.format}" groupingUsed="false"/>
+        </dvt:attributeFormat>
+        <dvt:attributeFormat name="Q3Rev" id="af3">
+          <af:convertNumber pattern="#{bindings.QuarterlyRevenue11.hints.Q3Rev.format}" groupingUsed="false"/>
+        </dvt:attributeFormat>
+        <dvt:attributeFormat name="Q4Rev" id="af4">
+          <af:convertNumber pattern="#{bindings.QuarterlyRevenue11.hints.Q4Rev.format}" groupingUsed="false"/>
+        </dvt:attributeFormat>
+      </dvt:barGraph>
     </af:panelBox>
   </af:panelDashboard>
 </ui:composition>

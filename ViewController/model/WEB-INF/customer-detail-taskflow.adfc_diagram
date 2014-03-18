@@ -58,9 +58,9 @@
       <property
          name="y">309.09766</property>
       <property
-         name="x">180.5</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">180.5</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -132,7 +132,7 @@
       <property
          name="fromOutcome">addEditTask</property>
       <property
-         name="sdm:polyPoints">B57,184.60901,363.35605,353.74744,470.39642,L50</property>
+         name="sdm:polyPoints">B56,184.0,362.74707,354.35645,470.39648,L50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall12">
@@ -174,9 +174,9 @@
       <property
          name="y">59.396484</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">224.03613</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -247,5 +247,34 @@
          name="fromOutcome">setCurrentRowWithKeyValue</property>
       <property
          name="sdm:polyPoints">B50,-121.299805,252.09766,-209.6416,350.39648,T50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall22">
+      <property
+         name="taskFlowId">view-customer-task-tf</property>
+      <property
+         name="activityId">view-customer-task-tf</property>
+      <property
+         name="documentReference">/WEB-INF/view-customer-task-tf.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>view-customer-task-tf&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">440.39648</property>
+      <property
+         name="x">10.216797</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase23"
+      from="View4"
+      to="TaskFlowCall22">
+      <property
+         name="fromOutcome">viewTask</property>
+      <property
+         name="sdm:polyPoints">L54,139.5,312.24707,10.216797,386.0459,T50</property>
    </ControlFlowCase>
 </SDM>

@@ -267,13 +267,15 @@
                                           selectedRowKeys="#{bindings.TasksView3.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.TasksView3.collectionModel.makeCurrent}"
                                           rowSelection="single" fetchSize="#{bindings.TasksView3.rangeSize}" id="t6"
-                                          styleClass="AFStretchWidth" columnStretching="last">
+                                          styleClass="AFStretchWidth" columnStretching="last" partialTriggers="l10">
                                     <af:column sortProperty="#{bindings.TasksView3.hints.TaskName.name}" sortable="true"
                                                headerText="#{bindings.TasksView3.hints.TaskName.label}" id="c14"
                                                width="246">
-                                        <af:outputText value="#{row.TaskName}"
-                                                       shortDesc="#{bindings.TasksView3.hints.TaskName.tooltip}"
-                                                       id="ot2"/>
+                                        <af:link actionListener="#{bindings.setCurrentRowWithKey1.execute}"
+                                                 text="#{row.TaskName}"
+                                                 disabled="#{!bindings.setCurrentRowWithKey1.enabled}" id="l10"
+                                                 action="viewTask" useWindow="true" windowHeight="250"
+                                                 windowWidth="500"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.TasksView3.hints.DueDate.name}" sortable="true"
                                                headerText="#{bindings.TasksView3.hints.DueDate.label}" id="c15"

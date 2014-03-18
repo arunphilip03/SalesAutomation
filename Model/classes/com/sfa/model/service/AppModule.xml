@@ -128,6 +128,9 @@
     <ViewUsage
         Name="ContactTaskTeamVO2"
         ViewObjectName="com.sfa.model.VO.ContactTaskTeamVO"/>
+    <ViewUsage
+        Name="QuarterlyRevenue1"
+        ViewObjectName="com.sfa.model.VO.QuarterlyRevenue"/>
     <ViewLinkUsage Name="AppointmentInviteesFk1Link1"
                    ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
                    SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentsView1"

@@ -1309,5 +1309,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getContactTaskTeamVL2() {
         return (ViewLinkImpl) findViewLink("ContactTaskTeamVL2");
     }
+
+    /**
+     * Container's getter for QuarterlyRevenue1.
+     * @return QuarterlyRevenue1
+     */
+    public ViewObjectImpl getQuarterlyRevenue1() {
+        return (ViewObjectImpl) findViewObject("QuarterlyRevenue1");
+    }
 }
 

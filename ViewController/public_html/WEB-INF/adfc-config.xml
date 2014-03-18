@@ -48,4 +48,9 @@
         <managed-bean-class>com.sfa.view.backing.TaskTeamEditBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__10">
+        <managed-bean-name>QuarterBean</managed-bean-name>
+        <managed-bean-class>com.sfa.view.backing.Quarter</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </adfc-config>

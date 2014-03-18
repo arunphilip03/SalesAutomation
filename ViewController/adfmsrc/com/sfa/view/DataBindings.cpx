@@ -5,6 +5,8 @@
         <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
                  className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
         <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+        <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+                 className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
     </definitionFactories>
     <pageMap>
         <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@SetCurrentRowWithKeyValue"
@@ -180,6 +182,10 @@
         <page path="/ViewContactInteraction.jsf" usageId="com_sfa_view_ViewContactInteractionPageDef"/>
         <page path="/ViewContactTask.jsf" usageId="com_sfa_view_ViewContactTaskPageDef"/>
         <page path="/ViewContactAppointment.jsf" usageId="com_sfa_view_ViewContactAppointmentPageDef"/>
+        <page path="/ViewCustomerTask.jsf" usageId="com_sfa_view_ViewCustomerTaskPageDef"/>
+        <page path="/SalesManagerHome.jsff" usageId="com_sfa_view_SalesManagerHomePageDef"/>
+        <page path="/WEB-INF/sales-manager-tf.xml#sales-manager-tf@ExecuteWithParams"
+              usageId="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"
@@ -410,6 +416,10 @@
         <page id="com_sfa_view_ViewContactTaskPageDef" path="com.sfa.view.pageDefs.ViewContactTaskPageDef"/>
         <page id="com_sfa_view_ViewContactAppointmentPageDef"
               path="com.sfa.view.pageDefs.ViewContactAppointmentPageDef"/>
+        <page id="com_sfa_view_ViewCustomerTaskPageDef" path="com.sfa.view.pageDefs.ViewCustomerTaskPageDef"/>
+        <page id="com_sfa_view_SalesManagerHomePageDef" path="com.sfa.view.pageDefs.SalesManagerHomePageDef"/>
+        <page id="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

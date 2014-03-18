@@ -103,5 +103,9 @@
     <action IterBinding="CustomerContactsView2Iterator" id="Delete"
             InstanceName="AppModuleDataControl.CustomerContactsView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="TasksView3Iterator" id="setCurrentRowWithKey1" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{bindings.TasksView3Iterator.currentRowWithKey}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>
