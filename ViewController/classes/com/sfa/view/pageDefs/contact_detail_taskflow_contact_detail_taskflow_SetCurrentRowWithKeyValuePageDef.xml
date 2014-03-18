@@ -4,13 +4,13 @@
                 Package="com.sfa.view.pageDefs" SkipValidation="true">
   <parameters/>
   <executables>
-    <iterator Binds="AppointmentsView2" RangeSize="25" DataControl="AppModuleDataControl"
-              id="AppointmentsView2Iterator"/>
+    <iterator Binds="ContactAppointmentsVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactAppointmentsVO1Iterator"/>
   </executables>
   <bindings>
-    <action IterBinding="AppointmentsView2Iterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
-            Action="setCurrentRowWithKeyValue">
-      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.appointmentId}" NDType="java.lang.String"/>
+    <action IterBinding="ContactAppointmentsVO1Iterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.getSelectedAppointment}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

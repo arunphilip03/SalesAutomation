@@ -7,10 +7,11 @@
     <f:facet name="toolbar">
       <af:button text="Save" id="b1" action="save"/>
       <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{bindings.Commit.execute}"/>
-      <af:button text="Cancel" id="b3" action="cancel" immediate="true" actionListener="#{bindings.Rollback.execute}"/>
+      <af:button text="Cancel" id="b3" action="cancel" immediate="true" actionListener="#{RollBackBean.onRollBack}"/>
     </f:facet>
     <f:facet name="legend"/>
     <f:facet name="info"/>
+    <af:spacer width="10" height="10" id="s1"/>
     <af:panelFormLayout id="pfl1">
       <af:inputDate value="#{bindings.NoteDatetime.inputValue}" label="#{bindings.NoteDatetime.hints.label}"
                     required="#{bindings.NoteDatetime.hints.mandatory}"

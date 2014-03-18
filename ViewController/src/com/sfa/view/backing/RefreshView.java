@@ -41,5 +41,22 @@ public class RefreshView {
         RequestContext.getCurrentInstance().addPartialTarget(returnEvent.getComponent().getParent().getParent());
             
     }
+    
+    
+    
+        
+    public void contactAppnmtsReturnListener(ReturnEvent returnEvent) {
+        
+        System.out.println("Refreshing..............");
+        BindingContext bc = BindingContext.getCurrent();
+        
+        DCBindingContainer dcb = (DCBindingContainer)bc.getCurrentBindingsEntry();
+        DCIteratorBinding iter = dcb.findIteratorBinding("ContactAppointmentsVO1Iterator");
+        
+        iter.executeQuery();
+        
+        RequestContext.getCurrentInstance().addPartialTarget(returnEvent.getComponent().getParent().getParent());
+            
+    }
    
 }

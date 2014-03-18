@@ -22,9 +22,13 @@
     Name="OpportunitiesView1"
     ViewObjectName="com.sfa.model.VO.OpportunitiesView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OppVO1"
+    ViewObjectName="com.sfa.model.VO.OppVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_RelatedOpportunity"
-    ListVOName="OpportunitiesView1"
+    ListVOName="OppVO1"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
@@ -44,25 +48,24 @@
       <Item Value="OpportunityName"/>
     </AttrArray>
     <DisplayCriteria
-      Name="OpportunitiesViewCriteria"
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="OppVOCriteria"/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,  
-       Appointments.NAME,  
-       Appointments.START_DATETIME,  
-       Appointments.END_DATETIME,  
-       Appointments.LOCATION,  
-       Appointments.OPPURTUNITY_ID,  
-       Appointments.DESCRIPTION,  
-       Appointments.OBJECT_VERSION_NUMBER,  
-       Appointments.CUST_ACCOUNT_ID,  
-       CustomerContacts.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1,  
-       AppointmentInvitees.CONTACT_ID, 
-       AppointmentInvitees.APP_INVITEE_ID,  
-       AppointmentInvitees.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER2 
-FROM  APPOINTMENTS Appointments, CUSTOMER_CONTACTS CustomerContacts, APPOINTMENT_INVITEES AppointmentInvitees 
-WHERE CustomerContacts.CONTACT_ID = AppointmentInvitees.CONTACT_ID 
-AND Appointments.APPOINTMENT_ID = AppointmentInvitees.APPOINTMENT_ID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT Appointments.APPOINTMENT_ID,       
+       Appointments.NAME,       
+       Appointments.START_DATETIME,       
+       Appointments.END_DATETIME,       
+       Appointments.LOCATION,       
+       Appointments.OPPURTUNITY_ID,       
+       Appointments.DESCRIPTION,       
+       Appointments.OBJECT_VERSION_NUMBER,       
+       Appointments.CUST_ACCOUNT_ID,       
+       AppointmentInvitees.CONTACT_ID,      
+       AppointmentInvitees.APP_INVITEE_ID,       
+       AppointmentInvitees.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER2  
+FROM  APPOINTMENTS Appointments, APPOINTMENT_INVITEES AppointmentInvitees, CUSTOMER_CONTACTS Contacts    
+WHERE Appointments.APPOINTMENT_ID = AppointmentInvitees.APPOINTMENT_ID   
+AND AppointmentInvitees.CONTACT_ID = Contacts.CONTACT_ID]]></SQLQuery>
   <EntityUsage
     Name="Appointments"
     Entity="com.sfa.model.entity.Appointments"/>
@@ -73,6 +76,25 @@ AND Appointments.APPOINTMENT_ID = AppointmentInvitees.APPOINTMENT_ID]]></SQLQuer
     DeleteParticipant="false">
     <DesignTime>
       <Attr Name="_customjoin" Value="true"/>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="AppointmentInvitees"
+    Entity="com.sfa.model.entity.AppointmentInvitees"
+    Association="com.sfa.model.association.AppointmentInviteesFk1Assoc"
+    AssociationEnd="com.sfa.model.association.AppointmentInviteesFk1Assoc.AppointmentInvitees"
+    SourceUsage="com.sfa.model.VO.ContactAppointmentsVO.Appointments"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN"
+    ReadOnly="true">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.sfa.model.entity.Appointments.AppointmentId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.sfa.model.entity.AppointmentInvitees.AppointmentId"/>
+      </AttrArray>
     </DesignTime>
   </EntityUsage>
   <ViewAttribute
@@ -134,23 +156,32 @@ AND Appointments.APPOINTMENT_ID = AppointmentInvitees.APPOINTMENT_ID]]></SQLQuer
     PrecisionRule="true"
     EntityAttrName="CustAccountId"
     EntityUsage="Appointments"
-    AliasName="CUST_ACCOUNT_ID"/>
-  <ViewAttribute
-    Name="ObjectVersionNumber1"
-    PrecisionRule="true"
-    EntityAttrName="ObjectVersionNumber"
-    EntityUsage="CustomerContacts"
-    AliasName="OBJECT_VERSION_NUMBER1"/>
+    AliasName="CUST_ACCOUNT_ID">
+    <TransientExpression><![CDATA[ContactVO1.getAttribute("CustAccountId")]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactId"
     IsUpdateable="while_insert"
     PrecisionRule="true"
+    AliasName="CONTACT_ID"
     EntityAttrName="ContactId"
-    EntityUsage="CustomerContacts"
-    AliasName="CONTACT_ID"/>
+    EntityUsage="AppointmentInvitees"/>
+  <ViewAttribute
+    Name="AppInviteeId"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="APP_INVITEE_ID"
+    EntityAttrName="AppInviteeId"
+    EntityUsage="AppointmentInvitees"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber2"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="OBJECT_VERSION_NUMBER2"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="AppointmentInvitees"/>
   <ViewAttribute
     Name="RelatedOpportunity"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -162,10 +193,12 @@ AND Appointments.APPOINTMENT_ID = AppointmentInvitees.APPOINTMENT_ID]]></SQLQuer
     LOVName="LOV_RelatedOpportunity">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <LABEL
           ResId="com.sfa.model.VO.ContactAppointmentsVO.RelatedOpportunity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -174,6 +207,11 @@ AND Appointments.APPOINTMENT_ID = AppointmentInvitees.APPOINTMENT_ID]]></SQLQuer
     ViewLink="com.sfa.model.viewlink.ContactAppointmentsVL"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactAppInviteeVO"
+    ViewLink="com.sfa.model.viewlink.ContactAppInviteeVL"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ContactVO"

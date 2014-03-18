@@ -42,11 +42,17 @@
                     ResId="com.sfa.model.entity.Tasks.TaskName_LABEL"/>
             </SchemaBasedProperties>
         </Properties>
+        <validation:PreDefinedValidationBean
+            Name="TaskNameMandatory0"
+            ResId="com.sfa.model.entity.Tasks.TaskName_Rule_1"
+            Description="Mandatory"
+            ValName="Mandatory"
+            Subtype="MANDATORY"/>
         <validation:RegExpValidationBean
             Name="TaskNameRule0"
             ResId="com.sfa.model.entity.Tasks.TaskName_Rule_0"
             OnAttribute="TaskName"
-            Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+            Pattern=".*[,/'#~@}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
             Inverse="true"/>
     </Attribute>
     <Attribute
@@ -67,8 +73,16 @@
                     ResId="com.sfa.model.entity.Tasks.DueDate_FMT_FORMAT"/>
                 <CONTROLTYPE
                     Value="date"/>
+                <DISPLAYWIDTH
+                    Value="11"/>
             </SchemaBasedProperties>
         </Properties>
+        <validation:PreDefinedValidationBean
+            Name="DueDateMandatory0"
+            ResId="com.sfa.model.entity.Tasks.DueDate_Rule_1"
+            Description="Mandatory"
+            ValName="Mandatory"
+            Subtype="MANDATORY"/>
         <validation:CompareValidationBean
             Name="DueDateRule0"
             ResId="com.sfa.model.entity.Tasks.DueDate_Rule_0"
@@ -149,7 +163,6 @@
     </Attribute>
     <Attribute
         Name="OppurtunityId"
-        IsNotNull="true"
         ColumnName="OPPURTUNITY_ID"
         SQLType="NUMERIC"
         Type="java.math.BigDecimal"

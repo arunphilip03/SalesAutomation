@@ -22,8 +22,9 @@
         Type="oracle.jbo.domain.Number"/>
     <ViewAccessor
         Name="ContactBuyingroleLuView1"
-        RowLevelBinds="true"/>
-    <ViewAccessor
+        RowLevelBinds="true"
+        ViewObjectName="ContactBuyingroleLuView1"/>
+<ViewAccessor
         Name="ContactBuyingroleLuView2"
         ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
         RowLevelBinds="true"/>
@@ -42,6 +43,14 @@
     <ViewAccessor
         Name="ContactBuyingroleLuView3"
         ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="ContactBuyingroleLuView4"
+        ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
+        RowLevelBinds="true"/>
+    <ViewAccessor
+        Name="InfluenceLevelVO1"
+        ViewObjectName="com.sfa.model.VO.InfluenceLevelVO"
         RowLevelBinds="true"/>
     <ListBinding
         Name="LOV_IsPrimary"
@@ -109,14 +118,14 @@
             Hint="showAndExecute"/>
     </ListBinding>
     <ListBinding
-        Name="LOV_BuyInfluenceLevel"
-        ListVOName="ContactBuyingroleLuView3"
+        Name="LOV_BuyingRole"
+        ListVOName="ContactBuyingroleLuView4"
         ListRangeSize="-1"
         ComboRowCountHint="10"
         NullValueFlag="none"
         MRUCount="0">
         <AttrArray Name="AttrNames">
-            <Item Value="BuyInfluenceLevel"/>
+            <Item Value="BuyingRole"/>
         </AttrArray>
         <AttrArray Name="AttrExpressions"/>
         <AttrArray Name="ListAttrNames">
@@ -128,29 +137,50 @@
         <DisplayCriteria
             Hint="hide"/>
     </ListBinding>
-    <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,       
-       CustomerContacts.CONTACT_ID,       
-       CustomerContacts.CUST_ACCOUNT_ID,       
-       CustomerContacts.TITLE,       
-       CustomerContacts.DEPARTMENT,       
-       CustomerContacts.ADDRESS,       
-       CustomerContacts.WORK_PHONE,       
-       CustomerContacts.MOBILE_PHONE,       
-       CustomerContacts.EMAIL,       
-       CustomerContacts.BUY_INFLUENCE_LEVEL,       
-       CustomerContacts.IS_PRIMARY,       
-       CustomerContacts.CREATION_DATE,       
-       CustomerContacts.LAST_UPDATE_DATE,       
-       CustomerContacts.CREATED_BY,       
-       CustomerContacts.LAST_UPDATED_BY,       
-       CustomerContacts.NOTES_SEQ_ID,       
-       CustomerContacts.LAST_UPDATE_LOGIN,       
-       CustomerContacts.OBJECT_VERSION_NUMBER,       
-       CustomerAccount.ACCOUNT_NAME,       
-       CustomerAccount.CUST_ACCOUNT_ID AS CUST_ACCOUNT_ID1, 
-       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1      
-FROM  CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount      
-WHERE CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID     
+    <ListBinding
+        Name="LOV_InfluenceLevel"
+        ListVOName="InfluenceLevelVO1"
+        ListRangeSize="-1"
+        ComboRowCountHint="10"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="InfluenceLevel"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="InfluenceLevel"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="InfluenceLevel"/>
+        </AttrArray>
+        <DisplayCriteria
+            Hint="hide"/>
+    </ListBinding>
+    <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,        
+       CustomerContacts.CONTACT_ID,        
+       CustomerContacts.CUST_ACCOUNT_ID,        
+       CustomerContacts.TITLE,        
+       CustomerContacts.DEPARTMENT,        
+       CustomerContacts.ADDRESS,        
+       CustomerContacts.WORK_PHONE,        
+       CustomerContacts.MOBILE_PHONE,        
+       CustomerContacts.EMAIL,        
+       CustomerContacts.BUYING_ROLE,        
+       CustomerContacts.INFLUENCE_LEVEL,        
+       CustomerContacts.IS_PRIMARY,        
+       CustomerContacts.CREATION_DATE,        
+       CustomerContacts.LAST_UPDATE_DATE,        
+       CustomerContacts.CREATED_BY,        
+       CustomerContacts.LAST_UPDATED_BY,        
+       CustomerContacts.NOTES_SEQ_ID,        
+       CustomerContacts.LAST_UPDATE_LOGIN,        
+       CustomerContacts.OBJECT_VERSION_NUMBER,        
+       CustomerAccount.ACCOUNT_NAME,        
+       CustomerAccount.CUST_ACCOUNT_ID AS CUST_ACCOUNT_ID1,  
+       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1       
+FROM  CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount       
+WHERE CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID      
 AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]></SQLQuery>
     <EntityUsage
         Name="CustomerContacts"
@@ -248,12 +278,26 @@ AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]><
         EntityUsage="CustomerContacts"
         AliasName="EMAIL"/>
     <ViewAttribute
-        Name="BuyInfluenceLevel"
+        Name="BuyingRole"
         PrecisionRule="true"
-        EntityAttrName="BuyInfluenceLevel"
+        EntityAttrName="BuyingRole"
         EntityUsage="CustomerContacts"
-        AliasName="BUY_INFLUENCE_LEVEL"
-        LOVName="LOV_BuyInfluenceLevel">
+        AliasName="BUYING_ROLE"
+        LOVName="LOV_BuyingRole">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="combo_lov"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="InfluenceLevel"
+        PrecisionRule="true"
+        EntityAttrName="InfluenceLevel"
+        EntityUsage="CustomerContacts"
+        AliasName="INFLUENCE_LEVEL"
+        LOVName="LOV_InfluenceLevel">
         <Properties>
             <SchemaBasedProperties>
                 <CONTROLTYPE
@@ -411,21 +455,42 @@ AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]><
                 Operator="STARTSWITH"
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="30"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
                 Name="Department"
                 ViewAttribute="Department"
                 Operator="STARTSWITH"
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="30"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
                 Name="CustomerContactsViewCriteria_CustomerContactsViewCriteria_row_0_AccountName"
                 ViewAttribute="AccountName"
                 Operator="STARTSWITH"
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="30"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
         </ViewCriteriaRow>
     </ViewCriteria>
     <ViewCriteria
@@ -445,7 +510,7 @@ AND CustomerContacts.DELETE_FLAG = 'N' AND CustomerAccount.DELETE_FLAG = 'N']]><
                     Value="true"/>
                 <Property
                     Name="showInList"
-                    Value="true"/>
+                    Value="false"/>
                 <Property
                     Name="mode"
                     Value="Basic"/>

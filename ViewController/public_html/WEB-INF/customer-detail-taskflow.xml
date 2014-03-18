@@ -61,6 +61,10 @@
         <document>/WEB-INF/add-edit-notes.xml</document>
         <id>add-edit-notes</id>
       </task-flow-reference>
+      <input-parameter id="__13">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedNoteKeyStr}</value>
+      </input-parameter>
     </task-flow-call>
     <view id="AppointmentDetail">
       <page>/AppointmentDetail.jsff</page>

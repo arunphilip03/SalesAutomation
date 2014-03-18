@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelHeader text="Create Interaction: for Contact" id="ph1" styleClass="AFStretchWidth">
-        <f:facet name="context"/>
+    <af:panelHeader text="Create Interaction for Contact:" id="ph1" styleClass="AFStretchWidth">
+        <f:facet name="context">
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:activeOutputText value="#{bindings.ContactName}" id="aot1"/>
+        </f:facet>
         <f:facet name="menuBar"/>
         <f:facet name="toolbar">
             <af:toolbar id="t1">
@@ -10,7 +13,7 @@
                 <af:button text="Save and Close" id="b2" action="saveAndClose"
                            actionListener="#{InteractionTeamBean.onCommit}"/>
                 <af:button text="Cancel" id="b3" action="cancel" immediate="true"
-                           actionListener="#{bindings.Rollback.execute}"/>
+                           actionListener="#{RollBackBean.onRollBackContactInteractions}"/>
             </af:toolbar>
         </f:facet>
         <f:facet name="legend"/>
@@ -73,6 +76,7 @@
                 <f:validator binding="#{bindings.RelatedOpportunity.validator}"/>
             </af:inputListOfValues>
         </af:panelFormLayout>
+        <af:spacer width="10" height="10" id="s3"/>
         <af:showDetailHeader text="Team Involved" disclosed="true" id="sdh1" styleClass="AFStretchWidth">
             <f:facet name="context"/>
             <f:facet name="menuBar"/>

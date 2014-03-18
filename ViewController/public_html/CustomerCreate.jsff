@@ -4,7 +4,6 @@
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:panelGroupLayout id="pgl1">
         <af:messages id="m1"/>
-        <af:spacer width="10" height="10" id="s1"/>
         <af:panelHeader text="Create Customer Account" id="ph1" inlineStyle="text-indent:5pt;">
             <f:facet name="context"/>
             <f:facet name="menuBar"/>
@@ -14,7 +13,7 @@
                     <af:button text="Save and Close" id="b2" action="saveAndClose"
                                actionListener="#{bindings.Commit.execute}"/>
                     <af:button text="Cancel" id="b3" immediate="true" action="cancel"
-                               actionListener="#{bindings.Rollback.execute}"/>
+                               actionListener="#{RollBackBean.onRollBack}"/>
                 </af:toolbar>
             </f:facet>
             <f:facet name="legend"/>

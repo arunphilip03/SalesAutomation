@@ -104,7 +104,6 @@ public class CustomerContactsImpl extends BaseEntityImpl {
         WorkPhone,
         MobilePhone,
         Email,
-        BuyInfluenceLevel,
         IsPrimary,
         CreationDate,
         LastUpdateDate,
@@ -115,13 +114,16 @@ public class CustomerContactsImpl extends BaseEntityImpl {
         ObjectVersionNumber,
         ContactName,
         DeleteFlag,
+        BuyingRole,
+        InfluenceLevel,
         AppointmentInvitees,
         CustomerAccount,
         InteractionTeam,
         Opportunities,
         OpportunityTeam,
         TaskTeam;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -156,7 +158,6 @@ public class CustomerContactsImpl extends BaseEntityImpl {
     public static final int WORKPHONE = AttributesEnum.WorkPhone.index();
     public static final int MOBILEPHONE = AttributesEnum.MobilePhone.index();
     public static final int EMAIL = AttributesEnum.Email.index();
-    public static final int BUYINFLUENCELEVEL = AttributesEnum.BuyInfluenceLevel.index();
     public static final int ISPRIMARY = AttributesEnum.IsPrimary.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
@@ -167,6 +168,8 @@ public class CustomerContactsImpl extends BaseEntityImpl {
     public static final int OBJECTVERSIONNUMBER = AttributesEnum.ObjectVersionNumber.index();
     public static final int CONTACTNAME = AttributesEnum.ContactName.index();
     public static final int DELETEFLAG = AttributesEnum.DeleteFlag.index();
+    public static final int BUYINGROLE = AttributesEnum.BuyingRole.index();
+    public static final int INFLUENCELEVEL = AttributesEnum.InfluenceLevel.index();
     public static final int APPOINTMENTINVITEES = AttributesEnum.AppointmentInvitees.index();
     public static final int CUSTOMERACCOUNT = AttributesEnum.CustomerAccount.index();
     public static final int INTERACTIONTEAM = AttributesEnum.InteractionTeam.index();
@@ -316,21 +319,6 @@ public class CustomerContactsImpl extends BaseEntityImpl {
         setAttributeInternal(EMAIL, value);
     }
 
-    /**
-     * Gets the attribute value for BuyInfluenceLevel, using the alias name BuyInfluenceLevel.
-     * @return the value of BuyInfluenceLevel
-     */
-    public String getBuyInfluenceLevel() {
-        return (String) getAttributeInternal(BUYINFLUENCELEVEL);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for BuyInfluenceLevel.
-     * @param value value to set the BuyInfluenceLevel
-     */
-    public void setBuyInfluenceLevel(String value) {
-        setAttributeInternal(BUYINFLUENCELEVEL, value);
-    }
 
     /**
      * Gets the attribute value for IsPrimary, using the alias name IsPrimary.
@@ -436,6 +424,38 @@ public class CustomerContactsImpl extends BaseEntityImpl {
         return (String) getAttributeInternal(DELETEFLAG);
     }
 
+
+    /**
+     * Gets the attribute value for BuyingRole, using the alias name BuyingRole.
+     * @return the value of BuyingRole
+     */
+    public String getBuyingRole() {
+        return (String) getAttributeInternal(BUYINGROLE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for BuyingRole.
+     * @param value value to set the BuyingRole
+     */
+    public void setBuyingRole(String value) {
+        setAttributeInternal(BUYINGROLE, value);
+    }
+
+    /**
+     * Gets the attribute value for InfluenceLevel, using the alias name InfluenceLevel.
+     * @return the value of InfluenceLevel
+     */
+    public String getInfluenceLevel() {
+        return (String) getAttributeInternal(INFLUENCELEVEL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InfluenceLevel.
+     * @param value value to set the InfluenceLevel
+     */
+    public void setInfluenceLevel(String value) {
+        setAttributeInternal(INFLUENCELEVEL, value);
+    }
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.

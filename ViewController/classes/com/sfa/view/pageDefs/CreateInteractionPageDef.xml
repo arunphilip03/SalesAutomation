@@ -38,12 +38,21 @@
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
     <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_Type" id="Type1"/>
     <listOfValues IterBinding="ContactInteractionsVO1Iterator" StaticList="false" Uses="LOV_Direction" id="Direction1"/>
     <attributeValues IterBinding="CustomerContactsView1Iterator" id="CustAccountId">
       <AttrNames>
         <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="ContactId">
+      <AttrNames>
+        <Item Value="ContactId"/>
       </AttrNames>
     </attributeValues>
   </bindings>

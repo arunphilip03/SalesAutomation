@@ -5,10 +5,11 @@
     <af:panelGroupLayout id="pgl2">
         <af:messages id="m1"/>
         <af:panelGroupLayout layout="vertical" id="pgl1">
-            <af:panelSplitter id="ps1" orientation="vertical">
+            <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="150">
                 <f:facet name="first">
                     <af:panelHeader text="Customer Account: #{bindings.AccountName.inputValue}" id="ph1"
                                     inlineStyle="text-indent:5pt;">
+                        <af:separator id="s7"/>
                         <af:spacer width="10" height="10" id="s3"/>
                         <af:panelFormLayout id="pfl1" rows="3" fieldWidth="350px" labelWidth="75px"
                                             styleClass="AFStretchWidth">
@@ -35,6 +36,7 @@
                                                shortDesc="#{bindings.NoEmployees.hints.tooltip}" id="ot8"/>
                             </af:panelLabelAndMessage>
                         </af:panelFormLayout>
+                        <af:separator id="s8"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t5" inlineStyle="text-align:left;">
                                 <af:button text="Cancel" id="b6" action="back"/>
@@ -44,7 +46,7 @@
                 </f:facet>
                 <f:facet name="second">
                     <af:panelTabbed id="pt1" styleClass="AFStretchWidth">
-                        <af:showDetailItem text="Contacts" id="sdi1">
+                        <af:showDetailItem text="Contacts" id="sdi1" styleClass="AFStretchWidth">
                             <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar">
@@ -118,7 +120,7 @@
                                     <af:column headerText="#{bindings.CustomerContactsView2.hints.WorkPhone.label}"
                                                sortable="true" id="c6"
                                                sortProperty="#{bindings.CustomerContactsView2.hints.WorkPhone.name}"
-                                               width="187">
+                                               width="138">
                                         <af:outputText value="#{row.WorkPhone}"
                                                        shortDesc="#{bindings.CustomerContactsView2.hints.WorkPhone.tooltip}"
                                                        id="ot21"/>
@@ -126,7 +128,7 @@
                                     <af:column headerText="#{bindings.CustomerContactsView2.hints.MobilePhone.label}"
                                                sortable="true" id="c7"
                                                sortProperty="#{bindings.CustomerContactsView2.hints.MobilePhone.name}"
-                                               width="175">
+                                               width="141">
                                         <af:outputText value="#{row.MobilePhone}"
                                                        shortDesc="#{bindings.CustomerContactsView2.hints.MobilePhone.tooltip}"
                                                        id="ot22"/>
@@ -134,23 +136,27 @@
                                     <af:column headerText="#{bindings.CustomerContactsView2.hints.Email.label}"
                                                sortable="true" id="c8"
                                                sortProperty="#{bindings.CustomerContactsView2.hints.Email.name}"
-                                               width="225">
+                                               width="190">
                                         <af:outputText value="#{row.Email}"
                                                        shortDesc="#{bindings.CustomerContactsView2.hints.Email.tooltip}"
                                                        id="ot23"/>
                                     </af:column>
-                                    <af:column headerText="#{bindings.CustomerContactsView2.hints.BuyInfluenceLevel.label}"
-                                               sortable="true" id="c9"
-                                               sortProperty="#{bindings.CustomerContactsView2.hints.BuyInfluenceLevel.name}"
-                                               width="-267">
-                                        <af:outputText value="#{row.BuyInfluenceLevel}"
-                                                       shortDesc="#{bindings.CustomerContactsView2.hints.BuyInfluenceLevel.tooltip}"
+                                    <af:column headerText="#{bindings.CustomerContactsView2.hints.BuyingRole.label}"
+                                               id="c9" width="137">
+                                        <af:outputText value="#{row.BuyingRole}"
+                                                       shortDesc="#{bindings.CustomerContactsView2.hints.BuyingRole.tooltip}"
+                                                       id="ot5"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CustomerContactsView2.hints.InfluenceLevel.label}"
+                                               id="c24" width="181">
+                                        <af:outputText value="#{row.InfluenceLevel}"
+                                                       shortDesc="#{bindings.CustomerContactsView2.hints.InfluenceLevel.tooltip}"
                                                        id="ot24"/>
                                     </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>
-                        <af:showDetailItem text="Appointments" id="sdi2">
+                        <af:showDetailItem text="Appointments" id="sdi2" styleClass="AFStretchWidth">
                             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar">
@@ -244,12 +250,13 @@
                                         <af:link id="l8" icon="#{resource['images:new_ena.png']}" action="addEditTask">
                                             <af:setActionListener to="#{requestScope.selectedTaskKeyStr}" from="#{''}"/>
                                         </af:link>
-                                        <!--<af:spacer width="4" height="10" id="s6"/>-->
-                                        <!--<af:link id="l9" icon="#{resource['images:update_ena.png']}"
-                                                 action="addEditTask">
+                                        <af:spacer width="4" height="10" id="s6"/>
+                                        <af:link id="l9" icon="#{resource['images:update_ena.png']}"
+                                                 action="addEditTask" disabled="#{bindings.TasksView3.estimatedRowCount eq 0}"
+                                                 disabledIcon="#{resource['images:update_dis.png']}">
                                             <af:setActionListener from="#{bindings.TasksView3Iterator.currentRowKeyString}"
                                                                   to="#{requestScope.selectedTaskKeyStr}"/>
-                                        </af:link>-->
+                                        </af:link>
                                         <!--<af:spacer width="4" height="10" id="s7"/>-->
                                     </af:toolbar>
                                 </f:facet>
@@ -263,14 +270,14 @@
                                           styleClass="AFStretchWidth" columnStretching="last">
                                     <af:column sortProperty="#{bindings.TasksView3.hints.TaskName.name}" sortable="true"
                                                headerText="#{bindings.TasksView3.hints.TaskName.label}" id="c14"
-                                               width="100">
+                                               width="246">
                                         <af:outputText value="#{row.TaskName}"
                                                        shortDesc="#{bindings.TasksView3.hints.TaskName.tooltip}"
                                                        id="ot2"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.TasksView3.hints.DueDate.name}" sortable="true"
                                                headerText="#{bindings.TasksView3.hints.DueDate.label}" id="c15"
-                                               width="212">
+                                               width="223">
                                         <af:outputText value="#{row.DueDate}"
                                                        shortDesc="#{bindings.TasksView3.hints.DueDate.tooltip}"
                                                        id="ot4">
@@ -279,7 +286,7 @@
                                     </af:column>
                                     <af:column sortProperty="#{bindings.TasksView3.hints.Priority.name}" sortable="true"
                                                headerText="#{bindings.TasksView3.hints.Priority.label}" id="c16"
-                                               width="166">
+                                               width="180">
                                         <af:outputText value="#{row.Priority}"
                                                        shortDesc="#{bindings.TasksView3.hints.Priority.tooltip}"
                                                        id="ot13"/>
@@ -287,25 +294,14 @@
                                     <af:column sortProperty="#{bindings.TasksView3.hints.Description.name}"
                                                sortable="true"
                                                headerText="#{bindings.TasksView3.hints.Description.label}" id="c17"
-                                               width="234">
+                                               width="210">
                                         <af:outputText value="#{row.Description}"
                                                        shortDesc="#{bindings.TasksView3.hints.Description.tooltip}"
                                                        id="ot14"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.TasksView3.hints.PercentageCompletion.name}"
-                                               sortable="true"
-                                               headerText="#{bindings.TasksView3.hints.PercentageCompletion.label}"
-                                               id="c19" width="97">
-                                        <af:outputText value="#{row.PercentageCompletion}"
-                                                       shortDesc="#{bindings.TasksView3.hints.PercentageCompletion.tooltip}"
-                                                       id="ot15">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.TasksView3.hints.PercentageCompletion.format}"/>
-                                        </af:outputText>
-                                    </af:column>
                                     <af:column sortProperty="#{bindings.TasksView3.hints.Assignee.name}" sortable="true"
                                                headerText="#{bindings.TasksView3.hints.Assignee.label}" id="c20"
-                                               width="176">
+                                               width="115">
                                         <af:outputText value="#{row.Assignee}"
                                                        shortDesc="#{bindings.TasksView3.hints.Assignee.tooltip}"
                                                        id="ot16"/>
@@ -313,10 +309,21 @@
                                     <af:column sortProperty="#{bindings.TasksView3.hints.RelatedOppurtunity.name}"
                                                sortable="true"
                                                headerText="#{bindings.TasksView3.hints.RelatedOppurtunity.label}"
-                                               id="c21">
+                                               id="c21" width="146">
                                         <af:outputText value="#{row.RelatedOppurtunity}"
                                                        shortDesc="#{bindings.TasksView3.hints.RelatedOppurtunity.tooltip}"
                                                        id="ot17"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.TasksView3.hints.PercentageCompletion.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.TasksView3.hints.PercentageCompletion.label}"
+                                               id="c19" width="102">
+                                        <af:outputText value="#{row.PercentageCompletion}"
+                                                       shortDesc="#{bindings.TasksView3.hints.PercentageCompletion.tooltip}"
+                                                       id="ot15">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.TasksView3.hints.PercentageCompletion.format}"/>
+                                        </af:outputText>
                                     </af:column>
                                 </af:table>
                                 <f:facet name="statusbar"/>
@@ -328,8 +335,16 @@
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t9">
                                         <af:link id="l11" icon="#{resource['images:new_ena.png']}" action="addNote">
-                                            <af:setActionListener to="#{requestScope.selectedAccountKeyStr}"
+                                            <af:setActionListener to="#{requestScope.selectedNoteKeyStr}"
                                                                   from="#{''}"/>
+                                        </af:link>
+                                        <af:spacer width="4" height="10" id="s5"/>
+                                        <af:link id="l12" icon="#{resource['images:update_ena.png']}"
+                                                 action="addNote"
+                                                 disabled="#{bindings.NotesVO1.estimatedRowCount eq 0}"
+                                                 disabledIcon="#{resource['images:update_dis.png']}">
+                                            <af:setActionListener to="#{requestScope.selectedNoteKeyStr}"
+                                                                  from="#{bindings.NotesVO1Iterator.currentRowKeyString}"/>
                                         </af:link>
                                     </af:toolbar>
                                 </f:facet>

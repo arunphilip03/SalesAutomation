@@ -7,7 +7,12 @@
     </transaction>
     <managed-bean id="__24">
       <managed-bean-name>GetAppointmentId</managed-bean-name>
-      <managed-bean-class>com.sfa.view.GetAppointmentId</managed-bean-class>
+      <managed-bean-class>com.sfa.view.GeneralInfoBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__25">
+      <managed-bean-name>RefreshCreateBean</managed-bean-name>
+      <managed-bean-class>com.sfa.view.backing.RefreshCreateBean</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <view id="contact-detail">
@@ -47,32 +52,6 @@
         <value>contact</value>
       </input-parameter>
     </task-flow-call>
-    <view id="CustomerAppointmentsEdit">
-      <page>/CustomerAppointmentsEdit.jsff</page>
-      <input-page-parameter id="__12">
-        <from-value>contact</from-value>
-        <to-value>#{pageFlowScope.appType}</to-value>
-      </input-page-parameter>
-    </view>
-    <method-call id="SetCurrentRowWithKeyValue">
-      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
-      <outcome>
-        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
-      </outcome>
-    </method-call>
-    <view id="EditTask">
-      <page>/EditTask.jsff</page>
-      <input-page-parameter id="__25">
-        <from-value>contact</from-value>
-        <to-value>#{pageFlowScope.callType}</to-value>
-      </input-page-parameter>
-    </view>
-    <method-call id="SetCurrentRowWithKeyValue1">
-      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
-      <outcome>
-        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
-      </outcome>
-    </method-call>
     <task-flow-call id="add-edit-interactions-taskflow">
       <task-flow-reference>
         <document>/WEB-INF/add-edit-interactions-taskflow.xml</document>
@@ -82,6 +61,81 @@
         <name>selectedRowKeyStr</name>
         <value>#{requestScope.selectedInteraction}</value>
       </input-parameter>
+    </task-flow-call>
+    <view id="ContactAppntEdit">
+      <page>/ContactAppntEdit.jsff</page>
+    </view>
+    <method-call id="SetCurrentRowWithKey">
+      <method>#{bindings.setCurrentRowWithKey.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKey</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ContactTskEdit">
+      <page>/ContactTskEdit.jsff</page>
+    </view>
+    <method-call id="SetCurrentRowWithKey1">
+      <method>#{bindings.setCurrentRowWithKey.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKey</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="methodCall1">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>goBack</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute1">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute2">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="view-contact-interaction-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/view-contact-interaction-tf.xml</document>
+        <id>view-contact-interaction-tf</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="view-contact-task-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/view-contact-task-tf.xml</document>
+        <id>view-contact-task-tf</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="view-contact-appointment-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/view-contact-appointment-tf.xml</document>
+        <id>view-contact-appointment-tf</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
     </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>contact-detail</from-activity-id>
@@ -97,74 +151,120 @@
         <from-outcome>createTask</from-outcome>
         <to-activity-id>add-edit-tasks-taskflow</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__9">
-        <from-outcome>editAppointment</from-outcome>
-        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__19">
-        <from-outcome>editTask</from-outcome>
-        <to-activity-id>SetCurrentRowWithKeyValue1</to-activity-id>
-      </control-flow-case>
       <control-flow-case id="__30">
         <from-outcome>addEditInteraction</from-outcome>
         <to-activity-id>add-edit-interactions-taskflow</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>editAppointment</from-outcome>
+        <to-activity-id>SetCurrentRowWithKey</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>editTask</from-outcome>
+        <to-activity-id>SetCurrentRowWithKey1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__40">
+        <from-outcome>viewInteraction</from-outcome>
+        <to-activity-id>view-contact-interaction-tf</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__43">
+        <from-outcome>viewTask</from-outcome>
+        <to-activity-id>view-contact-task-tf</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__46">
+        <from-outcome>viewAppointment</from-outcome>
+        <to-activity-id>view-contact-appointment-tf</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
       <from-activity-id>add-edit-tasks-taskflow</from-activity-id>
-      <control-flow-case id="__7">
-        <from-outcome>saveCreate</from-outcome>
-        <to-activity-id>contact-detail</to-activity-id>
-      </control-flow-case>
       <control-flow-case id="__8">
         <from-outcome>cancelCreate</from-outcome>
         <to-activity-id>contact-detail</to-activity-id>
       </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__10">
-      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
-      <control-flow-case id="__11">
-        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
-        <to-activity-id>CustomerAppointmentsEdit</to-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome>saveCreate</from-outcome>
+        <to-activity-id>Execute</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__13">
       <from-activity-id>add-edit-appointment-taskflow</from-activity-id>
-      <control-flow-case id="__17">
-        <from-outcome>saveCreate</from-outcome>
-        <to-activity-id>contact-detail</to-activity-id>
-      </control-flow-case>
       <control-flow-case id="__18">
         <from-outcome>cancelCreate</from-outcome>
         <to-activity-id>contact-detail</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__26">
+        <from-outcome>saveCreate</from-outcome>
+        <to-activity-id>methodCall1</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__20">
-      <from-activity-id>SetCurrentRowWithKeyValue1</from-activity-id>
-      <control-flow-case id="__21">
-        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
-        <to-activity-id>EditTask</to-activity-id>
+    <control-flow-rule id="__11">
+      <from-activity-id>SetCurrentRowWithKey</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>setCurrentRowWithKey</from-outcome>
+        <to-activity-id>ContactAppntEdit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__22">
-      <from-activity-id>CustomerAppointmentsEdit</from-activity-id>
-      <control-flow-case id="__23">
-        <from-outcome>cancel</from-outcome>
-        <to-activity-id>contact-detail</to-activity-id>
+      <from-activity-id>ContactAppntEdit</from-activity-id>
+      <control-flow-case id="__36">
+        <from-outcome>goBack</from-outcome>
+        <to-activity-id>Execute2</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__29">
-        <from-outcome>saveAndClose</from-outcome>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>SetCurrentRowWithKey1</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>setCurrentRowWithKey</from-outcome>
+        <to-activity-id>ContactTskEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>ContactTskEdit</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>goBack</from-outcome>
+        <to-activity-id>Execute1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>methodCall1</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome>goBack</from-outcome>
         <to-activity-id>contact-detail</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__26">
-      <from-activity-id>EditTask</from-activity-id>
-      <control-flow-case id="__27">
-        <from-outcome>cancel</from-outcome>
+    <control-flow-rule id="__29">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome>Execute</from-outcome>
         <to-activity-id>contact-detail</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__28">
-        <from-outcome>saveAndClose</from-outcome>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id>Execute1</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__37">
+      <from-activity-id>Execute2</from-activity-id>
+      <control-flow-case id="__38">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id>view-contact-interaction-tf</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome>goBack</from-outcome>
+        <to-activity-id>contact-detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__44">
+      <from-activity-id>view-contact-task-tf</from-activity-id>
+      <control-flow-case id="__45">
+        <from-outcome>goBack</from-outcome>
         <to-activity-id>contact-detail</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

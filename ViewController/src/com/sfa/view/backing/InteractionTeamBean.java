@@ -134,6 +134,18 @@ public class InteractionTeamBean {
         }
         return selectedListUser;
     }
+    
+    
+    public String getSourceContactId() {
+        
+        String contactId_no = null;
+        DCBindingContainer bc = (DCBindingContainer) getBindings();
+        AttributeBinding contactId = (AttributeBinding) bc.getControlBinding("ContactId");
+        contactId_no = contactId.toString();
+        System.out.println("Current contact id= " + contactId_no.toString());
+        
+        return contactId_no;
+    }
 
 
     /**
@@ -151,6 +163,19 @@ public class InteractionTeamBean {
             
             attributeList.add(row.getAttribute("ContactId")!=null?row.getAttribute("ContactId"):"");
         }
+        
+        String source_contact = getSourceContactId();
+        
+        BigDecimal contactID = new BigDecimal(source_contact);
+        
+        //System.out.println("Big: "+contactID.toString());
+                if(!attributeList.contains(contactID))
+                {
+                    //System.out.println("Adding");
+                    attributeList.add(contactID);
+                }
+        
+        
         return attributeList;
     }
 
@@ -287,6 +312,25 @@ public class InteractionTeamBean {
             row.remove();
         }
         List roles = getSelectedContacts();
+        
+        
+        /* Check for creating contact in list- In case of contact interactions */
+        
+            
+            String source_contact = getSourceContactId();
+            
+            BigDecimal contactID = new BigDecimal(source_contact);
+            
+            System.out.println("Checking source contact " + contactID);
+                    if(!roles.contains(contactID))
+                    {
+                        System.out.println("Adding");
+                        roles.add(contactID);
+                    }
+                    
+        
+        /* End of Check */
+        
         int size = roles.size();
         if (size > 0) {
             for (int i = 0; i < size; i++) {

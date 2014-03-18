@@ -78,7 +78,8 @@
                                   label="#{bindings.EffecStartDate.hints.label}"
                                   required="#{bindings.EffecStartDate.hints.mandatory}"
                                   columns="#{bindings.EffecStartDate.hints.displayWidth}"
-                                  shortDesc="#{bindings.EffecStartDate.hints.tooltip}" id="id1">
+                                  shortDesc="#{bindings.EffecStartDate.hints.tooltip}" id="id1"
+                                  inlineStyle="column-width:20px;">
                         <f:validator binding="#{bindings.EffecStartDate.validator}"/>
                         <af:convertDateTime pattern="#{bindings.EffecStartDate.format}"/>
                     </af:inputDate>

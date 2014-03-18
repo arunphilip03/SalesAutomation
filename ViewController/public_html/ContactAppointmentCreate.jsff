@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelHeader text="Create Appointment for Contact" id="ph1">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+            <af:toolbar id="t1">
+                <af:button text="Save" id="b1" actionListener="#{ContactAppointInvitee.onCommit}"/>
+                <af:button text="Save and Close" id="b2" actionListener="#{bindings.Commit.execute}" action="back"/>
+                <af:button text="Cancel" id="b3" action="back"/>
+            </af:toolbar>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:panelFormLayout id="pfl1" rows="4" fieldWidth="350px" labelWidth="75px">
+            <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                          required="#{bindings.Name.hints.mandatory}" columns="#{bindings.Name.hints.displayWidth}"
+                          maximumLength="#{bindings.Name.hints.precision}" shortDesc="#{bindings.Name.hints.tooltip}"
+                          id="it1">
+                <f:validator binding="#{bindings.Name.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                          required="#{bindings.Description.hints.mandatory}"
+                          columns="#{bindings.Description.hints.displayWidth}"
+                          maximumLength="#{bindings.Description.hints.precision}"
+                          shortDesc="#{bindings.Description.hints.tooltip}" id="it3" rows="4">
+                <f:validator binding="#{bindings.Description.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.StartDatetime.inputValue}" label="#{bindings.StartDatetime.hints.label}"
+                          required="#{bindings.StartDatetime.hints.mandatory}"
+                          columns="#{bindings.StartDatetime.hints.displayWidth}"
+                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1">
+                <f:validator binding="#{bindings.StartDatetime.validator}"/>
+                <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.EndDatetime.inputValue}" label="#{bindings.EndDatetime.hints.label}"
+                          required="#{bindings.EndDatetime.hints.mandatory}"
+                          columns="#{bindings.EndDatetime.hints.displayWidth}"
+                          shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2">
+                <f:validator binding="#{bindings.EndDatetime.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"
+                          required="#{bindings.Location.hints.mandatory}"
+                          columns="#{bindings.Location.hints.displayWidth}"
+                          maximumLength="#{bindings.Location.hints.precision}"
+                          shortDesc="#{bindings.Location.hints.tooltip}" id="it2">
+                <f:validator binding="#{bindings.Location.validator}"/>
+            </af:inputText>
+            <af:inputListOfValues id="relatedOpportunityId"
+                                  popupTitle="Search and Select: #{bindings.RelatedOpportunity.hints.label}"
+                                  value="#{bindings.RelatedOpportunity.inputValue}"
+                                  label="#{bindings.RelatedOpportunity.hints.label}"
+                                  model="#{bindings.RelatedOpportunity.listOfValuesModel}"
+                                  required="#{bindings.RelatedOpportunity.hints.mandatory}"
+                                  columns="#{bindings.RelatedOpportunity.hints.displayWidth}"
+                                  shortDesc="#{bindings.RelatedOpportunity.hints.tooltip}">
+                <f:validator binding="#{bindings.RelatedOpportunity.validator}"/>
+            </af:inputListOfValues>
+        </af:panelFormLayout>
+        <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelSplitter id="ps1" splitterPosition="500">
+                <f:facet name="first">
+                    <af:selectManyShuttle label="Contacts" id="sms1" value="#{ContactAppointInvitee.selectedContacts}"
+                                          valueChangeListener="#{ContactAppointInvitee.onContactChange}"
+                                          binding="#{ContactAppointInvitee.selectManyShuttleComponentContacts}">
+                        <f:selectItems value="#{ContactAppointInvitee.allContacts}" id="si1"/>
+                    </af:selectManyShuttle>
+                </f:facet>
+                <f:facet name="second">
+                    <af:selectManyShuttle label="Users" id="sms2" value="#{ContactAppointInvitee.selectedUsers}"
+                                          valueChangeListener="#{ContactAppointInvitee.onUserChange}"
+                                          binding="#{ContactAppointInvitee.selectManyShuttleComponentUsers}">
+                        <f:selectItems value="#{ContactAppointInvitee.allUsers}" id="si2"/>
+                    </af:selectManyShuttle>
+                </f:facet>
+            </af:panelSplitter>
+        </af:showDetailHeader>
+    </af:panelHeader>
+</ui:composition>

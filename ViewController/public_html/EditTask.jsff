@@ -1,15 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelHeader text="Edit Task" id="ph1" styleClass="AFStretchWidth">
-    <f:facet name="context"/>
+  <af:panelHeader text="#{'Edit Task for '} #{pageFlowScope.callType eq 'contact'? 'Contact:' : 'Customer:'}" id="ph1" styleClass="AFStretchWidth">
+    <f:facet name="context">
+      <af:spacer width="10" height="10" id="s2"/>
+      <af:outputText value="#{pageFlowScope.callType eq 'contact'? bindings.ContactName : bindings.AccountName}" id="ot1"/>
+    </f:facet>
     <f:facet name="menuBar"/>
     <f:facet name="toolbar">
       <af:toolbar id="t1">
         <af:button text="Save" id="b1" action="save" actionListener="#{TaskTeamBean.onCommit}"/>
         <af:button text="Save and Close" id="b2" action="saveAndClose" actionListener="#{TaskTeamBean.onCommit}"/>
         <af:button text="Cancel" id="b3" action="cancel" immediate="true"
-                   actionListener="#{bindings.Rollback.execute}"/>
+                   actionListener="#{RollBackBean.onRollBackTasks}"/>
       </af:toolbar>
     </f:facet>
     <f:facet name="legend"/>
@@ -71,7 +74,8 @@
         <f:validator binding="#{bindings.RelatedOppurtunity1.validator}"/>
       </af:inputListOfValues>
     </af:panelFormLayout>
-    <af:showDetailHeader text="Task Team" disclosed="true" id="sdh1">
+    <af:spacer width="10" height="10" id="s3"/>
+    <af:showDetailHeader text="Task Team" disclosed="true" id="sdh1" styleClass="AFStretchWidth">
             <f:facet name="context"/>
             <f:facet name="menuBar"/>
             <f:facet name="toolbar"/>

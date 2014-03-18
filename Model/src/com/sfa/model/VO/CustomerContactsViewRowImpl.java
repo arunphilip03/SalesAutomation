@@ -36,7 +36,8 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
         WorkPhone,
         MobilePhone,
         Email,
-        BuyInfluenceLevel,
+        BuyingRole,
+        InfluenceLevel,
         IsPrimary,
         CreationDate,
         LastUpdateDate,
@@ -65,7 +66,9 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
         BooleanLuView1,
         TitleLuView1,
         CustomerAccountView1,
-        ContactBuyingroleLuView3;
+        ContactBuyingroleLuView3,
+        ContactBuyingroleLuView4,
+        InfluenceLevelVO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -100,7 +103,8 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     public static final int WORKPHONE = AttributesEnum.WorkPhone.index();
     public static final int MOBILEPHONE = AttributesEnum.MobilePhone.index();
     public static final int EMAIL = AttributesEnum.Email.index();
-    public static final int BUYINFLUENCELEVEL = AttributesEnum.BuyInfluenceLevel.index();
+    public static final int BUYINGROLE = AttributesEnum.BuyingRole.index();
+    public static final int INFLUENCELEVEL = AttributesEnum.InfluenceLevel.index();
     public static final int ISPRIMARY = AttributesEnum.IsPrimary.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
@@ -130,6 +134,8 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
     public static final int TITLELUVIEW1 = AttributesEnum.TitleLuView1.index();
     public static final int CUSTOMERACCOUNTVIEW1 = AttributesEnum.CustomerAccountView1.index();
     public static final int CONTACTBUYINGROLELUVIEW3 = AttributesEnum.ContactBuyingroleLuView3.index();
+    public static final int CONTACTBUYINGROLELUVIEW4 = AttributesEnum.ContactBuyingroleLuView4.index();
+    public static final int INFLUENCELEVELVO1 = AttributesEnum.InfluenceLevelVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -297,21 +303,6 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
         setAttributeInternal(EMAIL, value);
     }
 
-    /**
-     * Gets the attribute value for BUY_INFLUENCE_LEVEL using the alias name BuyInfluenceLevel.
-     * @return the BUY_INFLUENCE_LEVEL
-     */
-    public String getBuyInfluenceLevel() {
-        return (String) getAttributeInternal(BUYINFLUENCELEVEL);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for BUY_INFLUENCE_LEVEL using the alias name BuyInfluenceLevel.
-     * @param value value to set the BUY_INFLUENCE_LEVEL
-     */
-    public void setBuyInfluenceLevel(String value) {
-        setAttributeInternal(BUYINFLUENCELEVEL, value);
-    }
 
     /**
      * Gets the attribute value for IS_PRIMARY using the alias name IsPrimary.
@@ -473,6 +464,38 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
 
 
     /**
+     * Gets the attribute value for BUYING_ROLE using the alias name BuyingRole.
+     * @return the BUYING_ROLE
+     */
+    public String getBuyingRole() {
+        return (String) getAttributeInternal(BUYINGROLE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BUYING_ROLE using the alias name BuyingRole.
+     * @param value value to set the BUYING_ROLE
+     */
+    public void setBuyingRole(String value) {
+        setAttributeInternal(BUYINGROLE, value);
+    }
+
+    /**
+     * Gets the attribute value for INFLUENCE_LEVEL using the alias name InfluenceLevel.
+     * @return the INFLUENCE_LEVEL
+     */
+    public String getInfluenceLevel() {
+        return (String) getAttributeInternal(INFLUENCELEVEL);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for INFLUENCE_LEVEL using the alias name InfluenceLevel.
+     * @param value value to set the INFLUENCE_LEVEL
+     */
+    public void setInfluenceLevel(String value) {
+        setAttributeInternal(INFLUENCELEVEL, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link AppointmentInviteesView.
      */
     public RowIterator getAppointmentInviteesView() {
@@ -597,6 +620,20 @@ public class CustomerContactsViewRowImpl extends ViewRowImpl {
      */
     public RowSet getContactBuyingroleLuView3() {
         return (RowSet) getAttributeInternal(CONTACTBUYINGROLELUVIEW3);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> ContactBuyingroleLuView4.
+     */
+    public RowSet getContactBuyingroleLuView4() {
+        return (RowSet) getAttributeInternal(CONTACTBUYINGROLELUVIEW4);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> InfluenceLevelVO1.
+     */
+    public RowSet getInfluenceLevelVO1() {
+        return (RowSet) getAttributeInternal(INFLUENCELEVELVO1);
     }
 }
 

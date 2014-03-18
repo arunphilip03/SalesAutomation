@@ -145,13 +145,53 @@ public class TaskTeamBean {
      * @return
      */
     public List attributeListForIteratorContacts() {
+        
+        String appType = null;
+        AdfFacesContext fctx = AdfFacesContext.getCurrentInstance();
+        Map<String, Object> pfs = fctx.getPageFlowScope();
+        if (pfs != null) {
+
+            appType = (String) pfs.get("callType");
+            System.out.println("Type:: " + appType);
+        }
+        
         DCBindingContainer bc = (DCBindingContainer)getBindings();
         DCIteratorBinding iter = bc.findIteratorBinding("TaskTeamVO1Iterator");
         List attributeList = new ArrayList();
         for (Row row : iter.getAllRowsInRange()) {
             attributeList.add(row.getAttribute("ContactId"));
         }
+        
+        
+        if (appType.equals("contact")) {
+            
+            String source_contact = getSourceContactId();
+            
+            BigDecimal contactID = new BigDecimal(source_contact);
+            
+            //System.out.println("Big: "+contactID.toString());
+                    if(!attributeList.contains(contactID))
+                    {
+                        //System.out.println("Adding");
+                        attributeList.add(contactID);
+                    }
+                    
+        }
+        
+        
         return attributeList;
+    }
+    
+    
+    public String getSourceContactId() {
+        
+        String contactId_no = null;
+        DCBindingContainer bc = (DCBindingContainer) getBindings();
+        AttributeBinding contactId = (AttributeBinding) bc.getControlBinding("ContactId");
+        contactId_no = contactId.toString();
+        System.out.println("Current contact id= " + contactId_no.toString());
+        
+        return contactId_no;
     }
     
     public List attributeListForIteratorUsers() {
@@ -280,21 +320,74 @@ public class TaskTeamBean {
         DCBindingContainer bc = (DCBindingContainer)getBindings();
         DCIteratorBinding iter = bc.findIteratorBinding("TaskTeamVO1Iterator");
         
+        
+        DCIteratorBinding iter1 = bc.findIteratorBinding("TasksView3Iterator");
+        
+        BigDecimal accountId = (BigDecimal) iter1.getCurrentRow().getAttribute("CustAccountId");
+        System.out.println("Account ID = " + accountId);
+        
+        BigDecimal taskId = (BigDecimal) iter1.getCurrentRow().getAttribute("TaskId");
+        System.out.println("Task Id = " + taskId);
+        
+        AttributeBinding accountIdBinding = (AttributeBinding) bc.getControlBinding("CustAccountId");
+        System.out.println("Account id while commit= " + accountIdBinding.toString());
+        
+        BigDecimal accontIdBind = (BigDecimal)accountIdBinding.getInputValue();
+        
+        
+        iter1.getCurrentRow().setAttribute("CustAccountId", accontIdBind);
+        
+//        BigDecimal accountId2 = (BigDecimal) iter1.getCurrentRow().getAttribute("CustAccountId");
+//        System.out.println("Account ID2 = " + accountId2);
+        
         //Removing all rows for the current EmpId from EmpRolesVO
         for (Row row : iter.getAllRowsInRange()) {
             row.remove();
         }
         List roles = getSelectedContacts();
+        
+        /* Check for creating contact in list- In case of contact appointments */
+        
+        String appType = null;
+        AdfFacesContext fctx = AdfFacesContext.getCurrentInstance();
+        Map<String, Object> pfs = fctx.getPageFlowScope();
+        if (pfs != null) {
+
+            appType = (String) pfs.get("callType");
+            System.out.println("Type:: " + appType);
+        }
+        
+        if (appType.equals("contact")) {
+            
+            String source_contact = getSourceContactId();
+            
+            BigDecimal contactID = new BigDecimal(source_contact);
+            
+            System.out.println("Checking source contact " + contactID);
+                    if(!roles.contains(contactID))
+                    {
+                        System.out.println("Adding");
+                        roles.add(contactID);
+                    }
+                    
+        }
+        /* End of Check */
+        
+        
+        
         int size = roles.size();
         if (size > 0) {
             for (int i = 0; i < size; i++) {
-                Row row = iter.getRowSetIterator().createRow();
+               
                 //System.out.println("Appointment ID: "+attr.getInputValue() );
+                Object contactId = roles.get(i);
                 System.out.println("Contact ID: "+roles.get(i));
-                
-                row.setAttribute("TaskId", getCurrentTaskId());
+                if(contactId!=null) {
+                    Row row = iter.getRowSetIterator().createRow();
+                row.setAttribute("TaskId", taskId);
                 row.setAttribute("ContactId", roles.get(i));
                 iter.getRowSetIterator().insertRow(row);
+                }
             }
         }
         
@@ -302,13 +395,16 @@ public class TaskTeamBean {
         int users_size = users.size();
         if(users_size > 0) {
             for (int i = 0; i < users_size; i++) {
-                Row row = iter.getRowSetIterator().createRow();
-                //System.out.println("Appointment ID: "+attr.getInputValue() );
-                System.out.println("UserID: "+users.get(i));
                 
-                row.setAttribute("TaskId", getCurrentTaskId());
+                //System.out.println("Appointment ID: "+attr.getInputValue() );
+                Object userId = users.get(i);
+                System.out.println("UserID: "+users.get(i));
+                if(userId !=null) {
+                    Row row = iter.getRowSetIterator().createRow();
+                row.setAttribute("TaskId", taskId);
                 row.setAttribute("UserId", users.get(i));
                 iter.getRowSetIterator().insertRow(row);
+                }
             }
             
         }

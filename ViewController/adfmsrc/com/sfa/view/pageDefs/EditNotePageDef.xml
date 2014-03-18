@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="EditNotePageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NotesVO1" RangeSize="25" DataControl="AppModuleDataControl" id="NotesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="NotesVO1Iterator" id="NoteDatetime">
+      <AttrNames>
+        <Item Value="NoteDatetime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NotesVO1Iterator" id="NotesText">
+      <AttrNames>
+        <Item Value="NotesText"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

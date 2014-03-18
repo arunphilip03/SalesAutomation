@@ -18,23 +18,76 @@
         ResId="com.sfa.model.VO.ContactVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,     
-       CustomerContacts.CONTACT_ID,     
-       CustomerContacts.OBJECT_VERSION_NUMBER,     
-       CustomerContacts.TITLE,     
-       CustomerAccount.ACCOUNT_NAME,     
-       CustomerAccount.CUST_ACCOUNT_ID,     
-       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1,     
-       CustomerContacts.DEPARTMENT,     
-       CustomerContacts.ADDRESS,     
-       CustomerContacts.WORK_PHONE,     
-       CustomerContacts.MOBILE_PHONE,     
-       CustomerContacts.EMAIL,     
-       CustomerContacts.BUY_INFLUENCE_LEVEL,     
-       CustomerContacts.IS_PRIMARY    
-FROM  CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount    
-WHERE CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID 
-AND CustomerAccount.DELETE_FLAG = 'N' 
+  <ViewAccessor
+    Name="ContactBuyingroleLuView1"
+    ViewObjectName="com.sfa.model.VO.ContactBuyingroleLuView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InfluenceLevelVO1"
+    ViewObjectName="com.sfa.model.VO.InfluenceLevelVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ContactVO1"
+    ViewObjectName="com.sfa.model.VO.ContactVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_BuyingRole"
+    ListVOName="ContactBuyingroleLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BuyingRole"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Rolename"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Rolename"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_InfluenceLevel"
+    ListVOName="InfluenceLevelVO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InfluenceLevel"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="InfluenceLevel"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="InfluenceLevel"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT CustomerContacts.CONTACT_NAME,          
+       CustomerContacts.CONTACT_ID,          
+       CustomerContacts.OBJECT_VERSION_NUMBER,          
+       CustomerContacts.TITLE,          
+       CustomerAccount.ACCOUNT_NAME,          
+       CustomerAccount.CUST_ACCOUNT_ID,          
+       CustomerAccount.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1,          
+       CustomerContacts.DEPARTMENT,         
+       CustomerContacts.BUYING_ROLE,  
+       CustomerContacts.INFLUENCE_LEVEL,  
+       CustomerContacts.ADDRESS,          
+       CustomerContacts.WORK_PHONE,          
+       CustomerContacts.MOBILE_PHONE,          
+       CustomerContacts.EMAIL,          
+       CustomerContacts.IS_PRIMARY         
+FROM  CUSTOMER_CONTACTS CustomerContacts, CUSTOMER_ACCOUNT CustomerAccount         
+WHERE CustomerContacts.CUST_ACCOUNT_ID = CustomerAccount.CUST_ACCOUNT_ID      
+AND CustomerAccount.DELETE_FLAG = 'N'      
 AND CustomerContacts.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="CustomerContacts"
@@ -123,6 +176,34 @@ AND CustomerContacts.DELETE_FLAG = 'N']]></SQLQuery>
     EntityUsage="CustomerContacts"
     AliasName="DEPARTMENT"/>
   <ViewAttribute
+    Name="BuyingRole"
+    PrecisionRule="true"
+    EntityAttrName="BuyingRole"
+    EntityUsage="CustomerContacts"
+    AliasName="BUYING_ROLE"
+    LOVName="LOV_BuyingRole">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InfluenceLevel"
+    PrecisionRule="true"
+    EntityAttrName="InfluenceLevel"
+    EntityUsage="CustomerContacts"
+    AliasName="INFLUENCE_LEVEL"
+    LOVName="LOV_InfluenceLevel">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="Address"
     IsNotNull="true"
     PrecisionRule="true"
@@ -150,26 +231,67 @@ AND CustomerContacts.DELETE_FLAG = 'N']]></SQLQuery>
     EntityUsage="CustomerContacts"
     AliasName="EMAIL"/>
   <ViewAttribute
-    Name="BuyInfluenceLevel"
-    PrecisionRule="true"
-    EntityAttrName="BuyInfluenceLevel"
-    EntityUsage="CustomerContacts"
-    AliasName="BUY_INFLUENCE_LEVEL"/>
-  <ViewAttribute
     Name="IsPrimary"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="IsPrimary"
     EntityUsage="CustomerContacts"
     AliasName="IS_PRIMARY"/>
+  <ViewCriteria
+    Name="ContactVOSearch"
+    ViewObjectName="com.sfa.model.VO.ContactVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="displayName"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ContactVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ContactName"
+        ViewAttribute="ContactName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ContactVOCriteria_ContactVOCriteria_row_0_AccountName"
+        ViewAttribute="AccountName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        GenerateIsNullClauseForBindVars="false"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="ContactId"/>
   </AttrArray>
-  <ViewLinkAccessor
-    Name="ContactAppointmentsVO"
-    ViewLink="com.sfa.model.viewlink.ContactToAppointmentVL"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ContactTasksVO"
     ViewLink="com.sfa.model.viewlink.ContactToTaskVL"
@@ -183,6 +305,11 @@ AND CustomerContacts.DELETE_FLAG = 'N']]></SQLQuery>
   <ViewLinkAccessor
     Name="ContactOpportunitiesVO"
     ViewLink="com.sfa.model.viewlink.ContactToOpportunityVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactAppointmentsVO"
+    ViewLink="com.sfa.model.viewlink.ContactToAppointmentVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

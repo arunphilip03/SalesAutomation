@@ -3,14 +3,17 @@
                 xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:panelHeader text="Edit Customer Account" id="ph1" inlineStyle="text-indent:5pt;">
-    <f:facet name="context"/>
+    <f:facet name="context">
+      <af:spacer width="10" height="10" id="s1"/>
+      <af:outputText value="#{bindings.AccountName}" id="ot1"/>
+    </f:facet>
     <f:facet name="menuBar"/>
     <f:facet name="toolbar">
       <af:toolbar id="t1">
         <af:button text="Save" id="b1" action="save"/>
         <af:button text="Save and Close" id="b3" action="saveAndClose" actionListener="#{bindings.Commit.execute}"/>
         <af:button text="Cancel" id="b2" action="cancel" immediate="true"
-                   actionListener="#{bindings.Rollback.execute}"/>
+                   actionListener="#{RollBackBean.onRollBack}"/>
       </af:toolbar>
     </f:facet>
     <f:facet name="legend"/>

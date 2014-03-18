@@ -25,7 +25,27 @@
     </managed-bean>
     <managed-bean id="__5">
         <managed-bean-name>GeneralInfoBean</managed-bean-name>
-        <managed-bean-class>com.sfa.view.GetAppointmentId</managed-bean-class>
+        <managed-bean-class>com.sfa.view.GeneralInfoBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__7">
+        <managed-bean-name>RollBackBean</managed-bean-name>
+        <managed-bean-class>com.sfa.view.backing.RollbackBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__6">
+        <managed-bean-name>ContactAppointInvitee</managed-bean-name>
+        <managed-bean-class>com.sfa.view.backing.ContactAppointInvitee</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__8">
+        <managed-bean-name>InviteeEditBean</managed-bean-name>
+        <managed-bean-class>com.sfa.view.backing.InviteeEditBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__9">
+        <managed-bean-name>TaskTeamEditBean</managed-bean-name>
+        <managed-bean-class>com.sfa.view.backing.TaskTeamEditBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 </adfc-config>

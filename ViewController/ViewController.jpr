@@ -152,6 +152,7 @@
          <string v="Database"/>
          <string v="HTML"/>
          <string v="JAVASCRIPT"/>
+         <string v="JClient"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
@@ -246,8 +247,8 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="SalesForceAuto-ViewController-webapp"/>
-      <value n="j2eeWebContextRoot" v="SalesForceAuto-ViewController-context-root"/>
+      <value n="j2eeWebAppName" v="SalesForce"/>
+      <value n="j2eeWebContextRoot" v="SalesForce"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">

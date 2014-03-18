@@ -52,7 +52,8 @@ public class Launcher {
     public void launchContacts(ActionEvent actionEvent) {
         TabContext tabContext = TabContext.getCurrentInstance();
         try {
-            tabContext.setMainContent("/WEB-INF/contacts-taskflow.xml#contacts-taskflow");
+            tabContext.setMainContent("/WEB-INF/contacts-taskflow.xml#contacts-taskflow"); //contacts-taskflow.xml#contacts-taskflow
+            //manage-contact-taskflow.xml#manage-contact-taskflow
         } catch (TabContext.TabContentAreaDirtyException toe) {
             // TODO: warn user TabContext api needed for this use case.
         }

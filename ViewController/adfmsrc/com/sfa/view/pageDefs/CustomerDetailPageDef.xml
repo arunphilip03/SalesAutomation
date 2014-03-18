@@ -55,8 +55,9 @@
           <Item Value="WorkPhone"/>
           <Item Value="MobilePhone"/>
           <Item Value="Email"/>
-          <Item Value="BuyInfluenceLevel"/>
           <Item Value="ContactId"/>
+          <Item Value="BuyingRole"/>
+          <Item Value="InfluenceLevel"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelHeader text="Edit Contact" id="ph1" styleClass="AFStretchWidth" inlineStyle="text-indent:5pt;">
-        <f:facet name="context"/>
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <af:panelHeader text="#{'Edit Contact of Account:'}" id="ph1" styleClass="AFStretchWidth" inlineStyle="text-indent:5pt;">
+        <f:facet name="context">
+            <af:spacer width="10" height="10" id="s1"/>
+            <h:outputText value="#{bindings.AccountName}" id="ot1"/>
+        </f:facet>
         <f:facet name="menuBar"/>
         <f:facet name="toolbar">
             <af:toolbar id="t1">
@@ -10,12 +13,12 @@
                 <af:button text="Save and Close" id="b3" action="saveAndClose"
                            actionListener="#{bindings.Commit.execute}"/>
                 <af:button text="Cancel" id="b2" action="cancel" immediate="true"
-                           actionListener="#{bindings.Rollback.execute}"/>
+                           actionListener="#{RollBackBean.onRollBack}"/>
             </af:toolbar>
         </f:facet>
         <f:facet name="legend"/>
         <f:facet name="info"/>
-        <af:panelFormLayout id="pfl1" rows="5" styleClass="AFStretchWidth" fieldWidth="350px" labelWidth="75px">
+        <af:panelFormLayout id="pfl1" rows="6" styleClass="AFStretchWidth" fieldWidth="350px" labelWidth="75px">
             <af:inputText value="#{bindings.ContactName.inputValue}" label="#{bindings.ContactName.hints.label}"
                           required="#{bindings.ContactName.hints.mandatory}"
                           columns="#{bindings.ContactName.hints.displayWidth}"
@@ -65,15 +68,25 @@
                           id="it7">
                 <f:validator binding="#{bindings.Email.validator}"/>
             </af:inputText>
-            <af:inputComboboxListOfValues id="buyInfluenceLevelId"
-                                          popupTitle="Search and Select: #{bindings.BuyInfluenceLevel.hints.label}"
-                                          value="#{bindings.BuyInfluenceLevel.inputValue}"
-                                          label="#{bindings.BuyInfluenceLevel.hints.label}"
-                                          model="#{bindings.BuyInfluenceLevel.listOfValuesModel}"
-                                          required="#{bindings.BuyInfluenceLevel.hints.mandatory}"
-                                          columns="#{bindings.BuyInfluenceLevel.hints.displayWidth}"
-                                          shortDesc="#{bindings.BuyInfluenceLevel.hints.tooltip}">
-                <f:validator binding="#{bindings.BuyInfluenceLevel.validator}"/>
+            <af:inputComboboxListOfValues id="buyingRoleId"
+                                          popupTitle="Search and Select: #{bindings.BuyingRole.hints.label}"
+                                          value="#{bindings.BuyingRole.inputValue}"
+                                          label="#{bindings.BuyingRole.hints.label}"
+                                          model="#{bindings.BuyingRole.listOfValuesModel}"
+                                          required="#{bindings.BuyingRole.hints.mandatory}"
+                                          columns="#{bindings.BuyingRole.hints.displayWidth}"
+                                          shortDesc="#{bindings.BuyingRole.hints.tooltip}">
+                <f:validator binding="#{bindings.BuyingRole.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="influenceLevelId"
+                                          popupTitle="Search and Select: #{bindings.InfluenceLevel.hints.label}"
+                                          value="#{bindings.InfluenceLevel.inputValue}"
+                                          label="#{bindings.InfluenceLevel.hints.label}"
+                                          model="#{bindings.InfluenceLevel.listOfValuesModel}"
+                                          required="#{bindings.InfluenceLevel.hints.mandatory}"
+                                          columns="#{bindings.InfluenceLevel.hints.displayWidth}"
+                                          shortDesc="#{bindings.InfluenceLevel.hints.tooltip}">
+                <f:validator binding="#{bindings.InfluenceLevel.validator}"/>
             </af:inputComboboxListOfValues>
             <af:selectBooleanCheckbox value="#{bindings.IsPrimaryBoolean.inputValue}"
                                       label="#{bindings.IsPrimaryBoolean.label}"

@@ -164,11 +164,7 @@ public class InviteeBean {
             appType = (String) pfs.get("appType");
             System.out.println("Type:: " + appType);
         }
-        
-        
-        
-        
-        
+       
         DCBindingContainer bc = (DCBindingContainer) getBindings();
         DCIteratorBinding iter = bc.findIteratorBinding("AppointmentInviteesVO3Iterator");
         List attributeList = new ArrayList();
@@ -332,24 +328,98 @@ public class InviteeBean {
     }
 
     public void onCommit(ActionEvent actionEvent) {
+
+        System.out.println("Commiting appointments");
+
         DCBindingContainer bc = (DCBindingContainer) getBindings();
+
+        DCIteratorBinding iter1 = bc.findIteratorBinding("AppointmentsView2Iterator");
         DCIteratorBinding iter = bc.findIteratorBinding("AppointmentInviteesVO3Iterator");
+
+        BigDecimal accountId = (BigDecimal) iter1.getCurrentRow().getAttribute("CustAccountId");
+        System.out.println("Account ID = " + accountId);
+        
+        BigDecimal appId = (BigDecimal) iter1.getCurrentRow().getAttribute("AppointmentId");
+        System.out.println("App Id = " + appId);
+        
+        AttributeBinding accountIdBinding = (AttributeBinding) bc.getControlBinding("CustAccountId");
+        System.out.println("Account id while commit= " + accountIdBinding.toString());
+        
+        BigDecimal accontIdBind = (BigDecimal)accountIdBinding.getInputValue();
+        
+        
+        iter1.getCurrentRow().setAttribute("CustAccountId", accontIdBind);
+        
+        BigDecimal accountId2 = (BigDecimal) iter1.getCurrentRow().getAttribute("CustAccountId");
+        System.out.println("Account ID2 = " + accountId2);
+        
 
         //Removing all rows for the current EmpId from EmpRolesVO
         for (Row row : iter.getAllRowsInRange()) {
             row.remove();
         }
         List roles = getSelectedContacts();
+        
+        
+        
+        /* Check for creating contact in list- In case of contact appointments */
+        
+        String appType = null;
+        AdfFacesContext fctx = AdfFacesContext.getCurrentInstance();
+        Map<String, Object> pfs = fctx.getPageFlowScope();
+        if (pfs != null) {
+
+            appType = (String) pfs.get("appType");
+            System.out.println("Type:: " + appType);
+        }
+        
+        if (appType.equals("contact")) {
+            
+            String source_contact = getSourceContactId();
+            
+            BigDecimal contactID = new BigDecimal(source_contact);
+            
+            System.out.println("Checking source contact " + contactID);
+                    if(!roles.contains(contactID))
+                    {
+                        System.out.println("Adding");
+                        roles.add(contactID);
+                    }
+                    
+        }
+        /* End of Check */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         int size = roles.size();
         if (size > 0) {
             for (int i = 0; i < size; i++) {
-                Row row = iter.getRowSetIterator().createRow();
-                //System.out.println("Appointment ID: "+attr.getInputValue() );
-                System.out.println("Contact ID: " + roles.get(i));
+               
 
-                row.setAttribute("AppointmentId", getCurrentAppointmentId());
-                row.setAttribute("ContactId", roles.get(i));
-                iter.getRowSetIterator().insertRow(row);
+                Object contactId = roles.get(i);
+                System.out.println("Contact ID: " + contactId);
+                if (contactId != null) {
+                    Row row = iter.getRowSetIterator().createRow();
+
+                    row.setAttribute("AppointmentId", appId);
+                    row.setAttribute("ContactId", contactId);
+                    iter.getRowSetIterator().insertRow(row);
+                }
+
             }
         }
 
@@ -357,13 +427,16 @@ public class InviteeBean {
         int users_size = users.size();
         if (users_size > 0) {
             for (int i = 0; i < users_size; i++) {
-                Row row = iter.getRowSetIterator().createRow();
-                //System.out.println("Appointment ID: "+attr.getInputValue() );
-                System.out.println("UserID: " + users.get(i));
+                
 
-                row.setAttribute("AppointmentId", getCurrentAppointmentId());
-                row.setAttribute("UserId", users.get(i));
-                iter.getRowSetIterator().insertRow(row);
+                Object userId = users.get(i);
+                System.out.println("UserID: " + userId);
+                if (userId != null) {
+                    Row row = iter.getRowSetIterator().createRow();
+                    row.setAttribute("AppointmentId", appId);
+                    row.setAttribute("UserId", userId);
+                    iter.getRowSetIterator().insertRow(row);
+                }
             }
 
         }

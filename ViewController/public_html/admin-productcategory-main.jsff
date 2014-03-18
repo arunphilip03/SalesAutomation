@@ -5,7 +5,7 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelHeader text="PRODUCT CATEGORIES" id="ph1" inlineStyle="height:22px;">
+                <af:panelHeader text="Product Categories" id="ph1" inlineStyle="height:22px;">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">

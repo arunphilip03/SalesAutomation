@@ -154,7 +154,7 @@ WHERE CustomerAccount.DELETE_FLAG = 'N']]></SQLQuery>
         <CONTROLTYPE
           Value="combo_lov"/>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -305,7 +305,7 @@ WHERE CustomerAccount.DELETE_FLAG = 'N']]></SQLQuery>
           Value="true"/>
         <Property
           Name="showInList"
-          Value="true"/>
+          Value="false"/>
         <Property
           Name="mode"
           Value="Basic"/>
