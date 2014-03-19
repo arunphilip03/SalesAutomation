@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Opportunity_notes_tf">
+    <default-activity>opportunity-notes-create</default-activity>
+    <view id="opportunity-notes-main">
+      <page>/opportunity-notes-main.jsff</page>
+    </view>
+    <view id="opportunity-notes-create">
+      <page>/opportunity-notes-create.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id>opportunity-notes-create</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -319,6 +319,46 @@
                                 <name>/WEB-INF/opportunities-appoinment-create-tf.xml#opportunities-appoinment-create-tf</name>
                                 <actions>customize,personalize,view</actions>
                             </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/opportunity-revenue-create-tf.xml#opportunity-revenue-tf</name>
+                                <actions>customize,personalize,view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/opportunity-revenue-edit-tf.xml#opportunity-revenue-edit-tf</name>
+                                <actions>customize,personalize,view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/opportunities-appointment-edit-tf.xml#opportunities-appointment-tf</name>
+                                <actions>customize,personalize,view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/opportunity-interactions-create-tf.xml#opportunity-interactions-tf</name>
+                                <actions>customize,personalize,view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/opportunity-interactions-edit-tf.xml#opportunity-interactions-edit-tf</name>
+                                <actions>customize,personalize,view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/opportunity-task-edit-tf.xml#opportunity-task-main-tf</name>
+                                <actions>customize,personalize,view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/opportunity-notes-edit-tf.xml#opportunity-notes-edit-tf</name>
+                                <actions>customize,personalize,view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/Opportunity_notes_create-tf.xml#Opportunity_notes_tf</name>
+                                <actions>customize,personalize,view</actions>
+                            </permission>
                         </permissions>
                     </grant>
                 </jazn-policy>

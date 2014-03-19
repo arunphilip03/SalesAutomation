@@ -8,12 +8,27 @@
               id="ProductCategoryView1Iterator"/>
   </executables>
   <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
     <attributeValues IterBinding="ProductCategoryView1Iterator" id="Categoryname">
       <AttrNames>
         <Item Value="Categoryname"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
-    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="ProductCategoryView1Iterator" id="Descriptiion">
+      <AttrNames>
+        <Item Value="Descriptiion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductCategoryView1Iterator" id="EffecStartDate">
+      <AttrNames>
+        <Item Value="EffecStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductCategoryView1Iterator" id="EffecEndDate">
+      <AttrNames>
+        <Item Value="EffecEndDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

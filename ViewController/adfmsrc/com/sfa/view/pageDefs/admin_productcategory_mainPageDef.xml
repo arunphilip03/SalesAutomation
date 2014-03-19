@@ -6,17 +6,22 @@
     <variableIterator id="variables"/>
     <iterator Binds="ProductCategoryView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="ProductCategoryView1Iterator"/>
-    <searchRegion Criteria="ProductCategoryViewSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="ProductCategoryView1Iterator" id="ProductCategoryViewSearchQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="ProductCategoryView1Iterator" id="ProductCategoryView1">
       <nodeDefinition DefName="com.sfa.model.VO.ProductCategoryView" Name="ProductCategoryView10">
         <AttrNames>
           <Item Value="Categoryname"/>
+          <Item Value="Descriptiion"/>
+          <Item Value="EffecStartDate"/>
+          <Item Value="EffecEndDate"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <action IterBinding="ProductCategoryView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="ProductCategoryView1Iterator" id="Delete"
+            InstanceName="AppModuleDataControl.ProductCategoryView1" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

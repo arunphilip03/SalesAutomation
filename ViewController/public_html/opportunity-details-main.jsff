@@ -74,16 +74,6 @@
                                 <f:validator binding="#{bindings.CloseDate.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
                             </af:inputDate>
-                            <af:inputText value="#{bindings.PrimaryContactId.inputValue}"
-                                          label="#{bindings.PrimaryContactId.hints.label}"
-                                          required="#{bindings.PrimaryContactId.hints.mandatory}"
-                                          columns="#{bindings.PrimaryContactId.hints.displayWidth}"
-                                          maximumLength="#{bindings.PrimaryContactId.hints.precision}"
-                                          shortDesc="#{bindings.PrimaryContactId.hints.tooltip}"
-                                          partialTriggers="contactNameId" id="it2">
-                                <f:validator binding="#{bindings.PrimaryContactId.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.PrimaryContactId.format}"/>
-                            </af:inputText>
                             <af:inputComboboxListOfValues id="salesStageId"
                                                           popupTitle="Search and Select: #{bindings.SalesStage.hints.label}"
                                                           value="#{bindings.SalesStage.inputValue}"
@@ -215,7 +205,125 @@
                         <af:panelTabbed id="pt1" styleClass="AFStretchWidth">
                             <af:showDetailItem text="Revenue Items" id="sdi2" styleClass="AFStretchWidth"
                                                immediate="true">
-                                <af:region value="#{bindings.opportunityrevenuetf1.regionModel}" id="r2"/>
+                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t3">
+                                            <af:link id="l1" icon="#{resource['images:new_ena.png']}"
+                                                     actionListener="#{bindings.CreateInsert.execute}"
+                                                     action="revenueCreate"/>
+                                            <af:link id="l2" icon="#{resource['images:update_ena.png']}"
+                                                     action="revenueEdit"
+                                                     disabledIcon="#{resource['images:update_dis.png']}"
+                                                     disabled="#{bindings.OpportunityRevenueItemsView2Iterator.estimatedRowCount eq 0}"/>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                                <af:dialog id="d1"
+                                                           title="Are you sure you want to delete the selected Revenue Item??"
+                                                           dialogListener="#{ConfirmBean.dialogListener}">
+                                                    <f:facet name="buttonBar"/>
+                                                </af:dialog>
+                                            </af:popup>
+                                            <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                                     disabled="#{bindings.OpportunityRevenueItemsView2Iterator.estimatedRowCount eq 0}"
+                                                     disabledIcon="#{resource['images:delete_dis.png']}">
+                                                <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
+                                            </af:link>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <af:table value="#{bindings.OpportunityRevenueItemsView2.collectionModel}" var="row"
+                                              rows="#{bindings.OpportunityRevenueItemsView2.rangeSize}"
+                                              emptyText="#{bindings.OpportunityRevenueItemsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.OpportunityRevenueItemsView2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.OpportunityRevenueItemsView2.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.OpportunityRevenueItemsView2.rangeSize}" id="t2"
+                                              columnStretching="last" partialTriggers="::l1 :::pc13:l34 :::pc15:l15">
+                                        <af:column sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.label}"
+                                                   id="c1" width="154">
+                                            <af:outputText value="#{row.ProductName}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.ProductName.tooltip}"
+                                                           id="ot1"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.label}"
+                                                   id="c2" width="108">
+                                            <af:outputText value="#{row.Quantity}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.tooltip}"
+                                                           id="ot2">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.Quantity.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.label}"
+                                                   id="c3" width="143">
+                                            <af:outputText value="#{row.EstimatedPrice}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.tooltip}"
+                                                           id="ot3">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.EstimatedPrice.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.label}"
+                                                   id="c4" width="120">
+                                            <af:outputText value="#{row.Revenue}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.tooltip}"
+                                                           id="ot4">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.Revenue.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.label}"
+                                                   id="c5" width="135">
+                                            <af:outputText value="#{row.WinProbability}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.tooltip}"
+                                                           id="ot5">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.WinProbability.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.label}"
+                                                   id="c6" width="181">
+                                            <af:outputText value="#{row.BestCaseRevenue}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.tooltip}"
+                                                           id="ot6">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.BestCaseRevenue.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.label}"
+                                                   id="c7" width="193">
+                                            <af:outputText value="#{row.WorstCaseRevenue}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.tooltip}"
+                                                           id="ot7">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.OpportunityRevenueItemsView2.hints.WorstCaseRevenue.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.label}"
+                                                   id="c8" width="-234">
+                                            <af:outputText value="#{row.SalesForecastIncluded}"
+                                                           shortDesc="#{bindings.OpportunityRevenueItemsView2.hints.SalesForecastIncluded.tooltip}"
+                                                           id="ot8"/>
+                                        </af:column>
+                                    </af:table>
+                                    <f:facet name="statusbar"/>
+                                </af:panelCollection>
                             </af:showDetailItem>
                             <af:showDetailItem text="Team Members" id="sdi1" styleClass="AFStretchWidth"
                                                immediate="true">
@@ -223,19 +331,461 @@
                             </af:showDetailItem>
                             <af:showDetailItem text="Appointments" id="sdi3" styleClass="AFStretchWidth"
                                                immediate="true">
-                                <af:region value="#{bindings.opportunitiesappointmenttf1.regionModel}" id="r3"/>
+                                <af:panelFormLayout id="pfl11" rows="1">
+                                    <af:inputText value="#{bindings.OpportunityName.inputValue}"
+                                                  label="#{bindings.OpportunityName.hints.label}"
+                                                  required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
+                                                  columns="#{bindings.OpportunityName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.OpportunityName.hints.precision}"
+                                                  shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it111"
+                                                  visible="false">
+                                        <f:validator binding="#{bindings.OpportunityName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputComboboxListOfValues id="accountNameId1"
+                                                                  popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                                                                  value="#{bindings.AccountName.inputValue}"
+                                                                  label="#{bindings.AccountName.hints.label}"
+                                                                  model="#{bindings.AccountName.listOfValuesModel}"
+                                                                  required="#{bindings.AccountName.hints.mandatory}"
+                                                                  columns="#{bindings.AccountName.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.AccountName.hints.tooltip}"
+                                                                  autoSubmit="true" disabled="true" visible="false">
+                                        <f:validator binding="#{bindings.AccountName.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                </af:panelFormLayout>
+                                <af:panelCollection id="pc111" styleClass="AFStretchWidth">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t31">
+                                            <af:link id="l11" icon="#{resource['images:new_ena.png']}"
+                                                     actionListener="#{bindings.CreateInsert1.execute}"
+                                                     action="createA"/>
+                                            <af:link id="l21" action="editA" icon="#{resource['images:update_ena.png']}"
+                                                     disabledIcon="#{resource['images:update_dis.png']}"
+                                                     disabled="#{bindings.OpportunityAppointmentView2Iterator.estimatedRowCount eq 0}"
+                                                     visible="true"/>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="deletep">
+                                                <af:dialog id="d111"
+                                                           title="Are you sure you want to delete the Selected Appointment?"
+                                                           dialogListener="#{ConfirmBean.dialogListenerAppnmnt}">
+                                                    <f:facet name="buttonBar"/>
+                                                </af:dialog>
+                                            </af:popup>
+                                            <af:link id="l31" icon="#{resource['images:delete_ena.png']}"
+                                                     disabledIcon="#{resource['images:delete_dis.png']}"
+                                                     disabled="#{bindings.OpportunityAppointmentView2Iterator.estimatedRowCount eq 0}"
+                                                     visible="true">
+                                                <af:showPopupBehavior popupId="deletep" triggerType="click"
+                                                                      align="overlap"/>
+                                            </af:link>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <af:table value="#{bindings.OpportunityAppointmentView2.collectionModel}" var="row"
+                                              rows="#{bindings.OpportunityAppointmentView2.rangeSize}"
+                                              emptyText="#{bindings.OpportunityAppointmentView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.OpportunityAppointmentView2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.OpportunityAppointmentView2.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.OpportunityAppointmentView2.rangeSize}" id="t111"
+                                              styleClass="AFStretchWidth" columnStretching="last"
+                                              partialTriggers="::l11 ::l31">
+                                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Name.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityAppointmentView2.hints.Name.label}"
+                                                   id="c21" width="208">
+                                            <af:link id="link1" partialSubmit="true" action="editA" text="#{row.Name}"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Description.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityAppointmentView2.hints.Description.label}"
+                                                   id="c41" width="301">
+                                            <af:outputText value="#{row.Description}"
+                                                           shortDesc="#{bindings.OpportunityAppointmentView2.hints.Description.tooltip}"
+                                                           id="ot41"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.label}"
+                                                   id="c61" width="213">
+                                            <af:outputText value="#{row.StartDatetime}"
+                                                           shortDesc="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.tooltip}"
+                                                           id="ot11">
+                                                <af:convertDateTime pattern="#{bindings.OpportunityAppointmentView2.hints.StartDatetime.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.label}"
+                                                   id="c51" width="188">
+                                            <af:outputText value="#{row.EndDatetime}"
+                                                           shortDesc="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.tooltip}"
+                                                           id="ot51">
+                                                <af:convertDateTime pattern="#{bindings.OpportunityAppointmentView2.hints.EndDatetime.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.OpportunityAppointmentView2.hints.Location.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.OpportunityAppointmentView2.hints.Location.label}"
+                                                   id="c11" width="-401">
+                                            <af:outputText value="#{row.Location}"
+                                                           shortDesc="#{bindings.OpportunityAppointmentView2.hints.Location.tooltip}"
+                                                           id="ot21"/>
+                                        </af:column>
+                                    </af:table>
+                                    <f:facet name="statusbar"/>
+                                </af:panelCollection>
                             </af:showDetailItem>
                             <af:showDetailItem text="Iteractions" id="sdi4" styleClass="AFStretchWidth"
                                                immediate="true">
-                                <af:region value="#{bindings.opportunityinteractionstf1.regionModel}" id="r4"/>
+                                <af:panelFormLayout id="pfl12" rows="1">
+                                    <af:inputText value="#{bindings.OpportunityName.inputValue}"
+                                                  label="#{bindings.OpportunityName.hints.label}"
+                                                  required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
+                                                  columns="#{bindings.OpportunityName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.OpportunityName.hints.precision}"
+                                                  shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it12"
+                                                  disabled="true" visible="false">
+                                        <f:validator binding="#{bindings.OpportunityName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputComboboxListOfValues id="accountNameId2"
+                                                                  popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                                                                  value="#{bindings.AccountName.inputValue}"
+                                                                  label="#{bindings.AccountName.hints.label}"
+                                                                  model="#{bindings.AccountName.listOfValuesModel}"
+                                                                  required="#{bindings.AccountName.hints.mandatory}"
+                                                                  columns="#{bindings.AccountName.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.AccountName.hints.tooltip}"
+                                                                  autoSubmit="true" disabled="true" visible="false">
+                                        <f:validator binding="#{bindings.AccountName.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                </af:panelFormLayout>
+                                <af:panelCollection id="pc12" styleClass="AFStretchWidth">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t32">
+                                            <af:link id="l12" icon="#{resource['images:new_ena.png']}"
+                                                     actionListener="#{bindings.CreateInsert2.execute}"
+                                                     action="createI"/>
+                                            <af:link id="l22" icon="#{resource['images:update_ena.png']}" action="editI"
+                                                     disabledIcon="#{resource['images:update_dis.png']}"
+                                                     disabled="#{bindings.ContactInteractionsView2Iterator.estimatedRowCount eq 0}"
+                                                     visible="true"/>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="deletep2">
+                                                <af:dialog id="d12"
+                                                           title="Are you sure you want to delete the Selected Interaction?"
+                                                           dialogListener="#{ConfirmBean.dialogListenerInteractn}">
+                                                    <f:facet name="buttonBar"/>
+                                                </af:dialog>
+                                            </af:popup>
+                                            <af:link id="l32" icon="#{resource['images:delete_ena.png']}"
+                                                     disabledIcon="#{resource['images:delete_dis.png']}"
+                                                     disabled="#{bindings.ContactInteractionsView2Iterator.estimatedRowCount eq 0}"
+                                                     visible="true">
+                                                <af:showPopupBehavior popupId="deletep2" triggerType="click"
+                                                                      align="overlap"/>
+                                            </af:link>
+                                            <af:button text="Details" id="b22" action="edit"
+                                                       disabled="#{bindings.ContactInteractionsView2Iterator.estimatedRowCount eq 0}"
+                                                       visible="false"/>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.ContactInteractionsView2.collectionModel}" var="row"
+                                              rows="#{bindings.ContactInteractionsView2.rangeSize}"
+                                              emptyText="#{bindings.ContactInteractionsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ContactInteractionsView2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ContactInteractionsView2.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.ContactInteractionsView2.rangeSize}" id="t12"
+                                              styleClass="AFStretchWidth" columnStretching="last"
+                                              partialTriggers="::l12 ::l32">
+                                        <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Type.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ContactInteractionsView2.hints.Type.label}"
+                                                   id="c22" width="124">
+                                                   <af:link id="link12" partialSubmit="true" action="editI" text="#{row.Type}"/>
+                                            
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Direction.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ContactInteractionsView2.hints.Direction.label}"
+                                                   id="c32" width="156">
+                                            <af:outputText value="#{row.Direction}"
+                                                           shortDesc="#{bindings.ContactInteractionsView2.hints.Direction.tooltip}"
+                                                           id="ot32"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.StartDatetime.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ContactInteractionsView2.hints.StartDatetime.label}"
+                                                   id="c42" width="171">
+                                            <af:outputText value="#{row.StartDatetime}"
+                                                           shortDesc="#{bindings.ContactInteractionsView2.hints.StartDatetime.tooltip}"
+                                                           id="ot42">
+                                                <af:convertDateTime pattern="#{bindings.ContactInteractionsView2.hints.StartDatetime.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.EndDatetime.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ContactInteractionsView2.hints.EndDatetime.label}"
+                                                   id="c52" width="190">
+                                            <af:outputText value="#{row.EndDatetime}"
+                                                           shortDesc="#{bindings.ContactInteractionsView2.hints.EndDatetime.tooltip}"
+                                                           id="ot52">
+                                                <af:convertDateTime pattern="#{bindings.ContactInteractionsView2.hints.EndDatetime.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Description.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ContactInteractionsView2.hints.Description.label}"
+                                                   id="c62" width="326">
+                                            <af:outputText value="#{row.Description}"
+                                                           shortDesc="#{bindings.ContactInteractionsView2.hints.Description.tooltip}"
+                                                           id="ot62"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ContactInteractionsView2.hints.Resolution.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ContactInteractionsView2.hints.Resolution.label}"
+                                                   id="c72" width="-402">
+                                            <af:outputText value="#{row.Resolution}"
+                                                           shortDesc="#{bindings.ContactInteractionsView2.hints.Resolution.tooltip}"
+                                                           id="ot72"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
                             </af:showDetailItem>
                             <af:showDetailItem text="Tasks" id="sdi5" styleClass="AFStretchWidth" immediate="true">
-                                <af:region value="#{bindings.opportunitytaskmaintf1.regionModel}" id="r5"/>
+                            
+                             <af:panelFormLayout id="pfl13" rows="1">
+                    <af:inputText value="#{bindings.OpportunityName.inputValue}"
+                                  label="#{bindings.OpportunityName.hints.label}"
+                                  required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.OpportunityName.hints.displayWidth}"
+                                  maximumLength="#{bindings.OpportunityName.hints.precision}"
+                                  shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it13" visible="false">
+                        <f:validator binding="#{bindings.OpportunityName.validator}"/>
+                    </af:inputText>
+                    <af:inputComboboxListOfValues id="accountNameId3"
+                                                  popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                                                  value="#{bindings.AccountName.inputValue}"
+                                                  label="#{bindings.AccountName.hints.label}"
+                                                  model="#{bindings.AccountName.listOfValuesModel}"
+                                                  required="#{bindings.AccountName.hints.mandatory}"
+                                                  columns="#{bindings.AccountName.hints.displayWidth}"
+                                                  shortDesc="#{bindings.AccountName.hints.tooltip}" autoSubmit="true"
+                                                  disabled="true" visible="false">
+                        <f:validator binding="#{bindings.AccountName.validator}"/>
+                    </af:inputComboboxListOfValues>
+                </af:panelFormLayout>
+                <af:panelCollection id="pc13" styleClass="AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t23">
+                            <af:link id="l13" icon="#{resource['images:new_ena.png']}"
+                                     actionListener="#{bindings.CreateInsert3.execute}" action="createT"/>
+                            <af:link id="l24" icon="#{resource['images:update_ena.png']}" action="editT"
+                                     disabledIcon="#{resource['images:update_dis.png']}"
+                                     disabled="#{bindings.OpportunitytaskView2Iterator.estimatedRowCount eq 0}"
+                                     visible="true"/>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p14">
+                                <af:dialog id="d14" title="Are you sure you want to delete the Selected Task?"
+                                           dialogListener="#{ConfirmBean.dialogListenerTask}">
+                                    <f:facet name="buttonBar"/>
+                                </af:dialog>
+                            </af:popup>
+                            <af:link id="l34" icon="#{resource['images:delete_ena.png']}"
+                                     actionListener="#{bindings.Delete.execute}"
+                                     disabled="#{bindings.OpportunitytaskView2Iterator.estimatedRowCount eq 0}"
+                                     disabledIcon="#{resource['images:delete_dis.png']}" visible="true">
+                                <af:showPopupBehavior popupId="p14" triggerType="click" align="overlap"/>
+                            </af:link>
+                        </af:toolbar>
+                    </f:facet>
+                    <af:table value="#{bindings.OpportunitytaskView2.collectionModel}" var="row"
+                              rows="#{bindings.OpportunitytaskView2.rangeSize}"
+                              emptyText="#{bindings.OpportunitytaskView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.OpportunitytaskView2.rangeSize}" id="t14"
+                              styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l13 ::l34"
+                              selectedRowKeys="#{bindings.OpportunitytaskView2.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.OpportunitytaskView2.collectionModel.makeCurrent}"
+                              rowSelection="single">
+                        <af:column headerText="#{bindings.OpportunitytaskView2.hints.TaskName.label}" id="c54"
+                                   width="147" sortProperty="#{bindings.OpportunitytaskView2.hints.TaskName.name}"
+                                   sortable="true">
+                            <af:link id="cl1" partialSubmit="true" action="editT" text="#{row.TaskName}"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.OpportunitytaskView2.hints.OpportunityName.label}" id="c84"
+                                   width="146"
+                                   sortProperty="#{bindings.OpportunitytaskView2.hints.OpportunityName.name}"
+                                   sortable="true">
+                            <af:outputText value="#{row.OpportunityName}"
+                                           shortDesc="#{bindings.OpportunitytaskView2.hints.OpportunityName.tooltip}"
+                                           id="ot34"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.OpportunitytaskView2.hints.AccountName.label}" id="c74"
+                                   width="151" sortProperty="#{bindings.OpportunitytaskView2.hints.AccountName.name}"
+                                   sortable="true">
+                            <af:outputText value="#{row.AccountName}"
+                                           shortDesc="#{bindings.OpportunitytaskView2.hints.AccountName.tooltip}"
+                                           id="ot64"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.OpportunitytaskView2.hints.FirstName.label}" id="c64"
+                                   width="151" sortProperty="#{bindings.OpportunitytaskView2.hints.FirstName.name}"
+                                   sortable="true">
+                            <af:selectOneChoice value="#{row.bindings.FirstName.inputValue}"
+                                                label="#{row.bindings.FirstName.label}"
+                                                required="#{bindings.OpportunitytaskView2.hints.FirstName.mandatory}"
+                                                shortDesc="#{bindings.OpportunitytaskView2.hints.FirstName.tooltip}"
+                                                id="soc1" disabled="true">
+                                <f:selectItems value="#{row.bindings.FirstName.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.FirstName.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.OpportunitytaskView2.hints.Description.label}" id="c14"
+                                   width="223" sortProperty="#{bindings.OpportunitytaskView2.hints.Description.name}"
+                                   sortable="true">
+                            <af:outputText value="#{row.Description}"
+                                           shortDesc="#{bindings.OpportunitytaskView2.hints.Description.tooltip}"
+                                           id="ot44"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.OpportunitytaskView2.hints.DueDate.label}" id="c24" width="112"
+                                   sortProperty="#{bindings.OpportunitytaskView2.hints.DueDate.name}" sortable="true">
+                            <af:outputText value="#{row.DueDate}"
+                                           shortDesc="#{bindings.OpportunitytaskView2.hints.DueDate.tooltip}" id="ot54">
+                                <af:convertDateTime pattern="#{bindings.OpportunitytaskView2.hints.DueDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.OpportunitytaskView2.hints.PercentageCompletion.label}"
+                                   id="c34" width="170"
+                                   sortProperty="#{bindings.OpportunitytaskView2.hints.PercentageCompletion.name}"
+                                   sortable="true">
+                            <af:outputText value="#{row.PercentageCompletion}"
+                                           shortDesc="#{bindings.OpportunitytaskView2.hints.PercentageCompletion.tooltip}"
+                                           id="ot24">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.OpportunitytaskView2.hints.PercentageCompletion.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.OpportunitytaskView2.hints.Priority.label}" id="c44"
+                                   width="-300" sortProperty="#{bindings.OpportunitytaskView2.hints.Priority.name}"
+                                   sortable="true">
+                            <af:outputText value="#{row.Priority}"
+                                           shortDesc="#{bindings.OpportunitytaskView2.hints.Priority.tooltip}"
+                                           id="ot14"/>
+                        </af:column>
+                    </af:table>
+                    <f:facet name="statusbar"/>
+                </af:panelCollection>
+                            
                             </af:showDetailItem>
                             <af:showDetailItem text="Notes" id="sdi6" styleClass="AFStretchWidth" immediate="true"
                                                disclosureListener="#{DisableParentRefresh.notesDisclosure}">
-                                <af:region value="#{bindings.Opportunity_notes_tf1.regionModel}" id="r6"/>
-                            </af:showDetailItem>
+                                                <af:panelSplitter id="ps15" orientation="vertical" splitterPosition="84">
+                    <f:facet name="first">
+                        <af:panelFormLayout id="pfl15" rows="2" styleClass="AFStretchWidth" visible="false">
+                            <af:inputText value="#{bindings.OpportunityName.inputValue}"
+                                          label="#{bindings.OpportunityName.hints.label}"
+                                          required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.OpportunityName.hints.displayWidth}"
+                                          maximumLength="#{bindings.OpportunityName.hints.precision}"
+                                          shortDesc="#{bindings.OpportunityName.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.OpportunityName.validator}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="accountNameId5"
+                                                          popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
+                                                          value="#{bindings.AccountName.inputValue}"
+                                                          label="#{bindings.AccountName.hints.label}"
+                                                          model="#{bindings.AccountName.listOfValuesModel}"
+                                                          required="#{bindings.AccountName.hints.mandatory}"
+                                                          columns="#{bindings.AccountName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.AccountName.hints.tooltip}"
+                                                          autoSubmit="true" disabled="true">
+                                <f:validator binding="#{bindings.AccountName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputComboboxListOfValues id="contactNameId5"
+                                                          popupTitle="Search and Select: #{bindings.ContactName.hints.label}"
+                                                          value="#{bindings.ContactName.inputValue}"
+                                                          label="#{bindings.ContactName.hints.label}"
+                                                          model="#{bindings.ContactName.listOfValuesModel}"
+                                                          required="#{bindings.ContactName.hints.mandatory}"
+                                                          columns="#{bindings.ContactName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.ContactName.hints.tooltip}"
+                                                          disabled="true">
+                                <f:validator binding="#{bindings.ContactName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputDate value="#{bindings.CloseDate.inputValue}" readOnly="true"
+                                          label="#{bindings.CloseDate.hints.label}"
+                                          required="#{bindings.CloseDate.hints.mandatory}"
+                                          columns="#{bindings.CloseDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.CloseDate.hints.tooltip}" id="id15">
+                                <f:validator binding="#{bindings.CloseDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
+                            </af:inputDate>
+                            <af:inputText value="#{bindings.NotesSeqId.inputValue}"
+                                          label="#{bindings.NotesSeqId.hints.label}"
+                                          required="#{bindings.NotesSeqId.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.NotesSeqId.hints.displayWidth}"
+                                          maximumLength="#{bindings.NotesSeqId.hints.precision}"
+                                          shortDesc="#{bindings.NotesSeqId.hints.tooltip}" id="it15" visible="false">
+                                <f:validator binding="#{bindings.NotesSeqId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.NotesSeqId.format}"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelCollection id="pc15" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t35">
+                                    <af:link id="l15" icon="#{resource['images:new_ena.png']}"
+                                             actionListener="#{bindings.CreateInsert4.execute}" action="createN"/>
+                                    <af:link id="l25" icon="#{resource['images:update_ena.png']}" action="editN"
+                                             disabledIcon="#{resource['images:update_dis.png']}"
+                                             disabled="#{bindings.OpportunityNotes2Iterator.estimatedRowCount eq 0}"/>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p15">
+                                        <af:dialog id="d15" title="Are you sure you want to delete the Selected Note?"
+                                                   dialogListener="#{ConfirmBean.dialogListenerNotes}">
+                                            <f:facet name="buttonBar"/>
+                                        </af:dialog>
+                                    </af:popup>
+                                    <af:link id="l35" icon="#{resource['images:delete_ena.png']}"
+                                             disabledIcon="#{resource['images:delete_dis.png']}"
+                                             disabled="#{bindings.OpportunityNotes2Iterator.estimatedRowCount eq 0}">
+                                        <af:showPopupBehavior popupId="p15" triggerType="click" align="overlap"/>
+                                    </af:link>
+                                </af:toolbar>
+                            </f:facet>
+                            <af:table value="#{bindings.OpportunityNotes2.collectionModel}" var="row"
+                                      rows="#{bindings.OpportunityNotes2.rangeSize}"
+                                      emptyText="#{bindings.OpportunityNotes2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.OpportunityNotes2.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.OpportunityNotes2.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.OpportunityNotes2.rangeSize}" id="t25"
+                                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l15 ::l35">
+                                <af:column sortProperty="#{bindings.OpportunityNotes2.hints.NoteDatetime.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.OpportunityNotes2.hints.NoteDatetime.label}" id="c15">
+                                    <af:outputText value="#{row.NoteDatetime}"
+                                                   shortDesc="#{bindings.OpportunityNotes2.hints.NoteDatetime.tooltip}"
+                                                   id="ot15">
+                                        <af:convertDateTime pattern="#{bindings.OpportunityNotes2.hints.NoteDatetime.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.OpportunityNotes2.hints.NotesText.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.OpportunityNotes2.hints.NotesText.label}" id="c25">
+                                    <af:outputText value="#{row.NotesText}"
+                                                   shortDesc="#{bindings.OpportunityNotes2.hints.NotesText.tooltip}"
+                                                   id="ot25"/>
+                                </af:column>
+                            </af:table>
+                            <f:facet name="statusbar"/>
+                        </af:panelCollection>
+                    </f:facet>
+                </af:panelSplitter>
+                                               </af:showDetailItem>
                             <af:showDetailItem text="Attachments" id="sdi7" styleClass="AFStretchWidth"
                                                immediate="true">
                                 <af:region value="#{bindings.Opportunityattachmentstf1.regionModel}" id="r7"/>

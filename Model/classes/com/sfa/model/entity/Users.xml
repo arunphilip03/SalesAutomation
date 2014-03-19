@@ -36,6 +36,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="UserNameMandatory0"
+      ResId="com.sfa.model.entity.Users.UserName_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="EmployeeId"
@@ -50,6 +56,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="EmployeeIdMandatory0"
+      ResId="com.sfa.model.entity.Users.EmployeeId_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"
+      Description="Mandatory"/>
   </Attribute>
   <Attribute
     Name="FirstName"
@@ -63,6 +75,17 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="FirstNameMandatory0"
+      ResId="com.sfa.model.entity.Users.FirstName_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="MiddleName"
@@ -75,6 +98,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="LastName"
@@ -88,6 +117,18 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="LastNameMandatory0"
+      ResId="com.sfa.model.entity.Users.LastName_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="Password"
@@ -97,10 +138,17 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="USERS">
+    TableName="USERS"
+    IsUnique="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="35"/>
     </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="PasswordMandatory0"
+      ResId="com.sfa.model.entity.Users.Password_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="ManagerId"
@@ -123,6 +171,12 @@
     ColumnType="DATE"
     TableName="USERS">
     <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+    <validation:PreDefinedValidationBean
+      Name="EffecStartDateMandatory0"
+      ResId="com.sfa.model.entity.Users.EffecStartDate_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="EffecEndDate"
@@ -142,10 +196,11 @@
       Name="EffecEndDateRule0"
       ResId="com.sfa.model.entity.Users.EffecEndDate_Rule_0"
       OnAttribute="EffecEndDate"
-      OperandType="JBO"
+      OperandType="EXPR"
       Inverse="false"
-      CompareType="GREATERTHAN"
-      CompareValue="com.sfa.model.VO.UsersView.EffecStartDate"/>
+      CompareType="GREATERTHAN">
+      <validation:TransientExpression><![CDATA[EffecStartDate]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -300,15 +355,6 @@
     <DesignTime>
       <Attr Name="_isUnique" Value="true"/>
       <Attr Name="_DBObjectName" Value="USERS_USERNAME_UK1"/>
-    </DesignTime>
-    <AttrArray Name="Attributes"/>
-  </Key>
-  <Key
-    Name="UserAccountsFk1">
-    <DesignTime>
-      <Attr Name="_referencedKey" Value="USER_ACCOUNTS_UK1"/>
-      <Attr Name="_isForeign" Value="true"/>
-      <Attr Name="_DBObjectName" Value="USER_ACCOUNTS_FK1"/>
     </DesignTime>
     <AttrArray Name="Attributes"/>
   </Key>

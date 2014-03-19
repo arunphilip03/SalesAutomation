@@ -1,5 +1,6 @@
 package com.sfa.model.service;
 
+
 import com.sfa.model.service.common.AppModule;
 
 import oracle.jbo.Row;
@@ -1036,7 +1037,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewLinkImpl) findViewLink("OpportunityTaskTeamViewLink1");
     }
 
-    public void uploadFiletoDB(String fileName, String contentType, BlobDomain blob) {
+    public void uploadFiletoDB(String fileName, String contentType, BlobDomain blob,String plainText) {
         System.out.println("am");
         ViewObjectImpl vo = this.getOpportunityAttachmentsView2();
         try {
@@ -1044,6 +1045,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             row.setAttribute("DocumentName", fileName);
             row.setAttribute("DocumentType", contentType);
             row.setAttribute("Document", blob);
+            row.setAttribute("DocumentPlaintext", plainText);
             vo.insertRow(row);
             this.getDBTransaction().commit();
         } catch (Exception e) {
@@ -1115,7 +1117,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getIsBudgetedView1() {
         return (ViewObjectImpl) findViewObject("IsBudgetedView1");
-
+    }
     /**
      * Container's getter for ActiveUsersVO1.
      * @return ActiveUsersVO1
@@ -1123,7 +1125,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getActiveUsersVO1() {
         return (ViewObjectImpl) findViewObject("ActiveUsersVO1");
 }
-}
+
 
     /**
      * Container's getter for InactiveUsersVO1.
@@ -1211,6 +1213,99 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getContactToOpportunityVL1() {
         return (ViewLinkImpl) findViewLink("ContactToOpportunityVL1");
+    }
+
+    /**
+     * Container's getter for EmployeesView1.
+     * @return EmployeesView1
+     */
+    public ViewObjectImpl getEmployeesView1() {
+        return (ViewObjectImpl) findViewObject("EmployeesView1");
+    }
+
+    /**
+     * Container's getter for EmployeesManagerView1.
+     * @return EmployeesManagerView1
+     */
+    public ViewObjectImpl getEmployeesManagerView1() {
+        return (ViewObjectImpl) findViewObject("EmployeesManagerView1");
+    }
+
+    /**
+     * Container's getter for OppoDocumentTypeLUView1.
+     * @return OppoDocumentTypeLUView1
+     */
+    public ViewObjectImpl getOppoDocumentTypeLUView1() {
+        return (ViewObjectImpl) findViewObject("OppoDocumentTypeLUView1");
+    }
+
+    /**
+     * Container's getter for RolesIsSelectedLUView1.
+     * @return RolesIsSelectedLUView1
+     */
+    public ViewObjectImpl getRolesIsSelectedLUView1() {
+        return (ViewObjectImpl) findViewObject("RolesIsSelectedLUView1");
+    }
+
+    /**
+     * Container's getter for AdminUserRolesView1.
+     * @return AdminUserRolesView1
+     */
+    public ViewObjectImpl getAdminUserRolesView1() {
+        return (ViewObjectImpl) findViewObject("AdminUserRolesView1");
+    }
+
+    /**
+     * Container's getter for AdminuserLOVView1.
+     * @return AdminuserLOVView1
+     */
+    public ViewObjectImpl getAdminuserLOVView1() {
+        return (ViewObjectImpl) findViewObject("AdminuserLOVView1");
+    }
+
+    /**
+     * Container's getter for AdminAssignRolesView1.
+     * @return AdminAssignRolesView1
+     */
+    public ViewObjectImpl getAdminAssignRolesView1() {
+        return (ViewObjectImpl) findViewObject("AdminAssignRolesView1");
+    }
+
+    /**
+     * Container's getter for AdminRoleAssignmentView1.
+     * @return AdminRoleAssignmentView1
+     */
+    public ViewObjectImpl getAdminRoleAssignmentView1() {
+        return (ViewObjectImpl) findViewObject("AdminRoleAssignmentView1");
+    }
+
+   
+
+    /**
+     * Container's getter for AdminUserRoleassign1.
+     * @return AdminUserRoleassign1
+     */
+    public ViewObjectImpl getAdminUserRoleassign1() {
+        return (ViewObjectImpl) findViewObject("AdminUserRoleassign1");
+    }
+
+    /**
+     * Container's getter for AdminUserRoleView1.
+     * @return AdminUserRoleView1
+     */
+    public ViewObjectImpl getAdminUserRoleView1() {
+        return (ViewObjectImpl) findViewObject("AdminUserRoleView1");
+    }
+    public void exceptionHandler(){
+        
+    }
+
+    /**
+     * Container's getter for RoleAssignmentTestView1.
+     * @return RoleAssignmentTestView1
+     */
+    public ViewObjectImpl getRoleAssignmentTestView1() {
+        return (ViewObjectImpl) findViewObject("RoleAssignmentTestView1");
     }
 }
 

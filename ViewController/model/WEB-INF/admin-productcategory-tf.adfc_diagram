@@ -22,9 +22,9 @@
       <property
          name="y">188.97412</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">116.368164</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn3">
@@ -37,9 +37,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">98.79883</property>
+         name="y">394.09766</property>
       <property
-         name="x">352.7754</property>
+         name="x">115.77539</property>
    </TaskFlowReturn>
    <View
       id="View4">
@@ -52,11 +52,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">271.5</property>
+         name="y">341.6953</property>
+      <property
+         name="x">514.7754</property>
       <property
          name="pageFragment">true</property>
-      <property
-         name="x">352.7754</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -66,7 +66,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L46,311.7754,267.6494,159.0554,188.62354,R50</property>
+         name="sdm:polyPoints">L46,473.7754,337.84473,158.90263,192.12354,R54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -76,7 +76,7 @@
       <property
          name="fromOutcome">create</property>
       <property
-         name="sdm:polyPoints">R58,157.36816,195.62354,310.07986,274.6494,L54</property>
+         name="sdm:polyPoints">R62,157.36816,199.12354,472.23752,344.84473,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -86,6 +86,43 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">R42,157.36816,181.62354,311.7754,98.44824,L50</property>
+         name="sdm:polyPoints">L50,75.368164,188.62354,74.77539,393.74707,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View8">
+      <property
+         name="activityId">admin-productcategory-edit</property>
+      <property
+         name="page">/admin-productcategory-edit.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>admin-productcategory-edit&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">77.79297</property>
+      <property
+         name="x">507.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="View2"
+      to="View8">
+      <property
+         name="fromOutcome">edit</property>
+      <property
+         name="sdm:polyPoints">R38,157.36816,178.12354,464.8484,73.94238,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View8"
+      to="View2">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">L54,466.0,80.94238,158.51775,185.12354,R46</property>
    </ControlFlowCase>
 </SDM>

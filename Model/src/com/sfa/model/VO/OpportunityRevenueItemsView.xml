@@ -252,6 +252,8 @@ WHERE OpportunityRevenueItems.DELETE_FLAG = 'N']]></SQLQuery>
           ResId="com.sfa.model.VO.OpportunityRevenueItemsView.ProductName_LABEL"/>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -275,6 +277,8 @@ WHERE OpportunityRevenueItems.DELETE_FLAG = 'N']]></SQLQuery>
           ResId="com.sfa.model.VO.OpportunityRevenueItemsView.OpportunityName_LABEL"/>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

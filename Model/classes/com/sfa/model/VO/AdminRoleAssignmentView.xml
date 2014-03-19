@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AdminRoleAssignmentView"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="com.sfa.model.VO.AdminRoleAssignmentViewRowImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.AdminRoleAssignmentView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="UserId"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <SQLQuery><![CDATA[SELECT Roles.ROLE_ID,             
+       Roles.ROLE_NAME,            
+       Rs.EFFEC_END_DATE,             
+       Rs.EFFEC_START_DATE,   
+       Rs.SELECTED_FLAG, 
+       Rs.OBJECT_VERSION_NUMBER,                 
+       'true' as IsSelected       
+       FROM  ROLES Roles inner join ROLE_ASSIGNMENT Rs          
+on Roles.ROLE_ID = Rs.ROLE_ID     
+WHERE Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE <= SYSDATE    
+and             
+Roles.DELETE_FLAG = 'N'    
+and Rs.DELETE_FLAG = 'N'    
+and Rs.USER_ID = :UserId     
+union    
+SELECT Roles.ROLE_ID,             
+       Roles.ROLE_NAME,            
+       Rs.EFFEC_END_DATE,             
+       Rs.EFFEC_START_DATE,  
+       Rs.SELECTED_FLAG, 
+       Rs.OBJECT_VERSION_NUMBER,                 
+       'false' as IsSelected       
+       FROM  ROLES Roles left outer join ROLE_ASSIGNMENT Rs          
+on Roles.ROLE_ID = Rs.ROLE_ID and Rs.USER_ID =  :UserId  and Rs.DELETE_FLAG = 'N'    
+WHERE Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE <= SYSDATE    
+and             
+Roles.DELETE_FLAG = 'N'    
+and Roles.rOLE_ID NOT IN (SELECT ra.ROLE_ID FROM ROLE_ASSIGNMENT ra        
+where ra.user_id = :UserId and ra.DELETE_FLAG = 'N')]]></SQLQuery>
+  <EntityUsage
+    Name="RoleAssignment"
+    Entity="com.sfa.model.entity.RoleAssignment"/>
+  <ViewAttribute
+    Name="RoleId"
+    IsUpdateable="false"
+    IsQueriable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ROLE_ID"
+    Expression="NULL"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RoleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="25"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ROLE_NAME"
+    Expression="ROLE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EffecEndDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EffecEndDate"
+    EntityUsage="RoleAssignment"
+    AliasName="EFFEC_END_DATE"/>
+  <ViewAttribute
+    Name="EffecStartDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EffecStartDate"
+    EntityUsage="RoleAssignment"
+    AliasName="EFFEC_START_DATE"/>
+  <ViewAttribute
+    Name="SelectedFlag"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SELECTED_FLAG"
+    Expression="SELECTED_FLAG"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="RoleAssignment"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="Isselected"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ISSELECTED"
+    Expression="ISSELECTED"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Selected"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[Boolean.valueOf(Isselected)]]></TransientExpression>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

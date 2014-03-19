@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelHeader text="Eidt product category" id="ph1" inlineStyle="height:43px;">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
+                            <af:button text="Save and Close" id="b2" actionListener="#{bindings.Commit.execute}"
+                                       action="back"/>
+                            <af:button text="Cancel" id="b3" actionListener="#{bindings.Rollback.execute}"
+                                       immediate="true" action="back">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+                <af:panelFormLayout id="pfl1" inlineStyle="height:175px;" styleClass="AFStretchWidth">
+                    <af:inputText value="#{bindings.Categoryname.inputValue}"
+                                  label="#{bindings.Categoryname.hints.label}"
+                                  required="#{bindings.Categoryname.hints.mandatory}"
+                                  columns="#{bindings.Categoryname.hints.displayWidth}"
+                                  maximumLength="#{bindings.Categoryname.hints.precision}"
+                                  shortDesc="#{bindings.Categoryname.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.Categoryname.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Descriptiion.inputValue}"
+                                  label="#{bindings.Descriptiion.hints.label}"
+                                  required="#{bindings.Descriptiion.hints.mandatory}"
+                                  columns="#{bindings.Descriptiion.hints.displayWidth}"
+                                  maximumLength="#{bindings.Descriptiion.hints.precision}"
+                                  shortDesc="#{bindings.Descriptiion.hints.tooltip}" id="it2" rows="4">
+                        <f:validator binding="#{bindings.Descriptiion.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.EffecEndDate.inputValue}"
+                                  label="#{bindings.EffecEndDate.hints.label}"
+                                  required="#{bindings.EffecEndDate.hints.mandatory}"
+                                  columns="#{bindings.EffecEndDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.EffecEndDate.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.EffecEndDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EffecEndDate.format}"/>
+                    </af:inputDate>
+                    <af:inputDate value="#{bindings.EffecStartDate.inputValue}"
+                                  label="#{bindings.EffecStartDate.hints.label}"
+                                  required="#{bindings.EffecStartDate.hints.mandatory}"
+                                  columns="#{bindings.EffecStartDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.EffecStartDate.hints.tooltip}" id="id2">
+                        <f:validator binding="#{bindings.EffecStartDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EffecStartDate.format}"/>
+                    </af:inputDate>
+                </af:panelFormLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

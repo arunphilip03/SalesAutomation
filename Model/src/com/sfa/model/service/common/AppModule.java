@@ -7,6 +7,8 @@ import oracle.jbo.domain.BlobDomain;
 // ---    Sun Mar 09 12:59:46 IST 2014
 // ---------------------------------------------------------------------
 public interface AppModule extends ApplicationModule {
-    void uploadFiletoDB(String fileName, String contentType, BlobDomain blob);
+    void uploadFiletoDB(String fileName, String contentType, BlobDomain blob, String plainText);
+
+    void exceptionHandler();
 }
 

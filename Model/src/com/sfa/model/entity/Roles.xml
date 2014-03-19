@@ -36,6 +36,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="RoleNameMandatory0"
+      ResId="com.sfa.model.entity.Roles.RoleName_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="Description"
@@ -48,6 +54,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="EffecStartDate"
@@ -56,7 +68,14 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="ROLES"/>
+    TableName="ROLES">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+    <validation:PreDefinedValidationBean
+      Name="EffecStartDateMandatory0"
+      ResId="com.sfa.model.entity.Roles.EffecStartDate_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
   <Attribute
     Name="EffecEndDate"
     IsNotNull="true"
@@ -75,10 +94,11 @@
       Name="EffecEndDateRule0"
       ResId="com.sfa.model.entity.Roles.EffecEndDate_Rule_0"
       OnAttribute="EffecEndDate"
-      OperandType="JBO"
+      OperandType="EXPR"
       Inverse="false"
-      CompareType="GREATERTHAN"
-      CompareValue="com.sfa.model.VO.RolesView.EffecStartDate"/>
+      CompareType="GREATERTHAN">
+      <validation:TransientExpression><![CDATA[EffecStartDate]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
   </Attribute>
   <Attribute
     Name="CreationDate"

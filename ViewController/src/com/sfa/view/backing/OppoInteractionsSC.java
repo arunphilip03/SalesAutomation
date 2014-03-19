@@ -60,9 +60,9 @@ public class OppoInteractionsSC  {
         DCIteratorBinding iter = bc.findIteratorBinding("InteractionTeamView5Iterator");
         List attributeList = new ArrayList();
         for (Row row : iter.getAllRowsInRange()) {
-            if("CONTACT".equals((String)row.getAttribute("InviteeType")))
+            if("CONTACT".equals((String)row.getAttribute("InviteeType"))){
             attributeList.add(row.getAttribute("ContactId"));
-            
+            System.out.println(row.getAttribute("ContactId"));}
         }
        // System.out.println(attributeList);
         return attributeList;
@@ -112,7 +112,7 @@ public class OppoInteractionsSC  {
         for (Row row : iter.getAllRowsInRange()) {
             row.remove();
         }
-        List contacts = getSelectedContacts();
+        List contacts = getSelectedContacts();System.out.println("<<<<cntct<"+contacts);
         int sizec = contacts.size();
         if (sizec > 0) {
             for (int i = 0; i < sizec; i++) {
@@ -125,7 +125,7 @@ public class OppoInteractionsSC  {
         
         
         
-        List users = getSelectedUsers();
+        List users = getSelectedUsers();System.out.println("<<<<users<"+users);
         System.out.println(users);
         int size = users.size();
         if (size > 0) {

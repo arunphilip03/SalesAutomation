@@ -79,7 +79,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="100"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -194,7 +194,7 @@
       <ViewCriteriaItem
         Name="ProductCategory"
         ViewAttribute="ProductCategory"
-        Operator="STARTSWITH"
+        Operator="="
         Conjunction="AND"
         GenerateIsNullClauseForBindVars="false"
         Required="Optional"/>

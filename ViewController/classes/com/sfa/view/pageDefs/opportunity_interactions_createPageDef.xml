@@ -7,7 +7,7 @@
     <iterator Binds="ContactInteractionsView2" RangeSize="25" DataControl="AppModuleDataControl"
               id="ContactInteractionsView2Iterator"/>
     <iterator id="InteractionTeamView5Iterator" Binds="InteractionTeamView5" DataControl="AppModuleDataControl"
-              RangeSize="25"/>
+              RangeSize="25" Refresh="always"/>
     <iterator id="UsersView1Iterator" Binds="UsersView1" DataControl="AppModuleDataControl" RangeSize="25"/>
     <iterator id="CustomerContactsView4Iterator" Binds="CustomerContactsView4" DataControl="AppModuleDataControl"
               RangeSize="25"/>
@@ -47,6 +47,5 @@
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
   </bindings>
 </pageDefinition>

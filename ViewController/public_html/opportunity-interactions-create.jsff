@@ -13,7 +13,8 @@
                             <af:button text="Save" id="b3" actionListener="#{OppoInteractionsSC.onCommit}"/>
                             <af:button text="Save and Close" id="b1"
                                        action="back" actionListener="#{OppoInteractionsSC.onCommit}"/>
-                            <af:button text="Cancel" id="b2" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b2"
+                                       actionListener="#{RollbackBean.OpportunityInteractionRollback}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>
@@ -25,15 +26,6 @@
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="102">
                     <f:facet name="first">
                         <af:panelFormLayout id="pfl1" rows="4">
-                            <af:inputText value="#{bindings.OppurtunityId.inputValue}"
-                                          label="#{bindings.OppurtunityId.hints.label}"
-                                          required="#{bindings.OppurtunityId.hints.mandatory}"
-                                          columns="#{bindings.OppurtunityId.hints.displayWidth}"
-                                          maximumLength="#{bindings.OppurtunityId.hints.precision}"
-                                          shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it1" disabled="true">
-                                <f:validator binding="#{bindings.OppurtunityId.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
-                            </af:inputText>
                             <af:inputComboboxListOfValues id="typeId"
                                                           popupTitle="Search and Select: #{bindings.Type.hints.label}"
                                                           value="#{bindings.Type.inputValue}"
@@ -75,7 +67,7 @@
                                           required="#{bindings.Description.hints.mandatory}"
                                           columns="#{bindings.Description.hints.displayWidth}"
                                           maximumLength="#{bindings.Description.hints.precision}"
-                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it2" rows="3">
                                 <f:validator binding="#{bindings.Description.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.Resolution.inputValue}"
@@ -94,6 +86,16 @@
                                           shortDesc="#{bindings.InteractionId.hints.tooltip}" id="it4" visible="false">
                                 <f:validator binding="#{bindings.InteractionId.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.InteractionId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.OppurtunityId.inputValue}"
+                                          label="#{bindings.OppurtunityId.hints.label}"
+                                          required="#{bindings.OppurtunityId.hints.mandatory}"
+                                          columns="#{bindings.OppurtunityId.hints.displayWidth}"
+                                          maximumLength="#{bindings.OppurtunityId.hints.precision}"
+                                          shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it1" disabled="true"
+                                          visible="false">
+                                <f:validator binding="#{bindings.OppurtunityId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
                             </af:inputText>
                         </af:panelFormLayout>
                     </f:facet>

@@ -1,35 +1,64 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
     <af:panelGridLayout id="pgl1">
         <af:gridRow height="100%" id="gr1">
-            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1" inlineStyle="font-size:large;">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1" inlineStyle="font-size:large;"
+                         rendered="true">
                 <!-- Content -->
                 <af:panelHeader text="Upload Documents" id="ph1" inlineStyle="height:44px;">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
-                            <af:button text="Close" id="b2" action="back" immediate="true"/>
+                            <af:button text="back" id="b2" action="back" immediate="true"/>
                         </af:toolbar>
                     </f:facet>
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputComboboxListOfValues id="documentTypeId"
+                                                  popupTitle="Search and Select: #{bindings.DocumentType.hints.label}"
+                                                  value="#{bindings.DocumentType.inputValue}"
+                                                  label="#{bindings.DocumentType.hints.label}"
+                                                  model="#{bindings.DocumentType.listOfValuesModel}"
+                                                  columns="#{bindings.DocumentType.hints.displayWidth}"
+                                                  shortDesc="#{bindings.DocumentType.hints.tooltip}" autoSubmit="true"
+                                                  returnPopupListener="#{OppoAttachmentBean.docTypeReturn}"
+                                                  required="true">
+                        <f:validator binding="#{bindings.DocumentType.validator}"/>
+                    </af:inputComboboxListOfValues>
+                    <af:inputText value="#{bindings.DocType.inputValue}" label="#{bindings.DocType.hints.label}"
+                                  required="#{bindings.DocType.hints.mandatory}"
+                                  columns="#{bindings.DocType.hints.displayWidth}"
+                                  maximumLength="#{bindings.DocType.hints.precision}"
+                                  shortDesc="#{bindings.DocType.hints.tooltip}" id="it3" visible="false">
+                        <f:validator binding="#{bindings.DocType.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
                 <af:inputText label="Document Name" id="it1" binding="#{OppoAttachmentBean.it1}"/>
                 <af:panelSplitter id="ps1" splitterPosition="376" disabled="true">
                     <f:facet name="first">
                         <af:inputFile label="Select document" id="if1" inlineStyle="color:Blue;"
                                       binding="#{OppoAttachmentBean.files}"
-                                      valueChangeListener="#{OppoAttachmentBean.onFileUploadVCL}"/>
+                                      valueChangeListener="#{OppoAttachmentBean.onFileUploadVCL}" rendered="true"
+                                      disabled='#{bindings.DocType =="Plain Text"}'/>
                     </f:facet>
                     <f:facet name="second">
                         <af:link id="l1" actionListener="#{OppoAttachmentBean.onFileUpload}" action="back"
-                                 icon="#{resource['images:icon-upload-small.png']}"/>
+                                 icon="#{resource['images:icon-upload-small.png']}"
+                                 binding="#{OppoAttachmentBean.uploadLink}" rendered="true"
+                                 disabled='#{bindings.DocType =="Plain Text"}'/>
                     </f:facet>
                 </af:panelSplitter>
-                <af:button text="uploadFiletoDB" id="b1" actionListener="#{bindings.uploadFiletoDB.execute}"
-                           visible="false"/>
+                <af:inputText label="Plain Text" id="it2" rows="10" binding="#{OppoAttachmentBean.plaintext}" columns="100"
+                              rendered="true" disabled='#{bindings.DocType =="Document"}'/>
+                <af:button text="Save" id="b3" action="back" actionListener="#{OppoAttachmentBean.plainTextCommit}"
+                           binding="#{OppoAttachmentBean.saveButton}" rendered="true"
+                           disabled='#{bindings.DocType =="Document"}'/>
+                <af:button text="uploadFiletoDB" id="b1"
+                           visible="false" actionListener="#{bindings.uploadFiletoDB.execute}"/>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

@@ -26,6 +26,57 @@ public class ConfirmBean {
         
         }
     }
+    
+    public void dialogListenerAppnmnt(DialogEvent dialogEvent) {
+        
+        if(dialogEvent.getOutcome().equals(DialogEvent.Outcome.ok)) {
+            BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding opDelete = bc.getOperationBinding("Delete1"); 
+            OperationBinding opCommit = bc.getOperationBinding("Commit"); 
+            opDelete.execute();
+            opCommit.execute();
+            
+        
+        }
+    }
+    
+    public void dialogListenerInteractn(DialogEvent dialogEvent) {
+        
+        if(dialogEvent.getOutcome().equals(DialogEvent.Outcome.ok)) {
+            BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding opDelete = bc.getOperationBinding("Delete2"); 
+            OperationBinding opCommit = bc.getOperationBinding("Commit"); 
+            opDelete.execute();
+            opCommit.execute();
+            
+        
+        }
+    }
+    
+    public void dialogListenerTask(DialogEvent dialogEvent) {
+        
+        if(dialogEvent.getOutcome().equals(DialogEvent.Outcome.ok)) {
+            BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding opDelete = bc.getOperationBinding("Delete3"); 
+            OperationBinding opCommit = bc.getOperationBinding("Commit"); 
+            opDelete.execute();
+            opCommit.execute();
+            
+        
+        }
+    }
 
 
+    public void dialogListenerNotes(DialogEvent dialogEvent) {
+        
+        if(dialogEvent.getOutcome().equals(DialogEvent.Outcome.ok)) {
+            BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding opDelete = bc.getOperationBinding("Delete4"); 
+            OperationBinding opCommit = bc.getOperationBinding("Commit"); 
+            opDelete.execute();
+            opCommit.execute();
+            
+        
+        }
+    }
 }

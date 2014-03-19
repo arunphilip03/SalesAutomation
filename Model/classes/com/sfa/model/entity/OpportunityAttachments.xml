@@ -169,6 +169,18 @@
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="DocumentPlaintext"
+    Precision="4000"
+    ColumnName="DOCUMENT_PLAINTEXT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPORTUNITY_ATTACHMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Opportunities"
     Association="com.sfa.model.association.OppurtunityDocumentsFk1Assoc"

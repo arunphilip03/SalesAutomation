@@ -14,7 +14,7 @@
                             <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
                             <af:button text="Save and Close" id="b2" actionListener="#{bindings.Commit.execute}"
                                        action="revCBack"/>
-                            <af:button text="Cancel" id="b3" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b3" actionListener="#{RollbackBean.OpportunityRevenueRollback}"
                                        immediate="true" action="revCBack">
                                 <af:resetActionListener/>
                             </af:button>

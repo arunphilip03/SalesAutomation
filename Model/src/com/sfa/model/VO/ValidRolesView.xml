@@ -6,25 +6,12 @@
   Name="ValidRolesView"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="Roles.CREATED_BY, 
-       Roles.CREATION_DATE, 
-       Roles.DESCRIPTION, 
-       Roles.EFFEC_END_DATE, 
-       Roles.EFFEC_START_DATE, 
-       Roles.LAST_UPDATE_DATE, 
-       Roles.LAST_UPDATE_LOGIN, 
-       Roles.LAST_UPDATED_BY, 
-       Roles.OBJECT_VERSION_NUMBER, 
-       Roles.ROLE_ID, 
-       Roles.ROLE_NAME"
-  FromList="ROLES Roles"
-  Where="Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE &lt;= SYSDATE and 
-Roles.DELETE_FLAG = 'N' 
-AND Roles.ROLE_ID not in  
-(select ra.ROLE_ID from ROLE_ASSIGNMENT ra where ra.USER_ID = :UserId)"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -34,36 +21,59 @@ AND Roles.ROLE_ID not in
   <Variable
     Name="UserId"
     Kind="where"
-    Type="java.math.BigDecimal"/>
+    Type="oracle.jbo.domain.Number"/>
+  <ViewAccessor
+    Name="RolesIsSelectedLUView1"
+    ViewObjectName="com.sfa.model.VO.RolesIsSelectedLUView"
+    RowLevelBinds="true"/>
+  <SQLQuery><![CDATA[SELECT Rl.ROLE_ID,                              
+       Rl.ROLE_NAME,                             
+       Rs.EFFEC_END_DATE,                              
+       Rs.EFFEC_START_DATE,                                           
+       'true' as IsSelected                        
+FROM  ROLES Rl inner join ROLE_ASSIGNMENT Rs                           
+on Rl.ROLE_ID = Rs.ROLE_ID                           
+WHERE Rl.EFFEC_END_DATE >= SYSDATE AND Rl.EFFEC_START_DATE <= SYSDATE and                              
+Rl.DELETE_FLAG = 'N'                           
+and Rs.DELETE_FLAG = 'N'                           
+AND Rs.USER_ID = :UserId                        
+                        
+union                         
+                        
+SELECT Rl.ROLE_ID,                              
+       Rl.ROLE_NAME,                             
+       Rs.EFFEC_END_DATE,                              
+       Rs.EFFEC_START_DATE,                               
+        'false' as IsSelected          
+                              
+       FROM  ROLES Rl left outer join ROLE_ASSIGNMENT Rs                           
+on Rl.ROLE_ID = Rs.ROLE_ID and Rs.USER_ID = :UserId  and Rs.DELETE_FLAG = 'N'                     
+WHERE Rl.EFFEC_END_DATE >= SYSDATE AND Rl.EFFEC_START_DATE <= SYSDATE                     
+and                              
+Rl.DELETE_FLAG = 'N'                     
+and Rl.rOLE_ID NOT IN (SELECT ra.ROLE_ID FROM ROLE_ASSIGNMENT ra                         
+where ra.user_id = :UserId)]]></SQLQuery>
   <EntityUsage
     Name="Roles"
     Entity="com.sfa.model.entity.Roles"/>
   <ViewAttribute
-    Name="CreatedBy"
-    IsUpdateable="false"
+    Name="RoleId"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="CreatedBy"
+    EntityAttrName="RoleId"
     EntityUsage="Roles"
-    AliasName="CREATED_BY"/>
+    AliasName="ROLE_ID"/>
   <ViewAttribute
-    Name="CreationDate"
-    IsUpdateable="false"
+    Name="RoleName"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="CreationDate"
+    EntityAttrName="RoleName"
     EntityUsage="Roles"
-    AliasName="CREATION_DATE"/>
-  <ViewAttribute
-    Name="Description"
-    PrecisionRule="true"
-    EntityAttrName="Description"
-    EntityUsage="Roles"
-    AliasName="DESCRIPTION">
+    AliasName="ROLE_NAME">
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="150"/>
+        <LABEL
+          ResId="com.sfa.model.VO.ValidRolesView.RoleName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -96,52 +106,19 @@ AND Roles.ROLE_ID not in
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="LastUpdateDate"
+    Name="Isselected"
     IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="LastUpdateDate"
-    EntityUsage="Roles"
-    AliasName="LAST_UPDATE_DATE"/>
-  <ViewAttribute
-    Name="LastUpdateLogin"
-    IsUpdateable="false"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdateLogin"
-    EntityUsage="Roles"
-    AliasName="LAST_UPDATE_LOGIN"/>
-  <ViewAttribute
-    Name="LastUpdatedBy"
-    IsUpdateable="false"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedBy"
-    EntityUsage="Roles"
-    AliasName="LAST_UPDATED_BY"/>
-  <ViewAttribute
-    Name="ObjectVersionNumber"
-    PrecisionRule="true"
-    EntityAttrName="ObjectVersionNumber"
-    EntityUsage="Roles"
-    AliasName="OBJECT_VERSION_NUMBER"/>
-  <ViewAttribute
-    Name="RoleId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="RoleId"
-    EntityUsage="Roles"
-    AliasName="ROLE_ID"/>
-  <ViewAttribute
-    Name="RoleName"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="RoleName"
-    EntityUsage="Roles"
-    AliasName="ROLE_NAME">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sfa.model.VO.ValidRolesView.RoleName_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ISSELECTED"
+    Expression="ISSELECTED"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
   </ViewAttribute>
   <ViewCriteria
     Name="ValidRolesViewCriteria"

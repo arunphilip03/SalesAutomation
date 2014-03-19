@@ -29,34 +29,16 @@
                                   shortDesc="#{bindings.UserName.hints.tooltip}" id="it1">
                         <f:validator binding="#{bindings.UserName.validator}"/>
                     </af:inputText>
-                    <af:inputText value="#{bindings.EmployeeId.inputValue}" label="#{bindings.EmployeeId.hints.label}"
-                                  required="#{bindings.EmployeeId.hints.mandatory}"
-                                  columns="#{bindings.EmployeeId.hints.displayWidth}"
-                                  maximumLength="#{bindings.EmployeeId.hints.precision}"
-                                  shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it2">
-                        <f:validator binding="#{bindings.EmployeeId.validator}"/>
-                    </af:inputText>
-                    <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
-                                  required="#{bindings.FirstName.hints.mandatory}"
-                                  columns="#{bindings.FirstName.hints.displayWidth}"
-                                  maximumLength="#{bindings.FirstName.hints.precision}"
-                                  shortDesc="#{bindings.FirstName.hints.tooltip}" id="it3">
-                        <f:validator binding="#{bindings.FirstName.validator}"/>
-                    </af:inputText>
-                    <af:inputText value="#{bindings.MiddleName.inputValue}" label="#{bindings.MiddleName.hints.label}"
-                                  required="#{bindings.MiddleName.hints.mandatory}"
-                                  columns="#{bindings.MiddleName.hints.displayWidth}"
-                                  maximumLength="#{bindings.MiddleName.hints.precision}"
-                                  shortDesc="#{bindings.MiddleName.hints.tooltip}" id="it4">
-                        <f:validator binding="#{bindings.MiddleName.validator}"/>
-                    </af:inputText>
-                    <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
-                                  required="#{bindings.LastName.hints.mandatory}"
-                                  columns="#{bindings.LastName.hints.displayWidth}"
-                                  maximumLength="#{bindings.LastName.hints.precision}"
-                                  shortDesc="#{bindings.LastName.hints.tooltip}" id="it5">
-                        <f:validator binding="#{bindings.LastName.validator}"/>
-                    </af:inputText>
+                    <af:inputComboboxListOfValues id="employeeNameId"
+                                                  popupTitle="Search and Select: #{bindings.EmployeeName.hints.label}"
+                                                  value="#{bindings.EmployeeName.inputValue}"
+                                                  label="#{bindings.EmployeeName.hints.label}"
+                                                  model="#{bindings.EmployeeName.listOfValuesModel}"
+                                                  required="#{bindings.EmployeeName.hints.mandatory}"
+                                                  columns="#{bindings.EmployeeName.hints.displayWidth}"
+                                                  shortDesc="#{bindings.EmployeeName.hints.tooltip}">
+                        <f:validator binding="#{bindings.EmployeeName.validator}"/>
+                    </af:inputComboboxListOfValues>
                     <af:inputText value="#{bindings.Password.inputValue}" label="#{bindings.Password.hints.label}"
                                   required="#{bindings.Password.hints.mandatory}"
                                   columns="#{bindings.Password.hints.displayWidth}"
@@ -64,16 +46,6 @@
                                   shortDesc="#{bindings.Password.hints.tooltip}" id="it6" secret="true">
                         <f:validator binding="#{bindings.Password.validator}"/>
                     </af:inputText>
-                    <af:inputComboboxListOfValues id="managernameId"
-                                                  popupTitle="Search and Select: #{bindings.Managername.hints.label}"
-                                                  value="#{bindings.Managername.inputValue}"
-                                                  label="#{bindings.Managername.hints.label}"
-                                                  model="#{bindings.Managername.listOfValuesModel}"
-                                                  required="#{bindings.Managername.hints.mandatory}"
-                                                  columns="#{bindings.Managername.hints.displayWidth}"
-                                                  shortDesc="#{bindings.Managername.hints.tooltip}">
-                        <f:validator binding="#{bindings.Managername.validator}"/>
-                    </af:inputComboboxListOfValues>
                     <af:inputDate value="#{bindings.EffecStartDate.inputValue}"
                                   label="#{bindings.EffecStartDate.hints.label}"
                                   required="#{bindings.EffecStartDate.hints.mandatory}"

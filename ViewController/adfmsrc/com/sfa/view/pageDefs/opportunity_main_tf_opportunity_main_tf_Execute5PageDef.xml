@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="opportunity_main_tf_opportunity_main_tf_Execute5PageDef" Package="com.sfa.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ContactInteractionsView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactInteractionsView2Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ContactInteractionsView2Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

@@ -14,7 +14,7 @@
                             <af:button text="Save" id="b1" actionListener="#{OppoAppnmntSC.onCommit}"/>
                             <af:button text="Save and Close" id="b2"
                                        action="back" actionListener="#{OppoAppnmntSC.onCommit}"/>
-                            <af:button text="Cancel" id="b3" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b3" actionListener="#{RollbackBean.OpportunityAppnmntRollback}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>
@@ -49,7 +49,8 @@
                                           required="#{bindings.OppurtunityId.hints.mandatory}"
                                           columns="#{bindings.OppurtunityId.hints.displayWidth}"
                                           maximumLength="#{bindings.OppurtunityId.hints.precision}"
-                                          shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it2" disabled="true">
+                                          shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it2" disabled="true"
+                                          visible="false">
                                 <f:validator binding="#{bindings.OppurtunityId.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
                             </af:inputText>
@@ -58,7 +59,7 @@
                                           required="#{bindings.Description.hints.mandatory}"
                                           columns="#{bindings.Description.hints.displayWidth}"
                                           maximumLength="#{bindings.Description.hints.precision}"
-                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it4">
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it4" rows="3">
                                 <f:validator binding="#{bindings.Description.validator}"/>
                             </af:inputText>
                             <af:inputDate value="#{bindings.StartDatetime.inputValue}"

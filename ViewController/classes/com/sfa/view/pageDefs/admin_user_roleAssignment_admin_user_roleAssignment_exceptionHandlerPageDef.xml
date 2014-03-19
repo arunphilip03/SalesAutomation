@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="admin_user_roleAssignment_admin_user_roleAssignment_exceptionHandlerPageDef"
+                Package="com.sfa.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="exceptionHandler" RequiresUpdateModel="true" Action="invokeMethod" MethodName="exceptionHandler"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

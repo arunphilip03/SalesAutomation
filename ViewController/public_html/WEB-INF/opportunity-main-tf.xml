@@ -11,39 +11,6 @@
     <view id="opportunity-create-main">
       <page>/opportunity-create-main.jsff</page>
     </view>
-    <task-flow-call id="Opportunity_notes_tf">
-      <task-flow-reference>
-        <document>/WEB-INF/Opportunity_notes_tf.xml</document>
-        <id>Opportunity_notes_tf</id>
-      </task-flow-reference>
-    </task-flow-call>
-    <task-flow-call id="opportunity-task-main-tf">
-      <task-flow-reference>
-        <document>/WEB-INF/opportunity-task-main-tf.xml</document>
-        <id>opportunity-task-main-tf</id>
-      </task-flow-reference>
-    </task-flow-call>
-    <task-flow-call id="opportunity-interactions-tf">
-      <task-flow-reference>
-        <document>/WEB-INF/opportunity-interactions-tf.xml</document>
-        <id>opportunity-interactions-tf</id>
-      </task-flow-reference>
-    </task-flow-call>
-    <task-flow-call id="opportunities-appointment-tf">
-      <task-flow-reference>
-        <document>/WEB-INF/opportunities-appointment-tf.xml</document>
-        <id>opportunities-appointment-tf</id>
-      </task-flow-reference>
-    </task-flow-call>
-    <view id="Opportunity-team">
-      <page>/Opportunity-team.jsff</page>
-    </view>
-    <task-flow-call id="Opportunity-attachments-tf">
-      <task-flow-reference>
-        <document>/WEB-INF/Opportunity-attachments-tf.xml</document>
-        <id>Opportunity-attachments-tf</id>
-      </task-flow-reference>
-    </task-flow-call>
     <task-flow-call id="customer-detail-taskflow">
       <task-flow-reference>
         <document>/WEB-INF/customer-detail-taskflow.xml</document>
@@ -65,6 +32,114 @@
     <view id="ContactDetailPage">
       <page>/ContactDetailPage.jsff</page>
     </view>
+    <task-flow-call id="opportunity-revenue-edit-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunity-revenue-edit-tf.xml</document>
+        <id>opportunity-revenue-edit-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="opportunity-revenue-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunity-revenue-create-tf.xml</document>
+        <id>opportunity-revenue-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="opportunities-appoinment-create-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunities-appoinment-create-tf.xml</document>
+        <id>opportunities-appoinment-create-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="opportunities-appointment-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunities-appointment-edit-tf.xml</document>
+        <id>opportunities-appointment-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="opportunity-interactions-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunity-interactions-create-tf.xml</document>
+        <id>opportunity-interactions-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="opportunity-interactions-edit-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunity-interactions-edit-tf.xml</document>
+        <id>opportunity-interactions-edit-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="opportunity-notes-edit-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/opportunity-notes-edit-tf.xml</document>
+        <id>opportunity-notes-edit-tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="Opportunity_notes_tf">
+      <task-flow-reference>
+        <document>/WEB-INF/Opportunity_notes_create-tf.xml</document>
+        <id>Opportunity_notes_tf</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute1">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute2">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute3">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute4">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute5">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="opportunity-task-edit">
+      <page>/opportunity-task-edit.jsff</page>
+    </view>
+    <view id="opportunity-task-create">
+      <page>/opportunity-task-create.jsff</page>
+    </view>
+    <view id="opportunity-interactions-create">
+      <page>/opportunity-interactions-create.jsff</page>
+    </view>
+    <view id="opportunity-interactions-edit">
+      <page>/opportunity-interactions-edit.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute6">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__3">
       <from-activity-id>opportunity-all-main</from-activity-id>
       <control-flow-case id="__4">
@@ -90,29 +165,45 @@
         <from-outcome>back</from-outcome>
         <to-activity-id>opportunity-all-main</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__18">
-        <from-outcome>notes</from-outcome>
-        <to-activity-id>Opportunity_notes_tf</to-activity-id>
-      </control-flow-case>
       <control-flow-case id="__9">
-        <from-outcome>task</from-outcome>
-        <to-activity-id>opportunity-task-main-tf</to-activity-id>
+        <from-outcome>revenueEdit</from-outcome>
+        <to-activity-id>opportunity-revenue-edit-tf</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__10">
-        <from-outcome>interaction</from-outcome>
-        <to-activity-id>opportunity-interactions-tf</to-activity-id>
+        <from-outcome>revenueCreate</from-outcome>
+        <to-activity-id>opportunity-revenue-tf</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__17">
-        <from-outcome>appointment</from-outcome>
+      <control-flow-case id="__12">
+        <from-outcome>editA</from-outcome>
         <to-activity-id>opportunities-appointment-tf</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__19">
-        <from-outcome>team</from-outcome>
-        <to-activity-id>Opportunity-team</to-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>createA</from-outcome>
+        <to-activity-id>opportunities-appoinment-create-tf</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__22">
-        <from-outcome>attachment</from-outcome>
-        <to-activity-id>Opportunity-attachments-tf</to-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>createI</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>editI</from-outcome>
+        <to-activity-id>Execute6</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>createT</from-outcome>
+        <to-activity-id>opportunity-task-create</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>editT</from-outcome>
+        <to-activity-id>opportunity-task-edit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>editN</from-outcome>
+        <to-activity-id>opportunity-notes-edit-tf</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>createN</from-outcome>
+        <to-activity-id>Opportunity_notes_tf</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
@@ -124,13 +215,6 @@
       <control-flow-case id="__8">
         <from-outcome>back</from-outcome>
         <to-activity-id>opportunity-all-main</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__20">
-      <from-activity-id>Opportunity-team</from-activity-id>
-      <control-flow-case id="__21">
-        <from-outcome>back</from-outcome>
-        <to-activity-id>opportunity-details-main</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -145,6 +229,104 @@
       <control-flow-case id="__37">
         <from-outcome>setCurrentRowWithKeyValue</from-outcome>
         <to-activity-id>ContactDetailPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>opportunities-appointment-tf</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>taskFlowReturn1</from-outcome>
+        <to-activity-id>Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>opportunity-details-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>opportunities-appoinment-create-tf</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>taskFlowReturn1</from-outcome>
+        <to-activity-id>Execute1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>Execute1</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>opportunity-details-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__47">
+      <from-activity-id>Execute2</from-activity-id>
+      <control-flow-case id="__48">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>opportunity-details-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__51">
+      <from-activity-id>Execute3</from-activity-id>
+      <control-flow-case id="__52">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>opportunity-details-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__55">
+      <from-activity-id>Execute4</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>opportunity-details-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__59">
+      <from-activity-id>Execute5</from-activity-id>
+      <control-flow-case id="__60">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>opportunity-details-main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>opportunity-task-edit</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>Execute3</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__32">
+      <from-activity-id>opportunity-task-create</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>Execute2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id>opportunity-interactions-create</from-activity-id>
+      <control-flow-case id="__38">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>Execute4</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__39">
+      <from-activity-id>opportunity-interactions-edit</from-activity-id>
+      <control-flow-case id="__40">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>Execute5</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>opportunity-interactions-create</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id>Execute6</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>opportunity-interactions-edit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

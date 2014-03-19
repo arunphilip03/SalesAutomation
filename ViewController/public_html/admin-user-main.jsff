@@ -36,8 +36,11 @@
                                 </af:link>
                             </af:toolbar>
                             <af:toolbar id="t3">
-                                <af:button text="Assign  Roles" id="b1" actionListener="#{bindings.Create1.execute}"
-                                           disabled="#{!bindings.Create1.enabled}" action="assign"/>
+                                <af:button text="Assign  Roles" id="b1"
+                                           disabled="#{!bindings.Create1.enabled}"
+                                           actionListener="#{bindings.ExecuteWithParams.execute}" action="assign">
+                                    <af:setActionListener from="#{bindings.UserId.inputValue}" to="#{InviteeBean.user}"/>
+                                </af:button>
                             </af:toolbar>
                         </f:facet>
                         <af:table value="#{bindings.UsersView1.collectionModel}" var="row"
@@ -91,6 +94,16 @@
                         </af:table>
                         <f:facet name="statusbar"/>
                     </af:panelCollection>
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.UserId.inputValue}" label="#{bindings.UserId.hints.label}"
+                                      required="#{bindings.UserId.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.UserId.hints.displayWidth}"
+                                      maximumLength="#{bindings.UserId.hints.precision}"
+                                      shortDesc="#{bindings.UserId.hints.tooltip}" id="it1" visible="false">
+                            <f:validator binding="#{bindings.UserId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.UserId.format}"/>
+                        </af:inputText>
+                    </af:panelFormLayout>
                 </af:panelGroupLayout>
             </af:gridCell>
         </af:gridRow>

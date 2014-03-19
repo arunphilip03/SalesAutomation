@@ -5,6 +5,9 @@
            ClearCacheOnRollback="true" ClientProxyName="com.sfa.model.service.client.AppModuleClient"
            ComponentClass="com.sfa.model.service.AppModuleImpl"
            ComponentInterface="com.sfa.model.service.common.AppModule">
+    <DesignTime>
+        <Attr Name="_isCodegen" Value="true"/>
+    </DesignTime>
     <ViewUsage Name="InactiveUsersVO1" ViewObjectName="com.sfa.model.VO.InactiveUsersVO"/>
     <ViewUsage Name="ActiveRoles1" ViewObjectName="com.sfa.model.VO.ActiveRoles"/>
     <ViewUsage Name="InactiveRoles1" ViewObjectName="com.sfa.model.VO.InactiveRoles"/>
@@ -12,9 +15,6 @@
     <ViewUsage Name="ContactTasksVO2" ViewObjectName="com.sfa.model.VO.ContactTasksVO"/>
     <ViewUsage Name="ContactInteractionsVO2" ViewObjectName="com.sfa.model.VO.ContactInteractionsVO"/>
     <ViewUsage Name="ContactOpportunitiesVO2" ViewObjectName="com.sfa.model.VO.ContactOpportunitiesVO"/>
-    <DesignTime>
-        <Attr Name="_isCodegen" Value="true"/>
-    </DesignTime>
     <ViewUsage Name="AppointmentInviteesView1" ViewObjectName="com.sfa.model.VO.AppointmentInviteesView"/>
     <ViewUsage Name="AppointmentsView1" ViewObjectName="com.sfa.model.VO.AppointmentsView"/>
     <ViewUsage Name="ContactInteractionsView1" ViewObjectName="com.sfa.model.VO.ContactInteractionsView"/>
@@ -108,7 +108,29 @@
         ViewObjectName="com.sfa.model.VO.IsBudgetedView"/><ViewUsage
         Name="ActiveUsersVO1"
         ViewObjectName="com.sfa.model.VO.ActiveUsersVO"/>
-<ViewLinkUsage Name="AppointmentInviteesFk1Link1"
+    <ViewUsage
+        Name="EmployeesView1"
+        ViewObjectName="com.sfa.model.VO.EmployeesView"/>
+    <ViewUsage
+        Name="EmployeesManagerView1"
+        ViewObjectName="com.sfa.model.VO.EmployeesManagerView"/>
+    <ViewUsage
+        Name="OppoDocumentTypeLUView1"
+        ViewObjectName="com.sfa.model.VO.OppoDocumentTypeLUView"/>
+    <ViewUsage
+        Name="RolesIsSelectedLUView1"
+        ViewObjectName="com.sfa.model.VO.RolesIsSelectedLUView"/>
+   
+    <ViewUsage
+        Name="AdminuserLOVView1"
+        ViewObjectName="com.sfa.model.VO.AdminuserLOVView"/>
+    <ViewUsage
+        Name="AdminUserRoleassign1"
+        ViewObjectName="com.sfa.model.VO.AdminUserRoleassign"/>
+    <ViewUsage
+        Name="RoleAssignmentTestView1"
+        ViewObjectName="com.sfa.model.VO.RoleAssignmentTestView"/>
+    <ViewLinkUsage Name="AppointmentInviteesFk1Link1"
                    ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
                    SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentsView1"
                    DstViewUsageName="com.sfa.model.service.AppModule.AppointmentInviteesView2" Reversed="false"/>
@@ -270,11 +292,31 @@
                    SrcViewUsageName="com.sfa.model.service.AppModule.ContactVO1"
                    DstViewUsageName="com.sfa.model.service.AppModule.ContactOpportunitiesVO2" Reversed="false"/>
     <ClientInterface Name="__clientInterface">
-        <Method Name="uploadFiletoDB" MethodName="uploadFiletoDB">
-            <Return Name="_return_type_" Type="void"/>
-            <Parameter Name="fileName" Type="java.lang.String"/>
-            <Parameter Name="contentType" Type="java.lang.String"/>
-            <Parameter Name="blob" Type="oracle.jbo.domain.BlobDomain"/>
+        <Method
+            Name="uploadFiletoDB"
+            MethodName="uploadFiletoDB">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
+            <Parameter
+                Name="fileName"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="contentType"
+                Type="java.lang.String"/>
+            <Parameter
+                Name="blob"
+                Type="oracle.jbo.domain.BlobDomain"/>
+            <Parameter
+                Name="plainText"
+                Type="java.lang.String"/>
+        </Method>
+        <Method
+            Name="exceptionHandler"
+            MethodName="exceptionHandler">
+            <Return
+                Name="_return_type_"
+                Type="void"/>
         </Method>
     </ClientInterface>
 </AppModule>

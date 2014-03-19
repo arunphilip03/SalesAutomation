@@ -22,15 +22,28 @@
     TableName="ROLE_ASSIGNMENT"
     PrimaryKey="true">
     <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("ROLE_ASSIGNMENT_SEQ",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <validation:PreDefinedValidationBean
+      Name="UserRoleIdMandatory0"
+      ResId="com.sfa.model.entity.RoleAssignment.UserRoleId_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="UserId"
-    IsNotNull="true"
     ColumnName="USER_ID"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="ROLE_ASSIGNMENT"/>
+    TableName="ROLE_ASSIGNMENT"
+    IsNotNull="true">
+    <validation:PreDefinedValidationBean
+      Name="UserIdMandatory0"
+      ResId="com.sfa.model.entity.RoleAssignment.UserId_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
   <Attribute
     Name="RoleId"
     IsNotNull="true"
@@ -38,8 +51,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="ROLE_ASSIGNMENT"
-    DefaultValue="1"/>
+    TableName="ROLE_ASSIGNMENT">
+    <validation:PreDefinedValidationBean
+      Name="RoleIdMandatory0"
+      ResId="com.sfa.model.entity.RoleAssignment.RoleId_Rule_0"
+      Description="Role Id required"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
   <Attribute
     Name="EffecStartDate"
     IsNotNull="true"
@@ -47,7 +66,15 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="ROLE_ASSIGNMENT"/>
+    TableName="ROLE_ASSIGNMENT">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+    <validation:PreDefinedValidationBean
+      Name="EffecStartDateMandatory0"
+      ResId="com.sfa.model.entity.RoleAssignment.EffecStartDate_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
   <Attribute
     Name="EffecEndDate"
     IsNotNull="true"
@@ -56,14 +83,21 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="ROLE_ASSIGNMENT">
+    <validation:PreDefinedValidationBean
+      Name="EffecEndDateMandatory0"
+      ResId="com.sfa.model.entity.RoleAssignment.EffecEndDate_Rule_1"
+      ValName="Mandatory"
+      Subtype="MANDATORY"
+      Description="Mandatory"/>
     <validation:CompareValidationBean
       Name="EffecEndDateRule0"
       ResId="com.sfa.model.entity.RoleAssignment.EffecEndDate_Rule_0"
       OnAttribute="EffecEndDate"
-      OperandType="JBO"
+      OperandType="EXPR"
       Inverse="false"
-      CompareType="GREATERTHANEQUALTO"
-      CompareValue="com.sfa.model.VO.RoleAssignmentView.EffecStartDate"/>
+      CompareType="GREATERTHANEQUALTO">
+      <validation:TransientExpression><![CDATA[EffecStartDate]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -147,6 +181,18 @@
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="SelectedFlag"
+    Precision="20"
+    ColumnName="SELECTED_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ROLE_ASSIGNMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Roles"
     Association="com.sfa.model.association.UserRolesFk2Assoc"
@@ -161,6 +207,18 @@
     AssociationOtherEnd="com.sfa.model.association.UserRolesFk1Assoc.RoleAssignment"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <Key
+    Name="RoleAssignmentUserIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ROLE_ASSIGNMENT_USER_ID_CHECK"/>
+      <Attr Name="_checkCondition" Value='"USER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sfa.model.entity.RoleAssignment.UserId"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="UserRolesPk"
     PrimaryKey="true">

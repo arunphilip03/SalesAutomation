@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="opportunity-revenue-edit-tf">
+    <default-activity>opportunity-revenue-edit</default-activity>
+    <view id="opportunity-revenue-edit">
+      <page>/opportunity-revenue-edit.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>opportunity-revenue-edit</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>revEBack</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

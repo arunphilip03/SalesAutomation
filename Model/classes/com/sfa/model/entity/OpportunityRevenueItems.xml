@@ -10,7 +10,8 @@
   DBObjectName="OPPORTUNITY_REVENUE_ITEMS"
   AliasName="OpportunityRevenueItems"
   BindingStyle="OracleName"
-  RowClass="com.sfa.model.base.BaseEntityImpl">
+  RowClass="com.sfa.model.base.BaseEntityImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="OppRevItemId"
     IsNotNull="true"
@@ -29,7 +30,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITY_REVENUE_ITEMS"/>
+    TableName="OPPORTUNITY_REVENUE_ITEMS">
+    <validation:PreDefinedValidationBean
+      Name="ProductIdMandatory0"
+      ResId="com.sfa.model.entity.OpportunityRevenueItems.ProductId_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
   <Attribute
     Name="Quantity"
     IsNotNull="true"
@@ -37,7 +45,19 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITY_REVENUE_ITEMS"/>
+    TableName="OPPORTUNITY_REVENUE_ITEMS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="10"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="QuantityMandatory0"
+      ResId="com.sfa.model.entity.OpportunityRevenueItems.Quantity_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
   <Attribute
     Name="EstimatedPrice"
     IsNotNull="true"
@@ -54,6 +74,12 @@
           ResId="com.sfa.model.entity.OpportunityRevenueItems.EstimatedPrice_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="EstimatedPriceMandatory0"
+      ResId="com.sfa.model.entity.OpportunityRevenueItems.EstimatedPrice_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="Revenue"
@@ -64,7 +90,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPORTUNITY_REVENUE_ITEMS"/>
+    TableName="OPPORTUNITY_REVENUE_ITEMS">
+    <validation:PreDefinedValidationBean
+      Name="RevenueMandatory0"
+      ResId="com.sfa.model.entity.OpportunityRevenueItems.Revenue_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
   <Attribute
     Name="WinProbability"
     ColumnName="WIN_PROBABILITY"
@@ -76,6 +109,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.OpportunityRevenueItems.WinProbability_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

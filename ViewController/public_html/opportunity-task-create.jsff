@@ -14,7 +14,7 @@
                             <af:button text="Save" id="b3" actionListener="#{OppoTaskSC.onCommit}"/>
                             <af:button text="Save and Close" id="b1" action="back"
                                        actionListener="#{OppoTaskSC.onCommit}"/>
-                            <af:button text="Cancel" id="b2" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b2" actionListener="#{RollbackBean.OpportunityTaskRollback}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>
@@ -34,7 +34,7 @@
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.CustAccountId.format}"/>
                     </af:inputText>
                 </af:panelFormLayout>
-                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="94">
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="157">
                     <f:facet name="first">
                         <af:panelFormLayout id="pfl1" rows="4">
                             <af:inputText value="#{bindings.TaskName.inputValue}"
@@ -52,14 +52,6 @@
                                 <f:selectItems value="#{bindings.FirstName.items}" id="si1"/>
                                 <f:validator binding="#{bindings.FirstName.validator}"/>
                             </af:selectOneChoice>
-                            <af:inputText value="#{bindings.Description.inputValue}"
-                                          label="#{bindings.Description.hints.label}"
-                                          required="#{bindings.Description.hints.mandatory}"
-                                          columns="#{bindings.Description.hints.displayWidth}"
-                                          maximumLength="#{bindings.Description.hints.precision}"
-                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it1">
-                                <f:validator binding="#{bindings.Description.validator}"/>
-                            </af:inputText>
                             <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
                                           required="#{bindings.DueDate.hints.mandatory}"
                                           columns="#{bindings.DueDate.hints.displayWidth}"
@@ -94,6 +86,14 @@
                                           shortDesc="#{bindings.TaskId.hints.tooltip}" id="it4" visible="false">
                                 <f:validator binding="#{bindings.TaskId.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.TaskId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Description.inputValue}"
+                                          label="#{bindings.Description.hints.label}"
+                                          required="#{bindings.Description.hints.mandatory}"
+                                          columns="#{bindings.Description.hints.displayWidth}"
+                                          maximumLength="#{bindings.Description.hints.precision}"
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it1" rows="3">
+                                <f:validator binding="#{bindings.Description.validator}"/>
                             </af:inputText>
                         </af:panelFormLayout>
                     </f:facet>

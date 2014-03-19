@@ -40,8 +40,16 @@
             <SchemaBasedProperties>
                 <LABEL
                     ResId="com.sfa.model.entity.Tasks.TaskName_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="30"/>
             </SchemaBasedProperties>
         </Properties>
+        <validation:PreDefinedValidationBean
+            Name="TaskNameMandatory0"
+            ResId="com.sfa.model.entity.Tasks.TaskName_Rule_1"
+            Description="Mandatory"
+            ValName="Mandatory"
+            Subtype="MANDATORY"/>
         <validation:RegExpValidationBean
             Name="TaskNameRule0"
             ResId="com.sfa.model.entity.Tasks.TaskName_Rule_0"
@@ -69,6 +77,12 @@
                     Value="date"/>
             </SchemaBasedProperties>
         </Properties>
+        <validation:PreDefinedValidationBean
+            Name="DueDateMandatory0"
+            ResId="com.sfa.model.entity.Tasks.DueDate_Rule_1"
+            Description="Mandatory"
+            ValName="Mandatory"
+            Subtype="MANDATORY"/>
         <validation:CompareValidationBean
             Name="DueDateRule0"
             ResId="com.sfa.model.entity.Tasks.DueDate_Rule_0"
@@ -92,6 +106,11 @@
         <DesignTime>
             <Attr Name="_DisplaySize" Value="10"/>
         </DesignTime>
+        <validation:PreDefinedValidationBean
+            Name="PriorityMandatory0"
+            ResId="com.sfa.model.entity.Tasks.Priority_Rule_0"
+            ValName="Mandatory"
+            Subtype="MANDATORY"/>
     </Attribute>
     <Attribute
         Name="Description"
@@ -108,6 +127,8 @@
             <SchemaBasedProperties>
                 <DISPLAYHEIGHT
                     Value="4"/>
+                <DISPLAYWIDTH
+                    Value="30"/>
             </SchemaBasedProperties>
         </Properties>
     </Attribute>
@@ -136,6 +157,8 @@
             <SchemaBasedProperties>
                 <LABEL
                     ResId="com.sfa.model.entity.Tasks.PercentageCompletion_LABEL"/>
+                <DISPLAYWIDTH
+                    Value="10"/>
             </SchemaBasedProperties>
         </Properties>
         <validation:RangeValidationBean

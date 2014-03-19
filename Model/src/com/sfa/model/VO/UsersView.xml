@@ -20,6 +20,10 @@
     Name="UsersView2"
     ViewObjectName="com.sfa.model.VO.UsersView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="EmployeesView1"
+    ViewObjectName="com.sfa.model.VO.EmployeesView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Managername"
     ListVOName="UsersView2"
@@ -43,27 +47,60 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT Users.USER_ID,        
-       Users.USER_NAME,        
-       Users.EMPLOYEE_ID,        
-       Users.FIRST_NAME,        
-       Users.MIDDLE_NAME,        
-       Users.LAST_NAME,        
-       Users.PASSWORD,        
-       Users.MANAGER_ID,        
-       Users.EFFEC_START_DATE,        
-       Users.EFFEC_END_DATE,        
-       Users.CREATION_DATE,        
-       Users.LAST_UPDATE_DATE,        
-       Users.CREATED_BY,        
-       Users.LAST_UPDATED_BY,        
-       Users.LAST_UPDATE_LOGIN,        
-       Users.OBJECT_VERSION_NUMBER,        
-       Users.CORPORATE_CUSTOMER_ID,     
-       Users1.FIRST_NAME AS MANAGERNAME      
-FROM  USERS Users left outer join USERS Users1      
-on Users.MANAGER_ID =  Users1.EMPLOYEE_ID  
-WHERE Users.EFFEC_END_DATE >= SYSDATE AND Users.EFFEC_START_DATE <= SYSDATE and 
+  <ListBinding
+    Name="LOV_EmployeeName"
+    ListVOName="EmployeesView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="EmployeeName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="EmployeeId"/>
+      <Item Value="FirstName"/>
+      <Item Value="MiddleName"/>
+      <Item Value="LastName"/>
+      <Item Value="ManagerId"/>
+      <Item Value="Managername"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="EmployeeName"/>
+      <Item Value="EmployeeId"/>
+      <Item Value="FirstName"/>
+      <Item Value="MiddleName"/>
+      <Item Value="LastName"/>
+      <Item Value="ManagerId"/>
+      <Item Value="Managername"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EmployeeName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Users.USER_ID,         
+       Users.USER_NAME,         
+       Users.EMPLOYEE_ID,         
+       Users.FIRST_NAME,         
+       Users.MIDDLE_NAME,         
+       Users.LAST_NAME,         
+       Users.PASSWORD,         
+       Users.MANAGER_ID,         
+       Users.EFFEC_START_DATE,         
+       Users.EFFEC_END_DATE,         
+       Users.CREATION_DATE,         
+       Users.LAST_UPDATE_DATE,         
+       Users.CREATED_BY,         
+       Users.LAST_UPDATED_BY,         
+       Users.LAST_UPDATE_LOGIN,         
+       Users.OBJECT_VERSION_NUMBER,         
+       Users.CORPORATE_CUSTOMER_ID,      
+       Emp.EMPLOYEE_NAME AS MANAGERNAME       
+FROM  USERS Users left outer join EMPLOYEES Emp      
+on Users.MANAGER_ID =  Emp.EMPLOYEE_ID   
+WHERE Users.EFFEC_END_DATE >= SYSDATE AND Users.EFFEC_START_DATE <= SYSDATE and  
 Users.DELETE_FLAG = 'N']]></SQLQuery>
   <EntityUsage
     Name="Users"
@@ -292,6 +329,28 @@ Users.DELETE_FLAG = 'N']]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="EmployeeName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_EmployeeName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <LABEL
+          ResId="com.sfa.model.VO.UsersView.EmployeeName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="UsersViewSearch"
     ViewObjectName="com.sfa.model.VO.UsersView"
@@ -324,13 +383,6 @@ Users.DELETE_FLAG = 'N']]></SQLQuery>
       <ViewCriteriaItem
         Name="UserName"
         ViewAttribute="UserName"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        GenerateIsNullClauseForBindVars="false"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="EmployeeId"
-        ViewAttribute="EmployeeId"
         Operator="STARTSWITH"
         Conjunction="AND"
         GenerateIsNullClauseForBindVars="false"

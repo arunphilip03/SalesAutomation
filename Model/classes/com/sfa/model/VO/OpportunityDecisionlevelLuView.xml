@@ -45,6 +45,12 @@ FROM OPPORTUNITY_DECISIONLEVEL_LU OpportunityDecisionlevelLu]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="10"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Levelid"/>

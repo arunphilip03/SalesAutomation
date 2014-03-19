@@ -15,104 +15,90 @@
                         <f:validator binding="#{bindings.OpportunityName.validator}"/>
                     </af:inputText>
                 </af:panelFormLayout>
-                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="283" styleClass="AFStretchWidth">
+                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="180" styleClass="AFStretchWidth">
                     <f:facet name="first">
-                        <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="131"
-                                          styleClass="AFStretchWidth">
-                            <f:facet name="first">
-                                <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">
-                                    <af:panelHeader text=" " id="ph2" styleClass="AFStretchWidth">
-                                        <af:query id="qryId1" headerText="Search" disclosed="true"
-                                                  value="#{bindings.OpportunityAttachmentsViewSearchQuery.queryDescriptor}"
-                                                  model="#{bindings.OpportunityAttachmentsViewSearchQuery.queryModel}"
-                                                  queryListener="#{bindings.OpportunityAttachmentsViewSearchQuery.processQuery}"
-                                                  queryOperationListener="#{bindings.OpportunityAttachmentsViewSearchQuery.processQueryOperation}"/>
-                                    </af:panelHeader>
-                                </af:panelGroupLayout>
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t2">
+                                    <af:link id="l2" icon="#{resource['images:new_ena.png']}" action="new"
+                                             actionListener="#{OppoAttachmentBean.onLoadDisable}"/>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                        <af:dialog id="d1" title="Are you sure you want to delete selected Document?"
+                                                   dialogListener="#{ConfirmBean.dialogListener}">
+                                            <f:facet name="buttonBar"/>
+                                        </af:dialog>
+                                    </af:popup>
+                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                             disabledIcon="#{resource['images:delete_dis.png']}"
+                                             disabled="#{bindings.OpportunityAttachmentsView2Iterator.estimatedRowCount eq 0}">
+                                        <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
+                                    </af:link>
+                                </af:toolbar>
                             </f:facet>
-                            <f:facet name="second">
-                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                    <f:facet name="menus"/>
-                                    <f:facet name="toolbar">
-                                        <af:toolbar id="t2">
-                                            <af:link id="l2" icon="#{resource['images:new_ena.png']}"
-                                                     actionListener="#{bindings.Create.execute}" action="new"/>
-                                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-                                                <af:dialog id="d1"
-                                                           title="Are you sure you want to delete selected Document?"
-                                                           dialogListener="#{ConfirmBean.dialogListener}">
-                                                    <f:facet name="buttonBar"/>
-                                                </af:dialog>
-                                            </af:popup>
-                                            <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                                     disabledIcon="#{resource['images:delete_dis.png']}"
-                                                     disabled="#{bindings.OpportunityAttachmentsView2Iterator.estimatedRowCount eq 0}">
-                                                <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
-                                            </af:link>
-                                        </af:toolbar>
-                                    </f:facet>
-                                    <af:table value="#{bindings.OpportunityAttachmentsView2.collectionModel}" var="row"
-                                              rows="#{bindings.OpportunityAttachmentsView2.rangeSize}"
-                                              emptyText="#{bindings.OpportunityAttachmentsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                              rowBandingInterval="0"
-                                              selectedRowKeys="#{bindings.OpportunityAttachmentsView2.collectionModel.selectedRow}"
-                                              selectionListener="#{bindings.OpportunityAttachmentsView2.collectionModel.makeCurrent}"
-                                              rowSelection="single"
-                                              fetchSize="#{bindings.OpportunityAttachmentsView2.rangeSize}" id="t1"
-                                              styleClass="AFStretchWidth" columnStretching="last"
-                                              partialTriggers="::l2">
-                                        <af:column sortProperty="#{bindings.OpportunityAttachmentsView2.hints.DocumentName.name}"
-                                                   sortable="true"
-                                                   headerText="#{bindings.OpportunityAttachmentsView2.hints.DocumentName.label}"
-                                                   id="c1" width="197">
-                                            <af:outputText value="#{row.DocumentName}"
-                                                           shortDesc="#{bindings.OpportunityAttachmentsView2.hints.DocumentName.tooltip}"
-                                                           id="ot1"/>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.OpportunityAttachmentsView2.hints.DocumentType.name}"
-                                                   sortable="true"
-                                                   headerText="#{bindings.OpportunityAttachmentsView2.hints.DocumentType.label}"
-                                                   id="c2" width="3">
-                                            <af:outputText value="#{row.DocumentType}"
-                                                           shortDesc="#{bindings.OpportunityAttachmentsView2.hints.DocumentType.tooltip}"
-                                                           id="ot2"/>
-                                        </af:column>
-                                    </af:table>
-                                    <f:facet name="statusbar"/>
-                                </af:panelCollection>
-                            </f:facet>
-                        </af:panelSplitter>
+                            <af:table value="#{bindings.OpportunityAttachmentsView2.collectionModel}" var="row"
+                                      rows="#{bindings.OpportunityAttachmentsView2.rangeSize}"
+                                      emptyText="#{bindings.OpportunityAttachmentsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.OpportunityAttachmentsView2.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.OpportunityAttachmentsView2.collectionModel.makeCurrent}"
+                                      rowSelection="single"
+                                      fetchSize="#{bindings.OpportunityAttachmentsView2.rangeSize}" id="t1"
+                                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="::l2">
+                                <af:column sortProperty="#{bindings.OpportunityAttachmentsView2.hints.DocumentName.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.OpportunityAttachmentsView2.hints.DocumentName.label}"
+                                           id="c1" width="197">
+                                    <af:outputText value="#{row.DocumentName}"
+                                                   shortDesc="#{bindings.OpportunityAttachmentsView2.hints.DocumentName.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.OpportunityAttachmentsView2.hints.DocumentType.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.OpportunityAttachmentsView2.hints.DocumentType.label}"
+                                           id="c2" width="3">
+                                    <af:outputText value="#{row.DocumentType}"
+                                                   shortDesc="#{bindings.OpportunityAttachmentsView2.hints.DocumentType.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                            </af:table>
+                            <f:facet name="statusbar"/>
+                        </af:panelCollection>
                     </f:facet>
                     <f:facet name="second">
-                        <af:panelSplitter id="ps3" splitterPosition="327" disabled="true">
-                            <f:facet name="first">
-                                <af:panelFormLayout id="pfl2">
-                                    <af:inputText value="#{bindings.DocumentName.inputValue}"
-                                                  label="#{bindings.DocumentName.hints.label}"
-                                                  required="#{bindings.DocumentName.hints.mandatory}" readOnly="true"
-                                                  columns="#{bindings.DocumentName.hints.displayWidth}"
-                                                  maximumLength="#{bindings.DocumentName.hints.precision}"
-                                                  shortDesc="#{bindings.DocumentName.hints.tooltip}" id="it2">
-                                        <f:validator binding="#{bindings.DocumentName.validator}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.DocumentType.inputValue}"
-                                                  label="#{bindings.DocumentType.hints.label}"
-                                                  required="#{bindings.DocumentType.hints.mandatory}" readOnly="true"
-                                                  columns="#{bindings.DocumentType.hints.displayWidth}"
-                                                  maximumLength="#{bindings.DocumentType.hints.precision}"
-                                                  shortDesc="#{bindings.DocumentType.hints.tooltip}" id="it3">
-                                        <f:validator binding="#{bindings.DocumentType.validator}"/>
-                                    </af:inputText>
-                                </af:panelFormLayout>
-                            </f:facet>
-                            <f:facet name="second">
-                                <af:link id="l1" icon="#{resource['images:downloadIcon_small.jpg']}">
-                                    <af:fileDownloadActionListener contentType="#{bindings.DocumentType}"
-                                                                   filename="#{bindings.DocumentName}"
-                                                                   method="#{OppoAttachmentBean.downloadFile}"/>
-                                </af:link>
-                            </f:facet>
-                        </af:panelSplitter>
+                        <af:panelFormLayout id="pfl2">
+                            <af:inputText value="#{bindings.DocumentName.inputValue}"
+                                          label="#{bindings.DocumentName.hints.label}"
+                                          required="#{bindings.DocumentName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.DocumentName.hints.displayWidth}"
+                                          maximumLength="#{bindings.DocumentName.hints.precision}"
+                                          shortDesc="#{bindings.DocumentName.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.DocumentName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DocumentType.inputValue}"
+                                          label="#{bindings.DocumentType.hints.label}"
+                                          required="#{bindings.DocumentType.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.DocumentType.hints.displayWidth}"
+                                          maximumLength="#{bindings.DocumentType.hints.precision}"
+                                          shortDesc="#{bindings.DocumentType.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.DocumentType.validator}"/>
+                            </af:inputText>
+                            <af:link id="l1" icon="#{resource['images:downloadIcon_small.jpg']}"
+                                     visible='#{bindings.DocumentType.inputValue != "plainText"}'>
+                                <af:fileDownloadActionListener contentType="#{bindings.DocumentType}"
+                                                               filename="#{bindings.DocumentName}"
+                                                               method="#{OppoAttachmentBean.downloadFile}"/>
+                            </af:link>
+                            <af:inputText value="#{bindings.DocumentPlaintext.inputValue}"
+                                          label="#{bindings.DocumentPlaintext.hints.label}"
+                                          required="#{bindings.DocumentPlaintext.hints.mandatory}" readOnly="true"
+                                          columns="100"
+                                          maximumLength="#{bindings.DocumentPlaintext.hints.precision}"
+                                          shortDesc="#{bindings.DocumentPlaintext.hints.tooltip}" id="it4" rows="10"
+                                          visible='#{bindings.DocumentType.inputValue eq "plainText"}'>
+                                <f:validator binding="#{bindings.DocumentPlaintext.validator}"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
                     </f:facet>
                 </af:panelSplitter>
             </af:gridCell>

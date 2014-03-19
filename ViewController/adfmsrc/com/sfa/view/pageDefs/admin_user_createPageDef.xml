@@ -13,26 +13,6 @@
         <Item Value="UserName"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="UsersView1Iterator" id="EmployeeId">
-      <AttrNames>
-        <Item Value="EmployeeId"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="UsersView1Iterator" id="FirstName">
-      <AttrNames>
-        <Item Value="FirstName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="UsersView1Iterator" id="MiddleName">
-      <AttrNames>
-        <Item Value="MiddleName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="UsersView1Iterator" id="LastName">
-      <AttrNames>
-        <Item Value="LastName"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="UsersView1Iterator" id="Password">
       <AttrNames>
         <Item Value="Password"/>
@@ -48,7 +28,7 @@
         <Item Value="EffecEndDate"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues IterBinding="UsersView1Iterator" StaticList="false" Uses="LOV_Managername" id="Managername"/>
     <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <listOfValues IterBinding="UsersView1Iterator" StaticList="false" Uses="LOV_EmployeeName" id="EmployeeName"/>
   </bindings>
 </pageDefinition>

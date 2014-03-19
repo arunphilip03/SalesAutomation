@@ -4,23 +4,17 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="ValidRolesView1" RangeSize="25" DataControl="AppModuleDataControl" id="ValidRolesView1Iterator"/>
-    <searchRegion Binds="ValidRolesView1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ValidRolesView1Query"/>
+    <!--<searchRegion Binds="ValidRolesView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ValidRolesView1Query"/>-->
     <iterator Binds="UsersView1" RangeSize="25" DataControl="AppModuleDataControl" id="UsersView1Iterator"/>
-    <iterator Binds="RoleAssignmentView3" RangeSize="25" DataControl="AppModuleDataControl"
-              id="RoleAssignmentView3Iterator" Refresh="always"/>
+    <iterator id="RoleAssignmentView3Iterator" Binds="RoleAssignmentView3" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator Binds="AdminUserRoleassign1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="AdminUserRoleassign1Iterator"/>
+    <iterator Binds="RoleAssignmentTestView1" RangeSize="10" DataControl="AppModuleDataControl"
+              id="RoleAssignmentTestView1Iterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="ValidRolesView1Iterator" id="ValidRolesView1">
-      <nodeDefinition DefName="com.sfa.model.VO.ValidRolesView" Name="ValidRolesView10">
-        <AttrNames>
-          <Item Value="RoleName"/>
-          <Item Value="EffecEndDate"/>
-          <Item Value="EffecStartDate"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <attributeValues IterBinding="UsersView1Iterator" id="UserName">
       <AttrNames>
         <Item Value="UserName"/>
@@ -46,36 +40,35 @@
         <Item Value="LastName"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="UsersView1Iterator" id="EffecStartDate">
-      <AttrNames>
-        <Item Value="EffecStartDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="UsersView1Iterator" id="EffecEndDate">
-      <AttrNames>
-        <Item Value="EffecEndDate"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="UsersView1Iterator" id="Managername">
       <AttrNames>
         <Item Value="Managername"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="RoleAssignmentView3Iterator" id="RoleAssignmentView3">
-      <nodeDefinition DefName="com.sfa.model.VO.RoleAssignmentView" Name="RoleAssignmentView30">
-        <AttrNames>
-          <Item Value="RoleName"/>
-          <Item Value="EffecStartDate"/>
-          <Item Value="EffecEndDate"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <action IterBinding="RoleAssignmentView3Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <attributeValues IterBinding="UsersView1Iterator" id="UserId">
       <AttrNames>
         <Item Value="UserId"/>
       </AttrNames>
     </attributeValues>
+    <button IterBinding="AdminUserRoleassign1Iterator" id="Selected" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Selected"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="AdminUserRoleassign1Iterator" id="AdminUserRoleassign1">
+      <nodeDefinition DefName="com.sfa.model.VO.AdminUserRoleassign" Name="AdminUserRoleassign10">
+        <AttrNames>
+          <Item Value="RoleName"/>
+          <Item Value="EffecStartDate"/>
+          <Item Value="EffecEndDate"/>
+          <Item Value="Selected" Binds="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
+import java.util.HashMap;
 import java.util.List;
 
 import java.util.Map;
@@ -19,88 +20,119 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 
+import javax.faces.event.ValueChangeEvent;
 import javax.faces.validator.ValidatorException;
 
 import oracle.adf.model.BindingContext;
 
+import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCDataControl;
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+
+import oracle.adf.view.rich.component.rich.input.RichSelectBooleanCheckbox;
 
 import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 
+
+import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
 import oracle.jbo.server.ViewObjectImpl;
 import oracle.jbo.uicli.binding.JUCtrlListBinding;
 
 public class AssignMultipleRoles {
-   
+
 
     private Number userId;
     private Timestamp srtDate;
     private Timestamp endDate;
+    Map<Number, String> check = new HashMap<Number, String>();
+    private RichSelectBooleanCheckbox checkBox;
 
     public AssignMultipleRoles() {
     }
 
     public void assignSelectedRoles(ActionEvent actionEvent) {
-        List<Number> roleId = new ArrayList<Number>();
+        ArrayList<Map<String, Object>> values = new ArrayList<Map<String, Object>>();
 
         System.out.println("hi");
+        System.out.println(check);
         BindingContext bctx = BindingContext.getCurrent();
         BindingContainer bindings = bctx.getCurrentBindingsEntry();
         FacesContext facesContext = FacesContext.getCurrentInstance();
+        DCBindingContainer bc = (DCBindingContainer) bindings;
 
         DCDataControl dc = bctx.findDataControl("AppModuleDataControl");
         AppModuleImpl aapM = (AppModuleImpl) dc.getDataProvider();
-        ViewObjectImpl impl = aapM.getRoleAssignmentView3();
+
         //aapM.getDBTransaction().rollback();
 
-        UIViewRoot root = facesContext.getViewRoot();
-        // RichInputText inputText = (RichInputText)root.findComponent("it1");
-        //this.userId = (Number)inputText.getValue();
+
         AttributeBinding attr = (AttributeBinding) bindings.getControlBinding("UserId");
         this.userId = (Number) attr.getInputValue();
-        AttributeBinding attr1 = (AttributeBinding) bindings.getControlBinding("EffecStartDate");
-        this.srtDate = (Timestamp) attr1.getInputValue();
-        AttributeBinding attr2 = (AttributeBinding) bindings.getControlBinding("EffecEndDate");
-        this.endDate = (Timestamp) attr2.getInputValue();
 
+        //        JUCtrlListBinding allRolesList = (JUCtrlListBinding) bindings.get("Selected");
+        //                int[] selVals = allRolesList.getSelectedIndices();
+        //                if(selVals != null){
+        //                for(int i=0;i<selVals.length;i++)
+        //        System.out.println(selVals[i]);
+        //                }
+        DCIteratorBinding iter = bc.findIteratorBinding("AdminUserRoleassign1Iterator");
 
-        JUCtrlListBinding allRolesList = (JUCtrlListBinding) bindings.get("ValidRolesView1");
-        int[] selVals = allRolesList.getSelectedIndices();
+        for (Row row : iter.getAllRowsInRange()) {
+            System.out.println((String) row.getAttribute("SelectedFlag"));
+            if (row.getAttribute("SelectedFlag") != null) {
+                if ("true".equals(row.getAttribute("SelectedFlag"))) {
+                    //                if(row.getAttribute("EffecStartDate")==null ||row.getAttribute("EffecEndDate")==null ){
+                    //                    FacesMessage message = new FacesMessage("Passwords must match");
+                    //                    throw new ValidatorException(message);
+                    //                }
+                    Map<String, Object> m = new HashMap<String, Object>();
+                    m.put("RoleId", row.getAttribute("RoleId1"));
+                    m.put("EffecStartDate", row.getAttribute("EffecStartDate"));
+                    m.put("EffecEndDate", row.getAttribute("EffecEndDate"));
+                    values.add(m);
+                }
 
-        for (int indx : selVals) {
-            Row rw = allRolesList.getRowAtRangeIndex(indx);
-            roleId.add((Number) rw.getAttribute("RoleId"));
-        }
-        int i=0;
-        for (Object o : roleId) {
-            Row r2=null;
-            if(i==0)
-            {
-             r2 = impl.getCurrentRow();
             }
-            else {
-            r2= impl.createRow();
-            }
-           // Row r2 = impl.getCurrentRow();
-            r2.setAttribute("UserId", userId);
-            r2.setAttribute("EffecStartDate", srtDate);
-            r2.setAttribute("EffecEndDate", endDate);
-            r2.setAttribute("RoleId", (Number) o);
-            //impl.insertRow(r2);
-            aapM.getDBTransaction().commit();
-            impl.executeQuery();
-            i++;
-            //System.out.println("hi");
         }
-        // System.out.println(roleId);
-        // aapM.getDBTransaction().commit();
+        aapM.getDBTransaction().rollback();
+
+        ViewObjectImpl impl = aapM.getRoleAssignmentView3();
+        DCIteratorBinding iter1 = bc.findIteratorBinding("RoleAssignmentTestView1Iterator");
+        for (Row row : iter1.getAllRowsInRange()) {
+            System.out.println("romve"+row.getAttribute("UserId"));
+            row.remove();
+          
+        }
+
+        if (values != null) {
+
+            for (Map<String, Object> m1 : values) {
+                System.out.println(m1);
+                Row r1 = iter1.getRowSetIterator().createRow();
+                r1.setAttribute("UserId", userId);
+
+                r1.setAttribute("RoleId", m1.get("RoleId"));
+
+                r1.setAttribute("EffecStartDate", m1.get("EffecStartDate"));
+                r1.setAttribute("EffecEndDate", m1.get("EffecEndDate"));
+                iter1.getRowSetIterator().insertRow(r1);
+                iter1.executeQuery();
+            }
+
+
+        }
+
+        //aapM.getDBTransaction().commit();
+                OperationBinding op = bc.getOperationBinding("Commit");
+                if (op != null) {
+                    op.execute();
+                }
+
     }
-
- 
 
 
     //    public void passwordValidator(FacesContext facesContext, UIComponent uIComponent, Object object) {
@@ -118,4 +150,29 @@ public class AssignMultipleRoles {
     //                    throw new ValidatorException(message);
     //        }
     //    }
+    public void checkboxValueChange(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+
+        String value = String.valueOf(checkBox.getValue());
+        System.out.println(value);
+        BindingContext bctx = BindingContext.getCurrent();
+        BindingContainer bindings = bctx.getCurrentBindingsEntry();
+        DCBindingContainer bc = (DCBindingContainer) bindings;
+        DCIteratorBinding iter = bc.findIteratorBinding("AdminUserRolesView1Iterator");
+        Row r = iter.getCurrentRow();
+        if (check.containsKey(r.getAttribute("RoleId"))) {
+            check.remove(r.getAttribute("RoleId"));
+            check.put((Number) r.getAttribute("RoleId"), value);
+        } else {
+            check.put((Number) r.getAttribute("RoleId"), value);
+        }
+    }
+
+    public void setCheckBox(RichSelectBooleanCheckbox checkBox) {
+        this.checkBox = checkBox;
+    }
+
+    public RichSelectBooleanCheckbox getCheckBox() {
+        return checkBox;
+    }
 }

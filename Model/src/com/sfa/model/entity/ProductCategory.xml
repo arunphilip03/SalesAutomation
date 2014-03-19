@@ -10,7 +10,8 @@
   DBObjectName="PRODUCT_CATEGORY_LU"
   AliasName="ProductCategory"
   BindingStyle="OracleName"
-  RowClass="com.sfa.model.base.BaseEntityImpl">
+  RowClass="com.sfa.model.base.BaseEntityImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="CategoryId"
     ColumnName="CATEGORY_ID"
@@ -37,6 +38,94 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="CategorynameMandatory0"
+      ResId="com.sfa.model.entity.ProductCategory.Categoryname_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
+  <Attribute
+    Name="Descriptiion"
+    Precision="150"
+    ColumnName="DESCRIPTIION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCT_CATEGORY_LU">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ProductCategory.Descriptiion_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EffecEndDate"
+    IsNotNull="true"
+    ColumnName="EFFEC_END_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="PRODUCT_CATEGORY_LU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ProductCategory.EffecEndDate_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.ProductCategory.EffecEndDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sfa.model.entity.ProductCategory.EffecEndDate_FMT_FORMATTER"/>
+        <DISPLAYWIDTH
+          Value="11"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="EffecEndDateMandatory0"
+      ResId="com.sfa.model.entity.ProductCategory.EffecEndDate_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+    <validation:CompareValidationBean
+      Name="EffecEndDateRule0"
+      ResId="com.sfa.model.entity.ProductCategory.EffecEndDate_Rule_1"
+      OnAttribute="EffecEndDate"
+      OperandType="JBO"
+      Inverse="false"
+      CompareType="GREATERTHANEQUALTO"
+      CompareValue="com.sfa.model.VO.ProductCategoryView.EffecStartDate"/>
+  </Attribute>
+  <Attribute
+    Name="EffecStartDate"
+    IsNotNull="true"
+    ColumnName="EFFEC_START_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="PRODUCT_CATEGORY_LU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ProductCategory.EffecStartDate_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sfa.model.entity.ProductCategory.EffecStartDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sfa.model.entity.ProductCategory.EffecStartDate_FMT_FORMATTER"/>
+        <DISPLAYWIDTH
+          Value="11"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="EffecStartDateMandatory0"
+      ResId="com.sfa.model.entity.ProductCategory.EffecStartDate_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Key
     Name="ProductCategoryLuCategorynameCheck">
@@ -60,4 +149,8 @@
       <Item Value="com.sfa.model.entity.ProductCategory.CategoryId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

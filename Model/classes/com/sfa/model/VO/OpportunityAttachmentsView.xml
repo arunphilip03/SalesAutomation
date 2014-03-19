@@ -17,12 +17,40 @@
        OpportunityAttachments.LAST_UPDATE_LOGIN, 
        OpportunityAttachments.OBJECT_VERSION_NUMBER, 
        OpportunityAttachments.DOCUMENT_TYPE, 
-       OpportunityAttachments.DOCUMENT_NAME"
+       OpportunityAttachments.DOCUMENT_NAME, 
+       OpportunityAttachments.DOCUMENT_PLAINTEXT"
   FromList="OPPORTUNITY_ATTACHMENTS OpportunityAttachments"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
   Where="OpportunityAttachments.DELETE_FLAG = 'N'">
+  <ViewAccessor
+    Name="OppoDocumentTypeLUView1"
+    ViewObjectName="com.sfa.model.VO.OppoDocumentTypeLUView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_DocumentType"
+    ListVOName="OppoDocumentTypeLUView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DocumentType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DocType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DocumentType"/>
+      <Item Value="DocumentType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DocumentType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="OpportunityAttachments"
     Entity="com.sfa.model.entity.OpportunityAttachments"/>
@@ -103,13 +131,44 @@
     PrecisionRule="true"
     EntityAttrName="DocumentType"
     EntityUsage="OpportunityAttachments"
-    AliasName="DOCUMENT_TYPE"/>
+    AliasName="DOCUMENT_TYPE"
+    LOVName="LOV_DocumentType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DocumentName"
     PrecisionRule="true"
     EntityAttrName="DocumentName"
     EntityUsage="OpportunityAttachments"
     AliasName="DOCUMENT_NAME"/>
+  <ViewAttribute
+    Name="DocumentPlaintext"
+    PrecisionRule="true"
+    EntityAttrName="DocumentPlaintext"
+    EntityUsage="OpportunityAttachments"
+    AliasName="DOCUMENT_PLAINTEXT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.OpportunityAttachmentsView.DocumentPlaintext_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocType"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <ViewCriteria
     Name="OpportunityAttachmentsViewSearch"
     ViewObjectName="com.sfa.model.VO.OpportunityAttachmentsView"

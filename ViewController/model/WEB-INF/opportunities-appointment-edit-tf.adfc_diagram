@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">opportunities-appoinment-main</property>
+      <property
+         name="page">/opportunities-appoinment-main.jsff</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>opportunities-appoinment-main&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">168.19531</property>
+      <property
+         name="x">175.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">opportunities-appoinment-edit</property>
+      <property
+         name="page">/opportunities-appoinment-edit.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>opportunities-appoinment-edit&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">284.1953</property>
+      <property
+         name="x">482.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn7">
+      <property
+         name="activityId">taskFlowReturn1</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskFlowReturn1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  taskFlowReturn1&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">478.49414</property>
+      <property
+         name="x">482.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View4"
+      to="TaskFlowReturn7">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">B50,482.0,337.84473,482.0,424.14355,T50</property>
+   </ControlFlowCase>
+</SDM>

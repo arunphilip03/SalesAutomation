@@ -21,7 +21,7 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelFormLayout id="pfl1" rows="2">
+                <af:panelFormLayout id="pfl1">
                     <af:inputText value="#{bindings.RoleName.inputValue}" label="#{bindings.RoleName.hints.label}"
                                   required="#{bindings.RoleName.hints.mandatory}"
                                   columns="#{bindings.RoleName.hints.displayWidth}"
@@ -33,7 +33,7 @@
                                   required="#{bindings.Description.hints.mandatory}"
                                   columns="#{bindings.Description.hints.displayWidth}"
                                   maximumLength="#{bindings.Description.hints.precision}"
-                                  shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
+                                  shortDesc="#{bindings.Description.hints.tooltip}" id="it2" rows="4">
                         <f:validator binding="#{bindings.Description.validator}"/>
                     </af:inputText>
                     <af:inputDate value="#{bindings.EffecStartDate.inputValue}"

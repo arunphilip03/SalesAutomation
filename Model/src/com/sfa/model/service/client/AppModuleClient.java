@@ -23,5 +23,18 @@ public class AppModuleClient extends ApplicationModuleImpl implements AppModule 
         }, new Object[] { fileName, contentType, blob });
         return;
     }
+
+    public void exceptionHandler() {
+        Object _ret = this.riInvokeExportedMethod(this, "exceptionHandler", null, null);
+        return;
+    }
+
+    public void uploadFiletoDB(String fileName, String contentType, BlobDomain blob, String plainText) {
+        Object _ret = this.riInvokeExportedMethod(this, "uploadFiletoDB", new String[] {
+                                                  "java.lang.String", "java.lang.String",
+                                                  "oracle.jbo.domain.BlobDomain", "java.lang.String"
+        }, new Object[] { fileName, contentType, blob, plainText });
+        return;
+    }
 }
 

@@ -35,7 +35,7 @@
                                   required="#{bindings.NotesText.hints.mandatory}"
                                   columns="#{bindings.NotesText.hints.displayWidth}"
                                   maximumLength="#{bindings.NotesText.hints.precision}"
-                                  shortDesc="#{bindings.NotesText.hints.tooltip}" id="it1">
+                                  shortDesc="#{bindings.NotesText.hints.tooltip}" id="it1" rows="5">
                         <f:validator binding="#{bindings.NotesText.validator}"/>
                     </af:inputText>
                 </af:panelFormLayout>

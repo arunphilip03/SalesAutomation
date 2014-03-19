@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="admin_user_roleAssignment_admin_user_roleAssignment_ExecuteWithParamsPageDef"
+                Package="com.sfa.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="RoleAssignmentTestView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="RoleAssignmentTestView1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="RoleAssignmentTestView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="use" NDValue="#{InviteeBean.user}" NDType="java.math.BigDecimal"/>
+    </action>
+  </bindings>
+</pageDefinition>

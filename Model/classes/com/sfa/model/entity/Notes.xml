@@ -10,7 +10,8 @@
   DBObjectName="NOTES"
   AliasName="Notes"
   BindingStyle="OracleName"
-  RowClass="com.sfa.model.base.BaseEntityImpl">
+  RowClass="com.sfa.model.base.BaseEntityImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="NotesId"
     IsNotNull="true"
@@ -39,6 +40,12 @@
           ResId="com.sfa.model.entity.Notes.NoteDatetime_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="NoteDatetimeMandatory0"
+      ResId="com.sfa.model.entity.Notes.NoteDatetime_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="NotesText"
@@ -52,6 +59,18 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="NotesTextMandatory0"
+      ResId="com.sfa.model.entity.Notes.NotesText_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="CreationDate"

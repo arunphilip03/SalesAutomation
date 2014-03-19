@@ -45,6 +45,12 @@ FROM OPPORTUNITY_SALESMETHOD_LU OpportunitySalesmethodLu]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Methodcode"/>

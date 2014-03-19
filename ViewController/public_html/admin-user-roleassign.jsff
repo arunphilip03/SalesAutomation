@@ -10,7 +10,11 @@
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t3">
-                            <af:button text="Close" id="b1" action="back"/>
+                            <af:button text="Save" id="b3" actionListener="#{AssignRoles.assignSelectedRoles}"
+                                       immediate="true"/>
+                            <af:button text="Save and Close" id="b2" action="back"
+                                       actionListener="#{AssignRoles.assignSelectedRoles}" immediate="true"/>
+                            <af:button text="Cancel" id="b1" action="back" immediate="true"/>
                         </af:toolbar>
                     </f:facet>
                     <f:facet name="legend"/>
@@ -18,7 +22,7 @@
                 </af:panelHeader>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="124">
                     <f:facet name="first">
-                        <af:panelFormLayout id="pfl1" rows="4">
+                        <af:panelFormLayout id="pfl1" rows="3">
                             <af:inputText value="#{bindings.UserName.inputValue}"
                                           label="#{bindings.UserName.hints.label}"
                                           required="#{bindings.UserName.hints.mandatory}" readOnly="true"
@@ -59,28 +63,13 @@
                                           shortDesc="#{bindings.LastName.hints.tooltip}" id="it5">
                                 <f:validator binding="#{bindings.LastName.validator}"/>
                             </af:inputText>
-                            <af:inputDate value="#{bindings.EffecStartDate.inputValue}" readOnly="true"
-                                          label="#{bindings.EffecStartDate.hints.label}"
-                                          required="#{bindings.EffecStartDate.hints.mandatory}"
-                                          columns="#{bindings.EffecStartDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.EffecStartDate.hints.tooltip}" id="id1">
-                                <f:validator binding="#{bindings.EffecStartDate.validator}"/>
-                                <af:convertDateTime pattern="#{bindings.EffecStartDate.format}"/>
-                            </af:inputDate>
-                            <af:inputDate value="#{bindings.EffecEndDate.inputValue}" readOnly="true"
-                                          label="#{bindings.EffecEndDate.hints.label}"
-                                          required="#{bindings.EffecEndDate.hints.mandatory}"
-                                          columns="#{bindings.EffecEndDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.EffecEndDate.hints.tooltip}" id="id2">
-                                <f:validator binding="#{bindings.EffecEndDate.validator}"/>
-                                <af:convertDateTime pattern="#{bindings.EffecEndDate.format}"/>
-                            </af:inputDate>
                             <af:inputText value="#{bindings.Managername.inputValue}"
                                           label="#{bindings.Managername.hints.label}"
                                           required="#{bindings.Managername.hints.mandatory}" readOnly="true"
                                           columns="#{bindings.Managername.hints.displayWidth}"
                                           maximumLength="#{bindings.Managername.hints.precision}"
-                                          shortDesc="#{bindings.Managername.hints.tooltip}" id="it7">
+                                          shortDesc="#{bindings.Managername.hints.tooltip}" id="it7"
+                                          inlineStyle="column-width:100px;">
                                 <f:validator binding="#{bindings.Managername.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.UserId.inputValue}" label="#{bindings.UserId.hints.label}"
@@ -96,68 +85,54 @@
                     <f:facet name="second">
                         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                             <f:facet name="menus"/>
-                            <f:facet name="toolbar">
-                                <af:toolbar id="t2">
-                                    <af:link id="l1" icon="#{resource['images:new_ena.png']}"
-                                             disabled="#{!bindings.Create.enabled}"
-                                             partialSubmit="true" actionListener="#{bindings.Create.execute}"
-                                             action="create">
-                                        <af:setActionListener from="#{UserIdStoreBean.user}"
-                                                              to="#{InviteeBean.user}"/>
-                                    </af:link>
-                                    <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"
-                                             disabledIcon="#{resource['images:update_dis.png']}"
-                                             disabled="#{bindings.RoleAssignmentView3Iterator.estimatedRowCount eq 0}"/>
-                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-                                        <af:dialog id="d1"
-                                                   title="Are you sure you want to delete the Selected Role of the User?"
-                                                   dialogListener="#{ConfirmBean.dialogListener}">
-                                            <f:facet name="buttonBar"/>
-                                        </af:dialog>
-                                    </af:popup>
-                                    <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
-                                             disabled="#{bindings.RoleAssignmentView3Iterator.estimatedRowCount eq 0}"
-                                             disabledIcon="#{resource['images:delete_dis.png']}">
-                                        <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
-                                    </af:link>
-                                </af:toolbar>
-                            </f:facet>
-                            <af:table value="#{bindings.RoleAssignmentView3.collectionModel}" var="row"
-                                      rows="#{bindings.RoleAssignmentView3.rangeSize}"
-                                      emptyText="#{bindings.RoleAssignmentView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            <f:facet name="toolbar"/>
+                            <af:table value="#{bindings.AdminUserRoleassign1.collectionModel}" var="row"
+                                      rows="#{bindings.AdminUserRoleassign1.rangeSize}"
+                                      emptyText="#{bindings.AdminUserRoleassign1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                       rowBandingInterval="0"
-                                      selectedRowKeys="#{bindings.RoleAssignmentView3.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.RoleAssignmentView3.collectionModel.makeCurrent}"
-                                      rowSelection="single" fetchSize="#{bindings.RoleAssignmentView3.rangeSize}"
-                                      id="t1" partialTriggers="::l3 ::l1" columnStretching="last"
-                                      styleClass="AFStretchWidth">
-                                <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.RoleName.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.RoleAssignmentView3.hints.RoleName.label}" id="c3"
-                                           width="387">
-                                    <af:outputText value="#{row.RoleName}"
-                                                   shortDesc="#{bindings.RoleAssignmentView3.hints.RoleName.tooltip}"
-                                                   id="ot3"/>
+                                      selectedRowKeys="#{bindings.AdminUserRoleassign1.collectionModel.selectedRow}"
+                                      rowSelection="multiple" fetchSize="#{bindings.AdminUserRoleassign1.rangeSize}"
+                                      id="t1" styleClass="AFStretchWidth" columnStretching="last">
+                                <af:column headerText="#{bindings.AdminUserRoleassign1.hints.RoleName.label}" id="c1"
+                                           width="417">
+                                    <af:inputText value="#{row.bindings.RoleName.inputValue}"
+                                                  label="#{bindings.AdminUserRoleassign1.hints.RoleName.label}"
+                                                  required="#{bindings.AdminUserRoleassign1.hints.RoleName.mandatory}"
+                                                  columns="#{bindings.AdminUserRoleassign1.hints.RoleName.displayWidth}"
+                                                  maximumLength="#{bindings.AdminUserRoleassign1.hints.RoleName.precision}"
+                                                  shortDesc="#{bindings.AdminUserRoleassign1.hints.RoleName.tooltip}"
+                                                  id="it8" disabled="true">
+                                        <f:validator binding="#{row.bindings.RoleName.validator}"/>
+                                    </af:inputText>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.EffecStartDate.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.RoleAssignmentView3.hints.EffecStartDate.label}"
-                                           id="c1" width="398">
-                                    <af:outputText value="#{row.EffecStartDate}"
-                                                   shortDesc="#{bindings.RoleAssignmentView3.hints.EffecStartDate.tooltip}"
-                                                   id="ot1">
-                                        <af:convertDateTime pattern="#{bindings.RoleAssignmentView3.hints.EffecStartDate.format}"/>
-                                    </af:outputText>
+                                <af:column headerText="#{bindings.AdminUserRoleassign1.hints.EffecStartDate.label}"
+                                           id="c2" width="283">
+                                    <af:inputDate value="#{row.bindings.EffecStartDate.inputValue}"
+                                                  label="#{bindings.AdminUserRoleassign1.hints.EffecStartDate.label}"
+                                                  columns="#{bindings.AdminUserRoleassign1.hints.EffecStartDate.displayWidth}"
+                                                  shortDesc="#{bindings.AdminUserRoleassign1.hints.EffecStartDate.tooltip}"
+                                                  id="id3" immediate="true" autoSubmit="true">
+                                        <f:validator binding="#{row.bindings.EffecStartDate.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.AdminUserRoleassign1.hints.EffecStartDate.format}"/>
+                                    </af:inputDate>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.RoleAssignmentView3.hints.EffecEndDate.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.RoleAssignmentView3.hints.EffecEndDate.label}" id="c2"
-                                           width="-654">
-                                    <af:outputText value="#{row.EffecEndDate}"
-                                                   shortDesc="#{bindings.RoleAssignmentView3.hints.EffecEndDate.tooltip}"
-                                                   id="ot2">
-                                        <af:convertDateTime pattern="#{bindings.RoleAssignmentView3.hints.EffecEndDate.format}"/>
-                                    </af:outputText>
+                                <af:column headerText="#{bindings.AdminUserRoleassign1.hints.EffecEndDate.label}"
+                                           id="c3" width="324">
+                                    <af:inputDate value="#{row.bindings.EffecEndDate.inputValue}"
+                                                  label="#{bindings.AdminUserRoleassign1.hints.EffecEndDate.label}"
+                                                  columns="#{bindings.AdminUserRoleassign1.hints.EffecEndDate.displayWidth}"
+                                                  shortDesc="#{bindings.AdminUserRoleassign1.hints.EffecEndDate.tooltip}"
+                                                  id="id4" immediate="true" autoSubmit="true">
+                                        <f:validator binding="#{row.bindings.EffecEndDate.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.AdminUserRoleassign1.hints.EffecEndDate.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column headerText="#{bindings.AdminUserRoleassign1.hints.Selected.label}" id="c4"
+                                           width="-624">
+                                    <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                                              label="#{row.bindings.Selected.label}"
+                                                              shortDesc="#{bindings.AdminUserRoleassign1.hints.Selected.tooltip}"
+                                                              id="sbc1" autoSubmit="true" immediate="true"/>
                                 </af:column>
                             </af:table>
                             <f:facet name="statusbar"/>

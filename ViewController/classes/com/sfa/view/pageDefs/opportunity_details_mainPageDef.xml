@@ -7,26 +7,20 @@
     <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="OpportunitiesView1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="OpportunityRevenueItemsView2" RangeSize="25" DataControl="AppModuleDataControl"
-              id="OpportunityRevenueItemsView2Iterator" ChangeEventPolicy="none"/>
+              id="OpportunityRevenueItemsView2Iterator"/>
     <taskFlow id="Opportunityteamtf1" taskFlowId="/WEB-INF/Opportunity-team-tf.xml#Opportunity-team-tf"
-              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="opportunityrevenuetf1" taskFlowId="/WEB-INF/opportunity-revenue-tf.xml#opportunity-revenue-tf"
-              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="opportunitiesappointmenttf1"
-              taskFlowId="/WEB-INF/opportunities-appointment-tf.xml#opportunities-appointment-tf" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="opportunityinteractionstf1"
-              taskFlowId="/WEB-INF/opportunity-interactions-tf.xml#opportunity-interactions-tf" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="opportunitytaskmaintf1" taskFlowId="/WEB-INF/opportunity-task-main-tf.xml#opportunity-task-main-tf"
-              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="Opportunity_notes_tf1" taskFlowId="/WEB-INF/Opportunity_notes_tf.xml#Opportunity_notes_tf"
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <taskFlow id="Opportunityattachmentstf1"
               taskFlowId="/WEB-INF/Opportunity-attachments-tf.xml#Opportunity-attachments-tf" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <iterator Binds="OpportunityNotes2" RangeSize="10" DataControl="AppModuleDataControl"
-              id="OpportunityNotes2Iterator"/>
+              id="OpportunityNotes2Iterator" ChangeEventPolicy="ppr"/>
+    <iterator id="OpportunityAppointmentView2Iterator" Binds="OpportunityAppointmentView2"
+              DataControl="AppModuleDataControl" RangeSize="25" ChangeEventPolicy="ppr"/>
+    <iterator id="ContactInteractionsView2Iterator" Binds="ContactInteractionsView2" DataControl="AppModuleDataControl"
+              RangeSize="25" ChangeEventPolicy="ppr"/>
+    <iterator id="OpportunitytaskView2Iterator" Binds="OpportunitytaskView2" DataControl="AppModuleDataControl"
+              RangeSize="25" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OpportunitiesView1Iterator" id="WinProbability">
@@ -56,11 +50,6 @@
         <Item Value="CloseDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OpportunitiesView1Iterator" id="PrimaryContactId">
-      <AttrNames>
-        <Item Value="PrimaryContactId"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_SalesStage" id="SalesStage"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_SalesMethod" id="SalesMethod"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_SalesChannel"
@@ -88,9 +77,6 @@
         <Item Value="NotesSeqId"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="OpportunityRevenueItemsView2Iterator" id="Delete"
-            InstanceName="AppModuleDataControl.OpportunityRevenueItemsView2" DataControl="AppModuleDataControl"
-            RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_RevenueCurrency"
                   id="RevenueCurrency1"/>
     <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
@@ -100,6 +86,117 @@
       <NamedData NDName="p2" NDValue="#{bindings.NotesSeqId}" NDType="oracle.jbo.domain.Number"/>
     </action>
     <listOfValues IterBinding="OpportunitiesView1Iterator" StaticList="false" Uses="LOV_IsBudgeted" id="IsBudgeted1"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="OpportunityRevenueItemsView2Iterator" id="OpportunityRevenueItemsView2">
+      <nodeDefinition DefName="com.sfa.model.VO.OpportunityRevenueItemsView" Name="OpportunityRevenueItemsView20">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="Quantity"/>
+          <Item Value="EstimatedPrice"/>
+          <Item Value="Revenue"/>
+          <Item Value="WinProbability"/>
+          <Item Value="BestCaseRevenue"/>
+          <Item Value="WorstCaseRevenue"/>
+          <Item Value="SalesForecastIncluded"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OpportunityRevenueItemsView2Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="OpportunityRevenueItemsView2Iterator" id="Delete"
+            InstanceName="AppModuleDataControl.OpportunityRevenueItemsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="OpportunityAppointmentView2Iterator" id="OpportunityAppointmentView2">
+      <nodeDefinition DefName="com.sfa.model.VO.OpportunityAppointmentView" Name="OpportunityAppointmentView20">
+        <AttrNames>
+          <Item Value="AppointmentId"/>
+          <Item Value="AccountName"/>
+          <Item Value="CustAccountId"/>
+          <Item Value="Description"/>
+          <Item Value="EndDatetime"/>
+          <Item Value="Location"/>
+          <Item Value="Name"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="ObjectVersionNumber1"/>
+          <Item Value="OpportunityName"/>
+          <Item Value="OppurtunityId"/>
+          <Item Value="StartDatetime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OpportunityAppointmentView2Iterator" id="Delete1"
+            InstanceName="AppModuleDataControl.OpportunityAppointmentView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunityAppointmentView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <tree IterBinding="ContactInteractionsView2Iterator" id="ContactInteractionsView2">
+      <nodeDefinition DefName="com.sfa.model.VO.ContactInteractionsView" Name="ContactInteractionsView20">
+        <AttrNames>
+          <Item Value="InteractionId"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="Description"/>
+          <Item Value="Direction"/>
+          <Item Value="EndDatetime"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="OpportunityName"/>
+          <Item Value="OppurtunityId"/>
+          <Item Value="Resolution"/>
+          <Item Value="StartDatetime"/>
+          <Item Value="Type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ContactInteractionsView2Iterator" id="Delete2"
+            InstanceName="AppModuleDataControl.ContactInteractionsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ContactInteractionsView2Iterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="OpportunitytaskView2Iterator" id="OpportunitytaskView2">
+      <nodeDefinition DefName="com.sfa.model.VO.OpportunitytaskView" Name="OpportunitytaskView20">
+        <AttrNames>
+          <Item Value="AsigneeId"/>
+          <Item Value="AccountName"/>
+          <Item Value="CustAccountId"/>
+          <Item Value="Description"/>
+          <Item Value="DueDate"/>
+          <Item Value="FirstName"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="OpportunityName"/>
+          <Item Value="OppurtunityId"/>
+          <Item Value="PercentageCompletion"/>
+          <Item Value="Priority"/>
+          <Item Value="TaskId"/>
+          <Item Value="TaskName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OpportunitytaskView2Iterator" id="Delete3"
+            InstanceName="AppModuleDataControl.OpportunitytaskView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunitytaskView2Iterator" id="CreateInsert3" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="OpportunityNotes2Iterator" id="OpportunityNotes2">
+      <nodeDefinition DefName="com.sfa.model.VO.OpportunityNotes" Name="OpportunityNotes20">
+        <AttrNames>
+          <Item Value="NotesId"/>
+          <Item Value="CreationDate"/>
+          <Item Value="NoteDatetime"/>
+          <Item Value="NoteId"/>
+          <Item Value="NotesSeqId"/>
+          <Item Value="NotesText"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="ObjectVersionNumber1"/>
+          <Item Value="Rowid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OpportunityNotes2Iterator" id="Delete4" InstanceName="AppModuleDataControl.OpportunityNotes2"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OpportunityNotes2Iterator" id="CreateInsert4" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

@@ -32,7 +32,7 @@
                                                           model="#{bindings.Type.listOfValuesModel}"
                                                           required="#{bindings.Type.hints.mandatory}"
                                                           columns="#{bindings.Type.hints.displayWidth}"
-                                                          shortDesc="#{bindings.Type.hints.tooltip}" disabled="true">
+                                                          shortDesc="#{bindings.Type.hints.tooltip}" disabled="false">
                                 <f:validator binding="#{bindings.Type.validator}"/>
                             </af:inputComboboxListOfValues>
                             <af:inputComboboxListOfValues id="directionId"
@@ -43,14 +43,14 @@
                                                           required="#{bindings.Direction.hints.mandatory}"
                                                           columns="#{bindings.Direction.hints.displayWidth}"
                                                           shortDesc="#{bindings.Direction.hints.tooltip}"
-                                                          disabled="true">
+                                                          disabled="false">
                                 <f:validator binding="#{bindings.Direction.validator}"/>
                             </af:inputComboboxListOfValues>
                             <af:inputDate value="#{bindings.StartDatetime.inputValue}"
                                           label="#{bindings.StartDatetime.hints.label}"
                                           required="#{bindings.StartDatetime.hints.mandatory}"
                                           columns="#{bindings.StartDatetime.hints.displayWidth}"
-                                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1" readOnly="true">
+                                          shortDesc="#{bindings.StartDatetime.hints.tooltip}" id="id1">
                                 <f:validator binding="#{bindings.StartDatetime.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.StartDatetime.format}"/>
                             </af:inputDate>
@@ -58,7 +58,7 @@
                                           label="#{bindings.EndDatetime.hints.label}"
                                           required="#{bindings.EndDatetime.hints.mandatory}"
                                           columns="#{bindings.EndDatetime.hints.displayWidth}"
-                                          shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2" readOnly="true">
+                                          shortDesc="#{bindings.EndDatetime.hints.tooltip}" id="id2">
                                 <f:validator binding="#{bindings.EndDatetime.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.EndDatetime.format}"/>
                             </af:inputDate>
@@ -67,7 +67,7 @@
                                           required="#{bindings.Description.hints.mandatory}"
                                           columns="#{bindings.Description.hints.displayWidth}"
                                           maximumLength="#{bindings.Description.hints.precision}"
-                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it2" readOnly="true">
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
                                 <f:validator binding="#{bindings.Description.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.Resolution.inputValue}"
@@ -75,7 +75,7 @@
                                           required="#{bindings.Resolution.hints.mandatory}"
                                           columns="#{bindings.Resolution.hints.displayWidth}"
                                           maximumLength="#{bindings.Resolution.hints.precision}"
-                                          shortDesc="#{bindings.Resolution.hints.tooltip}" id="it3" readOnly="true">
+                                          shortDesc="#{bindings.Resolution.hints.tooltip}" id="it3">
                                 <f:validator binding="#{bindings.Resolution.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.InteractionId.inputValue}"
@@ -83,8 +83,7 @@
                                           required="#{bindings.InteractionId.hints.mandatory}"
                                           columns="#{bindings.InteractionId.hints.displayWidth}"
                                           maximumLength="#{bindings.InteractionId.hints.precision}"
-                                          shortDesc="#{bindings.InteractionId.hints.tooltip}" id="it4" visible="false"
-                                          readOnly="true">
+                                          shortDesc="#{bindings.InteractionId.hints.tooltip}" id="it4" visible="false">
                                 <f:validator binding="#{bindings.InteractionId.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.InteractionId.format}"/>
                             </af:inputText>

@@ -8,9 +8,6 @@
               id="OpportunityAttachmentsView2Iterator"/>
     <iterator Binds="OpportunitiesView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="OpportunitiesView1Iterator"/>
-    <searchRegion Criteria="OpportunityAttachmentsViewSearch"
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="OpportunityAttachmentsView2Iterator" id="OpportunityAttachmentsViewSearchQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="OpportunityAttachmentsView2Iterator" id="OpportunityAttachmentsView2">
@@ -40,7 +37,13 @@
     <action IterBinding="OpportunityAttachmentsView2Iterator" id="Delete"
             InstanceName="AppModuleDataControl.OpportunityAttachmentsView2" DataControl="AppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action IterBinding="OpportunityAttachmentsView2Iterator" id="Create" RequiresUpdateModel="true"
-            Action="createRow"/>
+    <action IterBinding="OpportunityAttachmentsView2Iterator" id="Create"
+            InstanceName="AppModuleDataControl.OpportunityAttachmentsView2" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="createRow"/>
+    <attributeValues IterBinding="OpportunityAttachmentsView2Iterator" id="DocumentPlaintext">
+      <AttrNames>
+        <Item Value="DocumentPlaintext"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="admin_productcategory_editPageDef" Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductCategoryView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ProductCategoryView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ProductCategoryView1Iterator" id="Categoryname">
+      <AttrNames>
+        <Item Value="Categoryname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductCategoryView1Iterator" id="Descriptiion">
+      <AttrNames>
+        <Item Value="Descriptiion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductCategoryView1Iterator" id="EffecEndDate">
+      <AttrNames>
+        <Item Value="EffecEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductCategoryView1Iterator" id="EffecStartDate">
+      <AttrNames>
+        <Item Value="EffecStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

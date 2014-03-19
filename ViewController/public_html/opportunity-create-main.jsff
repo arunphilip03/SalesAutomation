@@ -14,7 +14,7 @@
                             <af:button text="save" id="b1" actionListener="#{OppoTeamSC.onPrimaryCommit}"/>
                             <af:button text="Save and Close" id="b2"
                                        action="save" actionListener="#{OppoTeamSC.onPrimaryCommit}"/>
-                            <af:button text="Cancel" id="b3" actionListener="#{bindings.Rollback.execute}"
+                            <af:button text="Cancel" id="b3" actionListener="#{RollbackBean.OpportunityRollback}"
                                        immediate="true" action="back">
                                 <af:resetActionListener/>
                             </af:button>

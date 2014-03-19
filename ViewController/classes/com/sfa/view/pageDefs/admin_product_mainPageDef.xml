@@ -23,5 +23,8 @@
     </tree>
     <action IterBinding="ProductCatalogView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="ProductCatalogView1Iterator" id="Delete"
+            InstanceName="AppModuleDataControl.ProductCatalogView1" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

@@ -83,11 +83,14 @@
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.ContactName.name}"
                                            sortable="true"
                                            headerText="#{bindings.OpportunitiesView1.hints.ContactName.label}" id="c3">
-                                    <af:link id="cl3" partialSubmit="true" action="getContactDetail"
+                                    <!--<af:link id="cl3" partialSubmit="true" action="getContactDetail"
                                              text="#{row.ContactName}">
                                         <af:setPropertyListener from="#{row.PrimaryContactId}"
                                                                 to="#{pageFlowScope.selectedContact}" type="action"/>
-                                    </af:link>
+                                    </af:link>-->
+                                    <af:outputText value="#{row.ContactName}"
+                                                   shortDesc="#{bindings.OpportunitiesView1.hints.ContactName.tooltip}"
+                                                   id="ot111"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.OpportunitiesView1.hints.WinProbability.name}"
                                            sortable="true"

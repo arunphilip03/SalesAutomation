@@ -10,7 +10,6 @@
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
-                            <af:button text="Save" id="b3" actionListener="#{OppoTeamSC.onCommit}"/>
                             <af:button text="Save and Close" id="b1" action="back"
                                        actionListener="#{OppoTeamSC.onCommit}" visible="false"/>
                             <af:button text="Cancel" id="b2"
@@ -24,7 +23,7 @@
                 </af:panelHeader>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="75" styleClass="AFStretchWidth">
                     <f:facet name="first">
-                        <af:panelFormLayout id="pfl1" rows="2">
+                        <af:panelFormLayout id="pfl1">
                             <af:inputText value="#{bindings.OpportunityName.inputValue}"
                                           label="#{bindings.OpportunityName.hints.label}"
                                           required="#{bindings.OpportunityName.hints.mandatory}" readOnly="true"
@@ -64,7 +63,6 @@
                                 <f:validator binding="#{bindings.OppurtunityId.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
                             </af:inputText>
-                            <f:facet name="footer"/>
                         </af:panelFormLayout>
                     </f:facet>
                     <f:facet name="second">
@@ -88,6 +86,7 @@
                         </af:panelSplitter>
                     </f:facet>
                 </af:panelSplitter>
+                <af:button text="Add" id="b3" actionListener="#{OppoTeamSC.onCommit}"/>
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>

@@ -105,7 +105,14 @@ WHERE  Appointments.DELETE_FLAG = 'N']]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="Location"
     EntityUsage="Appointments"
-    AliasName="LOCATION"/>
+    AliasName="LOCATION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Name"
     IsNotNull="true"

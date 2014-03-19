@@ -9,6 +9,8 @@
                   Binds="UsersView1Iterator" id="UsersViewSearchQuery"/>
     <iterator Binds="RoleAssignmentView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="RoleAssignmentView1Iterator"/>
+    <iterator Binds="AdminUserRoleassign1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="AdminUserRoleassign1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="UsersView1Iterator" id="UsersView1">
@@ -27,5 +29,14 @@
     <action IterBinding="UsersView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action IterBinding="RoleAssignmentView1Iterator" id="Create1" RequiresUpdateModel="true" Action="createRow"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="UsersView1Iterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AdminUserRoleassign1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="SelectedUser" NDValue="#{bindings.UserId}" NDType="oracle.jbo.domain.Number"/>
+    </action>
   </bindings>
 </pageDefinition>

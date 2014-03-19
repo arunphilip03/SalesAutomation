@@ -37,13 +37,6 @@
                                   shortDesc="#{bindings.ProductName.hints.tooltip}" id="it2">
                         <f:validator binding="#{bindings.ProductName.validator}"/>
                     </af:inputText>
-                    <af:inputText value="#{bindings.ProductDesc.inputValue}" label="#{bindings.ProductDesc.hints.label}"
-                                  required="#{bindings.ProductDesc.hints.mandatory}"
-                                  columns="#{bindings.ProductDesc.hints.displayWidth}"
-                                  maximumLength="#{bindings.ProductDesc.hints.precision}"
-                                  shortDesc="#{bindings.ProductDesc.hints.tooltip}" id="it3" inlineStyle="width:100mm;">
-                        <f:validator binding="#{bindings.ProductDesc.validator}"/>
-                    </af:inputText>
                     <af:inputText value="#{bindings.CurrentPrice.inputValue}"
                                   label="#{bindings.CurrentPrice.hints.label}"
                                   required="#{bindings.CurrentPrice.hints.mandatory}"
@@ -63,6 +56,14 @@
                                                   shortDesc="#{bindings.ProductCategory.hints.tooltip}">
                         <f:validator binding="#{bindings.ProductCategory.validator}"/>
                     </af:inputComboboxListOfValues>
+                    <af:inputText value="#{bindings.ProductDesc.inputValue}" label="#{bindings.ProductDesc.hints.label}"
+                                  required="#{bindings.ProductDesc.hints.mandatory}"
+                                  columns="#{bindings.ProductDesc.hints.displayWidth}"
+                                  maximumLength="#{bindings.ProductDesc.hints.precision}"
+                                  shortDesc="#{bindings.ProductDesc.hints.tooltip}" id="it3" inlineStyle="width:100mm;"
+                                  rows="2">
+                        <f:validator binding="#{bindings.ProductDesc.validator}"/>
+                    </af:inputText>
                 </af:panelFormLayout>
             </af:gridCell>
         </af:gridRow>

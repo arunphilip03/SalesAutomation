@@ -88,7 +88,7 @@
         <LABEL
           ResId="com.sfa.model.VO.OpportunityNotes.NotesText_LABEL"/>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="40"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

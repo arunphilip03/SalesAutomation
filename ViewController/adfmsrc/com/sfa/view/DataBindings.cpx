@@ -152,7 +152,27 @@
         <page path="/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf@ExecuteWithParams1"
               usageId="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"/>
     <page path="/opportunity-revenue-main.jsff" usageId="com_sfa_view_opportunity_revenue_mainPageDef"/>
-        <page path="/AdminHome.jsff" usageId="com_sfa_view_AdminHomePageDef"/></pageMap>
+        <page path="/AdminHome.jsff" usageId="com_sfa_view_AdminHomePageDef"/>
+        <page path="/admin-productcategory-edit.jsff" usageId="com_sfa_view_admin_productcategory_editPageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_ExecutePageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute1"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute1PageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute2"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute2PageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute3"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute3PageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute4"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute4PageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute5"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute5PageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@CreateInsert"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_CreateInsertPageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute6"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute6PageDef"/>
+        <page path="/WEB-INF/admin-user-roleAssignment.xml#admin-user-roleAssignment@ExecuteWithParams"
+              usageId="com_sfa_view_admin_user_roleAssignment_admin_user_roleAssignment_ExecuteWithParamsPageDef"/>
+    </pageMap>
     <pageDefinitionUsages>
         <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"
               path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"/>
@@ -348,7 +368,28 @@
               path="com.sfa.view.pageDefs.Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"/>
     <page id="com_sfa_view_opportunity_revenue_mainPageDef"
               path="com.sfa.view.pageDefs.opportunity_revenue_mainPageDef"/>
-        <page id="com_sfa_view_AdminHomePageDef" path="com.sfa.view.pageDefs.AdminHomePageDef"/></pageDefinitionUsages>
+        <page id="com_sfa_view_AdminHomePageDef" path="com.sfa.view.pageDefs.AdminHomePageDef"/>
+        <page id="com_sfa_view_admin_productcategory_editPageDef"
+              path="com.sfa.view.pageDefs.admin_productcategory_editPageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_ExecutePageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_ExecutePageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute1PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute1PageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute2PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute2PageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute3PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute3PageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute4PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute4PageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute5PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute5PageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_CreateInsertPageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_CreateInsertPageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute6PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute6PageDef"/>
+        <page id="com_sfa_view_admin_user_roleAssignment_admin_user_roleAssignment_ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.admin_user_roleAssignment_admin_user_roleAssignment_ExecuteWithParamsPageDef"/>
+    </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"
                          FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"

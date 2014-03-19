@@ -35,6 +35,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="TypeMandatory0"
+      ResId="com.sfa.model.entity.ContactInteractions.Type_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="Direction"
@@ -48,6 +54,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="DirectionMandatory0"
+      ResId="com.sfa.model.entity.ContactInteractions.Direction_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="StartDatetime"
@@ -67,6 +79,12 @@
           ResId="com.sfa.model.entity.ContactInteractions.StartDatetime_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="StartDatetimeMandatory0"
+      ResId="com.sfa.model.entity.ContactInteractions.StartDatetime_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="EndDatetime"
@@ -115,7 +133,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="40"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -133,7 +151,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="40"/>
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

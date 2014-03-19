@@ -42,6 +42,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.Opportunities.WinProbability_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
     <validation:RangeValidationBean
@@ -85,6 +87,12 @@
           ResId="com.sfa.model.entity.Opportunities.PrimaryContactId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="PrimaryContactIdMandatory0"
+      ResId="com.sfa.model.entity.Opportunities.PrimaryContactId_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="SalesStage"
@@ -104,6 +112,12 @@
           ResId="com.sfa.model.entity.Opportunities.SalesStage_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="SalesStageMandatory0"
+      ResId="com.sfa.model.entity.Opportunities.SalesStage_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="SalesMethod"
@@ -123,6 +137,12 @@
           ResId="com.sfa.model.entity.Opportunities.SalesMethod_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="SalesMethodMandatory0"
+      ResId="com.sfa.model.entity.Opportunities.SalesMethod_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="SalesChannel"
@@ -142,6 +162,12 @@
           ResId="com.sfa.model.entity.Opportunities.SalesChannel_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="SalesChannelMandatory0"
+      ResId="com.sfa.model.entity.Opportunities.SalesChannel_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="RevenueCurrency"
@@ -161,6 +187,12 @@
           ResId="com.sfa.model.entity.Opportunities.RevenueCurrency_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="RevenueCurrencyMandatory0"
+      ResId="com.sfa.model.entity.Opportunities.RevenueCurrency_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="RevenueAmount"
@@ -178,6 +210,12 @@
           ResId="com.sfa.model.entity.Opportunities.RevenueAmount_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="RevenueAmountMandatory0"
+      ResId="com.sfa.model.entity.Opportunities.RevenueAmount_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="BestCaseRevenue"
@@ -229,6 +267,12 @@
           ResId="com.sfa.model.entity.Opportunities.IsBudgeted_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="IsBudgetedMandatory0"
+      ResId="com.sfa.model.entity.Opportunities.IsBudgeted_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="BudgetAmount"
@@ -261,6 +305,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.Opportunities.EstimatedDuration_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -279,6 +325,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.Opportunities.RiskLevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="7"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -298,6 +346,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.entity.Opportunities.DecisionLevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -399,7 +449,7 @@
         <LABEL
           ResId="com.sfa.model.entity.Opportunities.OpportunityName_LABEL"/>
         <DISPLAYWIDTH
-          Value="60"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

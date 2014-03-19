@@ -43,8 +43,14 @@ FROM OPPORTUNITY_RISKLEVEL_LU OpportunityRisklevelLu]]></SQLQuery>
     Expression="RISKLEVEL"
     SQLType="VARCHAR">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="20"/>
+      <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="7"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Levelid"/>

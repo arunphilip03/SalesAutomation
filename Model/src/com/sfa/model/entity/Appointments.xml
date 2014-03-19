@@ -89,6 +89,21 @@
           ResId="com.sfa.model.entity.Appointments.StartDatetime_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:PreDefinedValidationBean
+      Name="StartDatetimeMandatory0"
+      ResId="com.sfa.model.entity.Appointments.StartDatetime_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+    <validation:CompareValidationBean
+      Name="StartDatetimeRule0"
+      OnAttribute="StartDatetime"
+      OperandType="EXPR"
+      Inverse="false"
+      CompareType="GREATERTHANEQUALTO">
+      <validation:OnCondition><![CDATA[Appointment Start datetime should be greater then or equal to current datetime]]></validation:OnCondition>
+      <validation:TransientExpression><![CDATA[adf.currentDate]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
   </Attribute>
   <Attribute
     Name="EndDatetime"
@@ -98,14 +113,21 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="APPOINTMENTS">
+    <validation:PreDefinedValidationBean
+      Name="EndDatetimeMandatory0"
+      ResId="com.sfa.model.entity.Appointments.EndDatetime_Rule_1"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
     <validation:CompareValidationBean
       Name="EndDatetimeRule0"
       ResId="com.sfa.model.entity.Appointments.EndDatetime_Rule_0"
       OnAttribute="EndDatetime"
-      OperandType="JBO"
+      OperandType="EXPR"
       Inverse="false"
-      CompareType="GREATERTHAN"
-      CompareValue="com.sfa.model.VO.AppointmentsView.StartDatetime"/>
+      CompareType="GREATERTHAN">
+      <validation:TransientExpression><![CDATA[StartDateTime]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMATTER

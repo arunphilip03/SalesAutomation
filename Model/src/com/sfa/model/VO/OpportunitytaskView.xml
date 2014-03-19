@@ -138,7 +138,7 @@ WHERE Tasks.DELETE_FLAG = 'N']]></SQLQuery>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -200,7 +200,7 @@ WHERE Tasks.DELETE_FLAG = 'N']]></SQLQuery>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -10,7 +10,8 @@
   DBObjectName="PRODUCT_CATALOG"
   AliasName="ProductCatalog"
   BindingStyle="OracleName"
-  RowClass="com.sfa.model.base.BaseEntityImpl">
+  RowClass="com.sfa.model.base.BaseEntityImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="ProductId"
     IsNotNull="true"
@@ -30,10 +31,23 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="PRODUCT_CATALOG">
+    TableName="PRODUCT_CATALOG"
+    IsUnique="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ProductCatalog.ProductCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="ProductCodeMandatory0"
+      ResId="com.sfa.model.entity.ProductCatalog.ProductCode_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="ProductName"
@@ -47,6 +61,20 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ProductCatalog.ProductName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="ProductNameMandatory0"
+      ResId="com.sfa.model.entity.ProductCatalog.ProductName_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="ProductDesc"
@@ -59,6 +87,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ProductCatalog.ProductDesc_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CurrentPrice"
@@ -67,7 +103,22 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="PRODUCT_CATALOG"/>
+    TableName="PRODUCT_CATALOG">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ProductCatalog.CurrentPrice_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="CurrentPriceMandatory0"
+      ResId="com.sfa.model.entity.ProductCatalog.CurrentPrice_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
   <Attribute
     Name="ProductCategory"
     IsNotNull="true"
@@ -80,6 +131,20 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.entity.ProductCatalog.ProductCategory_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:PreDefinedValidationBean
+      Name="ProductCategoryMandatory0"
+      ResId="com.sfa.model.entity.ProductCatalog.ProductCategory_Rule_0"
+      Description="Mandatory"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -181,4 +246,8 @@
       <Item Value="com.sfa.model.entity.ProductCatalog.ProductId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

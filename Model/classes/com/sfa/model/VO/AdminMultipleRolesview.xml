@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AdminMultipleRolesview"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="com.sfa.model.VO.AdminMultipleRolesviewRowImpl"
+  PageIterMode="Full"
+  ComponentClass="com.sfa.model.VO.AdminMultipleRolesviewImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.AdminMultipleRolesview_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="UserId"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <SQLQuery><![CDATA[SELECT Roles.ROLE_ID,               
+       Roles.ROLE_NAME,  
+       Rs.USER_ROLE_ID, 
+       Rs.EFFEC_END_DATE,               
+       Rs.EFFEC_START_DATE,     
+       Rs.SELECTED_FLAG,   
+       Rs.OBJECT_VERSION_NUMBER,                   
+       'true' as IsSelected         
+       FROM  ROLES Roles inner join ROLE_ASSIGNMENT Rs            
+on Roles.ROLE_ID = Rs.ROLE_ID       
+WHERE Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE <= SYSDATE      
+and               
+Roles.DELETE_FLAG = 'N'      
+and Rs.DELETE_FLAG = 'N'      
+and Rs.USER_ID = :UserId       
+union      
+SELECT Roles.ROLE_ID,               
+       Roles.ROLE_NAME, 
+       Rs.USER_ROLE_ID, 
+       Rs.EFFEC_END_DATE,               
+       Rs.EFFEC_START_DATE,    
+       Rs.SELECTED_FLAG,   
+       Rs.OBJECT_VERSION_NUMBER,                   
+       'false' as IsSelected         
+       FROM  ROLES Roles left outer join ROLE_ASSIGNMENT Rs            
+on Roles.ROLE_ID = Rs.ROLE_ID and Rs.USER_ID =  :UserId  and Rs.DELETE_FLAG = 'N'      
+WHERE Roles.EFFEC_END_DATE >= SYSDATE AND Roles.EFFEC_START_DATE <= SYSDATE      
+and               
+Roles.DELETE_FLAG = 'N'      
+and Roles.rOLE_ID NOT IN (SELECT ra.ROLE_ID FROM ROLE_ASSIGNMENT ra          
+where ra.user_id = :UserId and ra.DELETE_FLAG = 'N')]]></SQLQuery>
+  <EntityUsage
+    Name="RoleAssignment"
+    Entity="com.sfa.model.entity.RoleAssignment"/>
+  <EntityUsage
+    Name="Roles"
+    Entity="com.sfa.model.entity.Roles"
+    Association="com.sfa.model.association.UserRolesFk2Assoc"
+    AssociationEnd="com.sfa.model.association.UserRolesFk2Assoc.Roles"
+    SourceUsage="com.sfa.model.VO.AdminMultipleRolesview.RoleAssignment"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.sfa.model.entity.RoleAssignment.RoleId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.sfa.model.entity.Roles.RoleId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="RoleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleId"
+    EntityUsage="RoleAssignment"
+    AliasName="ROLE_ID"/>
+  <ViewAttribute
+    Name="RoleName"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleName"
+    EntityUsage="Roles"
+    AliasName="ROLE_NAME"/>
+  <ViewAttribute
+    Name="UserRoleId"
+    PrecisionRule="true"
+    AliasName="USER_ROLE_ID"
+    EntityAttrName="UserRoleId"
+    EntityUsage="RoleAssignment"/>
+  <ViewAttribute
+    Name="EffecEndDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EffecEndDate"
+    EntityUsage="RoleAssignment"
+    AliasName="EFFEC_END_DATE"/>
+  <ViewAttribute
+    Name="EffecStartDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EffecStartDate"
+    EntityUsage="RoleAssignment"
+    AliasName="EFFEC_START_DATE"/>
+  <ViewAttribute
+    Name="SelectedFlag"
+    PrecisionRule="true"
+    EntityAttrName="SelectedFlag"
+    EntityUsage="RoleAssignment"
+    AliasName="SELECTED_FLAG"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="RoleAssignment"
+    AliasName="OBJECT_VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="Isselected"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ISSELECTED"
+    Expression="ISSELECTED"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Selected"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[Boolean.valueOf(Isselected)]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RoleId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleId"
+    EntityUsage="Roles"
+    AliasName="ROLE_ID"/>
+  <ViewAttribute
+    Name="ObjectVersionNumber1"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionNumber"
+    EntityUsage="Roles"
+    AliasName="OBJECT_VERSION_NUMBER1"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="UserRoleId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

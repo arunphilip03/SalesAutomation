@@ -5,7 +5,7 @@
         <af:gridRow height="100%" id="gr1">
             <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                 <!-- Content -->
-                <af:panelHeader text="PRODUCT CATEGORIES" id="ph1" inlineStyle="height:22px;">
+                <af:panelHeader text="Product Categories" id="ph1" inlineStyle="height:22px;">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
@@ -14,15 +14,6 @@
                     <f:facet name="legend"/>
                     <f:facet name="info"/>
                 </af:panelHeader>
-                <af:panelGroupLayout layout="vertical" id="pgl2">
-                    <af:panelHeader text=" " id="ph2">
-                        <af:query id="qryId1" headerText="Search" disclosed="true"
-                                  value="#{bindings.ProductCategoryViewSearchQuery.queryDescriptor}"
-                                  model="#{bindings.ProductCategoryViewSearchQuery.queryModel}"
-                                  queryListener="#{bindings.ProductCategoryViewSearchQuery.processQuery}"
-                                  queryOperationListener="#{bindings.ProductCategoryViewSearchQuery.processQueryOperation}"/>
-                    </af:panelHeader>
-                </af:panelGroupLayout>
                 <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
@@ -30,6 +21,20 @@
                             <af:link id="l1" icon="#{resource['images:new_ena.png']}"
                                      actionListener="#{bindings.Create.execute}" disabled="#{!bindings.Create.enabled}"
                                      action="create"/>
+                            <af:link id="l2" icon="#{resource['images:update_ena.png']}" action="edit"
+                                     depressedIcon="#{resource['images:update_dis.png']}"
+                                     disabled="#{bindings.ProductCategoryView1Iterator.estimatedRowCount eq 0}"/>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                <af:dialog id="d1" title="Are sure you want to delete selected Product Category?"
+                                           dialogListener="#{ConfirmBean.dialogListener}">
+                                    <f:facet name="buttonBar"/>
+                                </af:dialog>
+                            </af:popup>
+                            <af:link id="l3" icon="#{resource['images:delete_ena.png']}"
+                                     disabledIcon="#{resource['images:delete_dis.png']}"
+                                     disabled="#{bindings.ProductCategoryView1Iterator.estimatedRowCount eq 0}">
+                                <af:showPopupBehavior popupId="p1" triggerType="click" align="overlap"/>
+                            </af:link>
                         </af:toolbar>
                     </f:facet>
                     <af:table value="#{bindings.ProductCategoryView1.collectionModel}" var="row"
@@ -43,10 +48,38 @@
                         <af:column sortProperty="#{bindings.ProductCategoryView1.hints.Categoryname.name}"
                                    sortable="true"
                                    headerText="#{bindings.ProductCategoryView1.hints.Categoryname.label}" id="c1"
-                                   width="150">
+                                   width="191">
                             <af:outputText value="#{row.Categoryname}"
                                            shortDesc="#{bindings.ProductCategoryView1.hints.Categoryname.tooltip}"
                                            id="ot1"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ProductCategoryView1.hints.Descriptiion.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.ProductCategoryView1.hints.Descriptiion.label}" id="c2"
+                                   width="538">
+                            <af:outputText value="#{row.Descriptiion}"
+                                           shortDesc="#{bindings.ProductCategoryView1.hints.Descriptiion.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ProductCategoryView1.hints.EffecStartDate.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.ProductCategoryView1.hints.EffecStartDate.label}" id="c4"
+                                   width="254">
+                            <af:outputText value="#{row.EffecStartDate}"
+                                           shortDesc="#{bindings.ProductCategoryView1.hints.EffecStartDate.tooltip}"
+                                           id="ot4">
+                                <af:convertDateTime pattern="#{bindings.ProductCategoryView1.hints.EffecStartDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ProductCategoryView1.hints.EffecEndDate.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.ProductCategoryView1.hints.EffecEndDate.label}" id="c3"
+                                   width="-533">
+                            <af:outputText value="#{row.EffecEndDate}"
+                                           shortDesc="#{bindings.ProductCategoryView1.hints.EffecEndDate.tooltip}"
+                                           id="ot3">
+                                <af:convertDateTime pattern="#{bindings.ProductCategoryView1.hints.EffecEndDate.format}"/>
+                            </af:outputText>
                         </af:column>
                     </af:table>
                     <f:facet name="statusbar"/>

@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">opportunity-task-main</property>
+      <property
+         name="page">/opportunity-task-main.jsff</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>opportunity-task-main&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">208.59766</property>
+      <property
+         name="x">200.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">opportunity-task-edit</property>
+      <property
+         name="page">/opportunity-task-edit.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>opportunity-task-edit&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">114.19531</property>
+      <property
+         name="x">531.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn9">
+      <property
+         name="activityId">taskFlowReturn1</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskFlowReturn1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  taskFlowReturn1&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">285.24707</property>
+      <property
+         name="x">640.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View4"
+      to="TaskFlowReturn9">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">B50,531.0,167.84473,640.0,231.24707,T50</property>
+   </ControlFlowCase>
+</SDM>
