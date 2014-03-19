@@ -23,9 +23,10 @@
                     <f:facet name="info"/>
                 </af:panelHeader>
                 <!-- Content -->
+                <af:separator id="s1"/>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="181">
                     <f:facet name="first">
-                        <af:panelFormLayout id="pfl1" rows="5">
+                        <af:panelFormLayout id="pfl1" rows="5" fieldWidth="350px" labelWidth="75px">
                             <af:inputText value="#{bindings.OpportunityName.inputValue}"
                                           label="#{bindings.OpportunityName.hints.label}"
                                           required="#{bindings.OpportunityName.hints.mandatory}"

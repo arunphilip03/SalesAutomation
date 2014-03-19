@@ -11,7 +11,7 @@
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
-                            <af:button text="save" id="b1" actionListener="#{OppoTeamSC.onPrimaryCommit}"/>
+                            <af:button text="Save" id="b1" actionListener="#{OppoTeamSC.onPrimaryCommit}"/>
                             <af:button text="Save and Close" id="b2"
                                        action="save" actionListener="#{OppoTeamSC.onPrimaryCommit}"/>
                             <af:button text="Cancel" id="b3" actionListener="#{RollbackBean.OpportunityRollback}"
@@ -26,7 +26,7 @@
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="240" styleClass="AFStretchWidth"
                                   inlineStyle="height:523px;">
                     <f:facet name="first">
-                        <af:panelFormLayout id="pfl1" rows="9">
+                        <af:panelFormLayout id="pfl1" rows="9" fieldWidth="300px" labelWidth="75px">
                             <af:inputText value="#{bindings.OpportunityName.inputValue}"
                                           label="#{bindings.OpportunityName.hints.label}"
                                           required="#{bindings.OpportunityName.hints.mandatory}"

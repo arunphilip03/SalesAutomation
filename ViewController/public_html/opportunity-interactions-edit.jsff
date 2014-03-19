@@ -24,7 +24,8 @@
                 </af:panelHeader>
                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="90">
                     <f:facet name="first">
-                        <af:panelFormLayout id="pfl1" rows="3" styleClass="AFStretchWidth">
+                        <af:panelFormLayout id="pfl1" rows="3" styleClass="AFStretchWidth" fieldWidth="350px"
+                                            labelWidth="75px">
                             <af:inputComboboxListOfValues id="typeId"
                                                           popupTitle="Search and Select: #{bindings.Type.hints.label}"
                                                           value="#{bindings.Type.inputValue}"
