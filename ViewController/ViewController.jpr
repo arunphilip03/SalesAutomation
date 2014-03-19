@@ -161,6 +161,7 @@
          <string v="Database"/>
          <string v="HTML"/>
          <string v="JAVASCRIPT"/>
+         <string v="JClient"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
@@ -255,8 +256,8 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="SalesForceAuto-ViewController-webapp"/>
-      <value n="j2eeWebContextRoot" v="SalesForceAuto-ViewController-context-root"/>
+      <value n="j2eeWebAppName" v="SalesForce"/>
+      <value n="j2eeWebContextRoot" v="SalesForce"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">
@@ -399,6 +400,14 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Variable Resolver"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -526,6 +535,14 @@
          </hash>
          <hash>
             <value n="id" v="WebLogic 12.1 API"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Variable Resolver"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>

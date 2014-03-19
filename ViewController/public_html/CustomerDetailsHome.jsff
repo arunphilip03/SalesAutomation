@@ -129,14 +129,6 @@
                                                        shortDesc="#{bindings.CustomerContactsView2.hints.Email.tooltip}"
                                                        id="ot23"/>
                                     </af:column>
-                                    <af:column headerText="#{bindings.CustomerContactsView2.hints.BuyInfluenceLevel.label}"
-                                               sortable="true" id="c9"
-                                               sortProperty="#{bindings.CustomerContactsView2.hints.BuyInfluenceLevel.name}"
-                                               width="-267">
-                                        <af:outputText value="#{row.BuyInfluenceLevel}"
-                                                       shortDesc="#{bindings.CustomerContactsView2.hints.BuyInfluenceLevel.tooltip}"
-                                                       id="ot24"/>
-                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:showDetailItem>

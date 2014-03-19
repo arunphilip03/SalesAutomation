@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelHeader text="Appointment Details" id="ph1">
+  <af:panelHeader text="Appointment Detail" id="ph1">
     <f:facet name="context"/>
     <f:facet name="menuBar"/>
     <f:facet name="toolbar">
@@ -11,9 +11,9 @@
     </f:facet>
     <f:facet name="legend"/>
     <f:facet name="info"/>
+    <af:separator id="s3"/>
     <af:spacer width="10" height="10" id="s1"/>
-    <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth" rows="4"
-                        inlineStyle="font-weight:bold;">
+    <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth" rows="4" fieldWidth="350px" labelWidth="75px">
       <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
                     required="#{bindings.Name.hints.mandatory}" readOnly="true"
                     columns="#{bindings.Name.hints.displayWidth}" maximumLength="#{bindings.Name.hints.precision}"
@@ -56,6 +56,7 @@
         <f:validator binding="#{bindings.RelatedOppurtunity.validator}"/>
       </af:inputText>
     </af:panelFormLayout>
+    <af:separator id="s4"/>
     <af:spacer width="10" height="10" id="s2"/>
     <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1">
       <f:facet name="context"/>

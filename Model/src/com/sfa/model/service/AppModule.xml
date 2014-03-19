@@ -97,39 +97,50 @@
     <ViewUsage Name="TaskTeamView6" ViewObjectName="com.sfa.model.VO.TaskTeamView"/>
     <ViewUsage Name="ContactInteractionsVO1" ViewObjectName="com.sfa.model.VO.ContactInteractionsVO"/>
     <ViewUsage Name="ContactTasksVO1" ViewObjectName="com.sfa.model.VO.ContactTasksVO"/>
-    <ViewUsage Name="ContactAppointmentsVO1" ViewObjectName="com.sfa.model.VO.ContactAppointmentsVO"/>
     <ViewUsage Name="SalesHomeOppoView1" ViewObjectName="com.sfa.model.VO.SalesHomeOppoView"/>
     <ViewUsage Name="ContactOpportunitiesVO1" ViewObjectName="com.sfa.model.VO.ContactOpportunitiesVO"/>
     <ViewUsage Name="SalesRepOppoCreatedView1" ViewObjectName="com.sfa.model.VO.SalesRepOppoCreatedView"/>
     <ViewUsage Name="ContactInteractionTeamVO1" ViewObjectName="com.sfa.model.VO.ContactInteractionTeamVO"/>
     <ViewUsage Name="CurrencyLuView1" ViewObjectName="com.sfa.model.VO.CurrencyLuView"/>
+    <ViewUsage Name="IsBudgetedView1" ViewObjectName="com.sfa.model.VO.IsBudgetedView"/>
+    <ViewUsage Name="ActiveUsersVO1" ViewObjectName="com.sfa.model.VO.ActiveUsersVO"/>
     <ViewUsage
-        Name="IsBudgetedView1"
-        ViewObjectName="com.sfa.model.VO.IsBudgetedView"/><ViewUsage
-        Name="ActiveUsersVO1"
-        ViewObjectName="com.sfa.model.VO.ActiveUsersVO"/>
-    <ViewUsage
+        Name="ContactAppInviteeVO1"
+        ViewObjectName="com.sfa.model.VO.ContactAppInviteeVO"/><ViewUsage
         Name="EmployeesView1"
         ViewObjectName="com.sfa.model.VO.EmployeesView"/>
+<ViewUsage
+        Name="OppVO1"
+        ViewObjectName="com.sfa.model.VO.OppVO"/>
     <ViewUsage
         Name="EmployeesManagerView1"
-        ViewObjectName="com.sfa.model.VO.EmployeesManagerView"/>
+        ViewObjectName="com.sfa.model.VO.EmployeesManagerView"/><ViewUsage
+        Name="ContactTaskTeamVO1"
+        ViewObjectName="com.sfa.model.VO.ContactTaskTeamVO"/>
     <ViewUsage
         Name="OppoDocumentTypeLUView1"
-        ViewObjectName="com.sfa.model.VO.OppoDocumentTypeLUView"/>
+        ViewObjectName="com.sfa.model.VO.OppoDocumentTypeLUView"/><ViewUsage
+        Name="ContactIntTeamVO1"
+        ViewObjectName="com.sfa.model.VO.ContactIntTeamVO"/>
     <ViewUsage
         Name="RolesIsSelectedLUView1"
-        ViewObjectName="com.sfa.model.VO.RolesIsSelectedLUView"/>
-   
+        ViewObjectName="com.sfa.model.VO.RolesIsSelectedLUView"/><ViewUsage
+        Name="ContactAppointmentsVO1"
+        ViewObjectName="com.sfa.model.VO.ContactAppointmentsVO"/>
     <ViewUsage
         Name="AdminuserLOVView1"
-        ViewObjectName="com.sfa.model.VO.AdminuserLOVView"/>
+        ViewObjectName="com.sfa.model.VO.AdminuserLOVView"/><ViewUsage
+        Name="ContactAppInviteeVO2"
+        ViewObjectName="com.sfa.model.VO.ContactAppInviteeVO"/>
     <ViewUsage
         Name="AdminUserRoleassign1"
-        ViewObjectName="com.sfa.model.VO.AdminUserRoleassign"/>
+        ViewObjectName="com.sfa.model.VO.AdminUserRoleassign"/><ViewUsage
+        Name="ContactTaskTeamVO2"
+        ViewObjectName="com.sfa.model.VO.ContactTaskTeamVO"/>
     <ViewUsage
         Name="RoleAssignmentTestView1"
-        ViewObjectName="com.sfa.model.VO.RoleAssignmentTestView"/>
+        ViewObjectName="com.sfa.model.VO.RoleAssignmentTestView"/><ViewUsage Name="QuarterlyRevenue1" ViewObjectName="com.sfa.model.VO.QuarterlyRevenue"/>
+    <ViewUsage Name="PotentialCurrentReveneVO1" ViewObjectName="com.sfa.model.VO.PotentialCurrentReveneVO"/>
     <ViewLinkUsage Name="AppointmentInviteesFk1Link1"
                    ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
                    SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentsView1"
@@ -269,9 +280,6 @@
                    ViewLinkObjectName="com.sfa.model.viewlink.OpportunityTaskTeamViewLink"
                    SrcViewUsageName="com.sfa.model.service.AppModule.OpportunitytaskView2"
                    DstViewUsageName="com.sfa.model.service.AppModule.TaskTeamView6" Reversed="false"/>
-    <ViewLinkUsage Name="ContactAppointmentsVL1" ViewLinkObjectName="com.sfa.model.viewlink.ContactAppointmentsVL"
-                   SrcViewUsageName="com.sfa.model.service.AppModule.CustomerContactsView1"
-                   DstViewUsageName="com.sfa.model.service.AppModule.ContactAppointmentsVO1" Reversed="false"/>
     <ViewLinkUsage Name="ContactOpportunitiesVL1" ViewLinkObjectName="com.sfa.model.viewlink.ContactOpportunitiesVL"
                    SrcViewUsageName="com.sfa.model.service.AppModule.CustomerContactsView1"
                    DstViewUsageName="com.sfa.model.service.AppModule.ContactOpportunitiesVO1" Reversed="false"/>
@@ -291,32 +299,34 @@
     <ViewLinkUsage Name="ContactToOpportunityVL1" ViewLinkObjectName="com.sfa.model.viewlink.ContactToOpportunityVL"
                    SrcViewUsageName="com.sfa.model.service.AppModule.ContactVO1"
                    DstViewUsageName="com.sfa.model.service.AppModule.ContactOpportunitiesVO2" Reversed="false"/>
+    <ViewLinkUsage Name="ContactAppInviteeVL1" ViewLinkObjectName="com.sfa.model.viewlink.ContactAppInviteeVL"
+                   SrcViewUsageName="com.sfa.model.service.AppModule.ContactAppointmentsVO2"
+                   DstViewUsageName="com.sfa.model.service.AppModule.ContactAppInviteeVO1" Reversed="false"/>
+    <ViewLinkUsage Name="ContactTaskTeamVL1" ViewLinkObjectName="com.sfa.model.viewlink.ContactTaskTeamVL"
+                   SrcViewUsageName="com.sfa.model.service.AppModule.ContactTasksVO2"
+                   DstViewUsageName="com.sfa.model.service.AppModule.ContactTaskTeamVO1" Reversed="false"/>
+    <ViewLinkUsage Name="ContactIntTeamVL1" ViewLinkObjectName="com.sfa.model.viewlink.ContactIntTeamVL"
+                   SrcViewUsageName="com.sfa.model.service.AppModule.ContactInteractionsVO2"
+                   DstViewUsageName="com.sfa.model.service.AppModule.ContactIntTeamVO1" Reversed="false"/>
+    <ViewLinkUsage Name="ContactAppointmentsVL1" ViewLinkObjectName="com.sfa.model.viewlink.ContactAppointmentsVL"
+                   SrcViewUsageName="com.sfa.model.service.AppModule.CustomerContactsView1"
+                   DstViewUsageName="com.sfa.model.service.AppModule.ContactAppointmentsVO1" Reversed="false"/>
+    <ViewLinkUsage Name="ContactAppInviteeVL2" ViewLinkObjectName="com.sfa.model.viewlink.ContactAppInviteeVL"
+                   SrcViewUsageName="com.sfa.model.service.AppModule.ContactAppointmentsVO1"
+                   DstViewUsageName="com.sfa.model.service.AppModule.ContactAppInviteeVO2" Reversed="false"/>
+    <ViewLinkUsage Name="ContactTaskTeamVL2" ViewLinkObjectName="com.sfa.model.viewlink.ContactTaskTeamVL"
+                   SrcViewUsageName="com.sfa.model.service.AppModule.ContactTasksVO1"
+                   DstViewUsageName="com.sfa.model.service.AppModule.ContactTaskTeamVO2" Reversed="false"/>
     <ClientInterface Name="__clientInterface">
-        <Method
-            Name="uploadFiletoDB"
-            MethodName="uploadFiletoDB">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
-            <Parameter
-                Name="fileName"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="contentType"
-                Type="java.lang.String"/>
-            <Parameter
-                Name="blob"
-                Type="oracle.jbo.domain.BlobDomain"/>
-            <Parameter
-                Name="plainText"
-                Type="java.lang.String"/>
+        <Method Name="uploadFiletoDB" MethodName="uploadFiletoDB">
+            <Return Name="_return_type_" Type="void"/>
+            <Parameter Name="fileName" Type="java.lang.String"/>
+            <Parameter Name="contentType" Type="java.lang.String"/>
+            <Parameter Name="blob" Type="oracle.jbo.domain.BlobDomain"/>
+            <Parameter Name="plainText" Type="java.lang.String"/>
         </Method>
-        <Method
-            Name="exceptionHandler"
-            MethodName="exceptionHandler">
-            <Return
-                Name="_return_type_"
-                Type="void"/>
+        <Method Name="exceptionHandler" MethodName="exceptionHandler">
+            <Return Name="_return_type_" Type="void"/>
         </Method>
     </ClientInterface>
 </AppModule>

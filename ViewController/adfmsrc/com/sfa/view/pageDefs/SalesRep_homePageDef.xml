@@ -12,6 +12,8 @@
                   Binds="SalesHomeOppoView1Iterator" id="SalesHomeOppoViewCriteriaQuery"/>
     <taskFlow id="adminhometaskflow1" taskFlowId="/WEB-INF/admin-home-taskflow.xml#admin-home-taskflow"
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="salesmanagertf1" taskFlowId="/WEB-INF/sales-manager-tf.xml#sales-manager-tf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <tree IterBinding="SalesRepOppoCreatedView1Iterator" id="SalesRepOppoCreatedView1">

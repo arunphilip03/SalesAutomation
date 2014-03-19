@@ -43,9 +43,7 @@
         <Item Value="Email"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues IterBinding="CustomerContactsView2Iterator" StaticList="false" Uses="LOV_BuyInfluenceLevel"
-                  id="BuyInfluenceLevel"/>
-    <attributeValues IterBinding="CustomerContactsView2Iterator" id="IsPrimary">
+   <attributeValues IterBinding="CustomerContactsView2Iterator" id="IsPrimary">
       <AttrNames>
         <Item Value="IsPrimary"/>
       </AttrNames>

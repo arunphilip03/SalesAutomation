@@ -1,140 +1,178 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelDashboard id="pd1" rowHeight="350px" inlineStyle="width:1200px; height:780px;"
-                       columns="2" styleClass="AFStretchWidth">
-        <af:panelBox text="Active Users" id="pb1" styleClass="AFStretchWidth"
-                     ramp="highlight" type="stretch">
-            <f:facet name="toolbar"/>
-            <af:table value="#{bindings.ActiveUsersVO1.collectionModel}" var="row"
-                      rows="#{bindings.ActiveUsersVO1.rangeSize}"
-                      emptyText="#{bindings.ActiveUsersVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="0" fetchSize="#{bindings.ActiveUsersVO1.rangeSize}" id="t1"
-                      styleClass="AFStretchWidth" columnStretching="last">
-                <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.UserName.name}" sortable="true"
-                           headerText="#{bindings.ActiveUsersVO1.hints.UserName.label}" id="c1" width="100">
-                    <af:outputText value="#{row.UserName}" shortDesc="#{bindings.ActiveUsersVO1.hints.UserName.tooltip}"
-                                   id="ot1"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.FirstName.name}" sortable="true"
-                           headerText="#{bindings.ActiveUsersVO1.hints.FirstName.label}" id="c2" width="100">
-                    <af:outputText value="#{row.FirstName}"
-                                   shortDesc="#{bindings.ActiveUsersVO1.hints.FirstName.tooltip}" id="ot2"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.LastName.name}" sortable="true"
-                           headerText="#{bindings.ActiveUsersVO1.hints.LastName.label}" id="c3" width="100">
-                    <af:outputText value="#{row.LastName}" shortDesc="#{bindings.ActiveUsersVO1.hints.LastName.tooltip}"
-                                   id="ot3"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.EffecStartDate.name}" sortable="true"
-                           headerText="#{bindings.ActiveUsersVO1.hints.EffecStartDate.label}" id="c4" width="120">
-                    <af:outputText value="#{row.EffecStartDate}"
-                                   shortDesc="#{bindings.ActiveUsersVO1.hints.EffecStartDate.tooltip}" id="ot4">
-                        <af:convertDateTime pattern="#{bindings.ActiveUsersVO1.hints.EffecStartDate.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.EffecEndDate.name}" sortable="true"
-                           headerText="#{bindings.ActiveUsersVO1.hints.EffecEndDate.label}" id="c5" width="80">
-                    <af:outputText value="#{row.EffecEndDate}"
-                                   shortDesc="#{bindings.ActiveUsersVO1.hints.EffecEndDate.tooltip}" id="ot5">
-                        <af:convertDateTime pattern="#{bindings.ActiveUsersVO1.hints.EffecEndDate.format}"/>
-                    </af:outputText>
-                </af:column>
-            </af:table>
-        </af:panelBox>
-        <af:panelBox text="Inactive Users" id="pb2" type="stretch">
-            <f:facet name="toolbar"/>
-            <af:table value="#{bindings.InactiveUsersVO1.collectionModel}" var="row"
-                      rows="#{bindings.InactiveUsersVO1.rangeSize}"
-                      emptyText="#{bindings.InactiveUsersVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="0" fetchSize="#{bindings.InactiveUsersVO1.rangeSize}" id="t2"
-                      styleClass="AFStretchWidth" columnStretching="last">
-                <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.UserName.name}" sortable="true"
-                           headerText="#{bindings.InactiveUsersVO1.hints.UserName.label}" id="c6" width="100">
-                    <af:outputText value="#{row.UserName}"
-                                   shortDesc="#{bindings.InactiveUsersVO1.hints.UserName.tooltip}" id="ot6"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.FirstName.name}" sortable="true"
-                           headerText="#{bindings.InactiveUsersVO1.hints.FirstName.label}" id="c7" width="100">
-                    <af:outputText value="#{row.FirstName}"
-                                   shortDesc="#{bindings.InactiveUsersVO1.hints.FirstName.tooltip}" id="ot7"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.LastName.name}" sortable="true"
-                           headerText="#{bindings.InactiveUsersVO1.hints.LastName.label}" id="c8" width="124">
-                    <af:outputText value="#{row.LastName}"
-                                   shortDesc="#{bindings.InactiveUsersVO1.hints.LastName.tooltip}" id="ot8"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.EffecStartDate.name}" sortable="true"
-                           headerText="#{bindings.InactiveUsersVO1.hints.EffecStartDate.label}" id="c9" width="106">
-                    <af:outputText value="#{row.EffecStartDate}"
-                                   shortDesc="#{bindings.InactiveUsersVO1.hints.EffecStartDate.tooltip}" id="ot9">
-                        <af:convertDateTime pattern="#{bindings.InactiveUsersVO1.hints.EffecStartDate.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.EffecEndDate.name}" sortable="true"
-                           headerText="#{bindings.InactiveUsersVO1.hints.EffecEndDate.label}" id="c10" width="70">
-                    <af:outputText value="#{row.EffecEndDate}"
-                                   shortDesc="#{bindings.InactiveUsersVO1.hints.EffecEndDate.tooltip}" id="ot10">
-                        <af:convertDateTime pattern="#{bindings.InactiveUsersVO1.hints.EffecEndDate.format}"/>
-                    </af:outputText>
-                </af:column>
-            </af:table>
-        </af:panelBox>
-        <af:panelBox text="Active Roles" id="pb3" ramp="highlight" type="stretch">
-            <f:facet name="toolbar"/>
-            <af:table value="#{bindings.ActiveRoles1.collectionModel}" var="row"
-                      rows="#{bindings.ActiveRoles1.rangeSize}"
-                      emptyText="#{bindings.ActiveRoles1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="0" fetchSize="#{bindings.ActiveRoles1.rangeSize}" id="t3"
-                      styleClass="AFStretchWidth" columnStretching="last">
-                <af:column sortProperty="#{bindings.ActiveRoles1.hints.RoleName.name}" sortable="true"
-                           headerText="#{bindings.ActiveRoles1.hints.RoleName.label}" id="c11" width="306">
-                    <af:outputText value="#{row.RoleName}" shortDesc="#{bindings.ActiveRoles1.hints.RoleName.tooltip}"
-                                   id="ot11"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.ActiveRoles1.hints.EffecStartDate.name}" sortable="true"
-                           headerText="#{bindings.ActiveRoles1.hints.EffecStartDate.label}" id="c12" width="129">
-                    <af:outputText value="#{row.EffecStartDate}"
-                                   shortDesc="#{bindings.ActiveRoles1.hints.EffecStartDate.tooltip}" id="ot12">
-                        <af:convertDateTime pattern="#{bindings.ActiveRoles1.hints.EffecStartDate.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column sortProperty="#{bindings.ActiveRoles1.hints.EffecEndDate.name}" sortable="true"
-                           headerText="#{bindings.ActiveRoles1.hints.EffecEndDate.label}" id="c13" width="-135">
-                    <af:outputText value="#{row.EffecEndDate}"
-                                   shortDesc="#{bindings.ActiveRoles1.hints.EffecEndDate.tooltip}" id="ot13">
-                        <af:convertDateTime pattern="#{bindings.ActiveRoles1.hints.EffecEndDate.format}"/>
-                    </af:outputText>
-                </af:column>
-            </af:table>
-        </af:panelBox>
-        <af:panelBox text="Inactive Roles" id="pb4" type="stretch">
-            <f:facet name="toolbar"/>
-            <af:table value="#{bindings.InactiveRoles1.collectionModel}" var="row"
-                      rows="#{bindings.InactiveRoles1.rangeSize}"
-                      emptyText="#{bindings.InactiveRoles1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="0" fetchSize="#{bindings.InactiveRoles1.rangeSize}" id="t4"
-                      styleClass="AFStretchWidth" columnStretching="last">
-                <af:column sortProperty="#{bindings.InactiveRoles1.hints.RoleName.name}" sortable="true"
-                           headerText="#{bindings.InactiveRoles1.hints.RoleName.label}" id="c14" width="300">
-                    <af:outputText value="#{row.RoleName}" shortDesc="#{bindings.InactiveRoles1.hints.RoleName.tooltip}"
-                                   id="ot14"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.InactiveRoles1.hints.EffecStartDate.name}" sortable="true"
-                           headerText="#{bindings.InactiveRoles1.hints.EffecStartDate.label}" id="c15" width="129">
-                    <af:outputText value="#{row.EffecStartDate}"
-                                   shortDesc="#{bindings.InactiveRoles1.hints.EffecStartDate.tooltip}" id="ot15">
-                        <af:convertDateTime pattern="#{bindings.InactiveRoles1.hints.EffecStartDate.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column sortProperty="#{bindings.InactiveRoles1.hints.EffecEndDate.name}" sortable="true"
-                           headerText="#{bindings.InactiveRoles1.hints.EffecEndDate.label}" id="c16" width="-129">
-                    <af:outputText value="#{row.EffecEndDate}"
-                                   shortDesc="#{bindings.InactiveRoles1.hints.EffecEndDate.tooltip}" id="ot16">
-                        <af:convertDateTime pattern="#{bindings.InactiveRoles1.hints.EffecEndDate.format}"/>
-                    </af:outputText>
-                </af:column>
-            </af:table>
-        </af:panelBox>
-    </af:panelDashboard>
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <af:panelGroupLayout id="pgl1" layout="scroll" styleClass="AFStretchWidth">
+        <af:panelStretchLayout id="psl1">
+            <f:facet name="bottom"/>
+            <f:facet name="center">
+                <af:panelDashboard id="pd1" rowHeight="350px" inlineStyle="width:1200px; height:780px;" columns="2"
+                                   styleClass="AFStretchWidth">
+                    <af:panelBox text="Active Users" id="pb1" styleClass="AFStretchWidth" ramp="highlight"
+                                 type="default">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.ActiveUsersVO1.collectionModel}" var="row"
+                                  rows="#{bindings.ActiveUsersVO1.rangeSize}"
+                                  emptyText="#{bindings.ActiveUsersVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.ActiveUsersVO1.rangeSize}" id="t1"
+                                  styleClass="AFStretchWidth" columnStretching="last">
+                            <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.UserName.name}" sortable="true"
+                                       headerText="#{bindings.ActiveUsersVO1.hints.UserName.label}" id="c1" width="100">
+                                <af:outputText value="#{row.UserName}"
+                                               shortDesc="#{bindings.ActiveUsersVO1.hints.UserName.tooltip}" id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.FirstName.name}" sortable="true"
+                                       headerText="#{bindings.ActiveUsersVO1.hints.FirstName.label}" id="c2"
+                                       width="100">
+                                <af:outputText value="#{row.FirstName}"
+                                               shortDesc="#{bindings.ActiveUsersVO1.hints.FirstName.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.LastName.name}" sortable="true"
+                                       headerText="#{bindings.ActiveUsersVO1.hints.LastName.label}" id="c3" width="100">
+                                <af:outputText value="#{row.LastName}"
+                                               shortDesc="#{bindings.ActiveUsersVO1.hints.LastName.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.EffecStartDate.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ActiveUsersVO1.hints.EffecStartDate.label}" id="c4"
+                                       width="120">
+                                <af:outputText value="#{row.EffecStartDate}"
+                                               shortDesc="#{bindings.ActiveUsersVO1.hints.EffecStartDate.tooltip}"
+                                               id="ot4">
+                                    <af:convertDateTime pattern="#{bindings.ActiveUsersVO1.hints.EffecStartDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveUsersVO1.hints.EffecEndDate.name}" sortable="true"
+                                       headerText="#{bindings.ActiveUsersVO1.hints.EffecEndDate.label}" id="c5"
+                                       width="80">
+                                <af:outputText value="#{row.EffecEndDate}"
+                                               shortDesc="#{bindings.ActiveUsersVO1.hints.EffecEndDate.tooltip}"
+                                               id="ot5">
+                                    <af:convertDateTime pattern="#{bindings.ActiveUsersVO1.hints.EffecEndDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelBox>
+                    <af:panelBox text="Inactive Users" id="pb2" type="default">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.InactiveUsersVO1.collectionModel}" var="row"
+                                  rows="#{bindings.InactiveUsersVO1.rangeSize}"
+                                  emptyText="#{bindings.InactiveUsersVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.InactiveUsersVO1.rangeSize}" id="t2"
+                                  styleClass="AFStretchWidth" columnStretching="last">
+                            <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.UserName.name}" sortable="true"
+                                       headerText="#{bindings.InactiveUsersVO1.hints.UserName.label}" id="c6"
+                                       width="100">
+                                <af:outputText value="#{row.UserName}"
+                                               shortDesc="#{bindings.InactiveUsersVO1.hints.UserName.tooltip}"
+                                               id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.FirstName.name}" sortable="true"
+                                       headerText="#{bindings.InactiveUsersVO1.hints.FirstName.label}" id="c7"
+                                       width="100">
+                                <af:outputText value="#{row.FirstName}"
+                                               shortDesc="#{bindings.InactiveUsersVO1.hints.FirstName.tooltip}"
+                                               id="ot7"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.LastName.name}" sortable="true"
+                                       headerText="#{bindings.InactiveUsersVO1.hints.LastName.label}" id="c8"
+                                       width="124">
+                                <af:outputText value="#{row.LastName}"
+                                               shortDesc="#{bindings.InactiveUsersVO1.hints.LastName.tooltip}"
+                                               id="ot8"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.EffecStartDate.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.InactiveUsersVO1.hints.EffecStartDate.label}" id="c9"
+                                       width="106">
+                                <af:outputText value="#{row.EffecStartDate}"
+                                               shortDesc="#{bindings.InactiveUsersVO1.hints.EffecStartDate.tooltip}"
+                                               id="ot9">
+                                    <af:convertDateTime pattern="#{bindings.InactiveUsersVO1.hints.EffecStartDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.InactiveUsersVO1.hints.EffecEndDate.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.InactiveUsersVO1.hints.EffecEndDate.label}" id="c10"
+                                       width="70">
+                                <af:outputText value="#{row.EffecEndDate}"
+                                               shortDesc="#{bindings.InactiveUsersVO1.hints.EffecEndDate.tooltip}"
+                                               id="ot10">
+                                    <af:convertDateTime pattern="#{bindings.InactiveUsersVO1.hints.EffecEndDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelBox>
+                    <af:panelBox text="Active Roles" id="pb3" ramp="highlight" type="default">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.ActiveRoles1.collectionModel}" var="row"
+                                  rows="#{bindings.ActiveRoles1.rangeSize}"
+                                  emptyText="#{bindings.ActiveRoles1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.ActiveRoles1.rangeSize}" id="t3"
+                                  styleClass="AFStretchWidth" columnStretching="last">
+                            <af:column sortProperty="#{bindings.ActiveRoles1.hints.RoleName.name}" sortable="true"
+                                       headerText="#{bindings.ActiveRoles1.hints.RoleName.label}" id="c11" width="306">
+                                <af:outputText value="#{row.RoleName}"
+                                               shortDesc="#{bindings.ActiveRoles1.hints.RoleName.tooltip}" id="ot11"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRoles1.hints.EffecStartDate.name}" sortable="true"
+                                       headerText="#{bindings.ActiveRoles1.hints.EffecStartDate.label}" id="c12"
+                                       width="129">
+                                <af:outputText value="#{row.EffecStartDate}"
+                                               shortDesc="#{bindings.ActiveRoles1.hints.EffecStartDate.tooltip}"
+                                               id="ot12">
+                                    <af:convertDateTime pattern="#{bindings.ActiveRoles1.hints.EffecStartDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRoles1.hints.EffecEndDate.name}" sortable="true"
+                                       headerText="#{bindings.ActiveRoles1.hints.EffecEndDate.label}" id="c13"
+                                       width="-135">
+                                <af:outputText value="#{row.EffecEndDate}"
+                                               shortDesc="#{bindings.ActiveRoles1.hints.EffecEndDate.tooltip}"
+                                               id="ot13">
+                                    <af:convertDateTime pattern="#{bindings.ActiveRoles1.hints.EffecEndDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelBox>
+                    <af:panelBox text="Inactive Roles" id="pb4" type="stretch">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.InactiveRoles1.collectionModel}" var="row"
+                                  rows="#{bindings.InactiveRoles1.rangeSize}"
+                                  emptyText="#{bindings.InactiveRoles1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.InactiveRoles1.rangeSize}" id="t4"
+                                  styleClass="AFStretchWidth" columnStretching="last">
+                            <af:column sortProperty="#{bindings.InactiveRoles1.hints.RoleName.name}" sortable="true"
+                                       headerText="#{bindings.InactiveRoles1.hints.RoleName.label}" id="c14"
+                                       width="300">
+                                <af:outputText value="#{row.RoleName}"
+                                               shortDesc="#{bindings.InactiveRoles1.hints.RoleName.tooltip}" id="ot14"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.InactiveRoles1.hints.EffecStartDate.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.InactiveRoles1.hints.EffecStartDate.label}" id="c15"
+                                       width="129">
+                                <af:outputText value="#{row.EffecStartDate}"
+                                               shortDesc="#{bindings.InactiveRoles1.hints.EffecStartDate.tooltip}"
+                                               id="ot15">
+                                    <af:convertDateTime pattern="#{bindings.InactiveRoles1.hints.EffecStartDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.InactiveRoles1.hints.EffecEndDate.name}" sortable="true"
+                                       headerText="#{bindings.InactiveRoles1.hints.EffecEndDate.label}" id="c16"
+                                       width="-129">
+                                <af:outputText value="#{row.EffecEndDate}"
+                                               shortDesc="#{bindings.InactiveRoles1.hints.EffecEndDate.tooltip}"
+                                               id="ot16">
+                                    <af:convertDateTime pattern="#{bindings.InactiveRoles1.hints.EffecEndDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelBox>
+                </af:panelDashboard>
+            </f:facet>
+            <f:facet name="start"/>
+            <f:facet name="end"/>
+            <f:facet name="top"/>
+        </af:panelStretchLayout>
+    </af:panelGroupLayout>
 </ui:composition>

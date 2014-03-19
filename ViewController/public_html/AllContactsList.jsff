@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Customer Contacts" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.ContactVOSearchQuery.queryDescriptor}"
+                model="#{bindings.ContactVOSearchQuery.queryModel}"
+                queryListener="#{bindings.ContactVOSearchQuery.processQuery}"
+                queryOperationListener="#{bindings.ContactVOSearchQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:table value="#{bindings.ContactVO1.collectionModel}" var="row" rows="#{bindings.ContactVO1.rangeSize}"
+              emptyText="#{bindings.ContactVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.ContactVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.ContactVO1.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.ContactVO1.rangeSize}" id="resId1" partialTriggers="l1">
+      <af:column sortProperty="#{bindings.ContactVO1.hints.ContactName.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.ContactName.label}" id="resId1c1">
+        <af:link actionListener="#{bindings.setCurrentRowWithKey.execute}" text="#{row.ContactName}"
+                 disabled="#{!bindings.setCurrentRowWithKey.enabled}" id="l1" action="getDetail"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.Title.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.Title.label}" id="resId1c2">
+        <af:outputText value="#{row.Title}" shortDesc="#{bindings.ContactVO1.hints.Title.tooltip}" id="ot2"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.AccountName.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.AccountName.label}" id="resId1c3">
+        <af:outputText value="#{row.AccountName}" shortDesc="#{bindings.ContactVO1.hints.AccountName.tooltip}"
+                       id="ot3"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.Department.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.Department.label}" id="resId1c4">
+        <af:outputText value="#{row.Department}" shortDesc="#{bindings.ContactVO1.hints.Department.tooltip}" id="ot4"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.Address.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.Address.label}" id="resId1c5">
+        <af:outputText value="#{row.Address}" shortDesc="#{bindings.ContactVO1.hints.Address.tooltip}" id="ot5"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.WorkPhone.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.WorkPhone.label}" id="resId1c6">
+        <af:outputText value="#{row.WorkPhone}" shortDesc="#{bindings.ContactVO1.hints.WorkPhone.tooltip}" id="ot6"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.MobilePhone.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.MobilePhone.label}" id="resId1c7">
+        <af:outputText value="#{row.MobilePhone}" shortDesc="#{bindings.ContactVO1.hints.MobilePhone.tooltip}"
+                       id="ot7"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.BuyingRole.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.BuyingRole.label}" id="resId1c8">
+        <af:outputText value="#{row.BuyingRole}" shortDesc="#{bindings.ContactVO1.hints.BuyingRole.tooltip}" id="ot8"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.InfluenceLevel.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.InfluenceLevel.label}" id="resId1c9">
+        <af:outputText value="#{row.InfluenceLevel}" shortDesc="#{bindings.ContactVO1.hints.InfluenceLevel.tooltip}"
+                       id="ot9"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.Email.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.Email.label}" id="resId1c10">
+        <af:outputText value="#{row.Email}" shortDesc="#{bindings.ContactVO1.hints.Email.tooltip}" id="ot10"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ContactVO1.hints.IsPrimary.name}" sortable="true"
+                 headerText="#{bindings.ContactVO1.hints.IsPrimary.label}" id="resId1c11">
+        <af:outputText value="#{row.IsPrimary}" shortDesc="#{bindings.ContactVO1.hints.IsPrimary.tooltip}" id="ot11"/>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</ui:composition>

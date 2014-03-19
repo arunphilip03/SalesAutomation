@@ -14,7 +14,7 @@
     </f:facet>
     <f:facet name="legend"/>
     <af:spacer width="10" height="10" id="s1"/>
-    <af:panelFormLayout id="pfl1" rows="5" styleClass="AFStretchWidth" fieldWidth="350px" labelWidth="75px">
+    <af:panelFormLayout id="pfl1" rows="6" styleClass="AFStretchWidth" fieldWidth="350px" labelWidth="75px">
       <af:inputText value="#{bindings.ContactName.inputValue}" label="#{bindings.ContactName.hints.label}"
                     required="#{bindings.ContactName.hints.mandatory}"
                     columns="#{bindings.ContactName.hints.displayWidth}"
@@ -62,16 +62,6 @@
                     id="it6">
         <f:validator binding="#{bindings.Email.validator}"/>
       </af:inputText>
-      <af:inputComboboxListOfValues id="buyInfluenceLevelId"
-                                    popupTitle="Search and Select: #{bindings.BuyInfluenceLevel.hints.label}"
-                                    value="#{bindings.BuyInfluenceLevel.inputValue}"
-                                    label="#{bindings.BuyInfluenceLevel.hints.label}"
-                                    model="#{bindings.BuyInfluenceLevel.listOfValuesModel}"
-                                    required="#{bindings.BuyInfluenceLevel.hints.mandatory}"
-                                    columns="#{bindings.BuyInfluenceLevel.hints.displayWidth}"
-                                    shortDesc="#{bindings.BuyInfluenceLevel.hints.tooltip}">
-        <f:validator binding="#{bindings.BuyInfluenceLevel.validator}"/>
-      </af:inputComboboxListOfValues>
       <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.AccountName.hints.label}"
                             value="#{bindings.AccountName.inputValue}" label="#{bindings.AccountName.hints.label}"
                             model="#{bindings.AccountName.listOfValuesModel}"
@@ -80,6 +70,24 @@
                             shortDesc="#{bindings.AccountName.hints.tooltip}">
         <f:validator binding="#{bindings.AccountName.validator}"/>
       </af:inputListOfValues>
+      <af:inputComboboxListOfValues id="influenceLevelId"
+                                    popupTitle="Search and Select: #{bindings.InfluenceLevel.hints.label}"
+                                    value="#{bindings.InfluenceLevel.inputValue}"
+                                    label="#{bindings.InfluenceLevel.hints.label}"
+                                    model="#{bindings.InfluenceLevel.listOfValuesModel}"
+                                    required="#{bindings.InfluenceLevel.hints.mandatory}"
+                                    columns="#{bindings.InfluenceLevel.hints.displayWidth}"
+                                    shortDesc="#{bindings.InfluenceLevel.hints.tooltip}">
+        <f:validator binding="#{bindings.InfluenceLevel.validator}"/>
+      </af:inputComboboxListOfValues>
+      <af:inputComboboxListOfValues id="buyingRoleId" popupTitle="Search and Select: #{bindings.BuyingRole.hints.label}"
+                                    value="#{bindings.BuyingRole.inputValue}" label="#{bindings.BuyingRole.hints.label}"
+                                    model="#{bindings.BuyingRole.listOfValuesModel}"
+                                    required="#{bindings.BuyingRole.hints.mandatory}"
+                                    columns="#{bindings.BuyingRole.hints.displayWidth}"
+                                    shortDesc="#{bindings.BuyingRole.hints.tooltip}">
+        <f:validator binding="#{bindings.BuyingRole.validator}"/>
+      </af:inputComboboxListOfValues>
       <af:selectBooleanCheckbox value="#{bindings.IsPrimaryBoolean.inputValue}"
                                 label="#{bindings.IsPrimaryBoolean.label}"
                                 shortDesc="#{bindings.IsPrimaryBoolean.hints.tooltip}" id="sbc1"/>

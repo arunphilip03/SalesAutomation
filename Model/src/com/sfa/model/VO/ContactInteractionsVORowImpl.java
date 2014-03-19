@@ -42,6 +42,7 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
         CustomerContactsView,
         ContactInteractionTeamVO,
         ContactVO,
+        ContactIntTeamVO,
         OpportunitiesView1,
         InteractionsTypeLuView1,
         InteractionsDirectionLuView1;
@@ -85,6 +86,7 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
     public static final int CUSTOMERCONTACTSVIEW = AttributesEnum.CustomerContactsView.index();
     public static final int CONTACTINTERACTIONTEAMVO = AttributesEnum.ContactInteractionTeamVO.index();
     public static final int CONTACTVO = AttributesEnum.ContactVO.index();
+    public static final int CONTACTINTTEAMVO = AttributesEnum.ContactIntTeamVO.index();
     public static final int OPPORTUNITIESVIEW1 = AttributesEnum.OpportunitiesView1.index();
     public static final int INTERACTIONSTYPELUVIEW1 = AttributesEnum.InteractionsTypeLuView1.index();
     public static final int INTERACTIONSDIRECTIONLUVIEW1 = AttributesEnum.InteractionsDirectionLuView1.index();
@@ -353,6 +355,13 @@ public class ContactInteractionsVORowImpl extends ViewRowImpl {
      */
     public void setContactVO(Row value) {
         setAttributeInternal(CONTACTVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ContactIntTeamVO.
+     */
+    public RowIterator getContactIntTeamVO() {
+        return (RowIterator) getAttributeInternal(CONTACTINTTEAMVO);
     }
 
     /**

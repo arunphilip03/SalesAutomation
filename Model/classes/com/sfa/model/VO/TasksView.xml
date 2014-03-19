@@ -183,6 +183,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -218,7 +220,14 @@
     PrecisionRule="true"
     EntityAttrName="PercentageCompletion"
     EntityUsage="Tasks"
-    AliasName="PERCENTAGE_COMPLETION"/>
+    AliasName="PERCENTAGE_COMPLETION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OppurtunityId"
     IsNotNull="true"
@@ -307,14 +316,13 @@
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"
-    LOVName="LOV_RelatedOppurtunity"
-    IsNotNull="true">
+    LOVName="LOV_RelatedOppurtunity">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.VO.TasksView.RelatedOppurtunity_LABEL"/>
         <DISPLAYWIDTH
-          Value="40"/>
+          Value="30"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>

@@ -36,7 +36,14 @@
     PrecisionRule="true"
     EntityAttrName="NoteDatetime"
     EntityUsage="Notes"
-    AliasName="NOTE_DATETIME"/>
+    AliasName="NOTE_DATETIME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NotesText"
     PrecisionRule="true"

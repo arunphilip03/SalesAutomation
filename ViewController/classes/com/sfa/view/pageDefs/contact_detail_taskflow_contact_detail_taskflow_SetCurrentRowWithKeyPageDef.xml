@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68"
+                id="contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyPageDef"
+                Package="com.sfa.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ContactAppointmentsVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ContactAppointmentsVO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ContactAppointmentsVO1Iterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.selectedAppointment}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

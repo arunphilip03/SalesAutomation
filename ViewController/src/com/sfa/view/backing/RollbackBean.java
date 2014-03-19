@@ -50,13 +50,6 @@ public class RollbackBean {
 
         }
 
-        //ViewObject vo = iterator.getViewObject();
-
-        //Row row = vo.getCurrentRow();
-
-        //row.remove();
-
-        //row.refresh(oracle.jbo.Row.REFRESH_REMOVE_NEW_ROWS);
 
 
     }
@@ -85,8 +78,29 @@ public class RollbackBean {
     }
     
     
+    public void onRollBackAppointmentsConEdit(ActionEvent actionEvent) {
+
+        System.out.println("Rolling back appointments contact edit");
+
+        DCBindingContainer bc = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+
+        DCIteratorBinding iterator = bc.findIteratorBinding("ContactAppointmentsVO1Iterator");
+
+        ViewObject vo = iterator.getViewObject();
+
+        Row row = vo.getCurrentRow();
+
+        //row.remove();
+
+        if (!row.isDead()) {
+
+            row.refresh(oracle.jbo.Row.REFRESH_REMOVE_NEW_ROWS);
+        }
+
+
+    }
     
-        
+    
         public void onRollBackTasks(ActionEvent actionEvent) {
             
             System.out.println("Rolling back tasks");
@@ -130,6 +144,26 @@ public class RollbackBean {
             }
             
             
+        }
+        
+    public void onRollBackTasksConEdit(ActionEvent actionEvent) {
+        
+        System.out.println("Rolling back tasks contact edit");
+        
+        DCBindingContainer bc = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+
+        DCIteratorBinding iterator = bc.findIteratorBinding("ContactTasksVO1Iterator");
+        
+            ViewObject vo = iterator.getViewObject();
+
+            Row row = vo.getCurrentRow();
+
+            //row.remove();
+
+            if (!row.isDead()) {
+
+                row.refresh(oracle.jbo.Row.REFRESH_REMOVE_NEW_ROWS);
+            }
             
         }
         
@@ -156,8 +190,10 @@ public class RollbackBean {
         }
         
         
+    }
         
-    }   
+        
+ 
     public void OpportunityAppnmntRollback(ActionEvent actionEvent) {
         
         System.out.println("Rolling back contact interactions");
@@ -183,7 +219,6 @@ public class RollbackBean {
     
     public void OpportunityInteractionRollback(ActionEvent actionEvent) {
         
-        System.out.println("Rolling back contact interactions");
         
         DCBindingContainer bc = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
 
@@ -206,7 +241,6 @@ public class RollbackBean {
     
     public void OpportunityNoteRollback(ActionEvent actionEvent) {
         
-        System.out.println("Rolling back contact interactions");
         
         DCBindingContainer bc = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
 
@@ -228,7 +262,6 @@ public class RollbackBean {
     } 
     public void OpportunityRevenueRollback(ActionEvent actionEvent) {
         
-        System.out.println("Rolling back contact interactions");
         
         DCBindingContainer bc = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
 
@@ -251,7 +284,6 @@ public class RollbackBean {
     
     public void OpportunityTaskRollback(ActionEvent actionEvent) {
         
-        System.out.println("Rolling back contact interactions");
         
         DCBindingContainer bc = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
 

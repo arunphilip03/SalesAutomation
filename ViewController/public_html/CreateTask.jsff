@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelHeader text="Create Task" id="ph1" styleClass="AFStretchWidth">
-        <f:facet name="context"/>
+    <af:panelHeader text="#{'Create Task for '} #{pageFlowScope.callType eq 'contact'? 'Contact:' : 'Customer:'}" id="ph1" styleClass="AFStretchWidth">
+        <f:facet name="context">
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:outputText value="#{pageFlowScope.callType eq 'contact'? bindings.ContactName : bindings.AccountName}" id="ot1"/>
+        </f:facet>
         <f:facet name="menuBar"/>
         <f:facet name="toolbar">
             <af:toolbar id="t1">
@@ -10,7 +13,7 @@
                 <af:button text="Save and Close" id="b2" action="saveAndClose"
                            actionListener="#{TaskTeamBean.onCommit}"/>
                 <af:button text="Cancel" id="b3" immediate="true" action="cancel"
-                           actionListener="#{bindings.Rollback.execute}"/>
+                           actionListener="#{RollBackBean.onRollBackTasks}"/>
             </af:toolbar>
         </f:facet>
         <f:facet name="legend"/>

@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="APPOINTMENT_INVITEES"
   AliasName="AppointmentInvitees"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.sfa.model.base.BaseEntityImpl">
   <Attribute
     Name="AppInviteeId"
     IsNotNull="true"

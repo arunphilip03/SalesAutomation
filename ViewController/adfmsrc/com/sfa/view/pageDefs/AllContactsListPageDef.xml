@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="AllContactsListPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ContactVO1" RangeSize="25" DataControl="AppModuleDataControl" id="ContactVO1Iterator"/>
+    <searchRegion Criteria="ContactVOSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ContactVO1Iterator" id="ContactVOSearchQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ContactVO1Iterator" id="ContactVO1">
+      <nodeDefinition DefName="com.sfa.model.VO.ContactVO" Name="ContactVO10">
+        <AttrNames>
+          <Item Value="ContactName"/>
+          <Item Value="Title"/>
+          <Item Value="AccountName"/>
+          <Item Value="Department"/>
+          <Item Value="Address"/>
+          <Item Value="WorkPhone"/>
+          <Item Value="MobilePhone"/>
+          <Item Value="BuyingRole"/>
+          <Item Value="InfluenceLevel"/>
+          <Item Value="Email"/>
+          <Item Value="IsPrimary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ContactVO1Iterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.ContactId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

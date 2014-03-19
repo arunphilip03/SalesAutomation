@@ -42,7 +42,7 @@
         <LABEL
           ResId="com.sfa.model.entity.CustomerAccount.AccountName_LABEL"/>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
     <validation:PreDefinedValidationBean
@@ -96,7 +96,7 @@
         <LABEL
           ResId="com.sfa.model.entity.CustomerAccount.AccountUrl_LABEL"/>
         <DISPLAYWIDTH
-          Value="60"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
     <validation:PreDefinedValidationBean
@@ -115,7 +115,7 @@
       Name="URLFormat"
       ResId="com.sfa.model.entity.CustomerAccount.AccountUrl_Rule_0"
       OnAttribute="AccountUrl"
-      Pattern="^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$"
+      Pattern="^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,5}(/\S*)?$"
       Inverse="false"
       Flags="CaseInsensitive"/>
   </Attribute>

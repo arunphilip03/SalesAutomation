@@ -7,8 +7,9 @@
                 <af:panelHeader text="Contact Detail" id="ph1" styleClass="AFStretchWidth">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
+                    <af:separator id="s2"/>
                     <af:spacer width="10" height="10" id="s1"/>
-                    <af:panelFormLayout id="pfl1" rows="5" styleClass="AFStretchWidth" fieldWidth="350px"
+                    <af:panelFormLayout id="pfl1" rows="4" styleClass="AFStretchWidth" fieldWidth="300px"
                                         labelWidth="75px">
                         <af:inputText value="#{bindings.ContactName.inputValue}"
                                       label="#{bindings.ContactName.hints.label}"
@@ -45,7 +46,7 @@
                                       required="#{bindings.Address.hints.mandatory}" readOnly="true"
                                       columns="#{bindings.Address.hints.displayWidth}"
                                       maximumLength="#{bindings.Address.hints.precision}"
-                                      shortDesc="#{bindings.Address.hints.tooltip}" id="it5">
+                                      shortDesc="#{bindings.Address.hints.tooltip}" id="it5" rows="5">
                             <f:validator binding="#{bindings.Address.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.WorkPhone.inputValue}" label="#{bindings.WorkPhone.hints.label}"
@@ -70,13 +71,21 @@
                                       shortDesc="#{bindings.Email.hints.tooltip}" id="it8">
                             <f:validator binding="#{bindings.Email.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.BuyInfluenceLevel.inputValue}"
-                                      label="#{bindings.BuyInfluenceLevel.hints.label}"
-                                      required="#{bindings.BuyInfluenceLevel.hints.mandatory}" readOnly="true"
-                                      columns="#{bindings.BuyInfluenceLevel.hints.displayWidth}"
-                                      maximumLength="#{bindings.BuyInfluenceLevel.hints.precision}"
-                                      shortDesc="#{bindings.BuyInfluenceLevel.hints.tooltip}" id="it9">
-                            <f:validator binding="#{bindings.BuyInfluenceLevel.validator}"/>
+                        <af:inputText value="#{bindings.InfluenceLevel.inputValue}"
+                                      label="#{bindings.InfluenceLevel.hints.label}"
+                                      required="#{bindings.InfluenceLevel.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.InfluenceLevel.hints.displayWidth}"
+                                      maximumLength="#{bindings.InfluenceLevel.hints.precision}"
+                                      shortDesc="#{bindings.InfluenceLevel.hints.tooltip}" id="it9">
+                            <f:validator binding="#{bindings.InfluenceLevel.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.BuyingRole.inputValue}"
+                                      label="#{bindings.BuyingRole.hints.label}"
+                                      required="#{bindings.BuyingRole.hints.mandatory}"
+                                      columns="#{bindings.BuyingRole.hints.displayWidth}"
+                                      maximumLength="#{bindings.BuyingRole.hints.precision}"
+                                      shortDesc="#{bindings.BuyingRole.hints.tooltip}" id="it11" readOnly="true">
+                            <f:validator binding="#{bindings.BuyingRole.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.IsPrimary.inputValue}" label="#{bindings.IsPrimary.hints.label}"
                                       required="#{bindings.IsPrimary.hints.mandatory}" readOnly="true"
@@ -86,6 +95,7 @@
                             <f:validator binding="#{bindings.IsPrimary.validator}"/>
                         </af:inputText>
                     </af:panelFormLayout>
+                    <af:separator id="s6"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Cancel" id="b1" action="cancel" immediate="true"/>
@@ -111,8 +121,8 @@
                                              action="editAppointment"
                                              disabled="#{bindings.ContactAppointmentsVO1.estimatedRowCount eq 0}"
                                              disabledIcon="#{resource['images:update_dis.png']}">
-                                        <af:setActionListener from="#{GetAppointmentId.currentAppointmentId}"
-                                                              to="#{pageFlowScope.appointmentId}"/>
+                                        <af:setActionListener from="#{bindings.ContactAppointmentsVO1Iterator.currentRowWithKey}"
+                                                              to="#{pageFlowScope.selectedAppointment}"/>
                                     </af:link>
                                 </af:toolbar>
                             </f:facet>
@@ -123,19 +133,22 @@
                                       selectedRowKeys="#{bindings.ContactAppointmentsVO1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.ContactAppointmentsVO1.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.ContactAppointmentsVO1.rangeSize}"
-                                      id="t2" styleClass="AFStretchWidth" columnStretching="last">
+                                      id="t2" styleClass="AFStretchWidth" columnStretching="last"
+                                      partialTriggers="::l3 ::l1 l9">
                                 <af:column sortProperty="#{bindings.ContactAppointmentsVO1.hints.Name.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactAppointmentsVO1.hints.Name.label}" id="c1"
-                                           width="100">
-                                    <af:outputText value="#{row.Name}"
-                                                   shortDesc="#{bindings.ContactAppointmentsVO1.hints.Name.tooltip}"
-                                                   id="ot1"/>
+                                           width="356">
+                                    <af:link actionListener="#{bindings.setCurrentRowWithKey2.execute}"
+                                             text="#{row.Name}"
+                                             disabled="#{!bindings.setCurrentRowWithKey2.enabled}" id="l9"
+                                             action="viewAppointment" useWindow="true" windowHeight="250"
+                                             windowWidth="800"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.ContactAppointmentsVO1.hints.StartDatetime.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactAppointmentsVO1.hints.StartDatetime.label}"
-                                           id="c2" width="225">
+                                           id="c2" width="170">
                                     <af:outputText value="#{row.StartDatetime}"
                                                    shortDesc="#{bindings.ContactAppointmentsVO1.hints.StartDatetime.tooltip}"
                                                    id="ot2">
@@ -145,7 +158,7 @@
                                 <af:column sortProperty="#{bindings.ContactAppointmentsVO1.hints.EndDatetime.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactAppointmentsVO1.hints.EndDatetime.label}"
-                                           id="c3" width="152">
+                                           id="c3" width="164">
                                     <af:outputText value="#{row.EndDatetime}"
                                                    shortDesc="#{bindings.ContactAppointmentsVO1.hints.EndDatetime.tooltip}"
                                                    id="ot3">
@@ -155,7 +168,7 @@
                                 <af:column sortProperty="#{bindings.ContactAppointmentsVO1.hints.Location.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactAppointmentsVO1.hints.Location.label}" id="c4"
-                                           width="199">
+                                           width="157">
                                     <af:outputText value="#{row.Location}"
                                                    shortDesc="#{bindings.ContactAppointmentsVO1.hints.Location.tooltip}"
                                                    id="ot4"/>
@@ -163,7 +176,7 @@
                                 <af:column sortProperty="#{bindings.ContactAppointmentsVO1.hints.Description.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactAppointmentsVO1.hints.Description.label}"
-                                           id="c5" width="303">
+                                           id="c5" width="205">
                                     <af:outputText value="#{row.Description}"
                                                    shortDesc="#{bindings.ContactAppointmentsVO1.hints.Description.tooltip}"
                                                    id="ot5"/>
@@ -171,7 +184,7 @@
                                 <af:column sortProperty="#{bindings.ContactAppointmentsVO1.hints.RelatedOpportunity.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactAppointmentsVO1.hints.RelatedOpportunity.label}"
-                                           id="c6" width="-379">
+                                           id="c6" width="-452">
                                     <af:outputText value="#{row.RelatedOpportunity}"
                                                    shortDesc="#{bindings.ContactAppointmentsVO1.hints.RelatedOpportunity.tooltip}"
                                                    id="ot6"/>
@@ -203,8 +216,10 @@
                                     <af:link id="l6" icon="#{resource['images:update_ena.png']}" action="editTask"
                                              disabledIcon="#{resource['images:update_dis.png']}"
                                              disabled="#{bindings.ContactTasksVO1.estimatedRowCount eq 0}">
-                                        <af:setActionListener from="#{GetAppointmentId.currentTaskId}"
-                                                              to="#{pageFlowScope.taskId}"/>
+                                        <af:setActionListener from="#{bindings.ContactTasksVO1Iterator.currentRowWithKey}"
+                                                              to="#{pageFlowScope.selectedTask}"/>
+                                        <af:setPropertyListener from="#{GeneralInfoBean.currentContactIdTaskEdit}"
+                                                                to="#{pageFlowScope.contactID}" type="action"/>
                                     </af:link>
                                 </af:toolbar>
                             </f:facet>
@@ -215,13 +230,31 @@
                                       selectedRowKeys="#{bindings.ContactTasksVO1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.ContactTasksVO1.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.ContactTasksVO1.rangeSize}" id="t4"
-                                      styleClass="AFStretchWidth" columnStretching="last">
+                                      styleClass="AFStretchWidth" columnStretching="last" partialTriggers="l4">
+                                <af:column headerText="#{bindings.ContactTasksVO1.hints.ContactId.label}" id="c32"
+                                           rendered="false">
+                                    <af:outputText value="#{row.ContactId}"
+                                                   shortDesc="#{bindings.ContactTasksVO1.hints.ContactId.tooltip}"
+                                                   id="ot32">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ContactTasksVO1.hints.ContactId.format}"/>
+                                    </af:outputText>
+                                </af:column>
                                 <af:column sortProperty="#{bindings.ContactTasksVO1.hints.TaskName.name}"
                                            sortable="true" headerText="#{bindings.ContactTasksVO1.hints.TaskName.label}"
                                            id="c7" width="196">
-                                    <af:outputText value="#{row.TaskName}"
-                                                   shortDesc="#{bindings.ContactTasksVO1.hints.TaskName.tooltip}"
-                                                   id="ot7"/>
+                                    <af:link actionListener="#{bindings.setCurrentRowWithKey1.execute}"
+                                             text="#{row.TaskName}"
+                                             disabled="#{!bindings.setCurrentRowWithKey1.enabled}" id="l4"
+                                             action="viewTask" useWindow="true" windowHeight="250" windowWidth="800"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ContactTasksVO1.hints.Description.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactTasksVO1.hints.Description.label}" id="c11"
+                                           width="243">
+                                    <af:outputText value="#{row.Description}"
+                                                   shortDesc="#{bindings.ContactTasksVO1.hints.Description.tooltip}"
+                                                   id="ot11"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.ContactTasksVO1.hints.Priority.name}"
                                            sortable="true" headerText="#{bindings.ContactTasksVO1.hints.Priority.label}"
@@ -239,25 +272,6 @@
                                         <af:convertDateTime pattern="#{bindings.ContactTasksVO1.hints.DueDate.format}"/>
                                     </af:outputText>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.ContactTasksVO1.hints.PercentageCompletion.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.ContactTasksVO1.hints.PercentageCompletion.label}"
-                                           id="c10" width="82">
-                                    <af:outputText value="#{row.PercentageCompletion}"
-                                                   shortDesc="#{bindings.ContactTasksVO1.hints.PercentageCompletion.tooltip}"
-                                                   id="ot10">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.ContactTasksVO1.hints.PercentageCompletion.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.ContactTasksVO1.hints.Description.name}"
-                                           sortable="true"
-                                           headerText="#{bindings.ContactTasksVO1.hints.Description.label}" id="c11"
-                                           width="243">
-                                    <af:outputText value="#{row.Description}"
-                                                   shortDesc="#{bindings.ContactTasksVO1.hints.Description.tooltip}"
-                                                   id="ot11"/>
-                                </af:column>
                                 <af:column sortProperty="#{bindings.ContactTasksVO1.hints.RelatedOpportunity.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactTasksVO1.hints.RelatedOpportunity.label}"
@@ -272,6 +286,17 @@
                                     <af:outputText value="#{row.Assignee}"
                                                    shortDesc="#{bindings.ContactTasksVO1.hints.Assignee.tooltip}"
                                                    id="ot13"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ContactTasksVO1.hints.PercentageCompletion.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.ContactTasksVO1.hints.PercentageCompletion.label}"
+                                           id="c10" width="82">
+                                    <af:outputText value="#{row.PercentageCompletion}"
+                                                   shortDesc="#{bindings.ContactTasksVO1.hints.PercentageCompletion.tooltip}"
+                                                   id="ot10">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ContactTasksVO1.hints.PercentageCompletion.format}"/>
+                                    </af:outputText>
                                 </af:column>
                             </af:table>
                             <f:facet name="statusbar"/>
@@ -303,19 +328,21 @@
                                       selectedRowKeys="#{bindings.ContactInteractionsVO1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.ContactInteractionsVO1.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.ContactInteractionsVO1.rangeSize}"
-                                      id="t5" styleClass="AFStretchWidth" columnStretching="last">
+                                      id="t5" styleClass="AFStretchWidth" columnStretching="last" partialTriggers="l2">
                                 <af:column sortProperty="#{bindings.ContactInteractionsVO1.hints.Type.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactInteractionsVO1.hints.Type.label}" id="c14"
-                                           width="158">
-                                    <af:outputText value="#{row.Type}"
-                                                   shortDesc="#{bindings.ContactInteractionsVO1.hints.Type.tooltip}"
-                                                   id="ot14"/>
+                                           width="250">
+                                    <af:link actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                                             text="#{row.Type}"
+                                             disabled="#{!bindings.setCurrentRowWithKey.enabled}" id="l2"
+                                             action="viewInteraction" useWindow="true" windowHeight="250"
+                                             windowWidth="800"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.ContactInteractionsVO1.hints.Direction.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactInteractionsVO1.hints.Direction.label}"
-                                           id="c15" width="140">
+                                           id="c15" width="185">
                                     <af:outputText value="#{row.Direction}"
                                                    shortDesc="#{bindings.ContactInteractionsVO1.hints.Direction.tooltip}"
                                                    id="ot15"/>
@@ -323,7 +350,7 @@
                                 <af:column sortProperty="#{bindings.ContactInteractionsVO1.hints.StartDatetime.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactInteractionsVO1.hints.StartDatetime.label}"
-                                           id="c16" width="108">
+                                           id="c16" width="160">
                                     <af:outputText value="#{row.StartDatetime}"
                                                    shortDesc="#{bindings.ContactInteractionsVO1.hints.StartDatetime.tooltip}"
                                                    id="ot16">
@@ -333,7 +360,7 @@
                                 <af:column sortProperty="#{bindings.ContactInteractionsVO1.hints.EndDatetime.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactInteractionsVO1.hints.EndDatetime.label}"
-                                           id="c17" width="105">
+                                           id="c17" width="157">
                                     <af:outputText value="#{row.EndDatetime}"
                                                    shortDesc="#{bindings.ContactInteractionsVO1.hints.EndDatetime.tooltip}"
                                                    id="ot17">
@@ -343,7 +370,7 @@
                                 <af:column sortProperty="#{bindings.ContactInteractionsVO1.hints.Description.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactInteractionsVO1.hints.Description.label}"
-                                           id="c18" width="237">
+                                           id="c18" width="170">
                                     <af:outputText value="#{row.Description}"
                                                    shortDesc="#{bindings.ContactInteractionsVO1.hints.Description.tooltip}"
                                                    id="ot18"/>
@@ -351,7 +378,7 @@
                                 <af:column sortProperty="#{bindings.ContactInteractionsVO1.hints.Resolution.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactInteractionsVO1.hints.Resolution.label}"
-                                           id="c19" width="233">
+                                           id="c19" width="201">
                                     <af:outputText value="#{row.Resolution}"
                                                    shortDesc="#{bindings.ContactInteractionsVO1.hints.Resolution.tooltip}"
                                                    id="ot19"/>
@@ -359,7 +386,7 @@
                                 <af:column sortProperty="#{bindings.ContactInteractionsVO1.hints.RelatedOpportunity.name}"
                                            sortable="true"
                                            headerText="#{bindings.ContactInteractionsVO1.hints.RelatedOpportunity.label}"
-                                           id="c20" width="-281">
+                                           id="c20" width="-423">
                                     <af:outputText value="#{row.RelatedOpportunity}"
                                                    shortDesc="#{bindings.ContactInteractionsVO1.hints.RelatedOpportunity.tooltip}"
                                                    id="ot20"/>

@@ -579,28 +579,56 @@
                 Operator="="
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="20"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
                 Name="SalesMethod"
                 ViewAttribute="SalesMethod"
                 Operator="="
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="20"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
                 Name="OpportunityName"
                 ViewAttribute="OpportunityName"
                 Operator="STARTSWITH"
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="25"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
                 Name="OpportunitiesViewCriteria_OpportunitiesViewCriteria_row_0_AccountName"
                 ViewAttribute="AccountName"
                 Operator="="
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="25"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
         </ViewCriteriaRow>
     </ViewCriteria>
     <ViewCriteria
@@ -638,28 +666,56 @@
                 Operator="="
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="20"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
                 Name="SalesMethod"
                 ViewAttribute="SalesMethod"
                 Operator="="
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="20"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
                 Name="OpportunityName"
                 ViewAttribute="OpportunityName"
                 Operator="STARTSWITH"
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="25"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
                 Name="OpportunitiesViewCriteria_OpportunitiesViewCriteria_row_0_AccountName"
                 ViewAttribute="AccountName"
-                Operator="="
+                Operator="STARTSWITH"
                 Conjunction="AND"
                 GenerateIsNullClauseForBindVars="false"
-                Required="Optional"/>
+                Required="Optional">
+                <Properties>
+                    <SchemaBasedProperties>
+                        <DISPLAYWIDTH
+                            Value="25"/>
+                    </SchemaBasedProperties>
+                </Properties>
+            </ViewCriteriaItem>
         </ViewCriteriaRow>
     </ViewCriteria>
     <ViewLinkAccessor

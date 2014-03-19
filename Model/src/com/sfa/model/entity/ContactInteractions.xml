@@ -77,6 +77,8 @@
           ResId="com.sfa.model.entity.ContactInteractions.StartDatetime_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sfa.model.entity.ContactInteractions.StartDatetime_FMT_FORMAT"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
     <validation:PreDefinedValidationBean
@@ -103,11 +105,12 @@
     <validation:CompareValidationBean
       Name="EndDatetimeRule0"
       OnAttribute="EndDatetime"
-      OperandType="JBO"
+      OperandType="EXPR"
       Inverse="false"
       CompareType="GREATERTHAN"
-      CompareValue="com.sfa.model.VO.ContactInteractionsView.StartDatetime"
-      ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_Rule_0"/>
+      ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_Rule_0">
+      <validation:TransientExpression><![CDATA[StartDatetime]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -116,6 +119,8 @@
           ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sfa.model.entity.ContactInteractions.EndDatetime_FMT_FORMAT"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -157,7 +162,6 @@
   </Attribute>
   <Attribute
     Name="OppurtunityId"
-    IsNotNull="true"
     ColumnName="OPPURTUNITY_ID"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"

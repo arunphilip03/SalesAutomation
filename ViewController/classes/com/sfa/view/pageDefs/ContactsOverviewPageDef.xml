@@ -22,9 +22,10 @@
           <Item Value="WorkPhone"/>
           <Item Value="MobilePhone"/>
           <Item Value="Email"/>
-          <Item Value="BuyInfluenceLevel"/>
           <Item Value="IsPrimary"/>
           <Item Value="CustAccountId1"/>
+          <Item Value="BuyingRole"/>
+          <Item Value="InfluenceLevel"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelHeader text="Edit Task of Contact" id="ph1">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+            <af:toolbar id="t1">
+                <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
+                <af:button text="Save and Close" id="b2" actionListener="#{bindings.Commit.execute}" action="back"/>
+                <af:button text="Cancel" id="b3" action="back"/>
+            </af:toolbar>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:panelFormLayout id="pfl1" rows="4" fieldWidth="350px" labelWidth="75px">
+            <af:inputText value="#{bindings.TaskName.inputValue}" label="#{bindings.TaskName.hints.label}"
+                          required="#{bindings.TaskName.hints.mandatory}"
+                          columns="#{bindings.TaskName.hints.displayWidth}"
+                          maximumLength="#{bindings.TaskName.hints.precision}"
+                          shortDesc="#{bindings.TaskName.hints.tooltip}" id="it1">
+                <f:validator binding="#{bindings.TaskName.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
+                          required="#{bindings.DueDate.hints.mandatory}"
+                          columns="#{bindings.DueDate.hints.displayWidth}" shortDesc="#{bindings.DueDate.hints.tooltip}"
+                          id="id1">
+                <f:validator binding="#{bindings.DueDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.Priority.inputValue}" label="#{bindings.Priority.hints.label}"
+                          required="#{bindings.Priority.hints.mandatory}"
+                          columns="#{bindings.Priority.hints.displayWidth}"
+                          maximumLength="#{bindings.Priority.hints.precision}"
+                          shortDesc="#{bindings.Priority.hints.tooltip}" id="it2">
+                <f:validator binding="#{bindings.Priority.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                          required="#{bindings.Description.hints.mandatory}"
+                          columns="#{bindings.Description.hints.displayWidth}"
+                          maximumLength="#{bindings.Description.hints.precision}"
+                          shortDesc="#{bindings.Description.hints.tooltip}" id="it3">
+                <f:validator binding="#{bindings.Description.validator}"/>
+            </af:inputText>
+            <af:inputComboboxListOfValues id="relatedOpportunityId"
+                                          popupTitle="Search and Select: #{bindings.RelatedOpportunity.hints.label}"
+                                          value="#{bindings.RelatedOpportunity.inputValue}"
+                                          label="#{bindings.RelatedOpportunity.hints.label}"
+                                          model="#{bindings.RelatedOpportunity.listOfValuesModel}"
+                                          required="#{bindings.RelatedOpportunity.hints.mandatory}"
+                                          columns="#{bindings.RelatedOpportunity.hints.displayWidth}"
+                                          shortDesc="#{bindings.RelatedOpportunity.hints.tooltip}">
+                <f:validator binding="#{bindings.RelatedOpportunity.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="assigneeId"
+                                          popupTitle="Search and Select: #{bindings.Assignee.hints.label}"
+                                          value="#{bindings.Assignee.inputValue}"
+                                          label="#{bindings.Assignee.hints.label}"
+                                          model="#{bindings.Assignee.listOfValuesModel}"
+                                          required="#{bindings.Assignee.hints.mandatory}"
+                                          columns="#{bindings.Assignee.hints.displayWidth}"
+                                          shortDesc="#{bindings.Assignee.hints.tooltip}">
+                <f:validator binding="#{bindings.Assignee.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputText value="#{bindings.PercentageCompletion.inputValue}"
+                          label="#{bindings.PercentageCompletion.hints.label}"
+                          required="#{bindings.PercentageCompletion.hints.mandatory}"
+                          columns="#{bindings.PercentageCompletion.hints.displayWidth}"
+                          maximumLength="#{bindings.PercentageCompletion.hints.precision}"
+                          shortDesc="#{bindings.PercentageCompletion.hints.tooltip}" id="it4">
+                <f:validator binding="#{bindings.PercentageCompletion.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.PercentageCompletion.format}"/>
+            </af:inputText>
+        </af:panelFormLayout>
+        <af:showDetailHeader text="Task Team" disclosed="true" id="sdh1">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelSplitter id="ps1" splitterPosition="500">
+                <f:facet name="first">
+                    <af:selectManyShuttle label="Contacts" id="sms1">
+                        <f:selectItems value="" id="si1"/>
+                    </af:selectManyShuttle>
+                </f:facet>
+                <f:facet name="second">
+                    <af:selectManyShuttle label="Users" id="sms2">
+                        <f:selectItems value="" id="si2"/>
+                    </af:selectManyShuttle>
+                </f:facet>
+            </af:panelSplitter>
+        </af:showDetailHeader>
+    </af:panelHeader>
+</ui:composition>

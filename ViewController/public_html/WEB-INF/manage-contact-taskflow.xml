@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="manage-contact-taskflow">
+    <default-activity>AllContactsList</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <view id="ContactDetailPage">
+      <page>/ContactDetailPage.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ContactAppointmentCreate">
+      <page>/ContactAppointmentCreate.jsff</page>
+    </view>
+    <view id="ContactAppointmentEdit">
+      <page>/ContactAppointmentEdit.jsff</page>
+    </view>
+    <view id="AllContactsList">
+      <page>/AllContactsList.jsff</page>
+    </view>
+    <view id="ContactTaskCreate">
+      <page>/ContactTaskCreate.jsff</page>
+    </view>
+    <view id="ContactTaskEdit">
+      <page>/ContactTaskEdit.jsff</page>
+    </view>
+    <view id="ContactInteractionCreate">
+      <page>/ContactInteractionCreate.jsff</page>
+    </view>
+    <view id="ContactInteractionEdit">
+      <page>/ContactInteractionEdit.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>ContactDetailPage</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>createAppointment</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>editAppointment</from-outcome>
+        <to-activity-id>ContactAppointmentEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>editTask</from-outcome>
+        <to-activity-id>ContactTaskEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>createTask</from-outcome>
+        <to-activity-id>ContactTaskCreate</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>createInteraction</from-outcome>
+        <to-activity-id>ContactInteractionCreate</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome>editInteraction</from-outcome>
+        <to-activity-id>ContactInteractionEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>ContactAppointmentCreate</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>ContactAppointmentCreate</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>ContactDetailPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>ContactAppointmentEdit</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>ContactDetailPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>AllContactsList</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>getDetail</from-outcome>
+        <to-activity-id>ContactDetailPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>ContactTaskCreate</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>ContactDetailPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>ContactTaskEdit</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>ContactDetailPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

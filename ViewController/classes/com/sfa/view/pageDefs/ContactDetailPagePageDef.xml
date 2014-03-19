@@ -54,11 +54,6 @@
         <Item Value="Email"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ContactVO1Iterator" id="BuyInfluenceLevel">
-      <AttrNames>
-        <Item Value="BuyInfluenceLevel"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ContactVO1Iterator" id="IsPrimary">
       <AttrNames>
         <Item Value="IsPrimary"/>
@@ -121,5 +116,30 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="ContactVO1Iterator" id="InfluenceLevel">
+      <AttrNames>
+        <Item Value="InfluenceLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ContactVO1Iterator" StaticList="false" Uses="LOV_BuyingRole" id="BuyingRole"/>
+    <action IterBinding="ContactAppointmentsVO2Iterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{bindings.ContactAppointmentsVO2Iterator.currentRowWithKey}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ContactTasksVO2Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ContactTasksVO2Iterator" id="setCurrentRowWithKey1" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{bindings.ContactTasksVO2Iterator.currentRowWithKey}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ContactInteractionsVO2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ContactInteractionsVO2Iterator" id="setCurrentRowWithKey2" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{bindings.ContactInteractionsVO2Iterator.currentRowWithKey}"
+                 NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

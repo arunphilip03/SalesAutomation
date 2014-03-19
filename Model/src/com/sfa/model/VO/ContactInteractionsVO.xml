@@ -64,6 +64,7 @@
       <Item Value="OppurtunityId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccountName"/>
       <Item Value="OpportunityName"/>
     </AttrArray>
     <DisplayCriteria
@@ -144,6 +145,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -166,6 +169,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -233,14 +238,13 @@
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"
-    LOVName="LOV_RelatedOpportunity"
-    IsNotNull="true">
+    LOVName="LOV_RelatedOpportunity">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.VO.ContactInteractionsVO.RelatedOpportunity_LABEL"/>
         <DISPLAYWIDTH
-          Value="40"/>
+          Value="30"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>
@@ -265,6 +269,11 @@
     ViewLink="com.sfa.model.viewlink.ContactToInteractionsVL"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactIntTeamVO"
+    ViewLink="com.sfa.model.viewlink.ContactIntTeamVL"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle

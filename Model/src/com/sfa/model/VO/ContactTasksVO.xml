@@ -6,24 +6,12 @@
   Name="ContactTasksVO"
   Version="12.1.2.66.68"
   InheritPersonalization="merge"
-  SelectList="Tasks.TASK_NAME, 
-       Tasks.TASK_ID, 
-       Tasks.OBJECT_VERSION_NUMBER, 
-       Tasks.PRIORITY, 
-       Tasks.PERCENTAGE_COMPLETION, 
-       Tasks.OPPURTUNITY_ID, 
-       Tasks.DUE_DATE, 
-       Tasks.DESCRIPTION, 
-       Tasks.CUST_ACCOUNT_ID, 
-       Tasks.ASIGNEE_ID, 
-       TaskTeam.CONTACT_ID, 
-       TaskTeam.TASK_TEAM_ID, 
-       TaskTeam.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1"
-  FromList="TASKS Tasks, TASK_TEAM TaskTeam"
-  Where="Tasks.TASK_ID = TaskTeam.TASK_ID"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -37,6 +25,10 @@
   <ViewAccessor
     Name="AllUsersVO1"
     ViewObjectName="com.sfa.model.VO.AllUsersVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TaskPriorityLuView1"
+    ViewObjectName="com.sfa.model.VO.TaskPriorityLuView"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_RelatedOpportunity"
@@ -90,6 +82,42 @@
       Name="AllUsersVOCriteria"
       Hint="showAndExecute"/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_Priority"
+    ListVOName="TaskPriorityLuView1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Priority"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Priority"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Priority"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Tasks.TASK_NAME,    
+       Tasks.TASK_ID,    
+       Tasks.OBJECT_VERSION_NUMBER,    
+       Tasks.PRIORITY,    
+       Tasks.PERCENTAGE_COMPLETION,    
+       Tasks.OPPURTUNITY_ID,    
+       Tasks.DUE_DATE,    
+       Tasks.DESCRIPTION,    
+       Tasks.CUST_ACCOUNT_ID,    
+       Tasks.ASIGNEE_ID,    
+       TaskTeam.CONTACT_ID,    
+       TaskTeam.TASK_TEAM_ID,    
+       TaskTeam.OBJECT_VERSION_NUMBER AS OBJECT_VERSION_NUMBER1   
+FROM  TASKS Tasks, TASK_TEAM TaskTeam, Customer_Contacts Contacts  
+WHERE Tasks.TASK_ID = TaskTeam.TASK_ID  
+AND TaskTeam.CONTACT_ID = Contacts.CONTACT_ID]]></SQLQuery>
   <EntityUsage
     Name="Tasks"
     Entity="com.sfa.model.entity.Tasks"/>
@@ -118,7 +146,14 @@
     PrecisionRule="true"
     EntityAttrName="TaskName"
     EntityUsage="Tasks"
-    AliasName="TASK_NAME"/>
+    AliasName="TASK_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TaskId"
     IsNotNull="true"
@@ -138,7 +173,15 @@
     PrecisionRule="true"
     EntityAttrName="Priority"
     EntityUsage="Tasks"
-    AliasName="PRIORITY"/>
+    AliasName="PRIORITY"
+    LOVName="LOV_Priority">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PercentageCompletion"
     PrecisionRule="true"
@@ -164,7 +207,14 @@
     PrecisionRule="true"
     EntityAttrName="Description"
     EntityUsage="Tasks"
-    AliasName="DESCRIPTION"/>
+    AliasName="DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustAccountId"
     IsNotNull="true"
@@ -199,7 +249,6 @@
     AliasName="OBJECT_VERSION_NUMBER1"/>
   <ViewAttribute
     Name="RelatedOpportunity"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -213,6 +262,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sfa.model.VO.ContactTasksVO.RelatedOpportunity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>
@@ -220,7 +271,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Assignee"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -234,6 +284,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="25"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -251,6 +303,11 @@
     ViewLink="com.sfa.model.viewlink.ContactToTaskVL"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactTaskTeamVO"
+    ViewLink="com.sfa.model.viewlink.ContactTaskTeamVL"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle

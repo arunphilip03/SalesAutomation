@@ -4,6 +4,7 @@ package com.sfa.model.service;
 import com.sfa.model.service.common.AppModule;
 
 import oracle.jbo.Row;
+import oracle.jbo.Session;
 import oracle.jbo.domain.BlobDomain;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
@@ -19,6 +20,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      * This is the default constructor (do not remove).
      */
     public AppModuleImpl() {
+    }
+
+    @Override
+    protected void prepareSession(Session session) {
+        super.prepareSession(session);
+
+        this.getDBTransaction().setClearCacheOnRollback(false);
     }
 
     /**
@@ -677,13 +685,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewObjectImpl) findViewObject("ContactTasksVO1");
     }
 
-    /**
-     * Container's getter for ContactAppointmentsVO1.
-     * @return ContactAppointmentsVO1
-     */
-    public ViewObjectImpl getContactAppointmentsVO1() {
-        return (ViewObjectImpl) findViewObject("ContactAppointmentsVO1");
-    }
 
     /**
      * Container's getter for ContactOpportunitiesVO1.
@@ -1037,7 +1038,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewLinkImpl) findViewLink("OpportunityTaskTeamViewLink1");
     }
 
-    public void uploadFiletoDB(String fileName, String contentType, BlobDomain blob,String plainText) {
+    public void uploadFiletoDB(String fileName, String contentType, BlobDomain blob, String plainText) {
         System.out.println("am");
         ViewObjectImpl vo = this.getOpportunityAttachmentsView2();
         try {
@@ -1051,14 +1052,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Container's getter for ContactAppointmentsVL1.
-     * @return ContactAppointmentsVL1
-     */
-    public ViewLinkImpl getContactAppointmentsVL1() {
-        return (ViewLinkImpl) findViewLink("ContactAppointmentsVL1");
     }
 
 
@@ -1118,13 +1111,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getIsBudgetedView1() {
         return (ViewObjectImpl) findViewObject("IsBudgetedView1");
     }
+
     /**
      * Container's getter for ActiveUsersVO1.
      * @return ActiveUsersVO1
      */
     public ViewObjectImpl getActiveUsersVO1() {
         return (ViewObjectImpl) findViewObject("ActiveUsersVO1");
-}
+    }
 
 
     /**
@@ -1216,12 +1210,133 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
 
     /**
+     * Container's getter for ContactAppInviteeVO1.
+     * @return ContactAppInviteeVO1
+     */
+    public ViewObjectImpl getContactAppInviteeVO1() {
+        return (ViewObjectImpl) findViewObject("ContactAppInviteeVO1");
+    }
+
+    /**
      * Container's getter for EmployeesView1.
      * @return EmployeesView1
      */
     public ViewObjectImpl getEmployeesView1() {
         return (ViewObjectImpl) findViewObject("EmployeesView1");
     }
+
+    /**
+     * Container's getter for ContactAppInviteeVL1.
+     * @return ContactAppInviteeVL1
+     */
+    public ViewLinkImpl getContactAppInviteeVL1() {
+        return (ViewLinkImpl) findViewLink("ContactAppInviteeVL1");
+    }
+
+    /**
+     * Container's getter for OppVO1.
+     * @return OppVO1
+     */
+    public ViewObjectImpl getOppVO1() {
+        return (ViewObjectImpl) findViewObject("OppVO1");
+    }
+
+    /**
+     * Container's getter for ContactTaskTeamVO1.
+     * @return ContactTaskTeamVO1
+     */
+    public ViewObjectImpl getContactTaskTeamVO1() {
+        return (ViewObjectImpl) findViewObject("ContactTaskTeamVO1");
+    }
+
+    /**
+     * Container's getter for ContactTaskTeamVL1.
+     * @return ContactTaskTeamVL1
+     */
+    public ViewLinkImpl getContactTaskTeamVL1() {
+        return (ViewLinkImpl) findViewLink("ContactTaskTeamVL1");
+    }
+
+    /**
+     * Container's getter for ContactIntTeamVO1.
+     * @return ContactIntTeamVO1
+     */
+    public ViewObjectImpl getContactIntTeamVO1() {
+        return (ViewObjectImpl) findViewObject("ContactIntTeamVO1");
+    }
+
+    /**
+     * Container's getter for ContactIntTeamVL1.
+     * @return ContactIntTeamVL1
+     */
+    public ViewLinkImpl getContactIntTeamVL1() {
+        return (ViewLinkImpl) findViewLink("ContactIntTeamVL1");
+    }
+
+    /**
+     * Container's getter for ContactAppointmentsVO1.
+     * @return ContactAppointmentsVO1
+     */
+    public ViewObjectImpl getContactAppointmentsVO1() {
+        return (ViewObjectImpl) findViewObject("ContactAppointmentsVO1");
+    }
+
+    /**
+     * Container's getter for ContactAppointmentsVL1.
+     * @return ContactAppointmentsVL1
+     */
+    public ViewLinkImpl getContactAppointmentsVL1() {
+        return (ViewLinkImpl) findViewLink("ContactAppointmentsVL1");
+    }
+
+    /**
+     * Container's getter for ContactAppInviteeVO2.
+     * @return ContactAppInviteeVO2
+     */
+    public ViewObjectImpl getContactAppInviteeVO2() {
+        return (ViewObjectImpl) findViewObject("ContactAppInviteeVO2");
+    }
+
+    /**
+     * Container's getter for ContactAppInviteeVL2.
+     * @return ContactAppInviteeVL2
+     */
+    public ViewLinkImpl getContactAppInviteeVL2() {
+        return (ViewLinkImpl) findViewLink("ContactAppInviteeVL2");
+    }
+
+    /**
+     * Container's getter for ContactTaskTeamVO2.
+     * @return ContactTaskTeamVO2
+     */
+    public ViewObjectImpl getContactTaskTeamVO2() {
+        return (ViewObjectImpl) findViewObject("ContactTaskTeamVO2");
+    }
+
+    /**
+     * Container's getter for ContactTaskTeamVL2.
+     * @return ContactTaskTeamVL2
+     */
+    public ViewLinkImpl getContactTaskTeamVL2() {
+        return (ViewLinkImpl) findViewLink("ContactTaskTeamVL2");
+    }
+
+    /**
+     * Container's getter for QuarterlyRevenue1.
+     * @return QuarterlyRevenue1
+     */
+    public ViewObjectImpl getQuarterlyRevenue1() {
+        return (ViewObjectImpl) findViewObject("QuarterlyRevenue1");
+    }
+
+    /**
+     * Container's getter for PotentialCurrentReveneVO1.
+     * @return PotentialCurrentReveneVO1
+     */
+    public ViewObjectImpl getPotentialCurrentReveneVO1() {
+        return (ViewObjectImpl) findViewObject("PotentialCurrentReveneVO1");
+    }
+
 
     /**
      * Container's getter for EmployeesManagerView1.
@@ -1279,7 +1394,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewObjectImpl) findViewObject("AdminRoleAssignmentView1");
     }
 
-   
 
     /**
      * Container's getter for AdminUserRoleassign1.
@@ -1296,8 +1410,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getAdminUserRoleView1() {
         return (ViewObjectImpl) findViewObject("AdminUserRoleView1");
     }
-    public void exceptionHandler(){
-        
+
+    public void exceptionHandler() {
+
     }
 
     /**

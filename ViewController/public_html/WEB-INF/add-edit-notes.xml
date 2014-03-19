@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="add-edit-notes">
-    <default-activity>createInsert</default-activity>
+    <default-activity>addEditNote</default-activity>
     <transaction>
       <requires-transaction/>
     </transaction>
+    <input-parameter-definition id="__21">
+      <name>selectedRowKeyStr</name>
+      <value>#{pageFlowScope.selectedRowKeyStr}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
     <method-call id="createInsert">
       <method>#{bindings.CreateInsert.execute}</method>
       <outcome>
@@ -32,6 +38,44 @@
         <fixed-outcome>Commit</fixed-outcome>
       </outcome>
     </method-call>
+    <router id="addEditNote">
+      <case id="__10">
+        <expression>#{pageFlowScope.selectedRowKeyStr == ''}</expression>
+        <outcome>add</outcome>
+      </case>
+      <case id="__11">
+        <expression>#{pageFlowScope.selectedRowKeyStr != ''}</expression>
+        <outcome>edit</outcome>
+      </case>
+      <default-outcome>edit</default-outcome>
+    </router>
+    <method-call id="SetCurrentRowWithKey">
+      <method>#{bindings.setCurrentRowWithKey.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKey</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="EditNote">
+      <page>/EditNote.jsff</page>
+    </view>
+    <task-flow-return id="saveEdit">
+      <outcome>
+        <name>saveEdit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancelEdit">
+      <outcome>
+        <name>cancelEdit</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="commitEdit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>createNote</from-activity-id>
       <control-flow-case id="__2">
@@ -52,6 +96,39 @@
       <control-flow-case id="__6">
         <from-outcome>createInsert</from-outcome>
         <to-activity-id>createNote</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>addEditNote</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>add</from-outcome>
+        <to-activity-id>createInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>SetCurrentRowWithKey</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>SetCurrentRowWithKey</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>setCurrentRowWithKey</from-outcome>
+        <to-activity-id>EditNote</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>EditNote</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>saveAndClose</from-outcome>
+        <to-activity-id>saveEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>cancelEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>commitEdit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

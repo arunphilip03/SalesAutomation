@@ -54,7 +54,7 @@
             Name="TaskNameRule0"
             ResId="com.sfa.model.entity.Tasks.TaskName_Rule_0"
             OnAttribute="TaskName"
-            Pattern=".*[,/'#~@\\x5B\\x5D}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
+            Pattern=".*[,/'#~@}{+_)(*&amp;^%$£\&quot;!\\|&lt;>]+.*"
             Inverse="true"/>
     </Attribute>
     <Attribute
@@ -75,6 +75,8 @@
                     ResId="com.sfa.model.entity.Tasks.DueDate_FMT_FORMAT"/>
                 <CONTROLTYPE
                     Value="date"/>
+                <DISPLAYWIDTH
+                    Value="11"/>
             </SchemaBasedProperties>
         </Properties>
         <validation:PreDefinedValidationBean
@@ -172,7 +174,6 @@
     </Attribute>
     <Attribute
         Name="OppurtunityId"
-        IsNotNull="true"
         ColumnName="OPPURTUNITY_ID"
         SQLType="NUMERIC"
         Type="java.math.BigDecimal"

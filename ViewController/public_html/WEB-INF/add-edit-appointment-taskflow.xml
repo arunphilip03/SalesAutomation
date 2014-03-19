@@ -17,11 +17,6 @@
       <class>java.lang.String</class>
       <required/>
     </input-parameter-definition>
-    <managed-bean id="__21">
-      <managed-bean-name>AppointmentInvitee</managed-bean-name>
-      <managed-bean-class>com.sfa.view.backing.AppointmentInvitee</managed-bean-class>
-      <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
     <managed-bean id="__5">
       <managed-bean-name>InviteeBean</managed-bean-name>
       <managed-bean-class>com.sfa.view.backing.InviteeBean</managed-bean-class>

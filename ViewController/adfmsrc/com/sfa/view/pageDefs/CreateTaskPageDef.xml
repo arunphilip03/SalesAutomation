@@ -38,7 +38,6 @@
     </attributeValues>
     <listOfValues IterBinding="TasksView3Iterator" StaticList="false" Uses="LOV_RelatedOppurtunity"
                   id="RelatedOppurtunity1"/>
-    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
     <listOfValues IterBinding="TasksView3Iterator" StaticList="false" Uses="LOV_Assignee" id="Assignee1"/>
     <attributeValues IterBinding="CustomerContactsView1Iterator" id="CustAccountId">
       <AttrNames>
@@ -46,5 +45,20 @@
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="AccountName">
+      <AttrNames>
+        <Item Value="AccountName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsView1Iterator" id="ContactId">
+      <AttrNames>
+        <Item Value="ContactId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

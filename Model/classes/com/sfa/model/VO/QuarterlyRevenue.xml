@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="QuarterlyRevenue"
+  Version="12.1.2.66.68"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sfa.model.VO.QuarterlyRevenue_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="USER_NAME"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="John"/>
+  <SQLQuery><![CDATA[select u.user_id, u.user_name, nvl(q1.revenue,0) as q1_rev, nvl(q2.revenue,0) as q2_rev , nvl(q3.revenue,0) as q3_rev , nvl(q4.revenue,0) as q4_rev from        
+        
+(select team.user_id,         
+TO_CHAR(opp.close_date, 'yyyy') AS yr ,        
+TRUNC(opp.close_date, 'Q')    AS qtr,        
+sum(item.revenue) as revenue        
+from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users        
+where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID        
+and team.user_id = users.user_id        
+and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-3)        
+group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q1        
+,       
+(select team.user_id,         
+TO_CHAR(opp.close_date, 'yyyy') AS yr ,        
+TRUNC(opp.close_date, 'Q')    AS qtr,        
+sum(item.revenue) as revenue        
+from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users        
+where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID        
+and team.user_id = users.user_id        
+and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-6)        
+group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q2        
+,        
+(select team.user_id,         
+TO_CHAR(opp.close_date, 'yyyy') AS yr ,        
+TRUNC(opp.close_date, 'Q')    AS qtr,        
+sum(item.revenue) as revenue        
+from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users        
+where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID        
+and team.user_id = users.user_id        
+and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-9)        
+group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q3        
+,        
+(select team.user_id,         
+TO_CHAR(opp.close_date, 'yyyy') AS yr ,        
+TRUNC(opp.close_date, 'Q')    AS qtr,        
+sum(item.revenue) as revenue        
+from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users        
+where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID        
+and team.user_id = users.user_id        
+and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-12)        
+group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q4        
+        
+, users u        
+where u.user_id = q1.user_id(+)        
+and u.user_id = q2.user_id(+)        
+and u.user_id = q3.user_id(+)        
+and u.user_id = q4.user_id(+)        
+and u.manager_id in         
+(select employee_id from users where user_name = :USER_NAME)  
+order by u.user_name]]></SQLQuery>
+  <ViewAttribute
+    Name="UserId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="USER_ID"
+    Expression="USER_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="UserName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="USER_NAME"
+    Expression="USER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.QuarterlyRevenue.UserName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Q1Rev"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="Q1_REV"
+    Expression="Q1_REV"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Q2Rev"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="Q2_REV"
+    Expression="Q2_REV"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Q3Rev"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="Q3_REV"
+    Expression="Q3_REV"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Q4Rev"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="Q4_REV"
+    Expression="Q4_REV"
+    SQLType="NUMERIC"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="UserId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

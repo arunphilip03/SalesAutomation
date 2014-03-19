@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="ContactTskEditPageDef"
+                Package="com.sfa.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ContactTasksVO1" RangeSize="25" DataControl="AppModuleDataControl" id="ContactTasksVO1Iterator"/>
+    <iterator id="ContactTaskTeamVO2Iterator" Binds="ContactTaskTeamVO2" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="AllUsersVO1Iterator" Binds="AllUsersVO1" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="ContactsInAccountVO1Iterator" Binds="ContactsInAccountVO1" DataControl="AppModuleDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ContactTasksVO1Iterator" StaticList="false" Uses="LOV_RelatedOpportunity"
+                  id="RelatedOpportunity"/>
+    <listOfValues IterBinding="ContactTasksVO1Iterator" StaticList="false" Uses="LOV_Assignee" id="Assignee"/>
+    <attributeValues IterBinding="ContactTasksVO1Iterator" id="TaskName">
+      <AttrNames>
+        <Item Value="TaskName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactTasksVO1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactTasksVO1Iterator" id="DueDate">
+      <AttrNames>
+        <Item Value="DueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactTasksVO1Iterator" id="PercentageCompletion">
+      <AttrNames>
+        <Item Value="PercentageCompletion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactTasksVO1Iterator" id="CustAccountId">
+      <AttrNames>
+        <Item Value="CustAccountId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <listOfValues IterBinding="ContactTasksVO1Iterator" StaticList="false" Uses="LOV_Priority" id="Priority1"/>
+  </bindings>
+</pageDefinition>

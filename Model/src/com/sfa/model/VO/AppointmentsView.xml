@@ -175,6 +175,8 @@ WHERE Appointments.DELETE_FLAG = 'N']]></SQLQuery>
           Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="30"/>
+        <LABEL
+          ResId="com.sfa.model.VO.AppointmentsView.RelatedOppurtunity_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -188,4 +190,8 @@ WHERE Appointments.DELETE_FLAG = 'N']]></SQLQuery>
     ViewLink="com.sfa.model.viewlink.AppointmentInviteeVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sfa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

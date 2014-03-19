@@ -19,6 +19,7 @@ public class GenericVOImpl extends ViewObjectImpl {
     private int currentRowIndexInRange;
     
     public void beforeRollback(TransactionEvent TransactionEvent) {
+        System.out.println("hitB");
         if (this.isExecuted()) {
             ViewRowImpl currentRow = (ViewRowImpl)this.getCurrentRow();
             if (currentRow != null) {
@@ -34,10 +35,12 @@ public class GenericVOImpl extends ViewObjectImpl {
     }
         
     public void afterRollback(TransactionEvent TransactionEvent) {
+        
+        System.out.println("hitA");
         super.afterRollback(TransactionEvent);
         if (currentRowKey != null) {
             _logger.fine("STARTING CURRENT ROW RESET");
-            
+            System.out.println("STARTING CURRENT ROW RESET");
             this.executeQuery();
             Key k = new Key(currentRowKey.getAttributeValues());
             Row[] found = this.findByKey(k, 1);

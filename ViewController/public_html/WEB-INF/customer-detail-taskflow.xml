@@ -61,6 +61,10 @@
         <document>/WEB-INF/add-edit-notes.xml</document>
         <id>add-edit-notes</id>
       </task-flow-reference>
+      <input-parameter id="__13">
+        <name>selectedRowKeyStr</name>
+        <value>#{requestScope.selectedNoteKeyStr}</value>
+      </input-parameter>
     </task-flow-call>
     <view id="AppointmentDetail">
       <page>/AppointmentDetail.jsff</page>
@@ -77,6 +81,17 @@
         <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
       </outcome>
     </method-call>
+    <task-flow-call id="view-customer-task-tf">
+      <task-flow-reference>
+        <document>/WEB-INF/view-customer-task-tf.xml</document>
+        <id>view-customer-task-tf</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>customer-detail</from-activity-id>
       <control-flow-case id="__3">
@@ -106,6 +121,10 @@
       <control-flow-case id="__14">
         <from-outcome>getContactDetail</from-outcome>
         <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>viewTask</from-outcome>
+        <to-activity-id>view-customer-task-tf</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__9">

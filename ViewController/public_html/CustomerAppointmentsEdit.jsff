@@ -4,8 +4,11 @@
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:panelGroupLayout id="pgl1">
         <af:messages id="m1"/>
-        <af:panelHeader text="Edit Appointment" id="ph1" inlineStyle="text-indent:5pt;">
-            <f:facet name="context"/>
+        <af:panelHeader text="#{'Edit Appointment '} #{pageFlowScope.appType eq 'contact'?  'for Contact:' : 'for Customer:'}" id="ph1"
+                        styleClass="AFStretchWidth">
+            <f:facet name="context">
+                <af:outputText value="#{pageFlowScope.appType eq 'contact'? bindings.ContactName : bindings.AccountName}" id="ot1"/>
+            </f:facet>
             <f:facet name="menuBar"/>
             <f:facet name="toolbar">
                 <af:toolbar id="t1">
@@ -13,13 +16,13 @@
                     <af:button text="Save and Close" id="b4" action="saveAndClose"
                                actionListener="#{InviteeBean.onCommit}"/>
                     <af:button text="Cancel" id="b2" action="cancel" immediate="true"
-                               actionListener="#{bindings.Rollback.execute}"/>
+                               actionListener="#{RollBackBean.onRollBackAppointments}"/>
                 </af:toolbar>
             </f:facet>
             <f:facet name="legend"/>
             <f:facet name="info"/>
             <af:spacer width="10" height="10" id="s1"/>
-            <af:panelFormLayout id="pfl1" rows="4" fieldWidth="350px" labelWidth="75px">
+            <af:panelFormLayout id="pfl1" rows="4" fieldWidth="350px" labelWidth="75px" styleClass="AFStretchWidth">
                 <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
                               required="#{bindings.Name.hints.mandatory}" columns="#{bindings.Name.hints.displayWidth}"
                               maximumLength="#{bindings.Name.hints.precision}"

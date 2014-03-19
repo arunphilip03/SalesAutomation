@@ -69,7 +69,6 @@
           <Item Value="WorkPhone"/>
           <Item Value="MobilePhone"/>
           <Item Value="Email"/>
-          <Item Value="BuyInfluenceLevel"/>
           <Item Value="IsPrimary"/>
           <Item Value="CreationDate"/>
           <Item Value="LastUpdateDate"/>

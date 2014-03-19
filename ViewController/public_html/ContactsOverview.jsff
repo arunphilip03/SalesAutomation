@@ -74,7 +74,7 @@
                                 </af:link>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.Department.label}"
-                                       id="resId1c4" width="91"
+                                       id="resId1c4" width="172"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.Department.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.Department}"
@@ -82,14 +82,14 @@
                                                id="ot4"/>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.Address.label}" id="resId1c5"
-                                       width="160" sortProperty="#{bindings.CustomerContactsView1.hints.Address.name}"
+                                       width="148" sortProperty="#{bindings.CustomerContactsView1.hints.Address.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.Address}"
                                                shortDesc="#{bindings.CustomerContactsView1.hints.Address.tooltip}"
                                                id="ot5"/>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.WorkPhone.label}"
-                                       id="resId1c6" width="196"
+                                       id="resId1c6" width="127"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.WorkPhone.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.WorkPhone}"
@@ -120,16 +120,20 @@
                                                       pattern="#{bindings.CustomerContactsView1.hints.CustAccountId1.format}"/>
                                 </af:inputText>
                             </af:column>
-                            <af:column headerText="#{bindings.CustomerContactsView1.hints.BuyInfluenceLevel.label}"
-                                       id="resId1c9" width="240"
-                                       sortProperty="#{bindings.CustomerContactsView1.hints.BuyInfluenceLevel.name}"
-                                       sortable="true">
-                                <af:outputText value="#{row.BuyInfluenceLevel}"
-                                               shortDesc="#{bindings.CustomerContactsView1.hints.BuyInfluenceLevel.tooltip}"
+                            <af:column headerText="#{bindings.CustomerContactsView1.hints.BuyingRole.label}" id="c1"
+                                       width="161">
+                                <af:outputText value="#{row.BuyingRole}"
+                                               shortDesc="#{bindings.CustomerContactsView1.hints.BuyingRole.tooltip}"
+                                               id="ot8"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.CustomerContactsView1.hints.InfluenceLevel.label}"
+                                       id="c2" width="91">
+                                <af:outputText value="#{row.InfluenceLevel}"
+                                               shortDesc="#{bindings.CustomerContactsView1.hints.InfluenceLevel.tooltip}"
                                                id="ot9"/>
                             </af:column>
                             <af:column headerText="#{bindings.CustomerContactsView1.hints.IsPrimary.label}"
-                                       id="resId1c10" width="90"
+                                       id="resId1c10" width="2"
                                        sortProperty="#{bindings.CustomerContactsView1.hints.IsPrimary.name}"
                                        sortable="true">
                                 <af:outputText value="#{row.IsPrimary}"

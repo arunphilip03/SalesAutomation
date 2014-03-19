@@ -7,19 +7,6 @@
       <property
          name="x">101.356445</property>
    </OverallProperties>
-   <MethodCall
-      id="MethodCall2">
-      <property
-         name="activityId">SetCurrentRowWithKeyValue</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">176.39648</property>
-      <property
-         name="x">771.08887</property>
-   </MethodCall>
    <TaskFlowCall
       id="TaskFlowCall3">
       <property
@@ -33,9 +20,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">445.84668</property>
+         name="y">454.44434</property>
       <property
-         name="x">96.356445</property>
+         name="x">30.356445</property>
    </TaskFlowCall>
    <TaskFlowCall
       id="TaskFlowCall4">
@@ -50,27 +37,10 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">188.14551</property>
+         name="y">127.444336</property>
       <property
-         name="x">97.08887</property>
+         name="x">120.08887</property>
    </TaskFlowCall>
-   <View
-      id="View5">
-      <property
-         name="activityId">CustomerAppointmentsEdit</property>
-      <property
-         name="page">/CustomerAppointmentsEdit.jsff</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>CustomerAppointmentsEdit&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">199.39648</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">1059.499</property>
-   </View>
    <TaskFlowReturn
       id="TaskFlowReturn6">
       <property
@@ -82,9 +52,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">134.74707</property>
+         name="y">42.0459</property>
       <property
-         name="x">526.08887</property>
+         name="x">568.08887</property>
    </TaskFlowReturn>
    <View
       id="View7">
@@ -113,27 +83,7 @@
       <property
          name="fromOutcome">cancelCreate</property>
       <property
-         name="sdm:polyPoints">R50,139.5743,445.49612,482.9859,319.58392,L65</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase9"
-      from="TaskFlowCall3"
-      to="View7">
-      <property
-         name="fromOutcome">saveCreate</property>
-      <property
-         name="sdm:polyPoints">R60,141.06363,453.95312,484.48434,328.04095,L74</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="MethodCall2"
-      to="View5">
-      <property
-         name="fromOutcome">setCurrentRowWithKeyValue</property>
-      <property
-         name="sdm:polyPoints">R50,812.08887,176.0459,1018.499,192.0459,L42</property>
+         name="sdm:polyPoints">T44,26.856445,394.29526,482.95276,310.39844,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -143,7 +93,7 @@
       <property
          name="fromOutcome">cancel</property>
       <property
-         name="sdm:polyPoints">T50,526.2129,252.89844,526.08887,188.39648,B50</property>
+         name="sdm:polyPoints">T56,529.7129,252.89844,568.08887,95.69531,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -153,7 +103,7 @@
       <property
          name="fromOutcome">createAppointment</property>
       <property
-         name="sdm:polyPoints">L35,483.20526,294.21292,140.0897,187.79494,R50</property>
+         name="sdm:polyPoints">L30,485.2129,289.39844,162.77536,123.59375,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -163,27 +113,7 @@
       <property
          name="fromOutcome">createTask</property>
       <property
-         name="sdm:polyPoints">L55,481.49356,311.12692,138.08495,437.03912,R40</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase14"
-      from="View7"
-      to="MethodCall2">
-      <property
-         name="fromOutcome">editAppointment</property>
-      <property
-         name="sdm:polyPoints">R30,567.2129,289.39844,730.08887,176.0459,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase15"
-      from="TaskFlowCall4"
-      to="View7">
-      <property
-         name="fromOutcome">saveCreate</property>
-      <property
-         name="sdm:polyPoints">R58,138.08887,194.79492,483.06763,303.39844,L46</property>
+         name="sdm:polyPoints">L62,483.87704,317.39844,33.856445,400.09375,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -193,97 +123,7 @@
       <property
          name="fromOutcome">cancelCreate</property>
       <property
-         name="sdm:polyPoints">R42,140.22781,180.79492,485.2129,289.39844,L30</property>
-   </ControlFlowCase>
-   <View
-      id="View17">
-      <property
-         name="activityId">EditTask</property>
-      <property
-         name="page">/EditTask.jsff</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>EditTask&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">356.18945</property>
-      <property
-         name="x">1066.5</property>
-      <property
-         name="pageFragment">true</property>
-   </View>
-   <MethodCall
-      id="MethodCall18">
-      <property
-         name="activityId">SetCurrentRowWithKeyValue1</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">410.2412</property>
-      <property
-         name="x">782.0371</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase19"
-      from="View7"
-      to="MethodCall18">
-      <property
-         name="fromOutcome">editTask</property>
-      <property
-         name="sdm:polyPoints">R74,567.9414,328.04095,740.3086,409.89062,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase20"
-      from="MethodCall18"
-      to="View17">
-      <property
-         name="fromOutcome">setCurrentRowWithKeyValue</property>
-      <property
-         name="sdm:polyPoints">R50,823.0371,409.89062,1025.5,362.83887,L58</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase21"
-      from="View5"
-      to="View7">
-      <property
-         name="fromOutcome">cancel</property>
-      <property
-         name="sdm:polyPoints">L50,1017.75256,199.0459,568.68475,296.39844,R38</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase22"
-      from="View17"
-      to="View7">
-      <property
-         name="fromOutcome">cancel</property>
-      <property
-         name="sdm:polyPoints">L50,1025.2062,355.83887,568.1736,317.39844,R62</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase23"
-      from="View17"
-      to="View7">
-      <property
-         name="fromOutcome">saveAndClose</property>
-      <property
-         name="sdm:polyPoints">L42,1025.5,348.83887,568.4666,310.39844,R54</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase24"
-      from="View5"
-      to="View7">
-      <property
-         name="fromOutcome">saveAndClose</property>
-      <property
-         name="sdm:polyPoints">L58,1018.499,206.0459,569.4318,303.39844,R46</property>
+         name="sdm:polyPoints">R54,161.08887,130.59375,483.5225,296.39844,L38</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall32">
@@ -310,6 +150,345 @@
       <property
          name="fromOutcome">addEditInteraction</property>
       <property
-         name="sdm:polyPoints">B50,526.2129,360.89844,610.03516,450.79883,T50</property>
+         name="sdm:polyPoints">B67,536.7129,363.798,610.03516,450.79883,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View27">
+      <property
+         name="activityId">ContactAppntEdit</property>
+      <property
+         name="page">/ContactAppntEdit.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ContactAppntEdit&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">212.39648</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">1178.6963</property>
+   </View>
+   <MethodCall
+      id="MethodCall29">
+      <property
+         name="activityId">SetCurrentRowWithKey</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKey&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">141.44824</property>
+      <property
+         name="x">934.3545</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase30"
+      from="View7"
+      to="MethodCall29">
+      <property
+         name="fromOutcome">editAppointment</property>
+      <property
+         name="sdm:polyPoints">R42,567.2129,299.89844,893.3545,141.09766,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase31"
+      from="MethodCall29"
+      to="View27">
+      <property
+         name="fromOutcome">setCurrentRowWithKey</property>
+      <property
+         name="sdm:polyPoints">R50,975.3545,141.09766,1137.6963,208.5459,L46</property>
+   </ControlFlowCase>
+   <View
+      id="View33">
+      <property
+         name="activityId">ContactTskEdit</property>
+      <property
+         name="page">/ContactTskEdit.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ContactTskEdit&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">533.99414</property>
+      <property
+         name="x">1099.6816</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <MethodCall
+      id="MethodCall34">
+      <property
+         name="activityId">SetCurrentRowWithKey1</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKey1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">454.74707</property>
+      <property
+         name="x">825.6914</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="View7"
+      to="MethodCall34">
+      <property
+         name="fromOutcome">editTask</property>
+      <property
+         name="sdm:polyPoints">R58,567.2129,313.89844,784.6914,454.39648,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase36"
+      from="MethodCall34"
+      to="View33">
+      <property
+         name="fromOutcome">setCurrentRowWithKey</property>
+      <property
+         name="sdm:polyPoints">R50,866.6914,454.39648,1058.6816,530.14355,L46</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall38">
+      <property
+         name="activityId">methodCall1</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>methodCall1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">271.1953</property>
+      <property
+         name="x">215.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase39"
+      from="TaskFlowCall4"
+      to="MethodCall38">
+      <property
+         name="fromOutcome">saveCreate</property>
+      <property
+         name="sdm:polyPoints">B50,120.08887,181.09375,215.0,216.84473,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase40"
+      from="MethodCall38"
+      to="View7">
+      <property
+         name="fromOutcome">goBack</property>
+      <property
+         name="sdm:polyPoints">R50,256.0,270.84473,482.43195,303.39844,L46</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall41">
+      <property
+         name="activityId">Execute</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">442.74707</property>
+      <property
+         name="x">258.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase42"
+      from="MethodCall41"
+      to="View7">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">R50,299.5,442.39648,485.2129,324.39844,L70</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase43"
+      from="TaskFlowCall3"
+      to="MethodCall41">
+      <property
+         name="fromOutcome">saveCreate</property>
+      <property
+         name="sdm:polyPoints">B50,30.356445,508.09375,258.5,496.39648,B50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall42">
+      <property
+         name="activityId">Execute1</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">584.7471</property>
+      <property
+         name="x">856.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase44"
+      from="View33"
+      to="MethodCall42">
+      <property
+         name="fromOutcome">goBack</property>
+      <property
+         name="sdm:polyPoints">L54,1058.6816,537.14355,897.5,584.3965,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase45"
+      from="MethodCall42"
+      to="View7">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">L50,815.5,584.3965,543.7129,360.89844,B79</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall46">
+      <property
+         name="activityId">Execute2</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute2&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">270.74707</property>
+      <property
+         name="x">902.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase47"
+      from="View27"
+      to="MethodCall46">
+      <property
+         name="fromOutcome">goBack</property>
+      <property
+         name="sdm:polyPoints">L54,1137.6963,215.5459,943.5,270.39648,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase48"
+      from="MethodCall46"
+      to="View7">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">L50,861.5,270.39648,568.23596,306.89844,R50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall51">
+      <property
+         name="taskFlowId">view-contact-interaction-tf</property>
+      <property
+         name="activityId">view-contact-interaction-tf</property>
+      <property
+         name="documentReference">/WEB-INF/view-contact-interaction-tf.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>view-contact-interaction-tf&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">668.99414</property>
+      <property
+         name="x">318.5664</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase52"
+      from="View7"
+      to="TaskFlowCall51">
+      <property
+         name="fromOutcome">viewInteraction</property>
+      <property
+         name="sdm:polyPoints">B21,508.7129,360.89844,315.0664,612.9752,T44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase53"
+      from="TaskFlowCall51"
+      to="View7">
+      <property
+         name="fromOutcome">goBack</property>
+      <property
+         name="sdm:polyPoints">T56,322.0664,615.3447,515.7129,363.25916,B33</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall54">
+      <property
+         name="taskFlowId">view-contact-task-tf</property>
+      <property
+         name="activityId">view-contact-task-tf</property>
+      <property
+         name="documentReference">/WEB-INF/view-contact-task-tf.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>view-contact-task-tf&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">673.6953</property>
+      <property
+         name="x">494.8877</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase55"
+      from="View7"
+      to="TaskFlowCall54">
+      <property
+         name="fromOutcome">viewTask</property>
+      <property
+         name="sdm:polyPoints">B56,529.7129,365.0813,498.3877,619.3447,T56</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase56"
+      from="TaskFlowCall54"
+      to="View7">
+      <property
+         name="fromOutcome">goBack</property>
+      <property
+         name="sdm:polyPoints">T44,491.3877,618.9155,522.7129,364.65863,B44</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall57">
+      <property
+         name="taskFlowId">view-contact-appointment-tf</property>
+      <property
+         name="activityId">view-contact-appointment-tf</property>
+      <property
+         name="documentReference">/WEB-INF/view-contact-appointment-tf.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>view-contact-appointment-tf&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">47.448242</property>
+      <property
+         name="x">352.90723</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase58"
+      from="View7"
+      to="TaskFlowCall57">
+      <property
+         name="fromOutcome">viewAppointment</property>
+      <property
+         name="sdm:polyPoints">T44,522.7129,252.89844,352.90723,101.09766,B50</property>
    </ControlFlowCase>
 </SDM>
