@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.2.66.68" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.sfa.view" ClientType="Generic">
+    <definitionFactories>
+        <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+                 className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+        <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+        <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+                 className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+    </definitionFactories>
+    <pageMap>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@SetCurrentRowWithKeyValue"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/ContactDetailPage.jsff" usageId="com_sfa_view_ContactDetailPagePageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@SetCurrentRowWithKeyValue2"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValue2PageDef"/>
+        <page path="/ContactAppointmentsTab.jsff" usageId="com_sfa_view_ContactAppointmentsTabPageDef"/>
+        <page path="/WEB-INF/customer-detail-taskflow.xml#customer-detail-taskflow@SetCurrentRowWithKeyValue"
+              usageId="com_sfa_view_customer_detail_taskflow_customer_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/WEB-INF/add-edit-customer.xml#add-edit-customer@setCurrentRowWithKey"
+              usageId="com_sfa_view_add_edit_customer_add_edit_customer_setCurrentRowWithKeyPageDef"/>
+        <page path="/WEB-INF/add-edit-customer.xml#add-edit-customer@CreateInsert"
+              usageId="com_sfa_view_add_edit_customer_add_edit_customer_CreateInsertPageDef"/>
+        <page path="/customer-search.jsf" usageId="com_sfa_view_customer_searchPageDef"/>
+        <page path="/WEB-INF/add-edit-contact.xml#add-edit-contact@createInsert"
+              usageId="com_sfa_view_add_edit_contact_add_edit_contact_createInsertPageDef"/>
+        <page path="/CustomerAppointment.jsf" usageId="com_sfa_view_CustomerAppointmentPageDef"/>
+        <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@createInsert"
+              usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_createInsertPageDef"/>
+        <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@setCurrentRowWithKey"
+              usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentRowWithKeyPageDef"/>
+        <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@createInsert"
+              usageId="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_createInsertPageDef"/>
+        <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@setAppointmentKey"
+              usageId="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_setAppointmentKeyPageDef"/>
+        <page path="/SelectUserAndContact.jsf" usageId="com_sfa_view_untitled1PageDef1"/>
+        <page path="/WEB-INF/add-edit-customer.xml#add-edit-customer@Commit"
+              usageId="com_sfa_view_add_edit_customer_add_edit_customer_CommitPageDef"/>
+        <page path="/SalesDashboard.jspx" usageId="com_sfa_view_SalesDashboardPageDef1"/>
+        <page path="/CustomerCreate.jsff" usageId="com_sfa_view_CustomerCreatePageDef"/>
+        <page path="/CustomerEdit.jsff" usageId="com_sfa_view_editCustomerPageDef"/>
+        <page path="/CustomerDetail.jsff" usageId="com_sfa_view_CustomerDetailPageDef"/>
+        <page path="/CustomerAppointmentsEdit.jsff" usageId="com_sfa_view_CustomerAppointmentsEditPageDef"/>
+        <page path="/ContactCreateEdit.jsff" usageId="com_sfa_view_editcontacttempPageDef"/>
+        <page path="/CustomerOverview.jsff" usageId="com_sfa_view_customer_overviewPageDef"/>
+        <page path="/CustomerDetailsHome.jsff" usageId="com_sfa_view_CustomerDetailsHomePageDef"/>
+        <page path="/SalesHome.jsf" usageId="com_sfa_view_SalesHomePageDef"/>
+        <page path="/WEB-INF/add-edit-customer.xml#add-edit-customer@createCommit"
+              usageId="com_sfa_view_add_edit_customer_add_edit_customer_createCommitPageDef"/>
+        <page path="/ContactEdit.jsff" usageId="com_sfa_view_ContactEditPageDef11"/>
+        <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@commitCreate"
+              usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitCreatePageDef"/>
+        <page path="/WEB-INF/add-edit-contact-taskflow.xml#add-edit-contact-taskflow@commitEdit"
+              usageId="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"/>
+        <page path="/admin-role-main.jsff" usageId="com_sfa_view_admin_role_mainPageDef"/>
+        <page path="/admin-role-create.jsff" usageId="com_sfa_view_admin_role_createPageDef"/>
+        <page path="/admin-product-create.jsff" usageId="com_sfa_view_admin_product_createPageDef"/>
+        <page path="/admin-role-edit.jsff" usageId="com_sfa_view_admin_role_editPageDef"/>
+        <page path="/admin-edit-product.jsff" usageId="com_sfa_view_admin_edit_productPageDef"/>
+        <page path="/admin-product-main.jsff" usageId="com_sfa_view_admin_product_mainPageDef"/>
+        <page path="/admin-user-main.jsff" usageId="com_sfa_view_admin_user_mainPageDef"/>
+        <page path="/admin-user-edit.jsff" usageId="com_sfa_view_admin_user_editPageDef"/>
+        <page path="/admin-user-create.jsff" usageId="com_sfa_view_admin_user_createPageDef"/>
+        <page path="/admin-productcategory-main.jsff" usageId="com_sfa_view_admin_productcategory_mainPageDef"/>
+        <page path="/admin-productcategory-create.jsff" usageId="com_sfa_view_admin_productcategory_createPageDef"/>
+        <page path="/admin-user-roleassign.jsff" usageId="com_sfa_view_admin_user_roleassignPageDef"/>
+        <page path="/admin-roleAssign-edit.jsff" usageId="com_sfa_view_admin_roleAssign_editPageDef"/>
+        <page path="/admin-roleAssign-create.jsff" usageId="com_sfa_view_admin_roleAssign_createPageDef"/>
+        <page path="/AdminDashboard.jsf" usageId="com_sfa_view_AdminDashboardPageDef"/>
+        <page path="/CustomerAppointmentsCreate.jsff" usageId="com_sfa_view_CustomerAppointmentsCreatePageDef"/>
+        <page path="/delete-confirm.jsff" usageId="com_sfa_view_delete_confirmPageDef"/>
+        <page path="/AppointmentInvitees.jsff" usageId="com_sfa_view_AppointmentInviteesPageDef"/>
+        <page path="/delete-confirm.jsf" usageId="com_sfa_view_delete_confirmPageDef1"/>
+        <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@commitCreate"
+              usageId="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitCreatePageDef"/>
+        <page path="/opportunity-all-main.jsff" usageId="com_sfa_view_opportunity_all_mainPageDef"/>
+        <page path="/WEB-INF/add-edit-appointment-taskflow.xml#add-edit-appointment-taskflow@commitEdit"
+              usageId="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitEditPageDef"/>
+        <page path="/Opportunities.jsf" usageId="com_sfa_view_OpportunitiesPageDef"/>
+        <page path="/ContactsOverview.jsff" usageId="com_sfa_view_ContactsOverviewPageDef"/>
+        <page path="/opportunity-details-main.jsff" usageId="com_sfa_view_opportunity_details_mainPageDef"/>
+        <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@createInsert"
+              usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_createInsertPageDef"/>
+        <page path="/opportunity-create-main.jsff" usageId="com_sfa_view_opportunity_create_mainPageDef"/>
+        <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@setCurrentRowWithKey"
+              usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_setCurrentRowWithKeyPageDef"/>
+        <page path="/opportunity-revenue-create.jsff" usageId="com_sfa_view_opportunity_revenue_createPageDef"/>
+        <page path="/CreateTask.jsff" usageId="com_sfa_view_CreateTaskPageDef"/>
+        <page path="/opportunity-revenue-edit.jsff" usageId="com_sfa_view_opportunity_revenue_editPageDef"/>
+        <page path="/EditTask.jsff" usageId="com_sfa_view_EditTaskPageDef"/>
+        <page path="/opportunity-notes-main.jsff" usageId="com_sfa_view_opportunity_notes_mainPageDef"/>
+        <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@commitCreate"
+              usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitCreatePageDef"/>
+        <page path="/opportunity-notes-edit.jsff" usageId="com_sfa_view_opportunity_notes_editPageDef"/>
+        <page path="/WEB-INF/add-edit-tasks-taskflow.xml#add-edit-tasks-taskflow@commitEdit"
+              usageId="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"/>
+        <page path="/opportunity-notes-create.jsff" usageId="com_sfa_view_opportunity_notes_createPageDef"/>
+        <page path="/WEB-INF/add-edit-notes.xml#add-edit-notes@createInsert"
+              usageId="com_sfa_view_add_edit_notes_add_edit_notes_createInsertPageDef"/>
+        <page path="/opportunity-task-main.jsff" usageId="com_sfa_view_opportunity_task_mainPageDef"/>
+        <page path="/WEB-INF/add-edit-notes.xml#add-edit-notes@commit"
+              usageId="com_sfa_view_add_edit_notes_add_edit_notes_commitPageDef"/>
+        <page path="/opportunity-task-edit.jsff" usageId="com_sfa_view_opportunity_task_editPageDef"/>
+        <page path="/CreateNote.jsff" usageId="com_sfa_view_CreateNotePageDef"/>
+        <page path="/opportunity-task-create.jsff" usageId="com_sfa_view_opportunity_task_createPageDef"/>
+        <page path="/ContactDetail.jsff" usageId="com_sfa_view_ContactDetailPageDef"/>
+        <page path="/opportunity-interactions-main.jsff" usageId="com_sfa_view_opportunity_interactions_mainPageDef"/>
+        <page path="/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact@createInsert"
+              usageId="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_createInsertPageDef"/>
+        <page path="/opportunity-interactions-edit.jsff" usageId="com_sfa_view_opportunity_interactions_editPageDef"/>
+        <page path="/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact@setCurrentRowWithKey"
+              usageId="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_setCurrentRowWithKeyPageDef"/>
+        <page path="/opportunity-interactions-create.jsff"
+              usageId="com_sfa_view_opportunity_interactions_createPageDef"/>
+        <page path="/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact@commitCreate"
+              usageId="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_commitCreatePageDef"/>
+        <page path="/opportunities-appoinment-main.jsff" usageId="com_sfa_view_opportunities_appoinment_mainPageDef"/>
+        <page path="/WEB-INF/add-edit-toplevel-contact.xml#add-edit-toplevel-contact@commitEdit"
+              usageId="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_commitEditPageDef"/>
+        <page path="/opportunities-appoinment-create.jsff"
+              usageId="com_sfa_view_opportunities_appoinment_createPageDef"/>
+        <page path="/ContactMainCreate.jsff" usageId="com_sfa_view_ContactMainCreatePageDef"/>
+        <page path="/opportunities-appoinment-edit.jsff" usageId="com_sfa_view_opportunities_appoinment_editPageDef"/>
+        <page path="/ContactMainEdit.jsff" usageId="com_sfa_view_ContactMainEditPageDef"/>
+        <page path="/Opportunity-team.jsff" usageId="com_sfa_view_Opportunity_teamPageDef"/>
+        <page path="/AppointmentDetail.jsff" usageId="com_sfa_view_AppointmentDetailPageDef"/>
+        <page path="/WEB-INF/contacts-taskflow.xml#contacts-taskflow@SetCurrentRowWithKeyValue"
+              usageId="com_sfa_view_contacts_taskflow_contacts_taskflow_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/Opportunity-attachments.jsff" usageId="com_sfa_view_Opportunity_attachmentsPageDef"/>
+        <page path="/EditInteractions.jsff" usageId="com_sfa_view_EditInteractionsPageDef"/>
+        <page path="/Opportunity-attachment-upload.jsff" usageId="com_sfa_view_Opportunity_attachment_uploadPageDef"/>
+        <page path="/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow@createInsert"
+              usageId="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_createInsertPageDef"/>
+        <page path="/SalesRepHome.jsf" usageId="com_sfa_view_SalesRepHomePageDef"/>
+        <page path="/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow@commitCreate"
+              usageId="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitCreatePageDef"/>
+        <page path="PageFlow#ExecuteWithParams" usageId="com_sfa_view_SalesHome_Sample___ExecuteWithParamsPageDef"/>
+        <page path="/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow@commitEdit"
+              usageId="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitEditPageDef"/>
+        <page path="/SalesRep-home.jsff" usageId="com_sfa_view_SalesRep_homePageDef"/>
+        <page path="/CreateInteraction.jsff" usageId="com_sfa_view_CreateInteractionPageDef"/>
+        <page path="/untitled1.jsf" usageId="com_sfa_view_untitled1PageDef111"/>
+        <page path="/WEB-INF/add-edit-interactions-taskflow.xml#add-edit-interactions-taskflow@SetCurrentRowWithKeyValue"
+              usageId="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/SalesRep-other.jsff" usageId="com_sfa_view_SalesRep_otherPageDef"/>
+        <page path="/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf@ExecuteWithParams"
+              usageId="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParamsPageDef"/>
+        <page path="/WEB-INF/adminUser-roleAssign-create.xml#adminUser-roleAssign-create@ExecuteWithParams"
+              usageId="com_sfa_view_adminUser_roleAssign_create_adminUser_roleAssign_create_ExecuteWithParamsPageDef"/>
+        <page path="/WEB-INF/Sales-repHome-tf.xml#Sales-repHome-tf@ExecuteWithParams1"
+              usageId="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"/>
+        <page path="/opportunity-revenue-main.jsff" usageId="com_sfa_view_opportunity_revenue_mainPageDef"/>
+        <page path="/AdminHome.jsff" usageId="com_sfa_view_AdminHomePageDef"/>
+        <page path="/WEB-INF/add-edit-notes.xml#add-edit-notes@SetCurrentRowWithKey"
+              usageId="com_sfa_view_add_edit_notes_add_edit_notes_SetCurrentRowWithKeyPageDef"/><page path="/admin-productcategory-edit.jsff" usageId="com_sfa_view_admin_productcategory_editPageDef"/>
+<page path="/EditNote.jsff" usageId="com_sfa_view_EditNotePageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_ExecutePageDef"/><page path="/WEB-INF/add-edit-notes.xml#add-edit-notes@commitEdit"
+              usageId="com_sfa_view_add_edit_notes_add_edit_notes_methodCall1PageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute1"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute1PageDef"/><page path="/ContactAppointmentCreate.jsff" usageId="com_sfa_view_ContactAppointmentCreatePageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute2"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute2PageDef"/><page path="/WEB-INF/manage-contact-taskflow.xml#manage-contact-taskflow@CreateInsert"
+              usageId="com_sfa_view_manage_contact_taskflow_manage_contact_taskflow_CreateInsertPageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute3"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute3PageDef"/><page path="/ContactAppointmentEdit.jsff" usageId="com_sfa_view_ContactAppointmentEditPageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute4"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute4PageDef"/><page path="/AllContactsList.jsff" usageId="com_sfa_view_AllContactsListPageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute5"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute5PageDef"/><page path="/ContactTaskCreate.jsff" usageId="com_sfa_view_ContactTaskCreatePageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@CreateInsert"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_CreateInsertPageDef"/><page path="/ContactTaskEdit.jsff" usageId="com_sfa_view_ContactTaskEditPageDef"/>
+        <page path="/WEB-INF/opportunity-main-tf.xml#opportunity-main-tf@Execute6"
+              usageId="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute6PageDef"/><page path="/ContactInteractionCreate.jsff" usageId="com_sfa_view_ContactInteractionCreatePageDef"/>
+        <page path="/WEB-INF/admin-user-roleAssignment.xml#admin-user-roleAssignment@ExecuteWithParams"
+              usageId="com_sfa_view_admin_user_roleAssignment_admin_user_roleAssignment_ExecuteWithParamsPageDef"/><page path="/ContactInteractionEdit.jsff" usageId="com_sfa_view_ContactInteractionEditPageDef"/>
+        <page path="/ContactAppntEdit.jsff" usageId="com_sfa_view_ContactAppntEditPageDef"/>
+        <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@SetCurrentRowWithKey"
+              usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyPageDef"/>
+        <page path="/ContactTskEdit.jsff" usageId="com_sfa_view_ContactTskEditPageDef"/>
+        <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@SetCurrentRowWithKey1"
+              usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKey1PageDef"/>
+        <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@methodCall1"
+              usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_methodCall1PageDef"/>
+        <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@Execute"
+              usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_ExecutePageDef"/>
+        <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@Execute1"
+              usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_Execute1PageDef"/>
+        <page path="/WEB-INF/contact-detail-taskflow.xml#contact-detail-taskflow@Execute2"
+              usageId="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_Execute2PageDef"/>
+        <page path="/ViewContactInteraction.jsf" usageId="com_sfa_view_ViewContactInteractionPageDef"/>
+        <page path="/ViewContactTask.jsf" usageId="com_sfa_view_ViewContactTaskPageDef"/>
+        <page path="/ViewContactAppointment.jsf" usageId="com_sfa_view_ViewContactAppointmentPageDef"/>
+        <page path="/ViewCustomerTask.jsf" usageId="com_sfa_view_ViewCustomerTaskPageDef"/>
+        <page path="/SalesManagerHome.jsff" usageId="com_sfa_view_SalesManagerHomePageDef"/>
+        <page path="/WEB-INF/sales-manager-tf.xml#sales-manager-tf@ExecuteWithParams"
+              usageId="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"/>
+        <page path="/WEB-INF/sales-manager-tf.xml#sales-manager-tf@ExecuteWithParams1"
+              usageId="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParams1PageDef"/>
+    </pageMap>
+    <pageDefinitionUsages>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="com_sfa_view_ContactDetailPagePageDef" path="com.sfa.view.pageDefs.ContactDetailPagePageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValue2PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValue2PageDef"/>
+        <page id="com_sfa_view_ContactAppointmentsTabPageDef"
+              path="com.sfa.view.pageDefs.ContactAppointmentsTabPageDef"/>
+        <page id="com_sfa_view_customer_detail_taskflow_customer_detail_taskflow_SetCurrentRowWithKeyValuePageDef"
+              path="com.sfa.view.pageDefs.customer_detail_taskflow_customer_detail_taskflow_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="com_sfa_view_adminHomePageDef" path="com.sfa.view.pageDefs.adminHomePageDef"/>
+        <page id="com_sfa_view_searchAccountPageDef" path="com.sfa.view.pageDefs.searchAccountPageDef"/>
+        <page id="com_sfa_view_updateAccountPageDef" path="com.sfa.view.pageDefs.updateAccountPageDef"/>
+        <page id="com_sfa_view_untitled1PageDef" path="com.sfa.view.pageDefs.untitled1PageDef"/>
+        <page id="com_sfa_view_viewAccountPageDef" path="com.sfa.view.pageDefs.viewAccountPageDef"/>
+        <page id="com_sfa_view_createAccountPageDef" path="com.sfa.view.pageDefs.createAccountPageDef"/>
+        <page id="com_sfa_view_customer_overviewPageDef" path="com.sfa.view.pageDefs.CustomerOverviewPageDef"/>
+        <page id="com_sfa_view_CustomerPageDef" path="com.sfa.view.pageDefs.CustomerPageDef"/>
+        <page id="com_sfa_view_CustomerSearchPageDef" path="com.sfa.view.pageDefs.CustomerSearchPageDef"/>
+        <page id="com_sfa_view_CustomerEditPageDef" path="com.sfa.view.pageDefs.CustomerEditPageDef"/>
+        <page id="com_sfa_view_add_edit_customer_add_edit_customer_setCurrentRowWithKeyPageDef"
+              path="com.sfa.view.pageDefs.add_edit_customer_add_edit_customer_setCurrentRowWithKeyPageDef"/>
+        <page id="com_sfa_view_editCustomerPageDef" path="com.sfa.view.pageDefs.editCustomerPageDef"/>
+        <page id="com_sfa_view_add_edit_customer_add_edit_customer_CreateInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_customer_add_edit_customer_CreateInsertPageDef"/>
+        <page id="com_sfa_view_customer_searchPageDef" path="com.sfa.view.pageDefs.customer_searchPageDef"/>
+        <page id="com_sfa_view_ContactsOverviewPageDef" path="com.sfa.view.pageDefs.ContactsOverviewPageDef"/>
+        <page id="com_sfa_view_CustomerDetailPageDef" path="com.sfa.view.pageDefs.CustomerDetailPageDef"/>
+        <page id="com_sfa_view_ContactEditPageDef" path="com.sfa.view.pageDefs.ContactEditPageDef"/>
+        <page id="com_sfa_view_add_edit_contact_task_flow_definition_CreateInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_task_flow_definition_CreateInsertPageDef"/>
+        <page id="com_sfa_view_add_edit_contact_task_flow_definition_SetCurrentRowWithKeyPageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_task_flow_definition_SetCurrentRowWithKeyPageDef"/>
+        <page id="com_sfa_view_add_edit_contact_add_edit_contact_CreateInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_add_edit_contact_CreateInsertPageDef"/>
+        <page id="com_sfa_view_add_edit_contact_add_edit_contact_SetCurrentRowWithKeyPageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_add_edit_contact_SetCurrentRowWithKeyPageDef"/>
+        <page id="com_sfa_view_add_edit_contact_add_edit_contact_createInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_add_edit_contact_createInsertPageDef"/>
+        <page id="com_sfa_view_ContactEditPageDef1" path="com.sfa.view.pageDefs.ContactEditPageDef1"/>
+        <page id="com_sfa_view_editcontacttempPageDef" path="com.sfa.view.pageDefs.editcontacttempPageDef"/>
+        <page id="com_sfa_view_CustomerAppointmentPageDef" path="com.sfa.view.pageDefs.CustomerAppointmentPageDef"/>
+        <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_createInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_createInsertPageDef"/>
+        <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentRowWithKeyPageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_setCurrentRowWithKeyPageDef"/>
+        <page id="com_sfa_view_CustomerAppointmentsEditPageDef"
+              path="com.sfa.view.pageDefs.CustomerAppointmentsEditPageDef"/>
+        <page id="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_createInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_appointment_taskflow_add_edit_appointment_taskflow_createInsertPageDef"/>
+        <page id="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_setAppointmentKeyPageDef"
+              path="com.sfa.view.pageDefs.add_edit_appointment_taskflow_add_edit_appointment_taskflow_setAppointmentKeyPageDef"/>
+        <page id="com_sfa_view_untitled1PageDef1" path="com.sfa.view.pageDefs.SelectUserAndContactPageDef"/>
+        <page id="com_sfa_view_untitled1PageDef11" path="com.sfa.view.pageDefs.untitled1PageDef1"/>
+        <page id="com_sfa_view_SalesDashboardPageDef" path="com.sfa.view.pageDefs.SalesDashboardPageDef"/>
+        <page id="com_sfa_view_CustomerCreatePageDef" path="com.sfa.view.pageDefs.CustomerCreatePageDef"/>
+        <page id="com_sfa_view_add_edit_customer_add_edit_customer_CommitPageDef"
+              path="com.sfa.view.pageDefs.add_edit_customer_add_edit_customer_CommitPageDef"/>
+        <page id="com_sfa_view_SalesDashboardPageDef1" path="com.sfa.view.pageDefs.SalesDashboardPageDef1"/>
+        <page id="com_sfa_view_samplePageDef" path="com.sfa.view.pageDefs.samplePageDef"/>
+        <page id="com_sfa_view_CustomersHomePageDef" path="com.sfa.view.pageDefs.CustomersHomePageDef"/>
+        <page id="com_sfa_view_testArunPageDef" path="com.sfa.view.pageDefs.testArunPageDef"/>
+        <page id="com_sfa_view_CustomerAccountOverviewPageDef"
+              path="com.sfa.view.pageDefs.CustomerAccountOverviewPageDef"/>
+        <page id="com_sfa_view_CustomerDetailsHomePageDef" path="com.sfa.view.pageDefs.CustomerDetailsHomePageDef"/>
+        <page id="com_sfa_view_SalesHomePageDef" path="com.sfa.view.pageDefs.SalesHomePageDef"/>
+        <page id="com_sfa_view_add_edit_customer_add_edit_customer_createCommitPageDef"
+              path="com.sfa.view.pageDefs.add_edit_customer_add_edit_customer_createCommitPageDef"/>
+        <page id="com_sfa_view_ContactEditPageDef11" path="com.sfa.view.pageDefs.ContactEditPageDef11"/>
+        <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitCreatePageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_commitCreatePageDef"/>
+        <page id="com_sfa_view_add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"
+              path="com.sfa.view.pageDefs.add_edit_contact_taskflow_add_edit_contact_taskflow_commitEditPageDef"/>
+        <page id="com_sfa_view_admin_role_mainPageDef" path="com.sfa.view.pageDefs.admin_role_mainPageDef"/>
+        <page id="com_sfa_view_admin_role_createPageDef" path="com.sfa.view.pageDefs.admin_role_createPageDef"/>
+        <page id="com_sfa_view_admin_product_createPageDef" path="com.sfa.view.pageDefs.admin_product_createPageDef"/>
+        <page id="com_sfa_view_admin_role_editPageDef" path="com.sfa.view.pageDefs.admin_role_editPageDef"/>
+        <page id="com_sfa_view_admin_edit_productPageDef" path="com.sfa.view.pageDefs.admin_edit_productPageDef"/>
+        <page id="com_sfa_view_admin_product_mainPageDef" path="com.sfa.view.pageDefs.admin_product_mainPageDef"/>
+        <page id="com_sfa_view_admin_user_mainPageDef" path="com.sfa.view.pageDefs.admin_user_mainPageDef"/>
+        <page id="com_sfa_view_admin_user_editPageDef" path="com.sfa.view.pageDefs.admin_user_editPageDef"/>
+        <page id="com_sfa_view_admin_user_createPageDef" path="com.sfa.view.pageDefs.admin_user_createPageDef"/>
+        <page id="com_sfa_view_admin_productcategory_mainPageDef"
+              path="com.sfa.view.pageDefs.admin_productcategory_mainPageDef"/>
+        <page id="com_sfa_view_admin_productcategory_createPageDef"
+              path="com.sfa.view.pageDefs.admin_productcategory_createPageDef"/>
+        <page id="com_sfa_view_admin_user_roleassignPageDef" path="com.sfa.view.pageDefs.admin_user_roleassignPageDef"/>
+        <page id="com_sfa_view_admin_roleAssign_editPageDef" path="com.sfa.view.pageDefs.admin_roleAssign_editPageDef"/>
+        <page id="com_sfa_view_admin_roleAssign_createPageDef"
+              path="com.sfa.view.pageDefs.admin_roleAssign_createPageDef"/>
+        <page id="com_sfa_view_Admin_DashboardPageDef" path="com.sfa.view.pageDefs.Admin_DashboardPageDef"/>
+        <page id="com_sfa_view_AdminDashboardPageDef" path="com.sfa.view.pageDefs.AdminDashboardPageDef"/>
+        <page id="com_sfa_view_CustomerAppointmentsCreatePageDef"
+              path="com.sfa.view.pageDefs.CustomerAppointmentsCreatePageDef"/>
+        <page id="com_sfa_view_delete_confirmPageDef" path="com.sfa.view.pageDefs.delete_confirmPageDef"/>
+        <page id="com_sfa_view_AppointmentInviteesPageDef" path="com.sfa.view.pageDefs.AppointmentInviteesPageDef"/>
+        <page id="com_sfa_view_delete_confirmPageDef1" path="com.sfa.view.pageDefs.delete_confirmPageDef1"/>
+        <page id="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitCreatePageDef"
+              path="com.sfa.view.pageDefs.add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitCreatePageDef"/>
+        <page id="com_sfa_view_opportunity_all_mainPageDef" path="com.sfa.view.pageDefs.opportunity_all_mainPageDef"/>
+        <page id="com_sfa_view_add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitEditPageDef"
+              path="com.sfa.view.pageDefs.add_edit_appointment_taskflow_add_edit_appointment_taskflow_commitEditPageDef"/>
+        <page id="com_sfa_view_OpportunitiesPageDef" path="com.sfa.view.pageDefs.OpportunitiesPageDef"/>
+        <page id="com_sfa_view_AppointmentDetailPageDef" path="com.sfa.view.pageDefs.AppointmentDetailPageDef"/>
+        <page id="com_sfa_view_Opportunity_teamPageDef" path="com.sfa.view.pageDefs.Opportunity_teamPageDef"/>
+        <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_createInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_createInsertPageDef"/>
+        <page id="com_sfa_view_opportunity_details_mainPageDef"
+              path="com.sfa.view.pageDefs.opportunity_details_mainPageDef"/>
+        <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_setCurrentRowWithKeyPageDef"
+              path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_setCurrentRowWithKeyPageDef"/>
+        <page id="com_sfa_view_opportunity_create_mainPageDef"
+              path="com.sfa.view.pageDefs.opportunity_create_mainPageDef"/>
+        <page id="com_sfa_view_CreateTaskPageDef" path="com.sfa.view.pageDefs.CreateTaskPageDef"/>
+        <page id="com_sfa_view_opportunity_revenue_createPageDef"
+              path="com.sfa.view.pageDefs.opportunity_revenue_createPageDef"/>
+        <page id="com_sfa_view_EditTaskPageDef" path="com.sfa.view.pageDefs.EditTaskPageDef"/>
+        <page id="com_sfa_view_opportunity_revenue_editPageDef"
+              path="com.sfa.view.pageDefs.opportunity_revenue_editPageDef"/>
+        <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitCreatePageDef"
+              path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitCreatePageDef"/>
+        <page id="com_sfa_view_opportunity_notes_mainPageDef"
+              path="com.sfa.view.pageDefs.opportunity_notes_mainPageDef"/>
+        <page id="com_sfa_view_add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"
+              path="com.sfa.view.pageDefs.add_edit_tasks_taskflow_add_edit_tasks_taskflow_commitEditPageDef"/>
+        <page id="com_sfa_view_opportunity_notes_editPageDef"
+              path="com.sfa.view.pageDefs.opportunity_notes_editPageDef"/>
+        <page id="com_sfa_view_add_edit_notes_add_edit_notes_createInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_notes_add_edit_notes_createInsertPageDef"/>
+        <page id="com_sfa_view_opportunity_notes_createPageDef"
+              path="com.sfa.view.pageDefs.opportunity_notes_createPageDef"/>
+        <page id="com_sfa_view_add_edit_notes_add_edit_notes_commitPageDef"
+              path="com.sfa.view.pageDefs.add_edit_notes_add_edit_notes_commitPageDef"/>
+        <page id="com_sfa_view_opportunity_task_mainPageDef" path="com.sfa.view.pageDefs.opportunity_task_mainPageDef"/>
+        <page id="com_sfa_view_CreateNotePageDef" path="com.sfa.view.pageDefs.CreateNotePageDef"/>
+        <page id="com_sfa_view_opportunity_task_editPageDef" path="com.sfa.view.pageDefs.opportunity_task_editPageDef"/>
+        <page id="com_sfa_view_ContactDetailPageDef" path="com.sfa.view.pageDefs.ContactDetailPageDef"/>
+        <page id="com_sfa_view_opportunity_task_createPageDef"
+              path="com.sfa.view.pageDefs.opportunity_task_createPageDef"/>
+        <page id="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_createInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_toplevel_contact_add_edit_toplevel_contact_createInsertPageDef"/>
+        <page id="com_sfa_view_opportunity_interactions_mainPageDef"
+              path="com.sfa.view.pageDefs.opportunity_interactions_mainPageDef"/>
+        <page id="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_setCurrentRowWithKeyPageDef"
+              path="com.sfa.view.pageDefs.add_edit_toplevel_contact_add_edit_toplevel_contact_setCurrentRowWithKeyPageDef"/>
+        <page id="com_sfa_view_opportunity_interactions_editPageDef"
+              path="com.sfa.view.pageDefs.opportunity_interactions_editPageDef"/>
+        <page id="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_commitCreatePageDef"
+              path="com.sfa.view.pageDefs.add_edit_toplevel_contact_add_edit_toplevel_contact_commitCreatePageDef"/>
+        <page id="com_sfa_view_opportunity_interactions_createPageDef"
+              path="com.sfa.view.pageDefs.opportunity_interactions_createPageDef"/>
+        <page id="com_sfa_view_add_edit_toplevel_contact_add_edit_toplevel_contact_commitEditPageDef"
+              path="com.sfa.view.pageDefs.add_edit_toplevel_contact_add_edit_toplevel_contact_commitEditPageDef"/>
+        <page id="com_sfa_view_opportunities_appoinment_mainPageDef"
+              path="com.sfa.view.pageDefs.opportunities_appoinment_mainPageDef"/>
+        <page id="com_sfa_view_ContactMainCreatePageDef" path="com.sfa.view.pageDefs.ContactMainCreatePageDef"/>
+        <page id="com_sfa_view_opportunities_appoinment_createPageDef"
+              path="com.sfa.view.pageDefs.opportunities_appoinment_createPageDef"/>
+        <page id="com_sfa_view_ContactMainEditPageDef" path="com.sfa.view.pageDefs.ContactMainEditPageDef"/>
+        <page id="com_sfa_view_opportunities_appoinment_editPageDef"
+              path="com.sfa.view.pageDefs.opportunities_appoinment_editPageDef"/>
+        <page id="com_sfa_view_contacts_taskflow_contacts_taskflow_SetCurrentRowWithKeyValuePageDef"
+              path="com.sfa.view.pageDefs.contacts_taskflow_contacts_taskflow_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="com_sfa_view_Opportunity_attachmentsPageDef"
+              path="com.sfa.view.pageDefs.Opportunity_attachmentsPageDef"/>
+        <page id="com_sfa_view_EditInteractionsPageDef" path="com.sfa.view.pageDefs.EditInteractionsPageDef"/>
+        <page id="com_sfa_view_Opportunity_attachment_uploadPageDef"
+              path="com.sfa.view.pageDefs.Opportunity_attachment_uploadPageDef"/>
+        <page id="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_createInsertPageDef"
+              path="com.sfa.view.pageDefs.add_edit_interactions_taskflow_add_edit_interactions_taskflow_createInsertPageDef"/>
+        <page id="com_sfa_view_SalesRepHomePageDef" path="com.sfa.view.pageDefs.SalesRepHomePageDef"/>
+        <page id="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitCreatePageDef"
+              path="com.sfa.view.pageDefs.add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitCreatePageDef"/>
+        <page id="com_sfa_view_SalesHome_Sample___ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.SalesHome_Sample___ExecuteWithParamsPageDef"/>
+        <page id="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitEditPageDef"
+              path="com.sfa.view.pageDefs.add_edit_interactions_taskflow_add_edit_interactions_taskflow_commitEditPageDef"/>
+        <page id="com_sfa_view_SalesRep_homePageDef" path="com.sfa.view.pageDefs.SalesRep_homePageDef"/>
+        <page id="com_sfa_view_CreateInteractionPageDef" path="com.sfa.view.pageDefs.CreateInteractionPageDef"/>
+        <page id="com_sfa_view_untitled1PageDef111" path="com.sfa.view.pageDefs.untitled1PageDef11"/>
+        <page id="com_sfa_view_add_edit_interactions_taskflow_add_edit_interactions_taskflow_SetCurrentRowWithKeyValuePageDef"
+              path="com.sfa.view.pageDefs.add_edit_interactions_taskflow_add_edit_interactions_taskflow_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="com_sfa_view_SalesRep_otherPageDef" path="com.sfa.view.pageDefs.SalesRep_otherPageDef"/>
+        <page id="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParamsPageDef"/>
+        <page id="com_sfa_view_adminUser_roleAssign_create_adminUser_roleAssign_create_ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.adminUser_roleAssign_create_adminUser_roleAssign_create_ExecuteWithParamsPageDef"/>
+        <page id="com_sfa_view_Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"
+              path="com.sfa.view.pageDefs.Sales_repHome_tf_Sales_repHome_tf_ExecuteWithParams1PageDef"/>
+        <page id="com_sfa_view_opportunity_revenue_mainPageDef"
+              path="com.sfa.view.pageDefs.opportunity_revenue_mainPageDef"/>
+        <page id="com_sfa_view_AdminHomePageDef" path="com.sfa.view.pageDefs.AdminHomePageDef"/>
+        <page id="com_sfa_view_add_edit_notes_add_edit_notes_SetCurrentRowWithKeyPageDef"
+              path="com.sfa.view.pageDefs.add_edit_notes_add_edit_notes_SetCurrentRowWithKeyPageDef"/><page id="com_sfa_view_admin_productcategory_editPageDef"
+              path="com.sfa.view.pageDefs.admin_productcategory_editPageDef"/>
+<page id="com_sfa_view_EditNotePageDef" path="com.sfa.view.pageDefs.EditNotePageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_ExecutePageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_ExecutePageDef"/><page id="com_sfa_view_add_edit_notes_add_edit_notes_methodCall1PageDef"
+              path="com.sfa.view.pageDefs.add_edit_notes_add_edit_notes_methodCall1PageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute1PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute1PageDef"/><page id="com_sfa_view_ContactAppointmentCreatePageDef"
+              path="com.sfa.view.pageDefs.ContactAppointmentCreatePageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute2PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute2PageDef"/><page id="com_sfa_view_manage_contact_taskflow_manage_contact_taskflow_CreateInsertPageDef"
+              path="com.sfa.view.pageDefs.manage_contact_taskflow_manage_contact_taskflow_CreateInsertPageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute3PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute3PageDef"/><page id="com_sfa_view_ContactAppointmentEditPageDef"
+              path="com.sfa.view.pageDefs.ContactAppointmentEditPageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute4PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute4PageDef"/><page id="com_sfa_view_AllContactsListPageDef" path="com.sfa.view.pageDefs.AllContactsListPageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute5PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute5PageDef"/><page id="com_sfa_view_ContactTaskCreatePageDef" path="com.sfa.view.pageDefs.ContactTaskCreatePageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_CreateInsertPageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_CreateInsertPageDef"/><page id="com_sfa_view_ContactTaskEditPageDef" path="com.sfa.view.pageDefs.ContactTaskEditPageDef"/>
+        <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_Execute6PageDef"
+              path="com.sfa.view.pageDefs.opportunity_main_tf_opportunity_main_tf_Execute6PageDef"/><page id="com_sfa_view_ContactInteractionCreatePageDef"
+              path="com.sfa.view.pageDefs.ContactInteractionCreatePageDef"/>
+        <page id="com_sfa_view_admin_user_roleAssignment_admin_user_roleAssignment_ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.admin_user_roleAssignment_admin_user_roleAssignment_ExecuteWithParamsPageDef"/><page id="com_sfa_view_ContactInteractionEditPageDef"
+              path="com.sfa.view.pageDefs.ContactInteractionEditPageDef"/>
+        <page id="com_sfa_view_ContactAppntEditPageDef" path="com.sfa.view.pageDefs.ContactAppntEditPageDef"/>
+        <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyPageDef"
+              path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKeyPageDef"/>
+        <page id="com_sfa_view_ContactTskEditPageDef" path="com.sfa.view.pageDefs.ContactTskEditPageDef"/>
+        <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKey1PageDef"
+              path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_SetCurrentRowWithKey1PageDef"/>
+        <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_methodCall1PageDef"
+              path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_methodCall1PageDef"/>
+        <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_ExecutePageDef"
+              path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_ExecutePageDef"/>
+        <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_Execute1PageDef"
+              path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_Execute1PageDef"/>
+        <page id="com_sfa_view_contact_detail_taskflow_contact_detail_taskflow_Execute2PageDef"
+              path="com.sfa.view.pageDefs.contact_detail_taskflow_contact_detail_taskflow_Execute2PageDef"/>
+        <page id="com_sfa_view_ViewContactInteractionPageDef"
+              path="com.sfa.view.pageDefs.ViewContactInteractionPageDef"/>
+        <page id="com_sfa_view_ViewContactTaskPageDef" path="com.sfa.view.pageDefs.ViewContactTaskPageDef"/>
+        <page id="com_sfa_view_ViewContactAppointmentPageDef"
+              path="com.sfa.view.pageDefs.ViewContactAppointmentPageDef"/>
+        <page id="com_sfa_view_ViewCustomerTaskPageDef" path="com.sfa.view.pageDefs.ViewCustomerTaskPageDef"/>
+        <page id="com_sfa_view_SalesManagerHomePageDef" path="com.sfa.view.pageDefs.SalesManagerHomePageDef"/>
+        <page id="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"
+              path="com.sfa.view.pageDefs.sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"/>
+        <page id="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParams1PageDef"
+              path="com.sfa.view.pageDefs.sales_manager_tf_sales_manager_tf_ExecuteWithParams1PageDef"/>
+    </pageDefinitionUsages>
+    <dataControlUsages>
+        <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"
+                         FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                         SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                         SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                         xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    </dataControlUsages>
+</Application>
