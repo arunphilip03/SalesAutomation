@@ -11,9 +11,9 @@
     </f:facet>
     <f:facet name="legend"/>
     <f:facet name="info"/>
+    <af:separator id="s3"/>
     <af:spacer width="10" height="10" id="s1"/>
-    <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth" rows="4"
-                        inlineStyle="font-weight:bold;" fieldWidth="350px" labelWidth="75px">
+    <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth" rows="4" fieldWidth="350px" labelWidth="75px">
       <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
                     required="#{bindings.Name.hints.mandatory}" readOnly="true"
                     columns="#{bindings.Name.hints.displayWidth}" maximumLength="#{bindings.Name.hints.precision}"
@@ -56,6 +56,7 @@
         <f:validator binding="#{bindings.RelatedOppurtunity.validator}"/>
       </af:inputText>
     </af:panelFormLayout>
+    <af:separator id="s4"/>
     <af:spacer width="10" height="10" id="s2"/>
     <af:showDetailHeader text="Invitees" disclosed="true" id="sdh1">
       <f:facet name="context"/>

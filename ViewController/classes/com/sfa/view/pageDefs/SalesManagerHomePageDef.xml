@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="QuarterlyRevenue1" RangeSize="-1" DataControl="AppModuleDataControl"
               id="QuarterlyRevenue1Iterator"/>
+    <iterator Binds="PotentialCurrentReveneVO1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="PotentialCurrentReveneVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="QuarterlyRevenue1Iterator" id="QuarterlyRevenue1">
@@ -28,6 +30,27 @@
             <item value="Q2Rev" label="${QuarterBean.last2Quarter}"/>
             <item value="Q3Rev" label="${QuarterBean.last3Quarter}"/>
             <item value="Q4Rev" label="${QuarterBean.last4Quarter}"/>
+          </data>
+        </series>
+        <groups>
+          <item value="UserName"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <tree IterBinding="PotentialCurrentReveneVO1Iterator" id="PotentialCurrentReveneVO1">
+      <nodeDefinition DefName="com.sfa.model.VO.PotentialCurrentReveneVO" Name="PotentialCurrentReveneVO10">
+        <AttrNames>
+          <Item Value="UserName"/>
+          <Item Value="Q1Rev"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <graph IterBinding="PotentialCurrentReveneVO1Iterator" id="PotentialCurrentReveneVO11"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Q1Rev" label="#{'Revenue'}"/>
           </data>
         </series>
         <groups>

@@ -23,55 +23,56 @@
     Kind="where"
     Type="java.lang.String"
     DefaultValue="John"/>
-  <SQLQuery><![CDATA[select u.user_id, u.user_name, nvl(q1.revenue,0) as q1_rev, nvl(q2.revenue,0) as q2_rev , nvl(q3.revenue,0) as q3_rev , nvl(q4.revenue,0) as q4_rev from      
-      
-(select team.user_id,       
-TO_CHAR(opp.close_date, 'yyyy') AS yr ,      
-TRUNC(opp.close_date, 'Q')    AS qtr,      
-sum(item.revenue) as revenue      
-from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users      
-where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID      
-and team.user_id = users.user_id      
-and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-3)      
-group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q1      
-,     
-(select team.user_id,       
-TO_CHAR(opp.close_date, 'yyyy') AS yr ,      
-TRUNC(opp.close_date, 'Q')    AS qtr,      
-sum(item.revenue) as revenue      
-from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users      
-where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID      
-and team.user_id = users.user_id      
-and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-6)      
-group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q2      
-,      
-(select team.user_id,       
-TO_CHAR(opp.close_date, 'yyyy') AS yr ,      
-TRUNC(opp.close_date, 'Q')    AS qtr,      
-sum(item.revenue) as revenue      
-from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users      
-where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID      
-and team.user_id = users.user_id      
-and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-9)      
-group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q3      
-,      
-(select team.user_id,       
-TO_CHAR(opp.close_date, 'yyyy') AS yr ,      
-TRUNC(opp.close_date, 'Q')    AS qtr,      
-sum(item.revenue) as revenue      
-from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users      
-where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID      
-and team.user_id = users.user_id      
-and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-12)      
-group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q4      
-      
-, users u      
-where u.user_id = q1.user_id(+)      
-and u.user_id = q2.user_id(+)      
-and u.user_id = q3.user_id(+)      
-and u.user_id = q4.user_id(+)      
-and u.manager_id in       
-(select employee_id from users where user_name = :USER_NAME)]]></SQLQuery>
+  <SQLQuery><![CDATA[select u.user_id, u.user_name, nvl(q1.revenue,0) as q1_rev, nvl(q2.revenue,0) as q2_rev , nvl(q3.revenue,0) as q3_rev , nvl(q4.revenue,0) as q4_rev from        
+        
+(select team.user_id,         
+TO_CHAR(opp.close_date, 'yyyy') AS yr ,        
+TRUNC(opp.close_date, 'Q')    AS qtr,        
+sum(item.revenue) as revenue        
+from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users        
+where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID        
+and team.user_id = users.user_id        
+and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-3)        
+group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q1        
+,       
+(select team.user_id,         
+TO_CHAR(opp.close_date, 'yyyy') AS yr ,        
+TRUNC(opp.close_date, 'Q')    AS qtr,        
+sum(item.revenue) as revenue        
+from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users        
+where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID        
+and team.user_id = users.user_id        
+and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-6)        
+group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q2        
+,        
+(select team.user_id,         
+TO_CHAR(opp.close_date, 'yyyy') AS yr ,        
+TRUNC(opp.close_date, 'Q')    AS qtr,        
+sum(item.revenue) as revenue        
+from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users        
+where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID        
+and team.user_id = users.user_id        
+and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-9)        
+group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q3        
+,        
+(select team.user_id,         
+TO_CHAR(opp.close_date, 'yyyy') AS yr ,        
+TRUNC(opp.close_date, 'Q')    AS qtr,        
+sum(item.revenue) as revenue        
+from opportunities opp, opportunity_team team, opportunity_revenue_items item, users users        
+where opp.OPPURTUNITY_ID = team.OPPORTUNITY_ID and opp.OPPURTUNITY_ID = item.OPPORTUNITY_ID        
+and team.user_id = users.user_id        
+and TRUNC(opp.close_date, 'Q') = ADD_MONTHS(TRUNC(SYSDATE,'Q'),-12)        
+group by team.user_id, TO_CHAR(opp.close_date, 'yyyy') ,TRUNC(opp.close_date, 'Q'))q4        
+        
+, users u        
+where u.user_id = q1.user_id(+)        
+and u.user_id = q2.user_id(+)        
+and u.user_id = q3.user_id(+)        
+and u.user_id = q4.user_id(+)        
+and u.manager_id in         
+(select employee_id from users where user_name = :USER_NAME)  
+order by u.user_name]]></SQLQuery>
   <ViewAttribute
     Name="UserId"
     IsUpdateable="false"
@@ -96,6 +97,12 @@ and u.manager_id in
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sfa.model.VO.QuarterlyRevenue.UserName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Q1Rev"

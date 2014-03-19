@@ -1317,5 +1317,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getQuarterlyRevenue1() {
         return (ViewObjectImpl) findViewObject("QuarterlyRevenue1");
     }
+
+    /**
+     * Container's getter for PotentialCurrentReveneVO1.
+     * @return PotentialCurrentReveneVO1
+     */
+    public ViewObjectImpl getPotentialCurrentReveneVO1() {
+        return (ViewObjectImpl) findViewObject("PotentialCurrentReveneVO1");
+    }
 }
 

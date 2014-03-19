@@ -5,7 +5,7 @@
         <af:showDetailItem id="sdi3" text="Revenue" rendered="#{securityContext.userInRole['Sales Manager']}">
             <af:region value="#{bindings.salesmanagertf1.regionModel}" id="r2"/>
         </af:showDetailItem>
-        <af:showDetailItem text="Sales" id="sdi1"
+        <af:showDetailItem text="Opportunities" id="sdi1"
                            rendered="#{securityContext.userInRole['Sales Representative']}"
                            styleClass="AFStretchWidth">
             <af:panelHeader text="   Created Opportunities" id="ph3" styleClass="AFStretchWidth"

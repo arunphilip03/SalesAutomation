@@ -131,6 +131,9 @@
     <ViewUsage
         Name="QuarterlyRevenue1"
         ViewObjectName="com.sfa.model.VO.QuarterlyRevenue"/>
+    <ViewUsage
+        Name="PotentialCurrentReveneVO1"
+        ViewObjectName="com.sfa.model.VO.PotentialCurrentReveneVO"/>
     <ViewLinkUsage Name="AppointmentInviteesFk1Link1"
                    ViewLinkObjectName="com.sfa.model.viewlink.AppointmentInviteesFk1Link"
                    SrcViewUsageName="com.sfa.model.service.AppModule.AppointmentsView1"

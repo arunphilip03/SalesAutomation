@@ -186,6 +186,8 @@
         <page path="/SalesManagerHome.jsff" usageId="com_sfa_view_SalesManagerHomePageDef"/>
         <page path="/WEB-INF/sales-manager-tf.xml#sales-manager-tf@ExecuteWithParams"
               usageId="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"/>
+        <page path="/WEB-INF/sales-manager-tf.xml#sales-manager-tf@ExecuteWithParams1"
+              usageId="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParams1PageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="com_sfa_view_opportunity_main_tf_opportunity_main_tf_SetCurrentRowWithKeyValuePageDef"
@@ -420,6 +422,8 @@
         <page id="com_sfa_view_SalesManagerHomePageDef" path="com.sfa.view.pageDefs.SalesManagerHomePageDef"/>
         <page id="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"
               path="com.sfa.view.pageDefs.sales_manager_tf_sales_manager_tf_ExecuteWithParamsPageDef"/>
+        <page id="com_sfa_view_sales_manager_tf_sales_manager_tf_ExecuteWithParams1PageDef"
+              path="com.sfa.view.pageDefs.sales_manager_tf_sales_manager_tf_ExecuteWithParams1PageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AppModuleDataControl" Package="com.sfa.model.service"

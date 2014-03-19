@@ -275,7 +275,7 @@
                                                  text="#{row.TaskName}"
                                                  disabled="#{!bindings.setCurrentRowWithKey1.enabled}" id="l10"
                                                  action="viewTask" useWindow="true" windowHeight="250"
-                                                 windowWidth="500"/>
+                                                 windowWidth="800"/>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.TasksView3.hints.DueDate.name}" sortable="true"
                                                headerText="#{bindings.TasksView3.hints.DueDate.label}" id="c15"

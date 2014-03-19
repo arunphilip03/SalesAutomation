@@ -58,9 +58,9 @@
       <property
          name="y">309.09766</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">180.5</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -174,9 +174,9 @@
       <property
          name="y">59.396484</property>
       <property
-         name="x">224.03613</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">224.03613</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -236,7 +236,7 @@
       <property
          name="fromOutcome">getContactDetail</property>
       <property
-         name="sdm:polyPoints">L50,139.5,308.74707,-80.299805,198.09766,R50</property>
+         name="sdm:polyPoints">L46,139.5,305.24707,-80.299805,198.09766,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
